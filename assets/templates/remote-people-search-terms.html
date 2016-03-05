@@ -1,0 +1,17 @@
+<ul class="gpeople-data-list">
+    {{#list}}
+    <li>
+        {{#thumbnail}}
+        <img class="gpeople-data-list-thumbnail" src="{{{thumbnail}}}" />
+        {{/thumbnail}}
+		<h4>{{{title}}} <span>({{{name}}})</span></h4>
+        <div class="gpeople-data-list-controls">
+			<a href="#" class="gpeople-data-list-add-term button button-primary button-small" rel="{{term_id}}" title="{{add-term-title}}">{{add-term}}</a>
+			<a class="button button-small" target="_blank" href="{{{link}}}" title="{{view-term-title}}">{{view-term}}</a>
+			<a class="button button-small" target="_blank" href="{{{edit}}}" title="{{edit-term-title}}">{{edit-term}}</a>
+        </div>
+		<div class="gpeople-data-list-excerpt">{{{excerpt}}}</div>
+		<div class="clear"></div>
+    </li>
+    {{/list}}
+</ul><div class="clear"></div>

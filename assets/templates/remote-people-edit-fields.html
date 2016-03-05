@@ -1,0 +1,71 @@
+<tr class="form-field">
+    <th scope="row" valign="top">
+        <label for="affiliation-term-id">{{affiliation-title}}</label>
+    </th>
+    <td>
+        {{#affiliations}}
+			{{>dropdown}}
+        {{/affiliations}}
+        {{#affiliation-empty}}
+			<a href="{{affiliation-empty-link}}" target="_blank">{{affiliation-empty-title}}</a>
+        {{/affiliation-empty}}
+        <p class="description">{{affiliation-desc}}</p>
+    </td>
+</tr>
+</tr><tr class="form-field">
+    <th scope="row" valign="top">
+        <label for="profile-post-id">{{profile-title}}</label>
+    </th>
+    <td class="submitbox">
+		<input type="hidden" id="people_profile_postid" name="gpeople_people[profile_id]" value="{{profile-id}}" />
+	    {{#profile-no}}
+			<span id="gpeople-profile-title-none">{{profile-no-title}}</span>
+            <span id="gpeople-profile-title"></span>
+			<br />
+		{{/profile-no}}
+		{{#profile-name}}
+            <span id="gpeople-profile-title-none" style="display:none;">{{profile-no-title}}</span>
+			<span id="gpeople-profile-title">{{profile-name}}</span>
+			{{#profile-edit}}<span id="gpeople-profile-title-edit">&nbsp;| <a target="_blank" href="{{{profile-edit}}}" title="{{profile-att-title}}" >{{profile-edit-action}}</a></span>{{/profile-edit}}
+			<br />
+		{{/profile-name}}
+		<p class="description">{{profile-desc}}</p><br />
+		<a href="#" id="people_change_profile" class="gpeople-modal-open button" rel="profiles">{{profile-change}}</a>
+		&nbsp;<a href="#" id="people_unlink_profile" class="gpeople_unlink_profile submitdelete" {{#profile-no}} style="display:none;"{{/profile-no}}>{{profile-unlink}}</a>
+    </td>
+</tr>
+
+
+<tr class="form-field">
+    <th scope="row" valign="top">
+        <label for="linked-user-id">{{user-title}}</label>
+    </th>
+    <td class="submitbox">
+		<input type="hidden" id="people_profile_userid" name="gpeople_people[user_id]" value="{{user-id}}" />
+		{{#user-no}}
+			<span id="gpeople-user-title-none">{{user-no-title}}</span>
+            <span id="gpeople-user-title"></span>
+			<br />
+		{{/user-no}}
+		{{#user-name}}
+            <span id="gpeople-user-title-none" style="display:none;">{{user-no-title}}</span>
+			<span id="gpeople-user-title">{{user-name}}</span>
+			{{#user-edit}}<span id="gpeople-user-title-edit">&nbsp;| <a  target="_blank" href="{{{user-edit}}}" title="{{user-att-title}}" >{{user-edit-action}}</a></span>{{/user-edit}}  
+			<br />
+		{{/user-name}}
+		<p class="description">{{user-desc}}</p><br />
+		<a href="#" id="people_change_user" class="gpeople-modal-open button" rel="users">{{user-change}}</a>
+        &nbsp;<a href="#" id="people_unlink_user" class="gpeople_unlink_user submitdelete" {{#user-no}} style="display:none;"{{/user-no}}>{{user-unlink}}</a>
+    </td>
+    {{#profile_image}}
+	<tr class="form-field">
+		<th scope="row" valign="top">
+			<label>{{image-title}}</label>
+		</th>
+		<td>
+			<a href="{{profile-linked}}" ><img class="gpeople-people-from-profile-thumbnail" src="{{profile_image}}" /></a>
+		</td>
+	</tr>
+    {{/profile_image}}
+
+

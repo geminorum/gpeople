@@ -1,0 +1,47 @@
+<div id="gpeople-tab-content-manual" class="gpeople-modal-tab-content" {{{wrap-atts}}}>
+
+	<form action="{{form-action}}" method="post" class="manual-form">
+
+		<p class="description">{{{manual-desc}}}</p>
+
+		<div id="gpeople-people-manual-messages" class="form-messages"></div>
+
+		<div class="form-field">
+			<table class="form-table"><tbody>
+
+				<tr class="form-field form-required">
+					<th valign="top" scope="row"><label for="gpeople_manual_name">{{name-label}}</label></th>
+					<td><input type="text" aria-required="true" size="40" value="" id="gpeople_manual_name" name="gpeople_manual_name" placeholder="{{name-placeholder}}" />
+					<p class="description">{{{name-desc}}}</p></td>
+				</tr>
+
+				<tr class="form-field form-required">
+					<th valign="top" scope="row"><label for="gpeople_manual_slug">{{slug-label}}</label></th>
+					<td><input type="text" aria-required="true" size="40" value="" id="gpeople_manual_slug" name="gpeople_manual_slug" placeholder="{{slug-placeholder}}" />
+					<p class="description">{{{slug-desc}}}</p></td>
+				</tr>
+
+				<tr class="form-field">
+					<th valign="top" scope="row"><label for="gpeople_manual_description">{{description-label}}</label></th>
+					<td><textarea class="large-text" cols="50" rows="5" id="gpeople_manual_description" name="gpeople_manual_description" placeholder="{{description-placeholder}}"></textarea>
+					<br /><span class="description">{{{description-desc}}}</span></td>
+				</tr>
+
+				<tr class="form-field">
+					<th valign="top" scope="row"><label for="affiliation-term-id">{{affiliation-label}}</label></th>
+    				<td>
+					{{#affiliations}}
+						{{>dropdown}}
+					{{/affiliations}}
+					{{#affiliation-empty}}
+						<a href="{{affiliation-empty-link}}" target="_blank">{{affiliation-empty-title}}</a>
+					{{/affiliation-empty}}
+					<p class="description">{{affiliation-desc}}</p></td>
+				</tr>
+			</tbody></table>
+			<p class="submit"><input type="submit" value="{{submit-value}}" class="button button-primary" id="submit" name="submit" /></p>
+		</div>
+
+
+	</form>
+</div>

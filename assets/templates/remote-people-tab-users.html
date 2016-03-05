@@ -1,0 +1,18 @@
+<div id="gpeople-tab-content-users" class="gpeople-modal-tab-content" {{{wrap-atts}}}>
+
+	<form action="{{form-action}}" method="post" class="search-form">
+		<div class="form-field">
+			<input name="gpeople-user-search" id="gpeople-user-search"
+				placeholder="{{user-placeholder}}"
+				type="text" value="" size="20" />
+			{{#dropdown-roles}}
+			{{>dropdown}}
+			{{/dropdown-roles}}
+
+			<input type="submit" value="{{submit-value}}" class="button" id="submit" name="submit" />
+			<p class="description gpeople-data-list-form-desc">{{{user-desc}}}</p>
+		</div>
+	</form>
+	<div id="gpeople-people-user-messages" class="form-messages"></div>
+	<div id="gpeople-people-user-wrapper"></div>
+</div>

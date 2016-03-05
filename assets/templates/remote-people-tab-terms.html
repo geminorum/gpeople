@@ -1,0 +1,21 @@
+<div id="gpeople-tab-content-terms" class="gpeople-modal-tab-content" {{{wrap-atts}}}>
+
+	<form action="{{form-action}}" method="post" class="search-form">
+		<div class="form-field">
+			<input name="gpeople-term-search" id="gpeople-term-search"
+				placeholder="{{term-placeholder}}"
+				type="text" value="" size="20" />
+			{{#dropdown-affiliations}}
+			{{>dropdown}}
+			{{/dropdown-affiliations}}
+			{{#affiliation-empty}}
+				<a href="{{affiliation-empty-link}}" target="_blank" class="empty-select">{{affiliation-empty-title}}</a>
+			{{/affiliation-empty}}
+			<input type="submit" value="{{submit-value}}" class="button" id="submit" name="submit" />
+			<p class="description gpeople-data-list-form-desc">{{{term-desc}}}</p>
+		</div>
+	</form>
+
+	<div id="gpeople-people-term-messages" class="form-messages"></div>
+	<div id="gpeople-people-term-wrapper"></div>
+</div>

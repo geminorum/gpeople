@@ -1,0 +1,12 @@
+<div class="form-field gpeople-form-field-extra">
+    <label for="affiliation-term-id">{{affiliation-title}}</label>
+    {{#affiliations}}
+		{{>dropdown}}
+    {{/affiliations}}
+    {{#affiliation-empty}}
+		<a href="{{affiliation-empty-link}}">{{affiliation-empty-title}}</a>
+    {{/affiliation-empty}}
+    <p class="description">{{{affiliation-desc}}}</p>
+</div>
+<input type="hidden" id="people_profile_postid" name="gpeople_people[profile_id]" value="{{profile-id}}" />
+<input type="hidden" id="people_profile_userid" name="gpeople_people[user_id]" value="{{user-id}}" />

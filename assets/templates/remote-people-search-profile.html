@@ -1,0 +1,23 @@
+<ul class="gpeople-data-list">
+    {{#list}}
+    <li>
+        {{#thumbnail}}
+        <img class="gpeople-data-list-thumbnail" src="{{{thumbnail}}}" />
+        {{/thumbnail}}
+		<h4>{{{title}}} <span>({{{name}}})</span></h4>
+        <div class="gpeople-data-list-controls">
+			{{#override}}
+				<a href="#" class="gpeople-data-list-override-profile button button-small" rel="{{id}}" title="{{override-profile-title}}">{{override-profile}}</a> 
+				<a href="#" class="gpeople-data-list-change-profile button button-small" rel="{{id}}" title="{{change-profile-title}}">{{change-profile}}</a> 
+			{{/override}}
+			{{#new}}
+				<a href="#" class="gpeople-data-list-add-profile button button-primary button-small" rel="{{id}}" title="{{add-profile-title}}">{{add-profile}}</a>
+			{{/new}}
+			<a class="button button-small" target="_blank" href="{{{link}}}" title="{{view-root-title}}">{{view-root}}</a>
+			<a class="button button-small" target="_blank" href="{{{edit}}}" title="{{edit-root-title}}">{{edit-root}}</a>
+        </div>
+		<div class="gpeople-data-list-excerpt">{{{excerpt}}}</div>
+		<div class="clear"></div>
+    </li>
+    {{/list}}
+</ul><div class="clear"></div>

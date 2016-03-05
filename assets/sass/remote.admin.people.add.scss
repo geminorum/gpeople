@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+@import "modules/all";
+@import "partials/base";
+@import "partials/admin.all";
+
+@import "partials/remote.admin.tabs";
+
+// wp default title, then we add our own
+body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
+	.form-wrap > h3 {
+		display:none;
+	}
+}
+
+.gpeople-admin-wrap.remote-people-pre-add {
+	@include mainwrap();
+
+	> h3 {
+		margin-top:0;
+	}
+
+	// wp core class
+	.form-field {
+		margin: 0 0 10px;
+		padding: 8px 0;
+
+		.description {
+
+		}
+	}
+
+	.button {
+
+	}
+
+	.remove {
+		color:red;
+		display:none;
+		margin:0 12px;
+		line-height:28px;
+	}
+
+	.profile-picture {
+		margin:0 0 10px 10px;
+		float:right;
+		display:inline-block;
+
+		@include body-rtl() {
+			margin:0 10px 10px 0;
+			float:left;
+		}
+
+		img {
+			max-width:120px;
+			max-height:120px;
+		}
+	}
+}
+
+.wp-list-table {
+
+	th {
+		&.column-picture {
+			width:60px !important;
+		}
+
+		&.column-slug {
+			width:12%;
+		}
+
+		&.column-affiliation {
+			width:15%;
+		}
+
+		&.column-linked {
+			width:10%;
+		}
+
+		&.column-posts {
+			width:7% !important;
+		}
+	}
+
+	td {
+		&.column-picture {
+			padding-bottom:8px;
+			padding-top:8px;
+			text-align:center;
+
+			img {
+				max-height:50px;
+				max-width:60px;
+			}
+		}
+	}
+}

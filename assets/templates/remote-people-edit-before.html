@@ -1,0 +1,50 @@
+<div id="gpeople-people-pre-add-form" class="form-wrap">
+    <h3>{{form-title}}</h3>
+    
+	<h3 class="nav-tab-wrapper">
+        <a href="#" class="gpeople-addform-toggle nav-tab nav-tab-active" 
+           rel="gpeople-people-pre-add-form-profile">{{title-from-profile}}</a>
+        <a href="#" class="gpeople-addform-toggle nav-tab" 
+           rel="gpeople-people-pre-add-form-users">{{title-from-users}}</a>
+        <a href="#" class="gpeople-addform-toggle nav-tab" 
+           rel="addtag">{{title-from-manually}}</a>
+    </h3>
+	
+    <div id="gpeople-people-pre-add-form-profile" class="gpeople-pre-add-form">
+        <form action="{{form-action}}"  method="post">
+            <div class="gpeople-form-field">
+                {{#dropdown-groups}}
+                {{>dropdown}}
+                {{/dropdown-groups}}
+                <input name="gpeople-profile-search" id="gpeople-profile-search" 
+                    placeholder="{{placeholder-profile}}" 
+                    type="text" value="" size="20" />
+            <p>{{{desc-profile}}}</p></div>
+        </form>
+        <div id="gpeople-people-pre-add-profile-messages"></div>
+        <div id="gpeople-people-pre-add-profile-wrapper">
+            <div id="gpeople-people-pre-add-profile-pot">
+                <a href="#" class="gpeople-data-list-add-profile"></a>
+                
+            </div>
+        </div>
+    </div>
+	
+    <div id="gpeople-people-pre-add-form-users" class="gpeople-pre-add-form">
+        <form action="{{form-action}}"  method="post">
+            <div class="gpeople-form-field">
+                {{#dropdown-roles}}
+                {{>dropdown}}
+                {{/dropdown-roles}}
+                <input name="gpeople-user-search" id="gpeople-user-search" 
+                    placeholder="{{placeholder-users}}" 
+                    type="text" value="" size="20" />
+            <p>{{{desc-users}}}</p></div>
+        </form>
+        <div id="gpeople-people-pre-add-user-messages"></div>
+        <div id="gpeople-people-pre-add-user-wrapper">
+            <div id="gpeople-people-pre-add-user-pot"></div>
+        </div>
+            
+    </div>
+</div>    

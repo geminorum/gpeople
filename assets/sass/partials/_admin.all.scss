@@ -1,0 +1,69 @@
+
+// USE: .gpeople-admin-wrap.module { @include mainwrap(); }
+
+.gpeople-admin-wrap {
+	.credits {
+		direction:ltr;
+
+		p {
+			font-size:0.98em;
+		}
+	}
+
+	.signature {
+		body.rtl & {
+			direction:ltr;
+		}
+	}
+
+	.credits,
+	.signature {
+		color:#777;
+		a {
+			color:inherit;
+			text-decoration:none;
+		}
+		a:hover {
+			color:#333;
+			text-decoration:underline;
+		}
+		body.rtl & {
+			margin-left:25px;
+		}
+	}
+}
+
+.gpeople-admin-action-metabox {
+	padding:0;
+	position:absolute;
+	right:40px;
+	top:6px;
+
+	body.rtl & {
+		left:40px;
+		right:auto;
+		font-family:tahoma;
+	}
+
+	a,
+	a:hover {
+		text-decoration:none;
+	}
+}
+
+.gpeople-admin-wrap-metabox {
+
+}
+
+// TINYMCE BUTTON ICONS
+.gpeople-tinymce-icon {
+
+	&:before {
+		font-family: "dashicons";
+		content: "\f159"; // DEFAULT
+	}
+
+	&.icon-gp_person:before {
+		content: "\f100";
+	}
+}

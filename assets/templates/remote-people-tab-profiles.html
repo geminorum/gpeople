@@ -1,0 +1,19 @@
+<div id="gpeople-tab-content-profiles" class="gpeople-modal-tab-content" {{{wrap-atts}}}>
+
+	<form action="{{form-action}}" method="post" class="search-form">
+		<div class="form-field">
+			<input name="gpeople-profile-search" id="gpeople-profile-search"
+				placeholder="{{profile-placeholder}}"
+				type="text" value="" size="20" />
+			{{#dropdown-groups}}
+			{{>dropdown}}
+			{{/dropdown-groups}}
+			<input type="submit" value="{{submit-value}}" class="button" id="submit" name="submit" />
+			<p class="description gpeople-data-list-form-desc">{{{profile-desc}}}</p>
+		</div>
+	</form>
+
+	<div id="gpeople-people-profile-messages" class="form-messages"></div>
+	<div id="gpeople-people-profile-wrapper"></div>
+
+</div>

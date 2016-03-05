@@ -1,0 +1,43 @@
+<div class="gpeople-box">
+	<p class="help">{{help}}</p>
+
+	{{#connections}}
+	<table class="gpeople-connections" {{{hide}}}>
+		<thead>
+			<tr>
+				{{#thead}}
+				<th class="gpeople-col-{{column}}">{{{title}}}</th>
+				{{/thead}}
+			</tr>
+		</thead>
+
+		<tbody>
+			{{#tbody}}
+			{{>remote-people-post-box-table-row}}
+			{{/tbody}}
+		</tbody>
+	</table>
+	{{/connections}}
+
+	{{#create-connections}}
+	<div class="gpeople-create-connections" {{{hide}}}>
+		<p class="gpeople-toggle-tabs"><a href="#">+ {{{label}}}</a></p>
+
+		<div class="gpeople-create-connections-tabs" style="display: none">
+			{{#show-tab-headers}}
+			<ul class="wp-tab-bar gpeople-tab-bar clearfix">
+				{{#tabs}}
+				<li {{#is-active}}class="wp-tab-active"{{/is-active}} data-ref=".gpeople-tab-{{tab-id}}"><a href="#">{{{tab-title}}}</a></li>
+				{{/tabs}}
+			</ul>
+			{{/show-tab-headers}}
+
+			{{#tabs}}
+			<div class="gpeople-tab-{{tab-id}} tabs-panel">
+				{{{tab-content}}}
+			</div>
+			{{/tabs}}
+		</div>
+	</div>
+	{{/create-connections}}
+</div>

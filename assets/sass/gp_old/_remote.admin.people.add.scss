@@ -1,0 +1,49 @@
+
+
+// @import url("remote-people-tabs.css");
+
+
+// depricated
+// #gpeople-remote-people-add-modal { margin:0 !important; }
+// #gpeople-remote-people-add-modal.form-wrap h3 { display:block !important; }
+// #gpeople-people-pre-add-form-users, #addtag, .form-wrap > h3 { display:none; }
+
+/**-----------------------------------------------------------------------------------------------**/
+/**-----------------------------------------------------------------------------------------------**/
+/**-----------------------------------------------------------------------------------------------**/
+
+
+.gpeople-pre-add-form {}
+
+#gpeople-people-pre-add-form-profile {}
+
+.gpeople-form-field-extra {}
+.gpeople-form-field-extra select { width:95%; }
+
+
+
+
+
+
+.gpeople-form-field {
+	//margin: 0 0 10px;
+	//padding: 8px 0; }
+.gpeople-form-field div {margin-bottom:3px;}
+.gpeople-form-field p, .form-field p {font-size:0.9em !important;}
+.gpeople-form-field select {width:32% !important;}
+.gpeople-form-field input {width:62% !important;}
+
+#gpeople-people-pre-add-profile-messages, #gpeople-people-pre-add-user-messages { padding-bottom:10px;}
+.g111people-waiting { text-align:center; padding:20px;}
+
+
+img.gpeople-people-from-profile-thumbnail { margin:12px 0; border:1px solid #eee; padding:2px;}
+
+#gpeople-people-pre-add-profile-wrapper,
+#gpeople-people-pre-add-user-wrapper
+{
+	// border-top:1px solid #DFDFDF;
+	// border-bottom:1px solid #DFDFDF;
+}
+
+#gpeople-people-pre-add-pot { }

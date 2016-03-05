@@ -1,0 +1,21 @@
+{
+	"name": "gpeople",
+	"private": true,
+	"dependencies": {
+		"jquery-colorbox": "latest"
+	},
+	"devDependencies": {},
+	"install" : {
+		"path" : "assets/packages",
+		"ignore": ["jquery"],
+		"sources": {
+			"jquery-colorbox": [
+				"assets/components/jquery-colorbox/jquery.colorbox.js",
+				"assets/components/jquery-colorbox/jquery.colorbox-min.js",
+				"assets/components/jquery-colorbox/example3/colorbox.css",
+				"assets/components/jquery-colorbox/example3/images/controls.png",
+				"assets/components/jquery-colorbox/example3/images/loading.gif"
+			]
+		}
+	}
+}
