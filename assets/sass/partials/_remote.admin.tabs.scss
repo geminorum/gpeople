@@ -1,19 +1,21 @@
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/// gPeople Partials: Admin Tabs -----------------------------------------------
 
 .gpeople-modal-wrap {
 	@include mainwrap();
 
 	.button:focus,
 	a:focus	{
-		box-shadow:none !important;
+		box-shadow: none !important;
 	}
 
-	// background:#f1f1f1;
-	margin:15px 15px 22px;
-	min-height:300px;
+	// background: #f1f1f1;
+	margin: 15px 15px 22px;
+	min-height: 300px;
 
 	.gpeople-modal-tab {
-
 
 		&.gpeople-modal-tab-profiles {
 
@@ -25,68 +27,69 @@
 	}
 
 	.gpeople-modal-tab-content {
-		display:none;
+
+		display: none;
+		padding-top: 1em;
 
 		.search-form {
 			.form-field {
-				padding:0px 0px 8px;
+				padding: 0px 0px 8px;
 
 				input[type="text"] {
-					width:48% !important;
+					width: 48% !important;
 					height: 28px;
 					// margin: 0 4px 0 0;
 				}
 
 				select {
-					width:29% !important;
+					width: 29% !important;
 					margin-top: -2px;
 				}
 
 				a.gpeople_empty_select {
-					width:29% !important;
-					display:inline-block;
+					width: 29% !important;
+					display: inline-block;
 				}
 
 				input[type="submit"] {
-					width:19% !important;
-					margin-top:1px;
+					width: 19% !important;
+					margin-top: 1px;
 				}
 
 				.empty-select {
 
 				}
-
 			}
 		}
 
 		.manual-form {
-
 			.form-table {
 
 				tr.form-field {
 
 					th {
-						margin-left:20px;
-						body.rtl & {
-							margin-left:0;
-							margin-right:20px;
+						margin-left: 20px;
+
+						@include body-rtl() {
+							margin-left: 0;
+							margin-right: 20px;
 						}
 					}
 
 					input {
-						width:95% !important;
+						width: 95% !important;
 
 						&[type="submit"] {
-							width:auto !important;
+							width: auto !important;
 						}
 					}
 
 					select {
-						width:95% !important;
+						width: 95% !important;
 					}
 
 					#gpeople_manual_slug {
-						direction:ltr;
+						direction: ltr;
 					}
 				}
 			}
@@ -95,39 +98,41 @@
 		.search-form,
 		.manual-form {
 			.description {
-				font-size:0.9em !important;
+				font-size: 0.9em !important;
 			}
 		}
 
 		.form-messages {
-			// border-bottom:1px solid #CCCCCC;
+			// border-bottom: 1px solid #CCCCCC;
 		}
 
-		.notice, div.updated, div.error {
-			margin:5px 0px 2px;
+		.notice,
+		div.updated,
+		div.error {
+			margin: 5px 0px 2px;
 		}
 
 		.wrap {
-			margin:5px 0px 0px 0px;
+			margin: 5px 0px 0px 0px;
 		}
 
 		.wp-list-table {
 			th {
 
 				&.column-people_o {
-					width:28px;
+					width: 28px;
 				}
 
 				&.column-people_id {
-					width:auto;
+					width: auto;
 				}
 
 				&.column-people_filt_over {
-					width:200px;
+					width: 200px;
 				}
 
 				&.column-people_rel_vis {
-					width:220px;
+					width: 220px;
 				}
 			}
 
@@ -137,28 +142,28 @@
 				}
 
 				&.column-people_o {
-					padding-left:0px;
-					padding-right:0px;
+					padding-left: 0px;
+					padding-right: 0px;
 					input {
-						width:22px;
+						width: 22px;
 					}
 				}
 
 				&.column-people_filt_over {
 					input {
-						width:99%;
+						width: 99%;
 					}
 				}
 
 				&.column-people_rel_vis {
 					select {
-						width:99%;
+						width: 99%;
 					}
 				}
 
 				&.column-people_rel_vis {
 					select {
-						width:99%;
+						width: 99%;
 					}
 				}
 			}
@@ -169,11 +174,11 @@
 				&.bulkactions {}
 
 				.button {
-					float:right;
-					margin:1px 0 0 0;
+					float: right;
+					margin: 1px 0 0 0;
 
-					body.rtl & {
-						float:left;
+					@include body-rtl() {
+						float: left;
 					}
 				}
 
@@ -183,47 +188,44 @@
 				&.one-page{}
 			}
 		}
-
-
 	}
 
 	// Search List
 	ul.gpeople-data-list {
 
 		li {
-			border-bottom:1px solid #CCCCCC;
-			margin-bottom:1em;
+			border-bottom: 1px solid #CCCCCC;
+			margin-bottom: 1em;
 
 			h4 {
-				margin:5px 0 10px 0;
+				margin: 5px 0 10px 0;
 
 				span {
-					font-size:0.9em;
-					font-weight:normal;
+					font-size: 0.9em;
+					font-weight: normal;
 				}
 			}
 
 			.gpeople-data-list-excerpt {
-				overflow:hidden;
-				margin:1em 0;
+				overflow: hidden;
+				margin: 1em 0;
 
 				p {
-					font-size:0.9em;
-					margin:0 0 0.5em 0;
+					font-size: 0.9em;
+					margin: 0 0 0.5em 0;
 				}
 			}
-
 
 			div.gpeople-data-list-controls {
 				visibility: hidden;
 				padding: 2px 0 0;
 
 				.button {
-					margin-right:5px;
+					margin-right: 5px;
 
-					body.rtl & {
-						margin-right:0;
-						margin-left:5px;
+					@include body-rtl() {
+						margin-right: 0;
+						margin-left: 5px;
 					}
 				}
 			}
@@ -235,21 +237,16 @@
 			}
 
 			img.gpeople-data-list-thumbnail {
-				float:left;
-				margin:0 1em 1em 0.5em;
-				max-width:100px;
-				max-height:100px;
+				float: left;
+				margin: 0 1em 1em 0.5em;
+				max-width: 100px;
+				max-height: 100px;
 
-				body.rtl & {
-					float:right;
-					margin:0 0.5em 1em 1em;
+				@include body-rtl() {
+					float: right;
+					margin: 0 0.5em 1em 1em;
 				}
 			}
 		}
 	}
-
-
-
-	//.wrap { margin:0; }
-
 }

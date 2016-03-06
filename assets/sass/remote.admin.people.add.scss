@@ -9,7 +9,7 @@
 // wp default title, then we add our own
 body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
 	.form-wrap > h3 {
-		display:none;
+		display: none;
 	}
 }
 
@@ -17,7 +17,7 @@ body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
 	@include mainwrap();
 
 	> h3 {
-		margin-top:0;
+		margin-top: 0;
 	}
 
 	// wp core class
@@ -35,25 +35,25 @@ body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
 	}
 
 	.remove {
-		color:red;
-		display:none;
-		margin:0 12px;
-		line-height:28px;
+		color: red;
+		display: none;
+		margin: 0 12px;
+		line-height: 28px;
 	}
 
 	.profile-picture {
-		margin:0 0 10px 10px;
-		float:right;
-		display:inline-block;
+		margin: 0 0 10px 10px;
+		float: right;
+		display: inline-block;
 
 		@include body-rtl() {
-			margin:0 10px 10px 0;
-			float:left;
+			margin: 0 10px 10px 0;
+			float: left;
 		}
 
 		img {
-			max-width:120px;
-			max-height:120px;
+			max-width: 120px;
+			max-height: 120px;
 		}
 	}
 }
@@ -62,35 +62,35 @@ body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
 
 	th {
 		&.column-picture {
-			width:60px !important;
+			width: 60px !important;
 		}
 
 		&.column-slug {
-			width:12%;
+			width: 12%;
 		}
 
 		&.column-affiliation {
-			width:15%;
+			width: 15%;
 		}
 
 		&.column-linked {
-			width:10%;
+			width: 10%;
 		}
 
 		&.column-posts {
-			width:7% !important;
+			width: 7% !important;
 		}
 	}
 
 	td {
 		&.column-picture {
-			padding-bottom:8px;
-			padding-top:8px;
-			text-align:center;
+			padding-bottom: 8px;
+			padding-top: 8px;
+			text-align: center;
 
 			img {
-				max-height:50px;
-				max-width:60px;
+				max-height: 50px;
+				max-width: 60px;
 			}
 		}
 	}
