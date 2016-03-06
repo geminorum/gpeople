@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gPeople v0.3.0\n"
+"Project-Id-Version: gPeople v3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-13 13:56+0330\n"
-"PO-Revision-Date: 2016-01-13 13:57+0330\n"
+"POT-Creation-Date: 2016-03-06 14:07+0330\n"
+"PO-Revision-Date: 2016-03-06 14:07+0330\n"
 "Last-Translator: geminorum <contact@geminorum.ir>\n"
 "Language-Team: geminorum <contact@geminorum.ir>\n"
 "Language: fa_IR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c;_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
@@ -137,12 +137,12 @@ msgstr ""
 #: includes/filtered.class.php:184
 msgctxt "Profile CPT Labels"
 msgid "No people found."
-msgstr ""
+msgstr "فردی پیدا نشد."
 
 #: includes/filtered.class.php:185
 msgctxt "Profile CPT Labels"
 msgid "No people found in Trash."
-msgstr ""
+msgstr "هیچ فردی در سطل زباله پیدا شده است."
 
 #: includes/filtered.class.php:186
 msgctxt "Profile CPT Labels"
@@ -152,7 +152,7 @@ msgstr "همهٔ افراد"
 #: includes/filtered.class.php:187
 msgctxt "Profile CPT Labels"
 msgid "People Archives"
-msgstr ""
+msgstr "بایگانی افراد"
 
 #: includes/filtered.class.php:188
 msgctxt "Profile CPT Labels"
@@ -934,7 +934,7 @@ msgstr "عنوان افتخاری"
 #: includes/filtered.class.php:540
 msgctxt "add_meta_boxes"
 msgid "Meta"
-msgstr ""
+msgstr "متا"
 
 #: includes/filtered.class.php:549
 msgctxt "Nationality Tax Labels: Name"
@@ -1370,91 +1370,91 @@ msgid "Errors while setting the terms!"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:106
+#: includes/remoteajax.class.php:107
 msgid "Cannot save meta"
 msgstr ""
 
-#: includes/remoteajax.class.php:116
+#: includes/remoteajax.class.php:117
 msgid "No Post ID!"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:138 includes/remoteajax.class.php:194
+#: includes/remoteajax.class.php:139 includes/remoteajax.class.php:195
 #, php-format
 msgid "%s added."
 msgstr "%s افزوده شد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:143
+#: includes/remoteajax.class.php:144
 msgid "Term Not found"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:146
+#: includes/remoteajax.class.php:147
 msgid "No term ID"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:200
+#: includes/remoteajax.class.php:201
 msgid "Can not save the term."
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:206
+#: includes/remoteajax.class.php:207
 msgid "The term already exists."
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:209
+#: includes/remoteajax.class.php:210
 msgid "The form is empty."
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:255
+#: includes/remoteajax.class.php:257
 #, php-format
 msgid "%s users found"
 msgstr "%s کاربر پیدا شد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:261
+#: includes/remoteajax.class.php:264
 msgid "No user matches your criteria."
 msgstr "کاربری با مشخصات مورد نظر شما پیدا نشد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:292 includes/remoteajax.class.php:344
+#: includes/remoteajax.class.php:295 includes/remoteajax.class.php:347
 msgid "Nobody matches your criteria."
 msgstr "فردی با مشخصات مورد نظر شما پیدا نشد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:316 includes/remoteajax.class.php:415
+#: includes/remoteajax.class.php:319 includes/remoteajax.class.php:418
 #, php-format
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Next results</a>"
 msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">بعدی</a>"
 
 # @ gpeople
-#: includes/remoteajax.class.php:317 includes/remoteajax.class.php:416
+#: includes/remoteajax.class.php:320 includes/remoteajax.class.php:419
 #, php-format
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Previous results</a>"
 msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">قبلی</a>"
 
 # @ gpeople
-#: includes/remoteajax.class.php:329
+#: includes/remoteajax.class.php:332
 #, php-format
 msgid "Showing %1$s-%2$s results out of %3$s people found.%4$s"
 msgstr "نمایش %1$s-%2$s از مجموع %3$s فرد%4$s"
 
 # @ gpeople
-#: includes/remoteajax.class.php:427
+#: includes/remoteajax.class.php:430
 #, php-format
 msgid "Showing %1$s-%2$s results out of %3$s profile found.%4$s"
 msgstr "نمایش %1$s-%2$s از مجموع %3$s نمایه%4$s"
 
-#: includes/remoteajax.class.php:441
+#: includes/remoteajax.class.php:444
 msgid "No profile matches your criteria."
 msgstr "نمایه‌ای با مشخصات مورد نظر شما پیدا نشد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:449
+#: includes/remoteajax.class.php:452
 msgid "dont know what to do?"
 msgstr ""
 
