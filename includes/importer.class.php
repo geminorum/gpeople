@@ -17,7 +17,8 @@ class gPeopleImporter extends gPluginImportCore
 			// add_action( 'gpeople_root_settings_sub_import_root', array( $this, 'root_settings_sub' ), 10, 2 );
 			// add_action( 'gpeople_remote_settings_sub_import_remote', array( $this, 'remote_settings_sub' ), 10, 2 );
 
-			add_filter( 'gpeople_importer_meta_pre', array( $this, 'meta_pre' ), 10, 3 );
+			// WORKING but DISABLED
+			// add_filter( 'gpeople_importer_meta_pre', array( $this, 'meta_pre' ), 10, 3 );
 		}
 
 		// people tax merging
@@ -466,38 +467,11 @@ class gPeopleImporter extends gPluginImportCore
 		return gPluginUtils::dump_get( $people );
 	}
 
+	// FIXME: moved / globalize this!
 	public function meta_pre( $meta, $post_id, $meta_key )
 	{
 		$same = array(
             ':'       => '',
-            'علی‌رضا' => 'علیرضا',
-            'علی رضا' => 'علیرضا',
-
-            'همینگوی'              => 'همینگ‌وی',
-            'همینگوی'              => 'همینگ‌وی',
-            'جعفر مدرس‌صادقی'      => 'جعفر مدرس صادقی',
-            'کورت ونه‌گات جونیور'  => 'کورت ونه‌گات',
-            'کورت وُنه‌گات جونیور' => 'کورت ونه‌گات',
-
-            'مقالات شمس/ شمس‌الدین‌محمد تبریزی'       => 'شمس‌الدین‌محمد تبریزی',
-            'مقالات شمس/ شمس‌الدین محمد تبریزی'       => 'شمس‌الدین‌محمد تبریزی',
-            'تذکره الاولیاء/ فریدالدین عطار نیشابوری' => 'فریدالدین عطار نیشابوری',
-            'تذکره‌الاولیاء/ فریدالدین عطار نیشابوری' => 'فریدالدین عطار نیشابوری',
-            'فیه ما فیه/ مولانا'                      => 'مولانا',
-            'فیه‌ما‌فیه/ مولانا'                      => 'مولانا',
-            'اسرارالتوحید/ شیخ ‌ابی‌سعید ابی‌الخیر'   => 'شیخ ‌ابی‌سعید ابی‌الخیر',
-            'اسرار‌التوحید/ محمدبن ‌منور میهنی'       => 'محمدبن ‌منور میهنی',
-
-            'تألیف'                  => 'تالیف',
-            'گفت‌وگو و ترجمه'        => 'ترجمه',
-            'ترجمه و تالیف'          => 'تالیف',
-            'گفت‌و‌گو و تنظیم روایت' => 'تالیف',
-
-            'گفت‌وگوی داستانی' => 'گفت‌وگو',
-            'تنظیم روایت'      => 'تالیف',
-            'تنظیم متن'        => 'متن',
-            'تنظیم'            => 'تالیف',
-
 			// '/' => '| برگردان ', this is norm on firooze.net
             '/'   => '|',
             '،'   => '|',
@@ -571,6 +545,7 @@ class gPeopleImporter extends gPluginImportCore
 		return $people;
 	}
 
+	// FIXME: moved / globalize this!
 	protected function getFilterFromRel( $rel, $name )
 	{
 		if ( 'author' == $rel )
