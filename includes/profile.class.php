@@ -5,9 +5,8 @@ class gPeopleProfile extends gPluginModuleCore
 
 	public function setup_actions()
 	{
-        $this->switch   = GPEOPLE_ROOT_BLOG != $this->current_blog;
-        $this->root_url = get_blogaddress_by_id( GPEOPLE_ROOT_BLOG );
-        $this->groups   = array();
+        $this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
+        $this->groups = array();
 
 		// ON REMOTE
 		if ( $this->switch ) {
@@ -158,12 +157,12 @@ class gPeopleProfile extends gPluginModuleCore
 		} else if ( isset( $term_meta['profile-id'] ) ) {
 			$link =  add_query_arg( array(
 				'p' => $term_meta['profile-id'],
-			), $this->root_url );
+			), get_blogaddress_by_id( GPEOPLE_ROOT_BLOG ) );
 
 		} else if ( $term_meta_profile_id = get_term_meta( $term_id, 'people_profile_id', TRUE ) ) {
 			$link =  add_query_arg( array(
 				'p' => $term_meta_profile_id,
-			), $this->root_url );
+			), get_blogaddress_by_id( GPEOPLE_ROOT_BLOG ) );
 		} else {
 			return $link;
 		}

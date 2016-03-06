@@ -6,7 +6,6 @@ class gPeoplePeople extends gPluginModuleCore
 	public function setup_actions()
 	{
         $this->switch   = GPEOPLE_ROOT_BLOG != $this->current_blog;
-        $this->root_url = get_blogaddress_by_id( GPEOPLE_ROOT_BLOG );
 
 		// ON REMOTE
 		if ( $this->switch ) {
@@ -124,7 +123,7 @@ class gPeoplePeople extends gPluginModuleCore
 					// FIXME: must get profile edit link too
 					$data['profile-link'] = $data['profile-edit'] = add_query_arg( array(
 							'p' => $profile_id,
-						), $this->root_url );
+						), get_blogaddress_by_id( GPEOPLE_ROOT_BLOG ) );
 
 			} else {
 				$data['profile-no'] = TRUE;

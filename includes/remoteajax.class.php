@@ -10,8 +10,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 
 	public function setup_actions()
 	{
-		$this->switch   = GPEOPLE_ROOT_BLOG != $this->current_blog;
-		// $this->root_url = get_blogaddress_by_id( GPEOPLE_ROOT_BLOG );
+		$this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
 
 		parent::setup_actions();
 	}
@@ -259,7 +258,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 			);
 
 			wp_send_json_success( $data );
-			
+
 		} else {
 			self::sendError( __( 'No user matches your criteria.', GPEOPLE_TEXTDOMAIN ) );
 		}

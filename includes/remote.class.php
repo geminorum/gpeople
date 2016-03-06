@@ -8,16 +8,12 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 	private $added = FALSE;
 	private $rels  = array();
 
-	public function plugins_loaded()
+	public function init()
 	{
 		global $gPeopleNetwork;
 
-		$this->root_url = get_blogaddress_by_id( GPEOPLE_ROOT_BLOG );
 		$this->supported_post_types = $gPeopleNetwork->getFilters( 'remote_support_post_types' );
-	}
 
-	public function init()
-	{
 		$this->register_taxonomies();
 
 		if ( is_admin() ) {
@@ -438,7 +434,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 			$data['profile-link'] = add_query_arg( array(
 					'p' => $profile_id,
-				), $this->root_url );
+				), get_blogaddress_by_id( GPEOPLE_ROOT_BLOG ) );
 
 		} else {
 			$data['profile-no'] = TRUE;
