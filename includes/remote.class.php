@@ -387,7 +387,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 				'action'   => 'edit',
 				'taxonomy' => $this->constants['people_tax'],
 				'tag_ID'   => $term->term_id,
-			), get_admin_url( 'edit-tags.php' ) ),
+			), admin_url( 'edit-tags.php' ) ),
 		) );
 
 		// FIXME: DEPRECATED

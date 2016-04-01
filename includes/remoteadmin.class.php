@@ -92,8 +92,9 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		if ( ! empty( $_GET['taxonomy'] )
 			&& ( $_GET['taxonomy'] == $this->constants['affiliation_tax']
 				|| $_GET['taxonomy'] == $this->constants['rel_people_tax'] )
-			&& $pagenow == 'edit-tags.php' )
-				$parent_file = 'users.php';
+			&& ( $pagenow == 'edit-tags.php'
+				|| $pagenow == 'term.php' ) )
+					$parent_file = 'users.php';
 
 		return $parent_file;
 	}
@@ -162,10 +163,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 			$title = _x( 'People', 'add_meta_boxes', GPEOPLE_TEXTDOMAIN );
 
-			if ( current_user_can( 'manage_categories' ) ) {
-				$url = add_query_arg( 'taxonomy', $this->constants['people_tax'], get_admin_url( NULL, 'edit-tags.php' ) );
-				$title .= ' <span class="gpeople-admin-action-metabox"><a href="'.esc_url( $url ).'" target="_blank">'.__( 'Managment', GPEOPLE_TEXTDOMAIN ).'</a></span>';
-			}
+			if ( current_user_can( 'manage_categories' ) )
+				$title .= ' <span class="gpeople-admin-action-metabox"><a href="'.esc_url( gPluginWPHelper::getEditTaxLink( $this->constants['people_tax'] ) ).'" target="_blank">'.__( 'Managment', GPEOPLE_TEXTDOMAIN ).'</a></span>';
 
 			add_meta_box( 'gpeople-people', $title, array( $this, 'do_meta_box' ), $post_type, 'side', 'high' );
 

@@ -203,7 +203,7 @@ class gPeopleRootMeta extends gPluginMetaCore
 				echo '<option value="'.$term->term_id.'" '.selected( $current, $term->term_id, FALSE ).'>'.esc_html( $term->name.' ('.number_format_i18n( $term->count ).') ' ).' </option>';
 			echo '</select></label>';
 		} else {
-			echo '<span class="geditorial-meta-profile_nationality-notfound"'.$inline.'><a href="'.get_admin_url( NULL, 'edit-tags.php?taxonomy='.$this->constants['profile_nationality_tax'] ).'">'.__( '<em>Create nationalities first</em>' , GPEOPLE_TEXTDOMAIN ).'</a></span>';
+			echo '<span class="geditorial-meta-profile_nationality-notfound"'.$inline.'><a href="'.gPluginWPHelper::getEditTaxLink( $this->constants['profile_nationality_tax'] ).'">'.__( '<em>Create nationalities first</em>' , GPEOPLE_TEXTDOMAIN ).'</a></span>';
 		}
 	}
 

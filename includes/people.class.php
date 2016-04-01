@@ -134,8 +134,8 @@ class gPeoplePeople extends gPluginModuleCore
 		}
 
 		if ( empty( $affiliation_terms ) ) {
-			$data['affiliation-empty-link'] = 'edit-tags.php?taxonomy='.$this->constants['affiliation_tax'];
-			$data['affiliation-empty']      = TRUE;
+			$data['affiliation-empty-link'] = gPluginWPHelper::getEditTaxLink( $this->constants['affiliation_tax'] );
+			$data['affiliation-empty'] = TRUE;
 		} else {
 			$data['affiliations'] = array(
 				gPluginFormHelper::data_dropdown(
@@ -236,8 +236,8 @@ class gPeoplePeople extends gPluginModuleCore
 			);
 			$data['affiliations'] = array( $affiliations );
 		} else {
+			$data['affiliation-empty-link'] = gPluginWPHelper::getEditTaxLink( $this->constants['affiliation_tax'] );
 			$data['affiliation-empty'] = TRUE;
-			$data['affiliation-empty-link'] = 'edit-tags.php?taxonomy='.$this->constants['affiliation_tax'];
 		}
 
 		return gPeopleMustache::render( 'remote-people-tab-manual', $data );
@@ -264,8 +264,8 @@ class gPeoplePeople extends gPluginModuleCore
 			);
 			$data['dropdown-affiliations'] = array( $affiliations );
 		} else {
+			$data['affiliation-empty-link'] = gPluginWPHelper::getEditTaxLink( $this->constants['affiliation_tax'] );
 			$data['affiliation-empty'] = TRUE;
-			$data['affiliation-empty-link'] = 'edit-tags.php?taxonomy='.$this->constants['affiliation_tax'];
 		}
 
 		return gPeopleMustache::render( 'remote-people-tab-terms', $data );
