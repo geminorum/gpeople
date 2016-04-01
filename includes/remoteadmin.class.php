@@ -126,7 +126,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			}
 		}
 
-		if ( 'edit-tags' == $screen->base
+		if ( ( 'edit-tags' == $screen->base || 'term' == $screen->base )
 			&& $this->constants['people_tax'] == $screen->taxonomy ) {
 
 			$gPeopleNetwork->colorbox();
