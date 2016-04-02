@@ -7,33 +7,9 @@ class gPeopleRelation extends gPluginModuleCore
 	{
 		$this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
 		$this->before_edit_rel_terms = array();
-
-		parent::setup_actions();
 	}
 
-	public function admin_init()
-	{
-		// ON REMOTE
-		if ( $this->switch ) {
-
-			add_action( 'load-edit-tags.php', array( $this, 'load_edit_tags_php' ) );
-			add_action( 'after-'.$this->constants['rel_people_tax'].'-table', array( $this, 'after_rel_table' ) );
-
-			// rel tax duplications
-			add_action( 'edit_terms', array( $this, 'edit_terms' ), 10, 1 );
-			add_action( 'edited_term', array( $this, 'edited_term' ), 10, 3 );
-			add_action( 'created_term', array( $this, 'created_term' ), 10, 3 );
-		} 
-	}
-
-	public function load_edit_tags_php()
-	{
-		if ( isset( $_REQUEST['taxonomy'] )
-			&& $_REQUEST['taxonomy'] == $this->constants['rel_people_tax'] )
-				$this->rel_table_action( 'gpeople_action' );
-	}
-
-	private function rel_table_action( $action_name )
+	public function rel_table_action( $action_name )
 	{
 		if ( ! isset( $_REQUEST[$action_name] ) )
 			return FALSE;

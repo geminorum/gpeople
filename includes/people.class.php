@@ -5,21 +5,7 @@ class gPeoplePeople extends gPluginModuleCore
 
 	public function setup_actions()
 	{
-        $this->switch   = GPEOPLE_ROOT_BLOG != $this->current_blog;
-
-		// ON REMOTE
-		if ( $this->switch ) {
-			if ( is_admin() ) {
-
-				// people tax add-form
-				add_action( $this->constants['people_tax'].'_pre_add_form', array( $this, 'people_pre_add_form' ) );
-				add_action( $this->constants['people_tax'].'_add_form_fields', array( $this, 'people_add_form_fields' ) );
-				add_action( $this->constants['people_tax'].'_edit_form_fields', array( $this, 'people_edit_form_fields' ) );
-
-				add_action( 'created_'.$this->constants['people_tax'], array( $this, 'edited_people' ), 10, 2 );
-				add_action( 'edited_'.$this->constants['people_tax'], array( $this, 'edited_people' ),10, 2 );
-			}
-		}
+        $this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
 	}
 
 	// people tax edit screen : before wp default form
@@ -151,8 +137,6 @@ class gPeoplePeople extends gPluginModuleCore
 		return array_merge( $gPeopleNetwork->getFilters( 'people_edit_data' ), $data );
 	}
 
-	// on edit-tags.php / edit-tags.php?action=edit
-	// save new term / save edited term
 	public function edited_people( $term_id, $tt_id )
 	{
 		if ( isset( $_POST['affiliation-term-id'] ) ) {

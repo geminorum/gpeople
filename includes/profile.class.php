@@ -7,16 +7,6 @@ class gPeopleProfile extends gPluginModuleCore
 	{
         $this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
         $this->groups = array();
-
-		// ON REMOTE
-		if ( $this->switch ) {
-			if ( is_admin() ) {
-
-				// remote: people tax bulk actions with gNetworkTaxonomy
-				add_filter( 'gnetwork_taxonomy_bulk_actions', array( $this, 'taxonomy_bulk_actions' ), 12, 2 );
-				add_filter( 'gnetwork_taxonomy_bulk_callback', array( $this, 'taxonomy_bulk_callback' ), 12, 3 );
-			}
-		}
 	}
 
 	// before: get_root_groups()
@@ -125,7 +115,7 @@ class gPeopleProfile extends gPluginModuleCore
 		return FALSE;
 	}
 
-	// DEPRICATED
+	// FIXME: DEPRICATED
 	// CAUTION: must call while switched to root
 	// before: get_profile_images()
 	public function get_images( $post, $sizes = NULL )

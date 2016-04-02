@@ -38,30 +38,106 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 	public function admin_init()
 	{
-		global $gPeopleNetwork;
-
 		add_filter( 'parent_file', array( $this, 'parent_file' ) );
 		add_action( 'right_now_content_table_end', array( $this, 'right_now_content_table_end' ) );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 20, 2 );
 
+		// FIXME:
 		// removing people tax on attachment edit screen
 		// add_filter( 'attachment_fields_to_edit', array( $this, 'attachment_fields_to_edit' ), 8, 2 );
+	}
 
-		// post edit page
-		foreach ( $gPeopleNetwork->remote->supported_post_types as $supported_post_type ) {
-			add_filter( "manage_{$supported_post_type}_posts_columns", array( $this, 'manage_posts_columns' ), 10 );
-			add_filter( "manage_{$supported_post_type}_posts_custom_column", array( $this, 'custom_column'), 10, 2 );
+	// @REF: http://codex.wordpress.org/Plugin_API/Action_Reference
+	public function current_screen( $screen )
+	{
+		global $gPeopleNetwork;
+
+		if ( $this->constants['affiliation_tax'] == $screen->taxonomy ) {
+
+			if ( 'edit-tags' == $screen->base ) {
+
+				add_filter( 'manage_edit-'.$screen->taxonomy.'_columns', array( $this, 'manage_edit_affiliation_columns' ) );
+				add_action( 'manage_'.$screen->taxonomy.'_custom_column', array( $this, 'manage_affiliation_custom_column' ), 10, 3 );
+
+			}
+
+		} else if ( $this->constants['rel_people_tax'] == $screen->taxonomy ) {
+
+			if ( 'edit-tags' == $screen->base ) {
+
+				$gPeopleNetwork->relation->rel_table_action( 'gpeople_action' );
+
+				add_action( 'after-'.$screen->taxonomy.'-table', array( $gPeopleNetwork->relation, 'after_rel_table' ) );
+
+			}
+
+			// rel tax duplications
+			add_action( 'edit_terms', array( $this, 'edit_terms' ), 10, 1 );
+			add_action( 'edited_term', array( $this, 'edited_term' ), 10, 3 );
+			add_action( 'created_term', array( $this, 'created_term' ), 10, 3 );
+
+		} else if ( $this->constants['people_tax'] == $screen->taxonomy ) {
+
+			if ( 'edit-tags' == $screen->base ) {
+
+				$gPeopleNetwork->colorbox();
+
+				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote.admin.people.add.css', GPEOPLE_VERSION );
+				$gPeopleNetwork->remote_ajax->asset_config( 'remoteAdd', __( 'Search for People', GPEOPLE_TEXTDOMAIN ) );
+				wp_enqueue_script( 'gpeople-remote-people-add', GPEOPLE_URL.'assets/js/remote.people.add.js', array( 'jquery' ), GPEOPLE_VERSION, TRUE );
+
+				add_filter( 'manage_edit-'.$screen->taxonomy.'_columns', array( $this, 'manage_edit_people_columns' ) );
+				add_action( 'manage_'.$screen->taxonomy.'_custom_column', array( $this, 'manage_people_custom_column' ), 10, 3 );
+				add_filter( $screen->taxonomy.'_row_actions', array( $this, 'people_row_actions' ), 12, 2 );
+				add_action( 'after-'.$screen->taxonomy.'-table', array( $this, 'after_people_table' ) );
+
+				// remote: people tax bulk actions with gNetworkTaxonomy
+				add_filter( 'gnetwork_taxonomy_bulk_actions', array( $gPeopleNetwork->profile, 'taxonomy_bulk_actions' ), 12, 2 );
+				add_filter( 'gnetwork_taxonomy_bulk_callback', array( $gPeopleNetwork->profile, 'taxonomy_bulk_callback' ), 12, 3 );
+
+				add_action( $screen->taxonomy.'_pre_add_form', array( $gPeopleNetwork->people, 'people_pre_add_form' ) );
+				add_action( $screen->taxonomy.'_add_form_fields', array( $gPeopleNetwork->people, 'people_add_form_fields' ) );
+				add_action( 'created_'.$screen->taxonomy, array( $gPeopleNetwork->people, 'edited_people' ), 10, 2 );
+
+				add_action( 'admin_footer', array( $this, 'modal_html_edit' ) );
+
+			} else if ( 'term' == $screen->base ) {
+
+				$gPeopleNetwork->colorbox();
+
+				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote-people-edit.css', GPEOPLE_VERSION );
+				$gPeopleNetwork->remote_ajax->asset_config( 'remoteEdit', __( 'Search for People', GPEOPLE_TEXTDOMAIN ) );
+				wp_enqueue_script( 'gpeople-remote-people-edit', GPEOPLE_URL.'assets/js/remote.people.edit.js', array( 'jquery' ), GPEOPLE_VERSION, TRUE );
+
+				add_action( $screen->taxonomy.'_edit_form_fields', array( $gPeopleNetwork->people, 'people_edit_form_fields' ) );
+				add_action( 'edited_'.$screen->taxonomy, array( $gPeopleNetwork->people, 'edited_people' ),10, 2 );
+
+				add_action( 'admin_footer', array( $this, 'modal_html_edit' ) );
+			}
+
+		} else if ( in_array( $screen->post_type, $gPeopleNetwork->remote->supported_post_types ) ) {
+
+			if ( 'edit' == $screen->base ) {
+
+				// gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote.admin.people.edit.css', GPEOPLE_VERSION );
+
+				add_filter( 'manage_'.$screen->post_type.'_posts_columns', array( $this, 'manage_posts_columns' ), 10 );
+				add_filter( 'manage_'.$screen->post_type.'_posts_custom_column', array( $this, 'custom_column'), 10, 2 );
+
+			} else if ( 'post' == $screen->base ) {
+
+				$gPeopleNetwork->colorbox();
+				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote.admin.people.post.css', GPEOPLE_VERSION );
+
+				$gPeopleNetwork->remote_ajax->asset_config( 'remotePost', __( 'People Manegment', GPEOPLE_TEXTDOMAIN ) );
+
+				wp_deregister_script( 'jquery-form' );
+				wp_register_script( 'jquery-form', GPEOPLE_URL.'assets/js/jquery.form.min.js', array( 'jquery' ), '3.51', TRUE );
+				wp_enqueue_script( 'gpeople-remote-post-meta', GPEOPLE_URL.'assets/js/remote.people.post.js', array( 'jquery', 'jquery-form' ), GPEOPLE_VERSION, TRUE );
+
+				add_action( 'admin_footer', array( $this, 'modal_html_post' ) );
+			}
 		}
-
-		// people tax wp-table
-		add_filter( 'manage_edit-'.$this->constants['people_tax'].'_columns', array( $this, 'manage_edit_people_columns' ) );
-		add_action( 'manage_'.$this->constants['people_tax'].'_custom_column', array( $this, 'manage_people_custom_column' ), 10, 3 );
-		add_filter( $this->constants['people_tax'].'_row_actions', array( $this, 'people_row_actions' ), 12, 2 );
-		add_action( 'after-'.$this->constants['people_tax'].'-table', array( $this, 'after_people_table' ) );
-
-		// affiliation tax wp-table
-		add_filter( 'manage_edit-'.$this->constants['affiliation_tax'].'_columns', array( $this, 'manage_edit_affiliation_columns' ) );
-		add_action( 'manage_'.$this->constants['affiliation_tax'].'_custom_column', array( $this, 'manage_affiliation_custom_column' ), 10, 3 );
 	}
 
 	public function admin_menu()
@@ -97,56 +173,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 					$parent_file = 'users.php';
 
 		return $parent_file;
-	}
-
-	// FIXME: use action hook: current_screen( $screen )
-	public function admin_print_styles()
-	{
-		global $gPeopleNetwork;
-		$screen = get_current_screen();
-
-		if ( in_array( $screen->post_type, $gPeopleNetwork->remote->supported_post_types ) ) {
-
-			if ( 'edit' == $screen->base ) {
-
-				// gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote-edit.css' );
-
-			} else if ( 'post' == $screen->base ) {
-
-				$gPeopleNetwork->colorbox();
-				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote.admin.people.post.css', GPEOPLE_VERSION );
-
-				$gPeopleNetwork->remote_ajax->asset_config( 'remotePost', __( 'People Manegment', GPEOPLE_TEXTDOMAIN ) );
-
-				wp_deregister_script( 'jquery-form' );
-				wp_register_script( 'jquery-form', GPEOPLE_URL.'assets/js/jquery.form.min.js', array( 'jquery' ), '3.51', TRUE );
-				wp_enqueue_script( 'gpeople-remote-post-meta', GPEOPLE_URL.'assets/js/remote.people.post.js', array( 'jquery', 'jquery-form' ), GPEOPLE_VERSION, TRUE );
-
-				add_action( 'admin_footer', array( $this, 'modal_html_post' ) );
-			}
-		}
-
-		if ( ( 'edit-tags' == $screen->base || 'term' == $screen->base )
-			&& $this->constants['people_tax'] == $screen->taxonomy ) {
-
-			$gPeopleNetwork->colorbox();
-
-			if ( ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
-
-				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote-people-edit.css', GPEOPLE_VERSION );
-				$gPeopleNetwork->remote_ajax->asset_config( 'remoteEdit', __( 'Search for People', GPEOPLE_TEXTDOMAIN ) );
-				wp_enqueue_script( 'gpeople-remote-people-edit', GPEOPLE_URL.'assets/js/remote.people.edit.js', array( 'jquery' ), GPEOPLE_VERSION, TRUE );
-
-			} else {
-
-				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote.admin.people.add.css', GPEOPLE_VERSION );
-				$gPeopleNetwork->remote_ajax->asset_config( 'remoteAdd', __( 'Search for People', GPEOPLE_TEXTDOMAIN ) );
-				wp_enqueue_script( 'gpeople-remote-people-add', GPEOPLE_URL.'assets/js/remote.people.add.js', array( 'jquery' ), GPEOPLE_VERSION, TRUE );
-
-			}
-
-			add_action( 'admin_footer', array( $this, 'modal_html_edit' ) );
-		}
 	}
 
 	public function attachment_fields_to_edit( $form_fields, $post )
