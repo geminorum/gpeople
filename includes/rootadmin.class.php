@@ -16,14 +16,18 @@ class gPeopleRootAdmin extends gPluginAdminCore
 
 			if ( 'edit' == $screen->base ) {
 
-				add_filter( 'manage_'.$this->constants['profile_cpt'].'_posts_columns', array( $this, 'manage_posts_columns' ) );
-				add_action( 'manage_'.$this->constants['profile_cpt'].'_posts_custom_column', array( $this, 'posts_custom_column' ), 10, 2 );
+				$this->enqueue_style( 'profile', $screen->base );
+
+				add_filter( 'manage_'.$screen->post_type.'_posts_columns', array( $this, 'manage_posts_columns' ) );
+				add_action( 'manage_'.$screen->post_type.'_posts_custom_column', array( $this, 'posts_custom_column' ), 10, 2 );
 
 			} else if ( 'post' == $screen->base ) {
 
+				$this->enqueue_style( 'profile', $screen->base );
+
 				add_filter( 'enter_title_here', array( $this, 'enter_title_here' ), 10, 2 );
 				add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
-				add_action( 'add_meta_boxes_'.$this->constants['profile_cpt'], array( $this, 'add_meta_boxes' ), 12 );
+				add_action( 'add_meta_boxes_'.$screen->post_type, array( $this, 'add_meta_boxes' ), 12 );
 			}
 		}
 	}
@@ -31,33 +35,33 @@ class gPeopleRootAdmin extends gPluginAdminCore
 	public function admin_settings_load()
 	{
 		global $gPeopleNetwork;
-		$sub = isset( $_REQUEST['sub'] ) ? $_REQUEST['sub'] : NULL;
-		$gPeopleNetwork->importer->root_settings_load( $sub );
-	}
 
-	public function admin_print_styles()
-	{
-		$screen = get_current_screen();
-		if ( $screen->post_type == $this->constants['profile_cpt'] )
-			if ( in_array( $screen->base, array( 'edit', 'post' ) ) )
-				$this->linkStyleSheet( 'profile', $screen->base );
+		$sub = isset( $_REQUEST['sub'] ) ? $_REQUEST['sub'] : NULL;
+
+		$gPeopleNetwork->importer->root_settings_load( $sub );
 	}
 
 	public function manage_posts_columns( $posts_columns )
 	{
 		$new_columns = array();
+
 		foreach ( $posts_columns as $key => $value ) {
+
 			if ( 'title' == $key ) {
+
 				// $new_columns['picture'] = __( 'Picture', GPEOPLE_TEXTDOMAIN );
 				$new_columns['picture'] = '&nbsp;';
 				$new_columns[$key] = __( 'Person', GPEOPLE_TEXTDOMAIN );
 				// $new_columns['meta'] = __( 'Meta', GPEOPLE_TEXTDOMAIN );
-			} elseif ( in_array( $key, array( 'author', 'date', 'comments' ) ) ) {
+
+			} else if ( in_array( $key, array( 'author', 'date', 'comments' ) ) ) {
 				continue; // he he!
+
 			} else {
 				$new_columns[$key] = $value;
 			}
 		}
+
 		return $new_columns;
 	}
 

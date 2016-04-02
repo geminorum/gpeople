@@ -81,8 +81,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			if ( 'edit-tags' == $screen->base ) {
 
 				$gPeopleNetwork->colorbox();
+				$this->enqueue_style( 'people', $screen->base );
 
-				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote.admin.people.add.css', GPEOPLE_VERSION );
 				$gPeopleNetwork->remote_ajax->asset_config( 'remoteAdd', __( 'Search for People', GPEOPLE_TEXTDOMAIN ) );
 				wp_enqueue_script( 'gpeople-remote-people-add', GPEOPLE_URL.'assets/js/remote.people.add.js', array( 'jquery' ), GPEOPLE_VERSION, TRUE );
 
@@ -104,8 +104,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			} else if ( 'term' == $screen->base ) {
 
 				$gPeopleNetwork->colorbox();
+				$this->enqueue_style( 'people', $screen->base );
 
-				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote-people-edit.css', GPEOPLE_VERSION );
 				$gPeopleNetwork->remote_ajax->asset_config( 'remoteEdit', __( 'Search for People', GPEOPLE_TEXTDOMAIN ) );
 				wp_enqueue_script( 'gpeople-remote-people-edit', GPEOPLE_URL.'assets/js/remote.people.edit.js', array( 'jquery' ), GPEOPLE_VERSION, TRUE );
 
@@ -119,7 +119,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 			if ( 'edit' == $screen->base ) {
 
-				// gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote.admin.people.edit.css', GPEOPLE_VERSION );
+				// $gPeopleNetwork->colorbox();
+				$this->enqueue_style( 'people', $screen->base );
 
 				add_filter( 'manage_'.$screen->post_type.'_posts_columns', array( $this, 'manage_posts_columns' ), 10 );
 				add_filter( 'manage_'.$screen->post_type.'_posts_custom_column', array( $this, 'custom_column'), 10, 2 );
@@ -127,7 +128,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			} else if ( 'post' == $screen->base ) {
 
 				$gPeopleNetwork->colorbox();
-				gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/remote.admin.people.post.css', GPEOPLE_VERSION );
+				$this->enqueue_style( 'people', $screen->base );
 
 				$gPeopleNetwork->remote_ajax->asset_config( 'remotePost', __( 'People Manegment', GPEOPLE_TEXTDOMAIN ) );
 
