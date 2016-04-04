@@ -159,7 +159,7 @@ class gPeopleRemoteMetaTable extends WP_List_Table
 		// usort( $this->example_data, array( $this, 'usort_reorder' ) );
 
 		/*
-		$gPeopleRemoteComponent = gPluginFactory( 'gPeopleRemoteComponent' );
+		$gPeopleRemoteComponent = gPluginFactory::get( 'gPeopleRemoteComponent' );
 		// $meta = $gPeopleRemoteComponent->get_postmeta( $this->_post_id, FALSE, array(
 		$meta = $gPeopleRemoteComponent->get_postmeta( $this->_post_id, FALSE, array(
 			'1' => array(

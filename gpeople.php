@@ -37,7 +37,7 @@ Requires PHP: 5.3
 
 define( 'GPEOPLE_VERSION', '3.1' );
 define( 'GPEOPLE_VERSION_DB', '0.1' );
-define( 'GPEOPLE_VERSION_GPLUGIN', 29 );
+define( 'GPEOPLE_VERSION_GPLUGIN', 32 );
 define( 'GPEOPLE_FILE', __FILE__ );
 define( 'GPEOPLE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GPEOPLE_URL', plugin_dir_url( __FILE__ ) );
@@ -52,11 +52,10 @@ defined( 'GPEOPLE_PEOPLE_TAXONOMY' ) or define( 'GPEOPLE_PEOPLE_TAXONOMY', 'peop
 
 function gpeople_init( $gplugin_version = NULL ){
 
-	// TODO: bail if no gPlugin version
-	if ( $gplugin_version && ! version_compare( $gplugin_version, GPEOPLE_VERSION_GPLUGIN, '>=' ) )
-		return;
-
 	global $gPeopleNetwork;
+
+	if ( ! $gplugin_version || ! version_compare( $gplugin_version, GPEOPLE_VERSION_GPLUGIN, '>=' ) )
+		return;
 
 	if ( ! class_exists( 'WP_List_Table' ) )
 		require_once( ABSPATH.'wp-admin/includes/class-wp-list-table.php' );
@@ -96,7 +95,6 @@ function gpeople_init( $gplugin_version = NULL ){
 	);
 
 	$constants = array(
-
 		'plugin_dir' => GPEOPLE_DIR,
 		'plugin_url' => GPEOPLE_URL,
 		'plugin_ver' => GPEOPLE_VERSION,
@@ -104,21 +102,24 @@ function gpeople_init( $gplugin_version = NULL ){
 
 		'class_filters'            => 'gPeopleFiltered',
 		'class_mustache'           => 'gPeopleMustache',
-		'theme_templates_dir'      => 'gpeople_templates',
 		'class_component_settings' => 'gPeopleComponentSettings',
 		'class_remote_settings'    => 'gPeopleRemoteSettings',
-		'meta_key'                 => '_gpeople',
-		'term_meta_key'            => '_gpeople',
-		'root_meta_key'            => '_gpeople_root',
-		'remote_meta_key'          => '_gpeople_remote',
+
+		'theme_templates_dir' => 'gpeople_templates',
+
+		'meta_key'        => '_gpeople',
+		'term_meta_key'   => '_gpeople',
+		'root_meta_key'   => '_gpeople_root',
+		'remote_meta_key' => '_gpeople_remote',
+
 		'profile_cpt'              => 'profile',
 		'profile_archives'         => 'profiles',
 		'group_tax'                => 'profile_group',
 		'group_tax_slug'           => 'profiles/group',
 		'profile_nationality_tax'  => 'nationality',
 		'profile_nationality_slug' => 'profiles/nationality',
-		'root_connection_type'     => 'profile_to_profile',
 		'profile_meta_key'         => 'profiles',
+		'root_connection_type'     => 'profile_to_profile',
 		'people_tax'               => GPEOPLE_PEOPLE_TAXONOMY,
 		'people_slug'              => 'people',
 		'affiliation_tax'          => 'affiliation',
@@ -132,8 +133,8 @@ function gpeople_init( $gplugin_version = NULL ){
 		'user_term_map'            => 'gpeople_term_map',
 	);
 
-	if ( function_exists( 'gPluginFactory' ) )
-		$gPeopleNetwork = gPluginFactory( 'gPeopleNetwork', $constants, $args );
+	if ( class_exists( 'gPluginFactory' ) )
+		$gPeopleNetwork = gPluginFactory::get( 'gPeopleNetwork', $constants, $args );
 }
 
 require( GPEOPLE_DIR.'gplugin/load.php' );

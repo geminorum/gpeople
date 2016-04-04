@@ -5,9 +5,9 @@ class gPeopleRootMeta extends gPluginMetaCore
 
 	public static function geditorial_meta_include()
 	{
-		$gPeopleRootComponent = gPluginFactory( 'gPeopleRootComponent' );
+		$gPeopleRootComponent = gPluginFactory::get( 'gPeopleRootComponent' );
 
-		gPluginFactory( 'gPeopleRootMeta', $gPeopleRootComponent->getConstants(), $gPeopleRootComponent->getArgs() );
+		gPluginFactory::get( 'gPeopleRootMeta', $gPeopleRootComponent->getConstants(), $gPeopleRootComponent->getArgs() );
 	}
 
 	public function setup_actions()
@@ -122,7 +122,7 @@ class gPeopleRootMeta extends gPluginMetaCore
 	function do_meta_box_profile( $post )
 	{
 		global $gEditorial;
-		//$gBookRootPlugin = gPluginFactory( 'gBookRootPlugin' );
+		//$gBookRootPlugin = gPluginFactory::get( 'gBookRootPlugin' );
 		$fields = $gEditorial->meta->get_post_type_fields( $gEditorial->meta->module, $post->post_type );
 		//$meta = $gEditorial->meta->get_postmeta( $post->ID, $this->constants['profile_meta_key'], array() );
 
@@ -149,7 +149,7 @@ class gPeopleRootMeta extends gPluginMetaCore
 	function geditorial_meta_sanitize_post_meta( $postmeta, $fields, $post_id, $post_type )
 	{
 		global $gPeopleNetwork;
-		//$gBookRootPlugin = gPluginFactory( 'gBookRootPlugin' );
+		//$gBookRootPlugin = gPluginFactory::get( 'gBookRootPlugin' );
 		$fields = $gPeopleNetwork->getFilters( 'root_meta_fields' );
 		if ( $this->constants['profile_cpt'] == $post_type
 			&& wp_verify_nonce( @$_REQUEST['_geditorial_gpeople_meta_box'], 'geditorial_gpeople_meta_box' ) ) {

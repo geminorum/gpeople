@@ -14,7 +14,7 @@ class gPeopleNetwork extends gPluginNetworkCore
 			&& ( $this->components->get( 'gpeople_root' )
 				|| ! constant( 'GPEOPLE_ENABLE_MULTIROOTBLOG' ) ) ) {
 
-			$this->root = gPluginFactory( 'gPeopleRootComponent',
+			$this->root = gPluginFactory::get( 'gPeopleRootComponent',
 				$this->constants,
 				array_merge( $this->args, array(
 					'option_group' => 'gpeople_root_options',
@@ -28,7 +28,7 @@ class gPeopleNetwork extends gPluginNetworkCore
 
 		if ( $this->components->get( 'gpeople_remote' ) ) {
 
-			$this->remote = gPluginFactory( 'gPeopleRemoteComponent',
+			$this->remote = gPluginFactory::get( 'gPeopleRemoteComponent',
 				$this->constants,
 				array_merge( $this->args, array(
 					'option_group' => 'gpeople_remote_options',
@@ -45,15 +45,20 @@ class gPeopleNetwork extends gPluginNetworkCore
 			$modules['remote_ajax']  = 'gPeopleRemoteAjax';
 		}
 
-		foreach ( $modules as $module => $class )
-			$this->{$module} = gPluginFactory( $class, $this->constants, $this->args );
+		foreach ( $modules as $module => $class ) {
+
+			$this->{$module} = gPluginFactory::get( $class, $this->constants, $this->args );
+
+			if ( FALSE === $this->{$module} )
+				unset( $this->{$module} );
+		}
 
 		// add_action( 'bp_include', array( $this, 'bp_include' ) );
 	}
 
 	public function bp_include()
 	{
-		$this->buddypress = gPluginFactory( 'gPeopleBuddyPress', $this->constants, $this->args );
+		$this->buddypress = gPluginFactory::get( 'gPeopleBuddyPress', $this->constants, $this->args );
 	}
 
 	public function load_textdomain()

@@ -242,7 +242,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 
 		if ( count( $users ) ) {
 
-			// $gPeopleRemoteComponent = gPluginFactory( 'gPeopleRemoteComponent' );
+			// $gPeopleRemoteComponent = gPluginFactory::get( 'gPeopleRemoteComponent' );
 			$data_html = $gPeopleNetwork->getFilters( 'people_edit_search_users' );
 			$pre_data  = $data_raw = array();
 
