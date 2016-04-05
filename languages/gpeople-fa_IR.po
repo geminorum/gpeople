@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gPeople v3.1\n"
+"Project-Id-Version: gPeople v3.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-06 14:07+0330\n"
-"PO-Revision-Date: 2016-03-06 14:07+0330\n"
+"POT-Creation-Date: 2016-04-02 21:32+0430\n"
+"PO-Revision-Date: 2016-04-02 21:35+0430\n"
 "Last-Translator: geminorum <contact@geminorum.ir>\n"
 "Language-Team: geminorum <contact@geminorum.ir>\n"
 "Language: fa_IR\n"
@@ -40,7 +40,7 @@ msgid "General"
 msgstr "همگانی"
 
 #: includes/filtered.class.php:11 includes/filtered.class.php:31
-#: includes/importer.class.php:226 includes/importer.class.php:293
+#: includes/importer.class.php:227 includes/importer.class.php:294
 msgid "Import"
 msgstr "درون‌ریزی"
 
@@ -63,8 +63,8 @@ msgstr "تنظیمات با موفقیت به روز شد."
 
 # @ gpeople
 #: includes/filtered.class.php:74 includes/filtered.class.php:396
-#: includes/importer.class.php:179 includes/importer.class.php:251
-#: includes/remoteadmin.class.php:222 includes/remoteajax.class.php:24
+#: includes/importer.class.php:180 includes/importer.class.php:252
+#: includes/remoteadmin.class.php:248 includes/remoteajax.class.php:23
 #: includes/remotemetatable.class.php:21
 msgid "People"
 msgstr "افراد"
@@ -252,17 +252,17 @@ msgstr "عنوان گروه تازه"
 #: includes/filtered.class.php:214
 msgctxt "Group Tax Labels"
 msgid "Separate groups with commas"
-msgstr ""
+msgstr "با ویرگول لاتین جدا کنید"
 
 #: includes/filtered.class.php:215
 msgctxt "Group Tax Labels"
 msgid "Add or remove groups"
-msgstr ""
+msgstr "افزودن یا پاک‌کردن گروه‌ها"
 
 #: includes/filtered.class.php:216
 msgctxt "Group Tax Labels"
 msgid "Choose from the most used groups"
-msgstr ""
+msgstr "انتخاب از میان گروه‌های بیشتر استفاده شده"
 
 #: includes/filtered.class.php:217
 msgctxt "Group Tax Labels"
@@ -277,12 +277,12 @@ msgstr "بدون گروه"
 #: includes/filtered.class.php:219
 msgctxt "Group Tax Labels"
 msgid "Groups list navigation"
-msgstr ""
+msgstr "ناوبری فهرست گروه‌ها"
 
 #: includes/filtered.class.php:220
 msgctxt "Group Tax Labels"
 msgid "Groups list"
-msgstr ""
+msgstr "فهرست گروه‌ها"
 
 #: includes/filtered.class.php:227
 msgctxt "People Tax Labels: Name"
@@ -630,7 +630,7 @@ msgid "Affiliation to this site"
 msgstr "نوع ارتباط این فرد با سایت شما"
 
 # @ gpeople
-#: includes/filtered.class.php:324 includes/user.class.php:61
+#: includes/filtered.class.php:324 includes/user.class.php:60
 msgid "User"
 msgstr "کاربر"
 
@@ -645,8 +645,8 @@ msgid "Edit the linked user profile"
 msgstr "ویرایش کاربر مرتبط با این فرد"
 
 # @ gpeople
-#: includes/filtered.class.php:327 includes/people.class.php:121
-#: includes/profile.class.php:176
+#: includes/filtered.class.php:327 includes/people.class.php:106
+#: includes/profile.class.php:165
 msgid "Profile"
 msgstr "نمایه"
 
@@ -836,9 +836,9 @@ msgstr "<span title=\"Order\">ت</span>"
 
 # @ gpeople
 #: includes/filtered.class.php:440 includes/filtered.class.php:448
-#: includes/remoteadmin.class.php:209 includes/remoteadmin.class.php:277
-#: includes/remotemetatable.class.php:20 includes/rootadmin.class.php:53
-#: includes/rootadmin.class.php:137
+#: includes/remoteadmin.class.php:235 includes/remoteadmin.class.php:303
+#: includes/remotemetatable.class.php:20 includes/rootadmin.class.php:54
+#: includes/rootadmin.class.php:141
 msgid "Person"
 msgid_plural "People"
 msgstr[0] "فرد"
@@ -870,7 +870,7 @@ msgid "Visibility"
 msgstr "نمایانی"
 
 # @ gpeople
-#: includes/filtered.class.php:478 includes/importer.class.php:294
+#: includes/filtered.class.php:478 includes/importer.class.php:295
 #: includes/remotemetatable.class.php:260
 msgid "Delete"
 msgstr "حذف"
@@ -964,12 +964,12 @@ msgstr "همهٰ ملیت‌ها"
 #: includes/filtered.class.php:554
 msgctxt "Nationality Tax Labels"
 msgid "Parent Nationality"
-msgstr ""
+msgstr "ملیت اصلی"
 
 #: includes/filtered.class.php:555
 msgctxt "Nationality Tax Labels"
 msgid "Parent Nationality:"
-msgstr ""
+msgstr "ملیت اصلی:"
 
 #: includes/filtered.class.php:556
 msgctxt "Nationality Tax Labels"
@@ -994,7 +994,7 @@ msgstr "افزودن ملیت تازه"
 #: includes/filtered.class.php:560
 msgctxt "Nationality Tax Labels"
 msgid "New Nationality Name"
-msgstr ""
+msgstr "عنوان ملیت تازه"
 
 #: includes/filtered.class.php:561
 msgctxt "Nationality Tax Labels"
@@ -1009,12 +1009,12 @@ msgstr ""
 #: includes/filtered.class.php:563
 msgctxt "Nationality Tax Labels"
 msgid "Nationalities list navigation"
-msgstr ""
+msgstr "ناوبری فهرست ملیت‌ها"
 
 #: includes/filtered.class.php:564
 msgctxt "Nationality Tax Labels"
 msgid "Nationalities list"
-msgstr ""
+msgstr "فهرست ملیت‌ها"
 
 # @ gpeople
 #: includes/filtered.class.php:571
@@ -1054,7 +1054,7 @@ msgstr "جست‌وجوی کاربران"
 
 #: includes/filtered.class.php:599
 msgid "Manually add a person on this site"
-msgstr ""
+msgstr "افزودن فرد تازه، به صورت دستی برای این سایت"
 
 # @ gpeople
 #: includes/filtered.class.php:600
@@ -1067,7 +1067,7 @@ msgid "The name is how it appears on your site."
 msgstr "این فرد در سایت شما با این نام نمایش داده می‌شود."
 
 # @ gpeople
-#: includes/filtered.class.php:603 includes/remoteadmin.class.php:278
+#: includes/filtered.class.php:603 includes/remoteadmin.class.php:304
 msgid "Slug"
 msgstr "نامک"
 
@@ -1108,205 +1108,205 @@ msgstr ""
 msgid "Add New Person"
 msgstr "افزودن فرد تازه"
 
-#: includes/importer.class.php:157
+#: includes/importer.class.php:158
 msgid "Import People"
 msgstr "درون‌ریزی افراد"
 
-#: includes/importer.class.php:160
+#: includes/importer.class.php:161
 msgid "Import Custom Fields"
 msgstr ""
 
-#: includes/importer.class.php:176 includes/importer.class.php:245
-#: includes/importer.class.php:321
+#: includes/importer.class.php:177 includes/importer.class.php:246
+#: includes/importer.class.php:322
 msgid "ID"
 msgstr ""
 
-#: includes/importer.class.php:177
+#: includes/importer.class.php:178
 #, php-format
 msgid "Meta : %s"
 msgstr ""
 
-#: includes/importer.class.php:221
+#: includes/importer.class.php:222
 msgid "Check for Custom Fields and import them into People"
 msgstr ""
 
-#: includes/importer.class.php:225 includes/importer.class.php:292
+#: includes/importer.class.php:226 includes/importer.class.php:293
 msgid "Check"
 msgstr ""
 
-#: includes/importer.class.php:234
+#: includes/importer.class.php:235
 msgid "No custom fields!"
 msgstr ""
 
-#: includes/importer.class.php:239
+#: includes/importer.class.php:240
 msgid "Import gEditorial Meta"
 msgstr ""
 
-#: includes/importer.class.php:247
+#: includes/importer.class.php:248
 msgid "Meta: Author Simple"
 msgstr ""
 
-#: includes/importer.class.php:288
+#: includes/importer.class.php:289
 msgid "Check for Editorial Meta Authors and import them into People"
 msgstr ""
 
-#: includes/importer.class.php:299
+#: includes/importer.class.php:300
 msgid "Update from Terms"
 msgstr "درون‌ریزی از برچسب‌ها"
 
-#: includes/importer.class.php:323
+#: includes/importer.class.php:324
 msgid "Title"
 msgstr ""
 
-#: includes/importer.class.php:352
+#: includes/importer.class.php:353
 msgid "Check for people terms and update people meta table for each post"
 msgstr ""
 
-#: includes/importer.class.php:356
+#: includes/importer.class.php:357
 msgid "Check Posts"
 msgstr ""
 
-#: includes/importer.class.php:357
+#: includes/importer.class.php:358
 msgid "Update Selected"
 msgstr ""
 
 # @ gpeople
-#: includes/people.class.php:147 includes/people.class.php:236
+#: includes/people.class.php:132 includes/people.class.php:219
 msgid "&mdash; With no affiliations &mdash;"
 msgstr "&mdash; بدون ارتباط &mdash;"
 
 # @ gpeople
-#: includes/people.class.php:264
+#: includes/people.class.php:247
 msgid "&mdash; People Affiliations &mdash;"
 msgstr "&mdash; نوع ارتباط &mdash;"
 
 # @ gpeople
-#: includes/people.class.php:290
+#: includes/people.class.php:273
 msgid "&mdash; User Roles &mdash;"
 msgstr "&mdash; نقش‌های کاربری &mdash;"
 
 # @ gpeople
-#: includes/people.class.php:313
+#: includes/people.class.php:296
 msgid "&mdash; Profile Groups &mdash;"
 msgstr "&mdash; گروه‌های نمایه &mdash;"
 
 # @ gpeople
-#: includes/profile.class.php:96 includes/remote.class.php:382
-#: includes/user.class.php:28
+#: includes/profile.class.php:85 includes/remote.class.php:378
+#: includes/user.class.php:27
 msgid "<i>No Profile Summary</i>"
 msgstr "بدون توضیحات نمایه"
 
 # @ gpeople
-#: includes/profile.class.php:110
+#: includes/profile.class.php:99
 msgid "Groups: "
 msgstr "گروه‌ها:"
 
 # @ gpeople
-#: includes/profile.class.php:111
+#: includes/profile.class.php:100
 msgid ", "
 msgstr "، "
 
-#: includes/profile.class.php:187
+#: includes/profile.class.php:176
 msgid "Build Profile"
 msgstr "ساختن نمایه"
 
-#: includes/profile.class.php:188
+#: includes/profile.class.php:177
 msgid "Picture from Profile"
 msgstr ""
 
 # @ gpeople
-#: includes/relation.class.php:61
+#: includes/relation.class.php:37
 msgid "Install Default Relations"
 msgstr "نصب رابطه‌های پیش‌فرض"
 
-#: includes/relation.class.php:68
+#: includes/relation.class.php:44
 msgid "Error while adding default relations."
 msgstr ""
 
 # @ gpeople
-#: includes/relation.class.php:71
+#: includes/relation.class.php:47
 msgid "Default relations added."
 msgstr ""
 
 # @ gpeople
-#: includes/remote.class.php:277
+#: includes/remote.class.php:273
 msgctxt "people byline walker between delimiter"
 msgid ", "
 msgstr "، "
 
 # @ gpeople
-#: includes/remote.class.php:278
+#: includes/remote.class.php:274
 msgctxt "people byline walker between last delimiter"
 msgid " and "
 msgstr " و "
 
 # @ gpeople
-#: includes/remote.class.php:279
+#: includes/remote.class.php:275
 msgctxt "people byline walker pre"
 msgid "Written by "
 msgstr " "
 
 # @ gpeople
-#: includes/remoteadmin.class.php:118
-msgid "People Manegment"
-msgstr "مدیریت افراد"
-
-# @ gpeople
-#: includes/remoteadmin.class.php:136 includes/remoteadmin.class.php:142
+#: includes/remoteadmin.class.php:86 includes/remoteadmin.class.php:109
 msgid "Search for People"
 msgstr "جست‌وجوی افراد"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:163
+#: includes/remoteadmin.class.php:133
+msgid "People Manegment"
+msgstr "مدیریت افراد"
+
+# @ gpeople
+#: includes/remoteadmin.class.php:191
 msgctxt "add_meta_boxes"
 msgid "People"
 msgstr "افراد مرتبط"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:167
+#: includes/remoteadmin.class.php:194
 msgid "Managment"
 msgstr "مدیریت"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:191
+#: includes/remoteadmin.class.php:217
 msgid "Add or modify peoples"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteadmin.class.php:192
+#: includes/remoteadmin.class.php:218
 msgctxt "Admin post edit button"
 msgid "Add People"
 msgstr "افزودن افراد"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:241
+#: includes/remoteadmin.class.php:267
 msgctxt "admin post column"
 msgid "People"
 msgstr "افراد"
 
-#: includes/remoteadmin.class.php:262
+#: includes/remoteadmin.class.php:288
 #, php-format
 msgctxt "post people column"
 msgid "<small><a href=\"%s\">%s</a></small> "
 msgstr ""
 
 # @ gpeople
-#: includes/remoteadmin.class.php:276
+#: includes/remoteadmin.class.php:302
 msgid "Picture"
 msgstr "تصویر"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:279
+#: includes/remoteadmin.class.php:305
 msgid "<span title=\"Affiliation / Releations\">Aff. / Rel.</span>"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteadmin.class.php:302
+#: includes/remoteadmin.class.php:328
 msgid "&mdash;"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteadmin.class.php:335
+#: includes/remoteadmin.class.php:361
 #, php-format
 msgid ""
 "&#8220;<a href=\"%1$s\" title=\"People, the way involved in your site\" "
@@ -1314,147 +1314,147 @@ msgid ""
 msgstr ""
 
 # @ gpeople
-#: includes/remoteadmin.class.php:345
+#: includes/remoteadmin.class.php:371
 msgid "Profiles"
 msgstr "نمایه‌ها"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:346
+#: includes/remoteadmin.class.php:372
 msgid "Users"
 msgstr "کاربران"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:368
+#: includes/remoteadmin.class.php:394
 msgid "Current"
 msgstr "افراد مرتبط"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:369
+#: includes/remoteadmin.class.php:395
 msgid "Add People"
 msgstr "افزودن افراد"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:370
+#: includes/remoteadmin.class.php:396
 msgid "Add Profiles"
 msgstr "افزودن نمایه‌ها"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:371
+#: includes/remoteadmin.class.php:397
 msgid "Add Users"
 msgstr "افزودن کاربران"
 
 # @ gpeople
-#: includes/remoteadmin.class.php:372
+#: includes/remoteadmin.class.php:398
 msgid "Manual Add"
 msgstr "افزودن دستی"
 
-#: includes/remoteajax.class.php:28
+#: includes/remoteajax.class.php:27
 msgid "Please wait &hellip;"
 msgstr "چند لحظه صبر کنید &hellip;"
 
-#: includes/remoteajax.class.php:29 includes/remoteajax.class.php:36
+#: includes/remoteajax.class.php:28 includes/remoteajax.class.php:35
 msgid "Adding &hellip;"
 msgstr "افزودن &hellip;"
 
-#: includes/remoteajax.class.php:30
+#: includes/remoteajax.class.php:29
 msgid "Added"
 msgstr "افزوده شد."
 
-#: includes/remoteajax.class.php:31
+#: includes/remoteajax.class.php:30
 msgid "Error"
 msgstr "خطا"
 
 # @ gpeople
-#: includes/remoteajax.class.php:95
+#: includes/remoteajax.class.php:94
 msgid "Errors while setting the terms!"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:107
+#: includes/remoteajax.class.php:106
 msgid "Cannot save meta"
 msgstr ""
 
-#: includes/remoteajax.class.php:117
+#: includes/remoteajax.class.php:116
 msgid "No Post ID!"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:139 includes/remoteajax.class.php:195
+#: includes/remoteajax.class.php:138 includes/remoteajax.class.php:194
 #, php-format
 msgid "%s added."
 msgstr "%s افزوده شد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:144
+#: includes/remoteajax.class.php:143
 msgid "Term Not found"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:147
+#: includes/remoteajax.class.php:146
 msgid "No term ID"
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:201
+#: includes/remoteajax.class.php:200
 msgid "Can not save the term."
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:207
+#: includes/remoteajax.class.php:206
 msgid "The term already exists."
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:210
+#: includes/remoteajax.class.php:209
 msgid "The form is empty."
 msgstr ""
 
 # @ gpeople
-#: includes/remoteajax.class.php:257
+#: includes/remoteajax.class.php:256
 #, php-format
 msgid "%s users found"
 msgstr "%s کاربر پیدا شد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:264
+#: includes/remoteajax.class.php:263
 msgid "No user matches your criteria."
 msgstr "کاربری با مشخصات مورد نظر شما پیدا نشد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:295 includes/remoteajax.class.php:347
+#: includes/remoteajax.class.php:294 includes/remoteajax.class.php:346
 msgid "Nobody matches your criteria."
 msgstr "فردی با مشخصات مورد نظر شما پیدا نشد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:319 includes/remoteajax.class.php:418
+#: includes/remoteajax.class.php:318 includes/remoteajax.class.php:417
 #, php-format
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Next results</a>"
 msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">بعدی</a>"
 
 # @ gpeople
-#: includes/remoteajax.class.php:320 includes/remoteajax.class.php:419
+#: includes/remoteajax.class.php:319 includes/remoteajax.class.php:418
 #, php-format
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Previous results</a>"
 msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">قبلی</a>"
 
 # @ gpeople
-#: includes/remoteajax.class.php:332
+#: includes/remoteajax.class.php:331
 #, php-format
 msgid "Showing %1$s-%2$s results out of %3$s people found.%4$s"
 msgstr "نمایش %1$s-%2$s از مجموع %3$s فرد%4$s"
 
 # @ gpeople
-#: includes/remoteajax.class.php:430
+#: includes/remoteajax.class.php:429
 #, php-format
 msgid "Showing %1$s-%2$s results out of %3$s profile found.%4$s"
 msgstr "نمایش %1$s-%2$s از مجموع %3$s نمایه%4$s"
 
-#: includes/remoteajax.class.php:444
+#: includes/remoteajax.class.php:443
 msgid "No profile matches your criteria."
 msgstr "نمایه‌ای با مشخصات مورد نظر شما پیدا نشد."
 
 # @ gpeople
-#: includes/remoteajax.class.php:452
+#: includes/remoteajax.class.php:451
 msgid "dont know what to do?"
 msgstr ""
 
@@ -1483,61 +1483,61 @@ msgid "About"
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:82
+#: includes/rootadmin.class.php:86
 msgid "Creator"
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:91
+#: includes/rootadmin.class.php:95
 msgid "Profile Summary"
 msgstr "خلاصه نمایه"
 
 # @ gpeople
-#: includes/rootadmin.class.php:109
+#: includes/rootadmin.class.php:113
 #, php-format
 msgid "Profile updated. <a href=\"%s\">View profile</a>"
 msgstr ""
 
 # @ default
-#: includes/rootadmin.class.php:110
+#: includes/rootadmin.class.php:114
 msgid "Custom field updated."
 msgstr ""
 
 # @ default
-#: includes/rootadmin.class.php:111
+#: includes/rootadmin.class.php:115
 msgid "Custom field deleted."
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:112
+#: includes/rootadmin.class.php:116
 msgid "Profile updated."
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:113
+#: includes/rootadmin.class.php:117
 #, php-format
 msgid "Profile restored to revision from %s"
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:114
+#: includes/rootadmin.class.php:118
 #, php-format
 msgid "Profile published. <a href=\"%s\">View profile</a>"
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:115
+#: includes/rootadmin.class.php:119
 msgid "Profile saved."
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:116
+#: includes/rootadmin.class.php:120
 #, php-format
 msgid "Profile submitted. <a target=\"_blank\" href=\"%s\">Preview profile</a>"
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:117
+#: includes/rootadmin.class.php:121
 #, php-format
 msgid ""
 "Profile scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
@@ -1545,19 +1545,19 @@ msgid ""
 msgstr ""
 
 # @ default
-#: includes/rootadmin.class.php:117
+#: includes/rootadmin.class.php:121
 msgid "M j, Y @ G:i"
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:118
+#: includes/rootadmin.class.php:122
 #, php-format
 msgid ""
 "Profile draft updated. <a target=\"_blank\" href=\"%s\">Preview profile</a>"
 msgstr ""
 
 # @ gpeople
-#: includes/rootadmin.class.php:128
+#: includes/rootadmin.class.php:132
 msgid "Enter name here"
 msgstr ""
 
@@ -1576,7 +1576,7 @@ msgstr ""
 msgid "<em>Create nationalities first</em>"
 msgstr ""
 
-#: includes/user.class.php:64
+#: includes/user.class.php:63
 msgctxt "User not found"
 msgid "(Not Found)"
 msgstr "(پیدا نشد)"
