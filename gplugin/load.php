@@ -1,6 +1,46 @@
 <?php
 
-$GLOBALS['_gplugin'] = array( 27, __FILE__, array() );
+$GLOBALS['_gplugin'] = array( 32, __FILE__, array(
+	'gPluginFactory',
+	'gPluginClassCore',
+
+	'gPluginPluginCore',
+	'gPluginModuleCore',
+
+	'gPluginNetworkCore',
+	'gPluginComponentCore',
+
+	'gPluginSettingsCore',
+	'gPluginFilteredCore',
+
+	'gPluginAdminCore',
+	'gPluginMetaCore',
+	'gPluginAjaxCore',
+
+	'gPluginTemplateCore',
+	'gPluginListTableCore', // FIXME: DROP THIS
+	'gPluginLoggerCore',
+	'gPluginImportCore',
+
+	// 'gPluginTermMeta', // FIXME: DROP THIS
+	'gPluginSession',
+
+	'gPluginWPHelper',
+	'gPluginTaxonomyHelper',
+	'gPluginCacheHelper',
+
+	'gPluginPersianHelper',
+
+	'gPluginFormHelper',
+	'gPluginTextHelper',
+	'gPluginFileHelper',
+	// 'gPluginImageHelper', // NOT USED YET
+	'gPluginLocationHelper',
+	'gPluginDateTimeHelper',
+
+	'gPluginUtils',
+	'gPluginHashed',
+) );
 
 // modified version of scb by scribu : http://wordpress.org/extend/plugins/scb-framework/
 if ( ! class_exists( 'gPlugin' ) ) : class gPlugin {
@@ -66,8 +106,8 @@ if ( ! class_exists( 'gPlugin' ) ) : class gPlugin {
 		if ( $do_callbacks )
 			foreach ( self::$callbacks as $callback )
 				call_user_func_array( $callback, array( $rev ) );
-		
-		return $rev;				
+
+		return $rev;
 	}
 
 	static function get_info()
