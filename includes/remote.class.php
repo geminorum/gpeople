@@ -152,7 +152,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 	public function the_content( $content )
 	{
-		if ( ! is_single() )
+		if ( ! is_singular() )
 			return $content;
 
 		if ( $this->added )
