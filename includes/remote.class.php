@@ -22,6 +22,8 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 			if ( $this->settings->get( 'before_content', FALSE ) )
 				add_filter( 'the_content', array( $this, 'the_content' ), 25 );
+			else
+				add_action( 'gnetwork_themes_content_before', array( $this, 'content_before' ), 20 );
 
 			if ( $this->settings->get( 'author_link', FALSE ) )
 				add_filter( 'the_author_posts_link', array( $this, 'the_author_posts_link' ) );
@@ -140,6 +142,12 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 				),
 			)
 		);
+	}
+
+	public function content_before( $content )
+	{
+		if ( $people = $this->get_people( get_the_ID() ) )
+			echo '<div class="people byline -before">'.$people.'</div>';
 	}
 
 	public function the_content( $content )
