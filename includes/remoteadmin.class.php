@@ -72,9 +72,9 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			}
 
 			// rel tax duplications
-			add_action( 'edit_terms', array( $this, 'edit_terms' ), 10, 1 );
-			add_action( 'edited_term', array( $this, 'edited_term' ), 10, 3 );
-			add_action( 'created_term', array( $this, 'created_term' ), 10, 3 );
+			add_action( 'edit_terms', array( $gPeopleNetwork->relation, 'edit_terms' ), 10, 1 );
+			add_action( 'edited_term', array( $gPeopleNetwork->relation, 'edited_term' ), 10, 3 );
+			add_action( 'created_term', array( $gPeopleNetwork->relation, 'created_term' ), 10, 3 );
 
 		} else if ( $this->constants['people_tax'] == $screen->taxonomy ) {
 
