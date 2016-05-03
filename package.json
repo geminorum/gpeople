@@ -1,8 +1,19 @@
 {
-	"name": "gpeople",
-	"version": "3.2.0",
-	"main": "gulpfile.js",
-	"author": "geminorum",
-	"devDependencies": {},
-	"private": true
+  "name": "gpeople",
+  "version": "3.2.0",
+  "description": "People, the way involved in your site",
+  "author": {
+    "name": "Nasser Rafie",
+    "email": "contact@geminorum.ir",
+    "url": "http://geminorum.ir"
+  },
+  "main": "gulpfile.js",
+  "readme": "ERROR: No README data found!",
+  "private": true,
+  "_pot": {
+    "domain": "GPEOPLE_TEXTDOMAIN",
+    "destFile": "gpeople.pot",
+    "package": "gPeople",
+    "headers": false
+  }
 }
