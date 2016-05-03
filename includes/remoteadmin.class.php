@@ -258,38 +258,43 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		}
 	}
 
-	// any post type edit screen
 	public function manage_posts_columns( $posts_columns )
 	{
 		$new_columns = array();
+
 		foreach ( $posts_columns as $key => $value ) {
-			if ( 'author' == $key || 'geditorial-meta-author' == $key ) {
-				$new_columns['gpeople'] = _x( 'People', 'admin post column', GPEOPLE_TEXTDOMAIN );
-			} else {
+
+			if ( 'author' == $key
+				|| 'geditorial-meta-author' == $key )
+					$new_columns['gpeople'] = _x( 'People', 'admin post column', GPEOPLE_TEXTDOMAIN );
+			else
 				$new_columns[$key] = $value;
-			}
 		}
+
 		return $new_columns;
 	}
 
-	// any post type edit screen
 	public function custom_column( $column_name, $post_id )
 	{
 		global $gPeopleNetwork, $typenow, $post;
-		// $fields = $this->get_post_type_fields( $this->module, $typenow );
-
 
 		switch ( $column_name ) {
+
 			case 'author' :
 			case 'gpeople' :
 			case 'geditorial-meta-author' :
+
 				echo $gPeopleNetwork->remote->get_people( $post->ID );
+
 				echo '<br />';
+
 				printf( _x( '<small><a href="%s">%s</a></small> ', 'post people column', GPEOPLE_TEXTDOMAIN ),
-					esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'author' => get_the_author_meta( 'ID' ) ), 'edit.php' )),
+					esc_url( add_query_arg( array(
+						'post_type' => $post->post_type,
+						'author' => get_the_author_meta( 'ID' )
+					), 'edit.php' ) ),
 					get_the_author()
 				);
-			break;
 		}
 	}
 
