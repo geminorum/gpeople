@@ -71,11 +71,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 			}
 
-			// rel tax duplications
-			add_action( 'edit_terms', array( $gPeopleNetwork->relation, 'edit_terms' ), 10, 1 );
-			add_action( 'edited_term', array( $gPeopleNetwork->relation, 'edited_term' ), 10, 3 );
-			add_action( 'created_term', array( $gPeopleNetwork->relation, 'created_term' ), 10, 3 );
-
 		} else if ( $this->constants['people_tax'] == $screen->taxonomy ) {
 
 			if ( 'edit-tags' == $screen->base ) {
@@ -97,7 +92,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 				add_action( $screen->taxonomy.'_pre_add_form', array( $gPeopleNetwork->people, 'people_pre_add_form' ) );
 				add_action( $screen->taxonomy.'_add_form_fields', array( $gPeopleNetwork->people, 'people_add_form_fields' ) );
-				add_action( 'created_'.$screen->taxonomy, array( $gPeopleNetwork->people, 'edited_people' ), 10, 2 );
 
 				add_action( 'admin_footer', array( $this, 'modal_html_edit' ) );
 
@@ -110,7 +104,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				wp_enqueue_script( 'gpeople-remote-people-edit', GPEOPLE_URL.'assets/js/remote.people.edit.js', array( 'jquery' ), GPEOPLE_VERSION, TRUE );
 
 				add_action( $screen->taxonomy.'_edit_form_fields', array( $gPeopleNetwork->people, 'people_edit_form_fields' ) );
-				add_action( 'edited_'.$screen->taxonomy, array( $gPeopleNetwork->people, 'edited_people' ),10, 2 );
 
 				add_action( 'admin_footer', array( $this, 'modal_html_edit' ) );
 			}

@@ -7,6 +7,10 @@ class gPeopleRelation extends gPluginModuleCore
 	{
 		$this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
 		$this->before_edit_rel_terms = array();
+
+		add_action( 'edit_terms', array( $this, 'edit_terms' ), 10, 1 );
+		add_action( 'edited_term', array( $this, 'edited_term' ), 10, 3 );
+		add_action( 'created_term', array( $this, 'created_term' ), 10, 3 );
 	}
 
 	public function rel_table_action( $action_name )

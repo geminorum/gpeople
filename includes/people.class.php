@@ -6,6 +6,9 @@ class gPeoplePeople extends gPluginModuleCore
 	public function setup_actions()
 	{
         $this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
+
+		add_action( 'created_'.$this->constants['people_tax'], array( $this, 'edited_people' ), 10, 2 );
+		add_action( 'edited_'.$this->constants['people_tax'], array( $this, 'edited_people' ),10, 2 );
 	}
 
 	// people tax edit screen : before wp default form
