@@ -245,10 +245,11 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	// affiliation tax edit screen
 	public function manage_affiliation_custom_column( $display, $column, $term_id )
 	{
-		if ( 'people' === $column ) {
-			$term = get_term( $term_id, $this->constants['affiliation_tax'] );
-			echo $term->count;
-		}
+		if ( 'people' === $column )
+			if ( $term = get_term( $term_id, $this->constants['affiliation_tax'] ) )
+				return $term->count;
+
+		return $empty;
 	}
 
 	public function manage_posts_columns( $posts_columns )
@@ -297,13 +298,21 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		$new_columns = array();
 		foreach ( $columns as $key => $value ) {
 			if ( 'name' == $key ) {
-				$new_columns['picture']     = __( 'Picture', GPEOPLE_TEXTDOMAIN );
-				$new_columns[$key]          = __( 'Person', GPEOPLE_TEXTDOMAIN );
-				$new_columns['slug']        = __( 'Slug', GPEOPLE_TEXTDOMAIN );
+
+				// FIXME: temporarly
+				// $new_columns['picture'] = __( 'Picture', GPEOPLE_TEXTDOMAIN );
+				$new_columns[$key] = _x( 'Person', 'Root: Column Title', GPEOPLE_TEXTDOMAIN );
+
+			} else if ( 'description' == $key
+				|| 'gnetwork-description'  == $key ) {
+
+				$new_columns[$key] = _x( 'Short Bio', 'Root: Column Title', GPEOPLE_TEXTDOMAIN );
+
+			} else if ( 'posts' == $key ) {
+
 				$new_columns['affiliation'] = __( '<span title="Affiliation / Releations">Aff. / Rel.</span>', GPEOPLE_TEXTDOMAIN );
-			} elseif ( in_array( $key, array( 'description', 'slug' ) ) ) {
-				continue; // he he!
-				// $new_columns['description'] = __( 'Short Bio', GPEOPLE_TEXTDOMAIN );
+				$new_columns[$key] = $value;
+
 			} else {
 				$new_columns[$key] = $value;
 			}
@@ -332,11 +341,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 		} else if ( 'picture' == $column ) {
 
-			$picture = $gPeopleNetwork->picture->get_people_image( $term_id, 'thumbnail' );
-			if ( $picture )
-				echo gPluginFormHelper::html( 'img', array(
-					'src' => $picture,
-				) );
+			if ( $picture = $gPeopleNetwork->picture->get_people_image( $term_id, 'thumbnail' ) )
+				echo gPluginFormHelper::html( 'img', array( 'src' => $picture ) );
 		}
 	}
 
