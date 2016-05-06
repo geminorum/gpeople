@@ -71,8 +71,8 @@ class gPeopleFiltered extends gPluginFilteredCore
 					'callback' => '__return_false',
 					'fields' => array(
 						'gpeople_remote' => array(
-                            'title'       => __( 'People', GPEOPLE_TEXTDOMAIN ),
-                            'description' => __( 'Select to enable gPeople remote tools on this site', GPEOPLE_TEXTDOMAIN ),
+                            'title'       => _x( 'People', 'Settings: Field Name', GPEOPLE_TEXTDOMAIN ),
+                            'description' => _x( 'Select to enable gPeople remote tools on this site', 'Settings: Field Description', GPEOPLE_TEXTDOMAIN ),
                             'type'        => 'enabled',
                             'default'     => FALSE,
 						),
@@ -393,14 +393,14 @@ class gPeopleFiltered extends gPluginFilteredCore
 	protected function remote_meta_titles()
 	{
 		return array(
-			'people' => __( 'People', GPEOPLE_TEXTDOMAIN ),
+			'people' => _x( 'People', 'remote_meta_titles', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
 	protected function remote_meta_descriptions()
 	{
 		return array(
-			'people' => __( 'People Involved in the post', GPEOPLE_TEXTDOMAIN ),
+			'people' => _x( 'People Involved in the post', 'remote_meta_descriptions', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
@@ -436,30 +436,30 @@ class gPeopleFiltered extends gPluginFilteredCore
 	protected function remote_meta_columns()
 	{
 		return array(
-			'people_o'         => __( '<span title="Order">O</span>', GPEOPLE_TEXTDOMAIN ),
-			'people_id'        => __( 'Person', GPEOPLE_TEXTDOMAIN ),
-			'people_filt_over' => __( 'Filter / Override', GPEOPLE_TEXTDOMAIN ),
-			'people_rel_vis'   => __( 'Visibility / Relations', GPEOPLE_TEXTDOMAIN ),
+			'people_o'         => _x( '<span title="Order">O</span>', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
+			'people_id'        => _x( 'Person', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
+			'people_filt_over' => _x( 'Filter / Override', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
+			'people_rel_vis'   => _x( 'Visibility / Relations', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 		);
 
 
 		return array(
 			'id' => array(
-				'title' => __( 'Person', GPEOPLE_TEXTDOMAIN ),
+				'title' => _x( 'Person', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 				'type'  => 'link',
 				'ref'   => 'term',
 			),
 			'override' => array(
-				'title' => __( 'Override', GPEOPLE_TEXTDOMAIN ),
+				'title' => _x( 'Override', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 				'type'  => 'text',
 			),
 			'filter' => array(
-				'title' => __( 'Filter', GPEOPLE_TEXTDOMAIN ),
+				'title' => _x( 'Filter', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 				'type'  => 'text',
 				'value' => '%s',
 			),
 			'visibility' => array(
-				'title'  => __( 'Visibility', GPEOPLE_TEXTDOMAIN ),
+				'title'  => _x( 'Visibility', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 				'type'   => 'select',
 				'values' => array(
 					'tagged' => __( 'Public (Tagged)', GPEOPLE_TEXTDOMAIN ),
@@ -475,7 +475,7 @@ class gPeopleFiltered extends gPluginFilteredCore
 
 		return array(
 			'delete' => array(
-				'title' => __( 'Delete', GPEOPLE_TEXTDOMAIN ),
+				'title' => _x( 'Delete', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 				'type'  => 'delete',
 			),
 			'id' => array(

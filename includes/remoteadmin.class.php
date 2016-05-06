@@ -232,7 +232,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	{
 		$num_people = wp_count_terms( $this->constants['people_tax'] );
 		$num = number_format_i18n( $num_people );
-		$text = _n( 'Person', 'People', $num_people, GPEOPLE_TEXTDOMAIN );
+		$text = _nx( 'Person', 'People', $num_people, 'Remote: Admin: Right Now', GPEOPLE_TEXTDOMAIN );
 		if ( current_user_can( 'manage_categories' ) ) {
 			$num = '<a href="edit-tags.php?taxonomy='.$this->constants['people_tax'].'">'.$num.'</a>';
 			$text = '<a href="edit-tags.php?taxonomy='.$this->constants['people_tax'].'">'.$text.'</a>';
@@ -245,7 +245,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	public function manage_edit_affiliation_columns( $columns )
 	{
 		unset( $columns['posts'] );
-		$columns['people'] = __( 'People', GPEOPLE_TEXTDOMAIN );
+		$columns['people'] = _x( 'People', 'Column', GPEOPLE_TEXTDOMAIN );
 		return $columns;
 	}
 

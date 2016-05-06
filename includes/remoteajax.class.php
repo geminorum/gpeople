@@ -20,7 +20,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 		global $gPeopleNetwork;
 
 		if ( is_null( $title ) )
-			$title = __( 'People', GPEOPLE_TEXTDOMAIN );
+			$title = _x( 'People', 'Modal Title', GPEOPLE_TEXTDOMAIN );
 
 		$gPeopleNetwork->enqueue_asset_config( array(
 			'nonce'            => wp_create_nonce( $this->ajax_nonce ),

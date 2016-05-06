@@ -177,7 +177,7 @@ class gPeopleImporter extends gPluginImportCore
 						'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
 						'meta'    => sprintf( __( 'Meta : %s', GPEOPLE_TEXTDOMAIN ), $post['custom_field'] ),
 						'people'  => array(
-							'title'    => __( 'People', GPEOPLE_TEXTDOMAIN ),
+							'title'    => _x( 'People', 'Importer', GPEOPLE_TEXTDOMAIN ),
 							'callback' => array( $this, 'meta_pre_table' ),
 						),
 					), gPluginTaxonomyHelper::getMetaRows(
@@ -249,7 +249,7 @@ class gPeopleImporter extends gPluginImportCore
 							'callback' => array( $this, 'meta_row_table' ),
 						),
 						'people' => array(
-							'title' => __( 'People', GPEOPLE_TEXTDOMAIN ),
+							'title' => _x( 'People', 'Importer', GPEOPLE_TEXTDOMAIN ),
 							'callback' => array( $this, 'meta_pre_table' ),
 						),
 					), $this->get_editorial_meta(

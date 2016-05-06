@@ -138,7 +138,7 @@ class gPeopleRootAdmin extends gPluginAdminCore
 	{
 		$profiles = wp_count_posts( $this->constants['profile_cpt'] );
 		$count    = number_format_i18n( $profiles->publish );
-		$text     = _n( 'Person', 'People', $profiles->publish, GPEOPLE_TEXTDOMAIN );
+		$text     = _nx( 'Person', 'People', $profiles->publish, 'Root: Admin: Right Now', GPEOPLE_TEXTDOMAIN );
 		$template = current_user_can( 'edit_posts' ) ? '<a href="edit.php?post_type=%3$s">%1$s %2$s</a>' : '%2$s %3$s';
 
 		$items[] = sprintf( $template, $count, $text, $this->constants['profile_cpt'] );

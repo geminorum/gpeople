@@ -17,8 +17,8 @@ class gPeopleRemoteMetaTable extends WP_List_Table
 	public function __construct( $post_id_or_meta )
 	{
 		parent::__construct( array(
-			'singular' => __( 'Person', GPEOPLE_TEXTDOMAIN ),
-			'plural'   => __( 'People', GPEOPLE_TEXTDOMAIN ),
+			'singular' => _x( 'Person', 'Meta Table', GPEOPLE_TEXTDOMAIN ),
+			'plural'   => _x( 'People', 'Meta Table', GPEOPLE_TEXTDOMAIN ),
 			'ajax'     => FALSE,
 		) );
 
