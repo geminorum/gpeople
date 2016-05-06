@@ -243,7 +243,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	}
 
 	// affiliation tax edit screen
-	public function manage_affiliation_custom_column( $display, $column, $term_id )
+	public function manage_affiliation_custom_column( $empty, $column, $term_id )
 	{
 		if ( 'people' === $column )
 			if ( $term = get_term( $term_id, $this->constants['affiliation_tax'] ) )
@@ -296,7 +296,9 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	public function manage_edit_people_columns( $columns )
 	{
 		$new_columns = array();
+
 		foreach ( $columns as $key => $value ) {
+
 			if ( 'name' == $key ) {
 
 				// FIXME: temporarly
@@ -317,6 +319,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				$new_columns[$key] = $value;
 			}
 		}
+
 		return $new_columns;
 	}
 
