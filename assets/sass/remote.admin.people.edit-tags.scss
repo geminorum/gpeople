@@ -65,12 +65,16 @@ body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
 			width: 60px !important;
 		}
 
+		&.column-name {
+			width: 190px !important;
+		}
+
 		&.column-slug {
 			width: 12%;
 		}
 
 		&.column-affiliation {
-			width: 15%;
+			width: 95px !important;
 		}
 
 		&.column-linked {
@@ -79,6 +83,7 @@ body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
 
 		&.column-posts {
 			// width: 8% !important;
+			width: 64px !important;
 		}
 	}
 
@@ -92,6 +97,10 @@ body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
 				max-height: 50px;
 				max-width: 60px;
 			}
+		}
+
+		&.column-affiliation {
+			padding: 8px 5px;
 		}
 	}
 }
