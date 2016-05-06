@@ -1,40 +1,33 @@
+# Copyright (C) 2016 gPeople
+# This file is distributed under the same license as the gPeople package.
 msgid ""
 msgstr ""
-"Project-Id-Version: gPeople v3.2.2\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-05-06 21:13+0430\n"
-"Last-Translator: geminorum <contact@geminorum.ir>\n"
-"Language-Team: geminorum <contact@geminorum.ir>\n"
-"Language: fa_IR\n"
+"Project-Id-Version: gPeople\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: ..\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
 
 #: gpeople.php:92
 msgid "gPeople"
-msgstr "جی‌پیپل!"
+msgstr ""
 
 #: includes/filtered.class.php:9, includes/filtered.class.php:29
 msgid "Overview"
-msgstr "در یک نگاه"
+msgstr ""
 
 #: includes/filtered.class.php:10, includes/filtered.class.php:30
 msgid "General"
-msgstr "همگانی"
+msgstr ""
 
-#: includes/filtered.class.php:11, includes/filtered.class.php:31,
-#: includes/importer.class.php:227, includes/importer.class.php:294
+#: includes/filtered.class.php:11, includes/filtered.class.php:31, includes/importer.class.php:227, includes/importer.class.php:294
 msgid "Import"
-msgstr "درون‌ریزی"
+msgstr ""
 
 #: includes/filtered.class.php:21, includes/filtered.class.php:22
 msgid "People Settings"
-msgstr "افراد"
+msgstr ""
 
 #: includes/filtered.class.php:39
 msgid "Meta Field %s Imported"
@@ -46,56 +39,56 @@ msgstr ""
 
 #: includes/filtered.class.php:52
 msgid "Settings successfully updated."
-msgstr "تنظیمات با موفقیت به روز شد."
+msgstr ""
 
 #: includes/filtered.class.php:74
 msgctxt "Settings: Field Name"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/filtered.class.php:75
 msgctxt "Settings: Field Description"
 msgid "Select to enable gPeople remote tools on this site"
-msgstr "فعال‌سازی ابزارهای افراد در این سایت"
+msgstr ""
 
 #: includes/filtered.class.php:86
 msgid "People Home"
-msgstr "صفحه اصلی افراد"
+msgstr ""
 
 #: includes/filtered.class.php:87
 msgid "select to enable gPeople profile management on this site"
-msgstr "فعال‌سازی نمایه‌های افراد در این سایت"
+msgstr ""
 
 #: includes/filtered.class.php:106
 msgid "Before Content"
-msgstr "قبل از متن"
+msgstr ""
 
 #: includes/filtered.class.php:107
 msgid "Add people byline before content, for each post."
-msgstr "افزودن فهرست افراد مرتبط با نوشته، قبل از متن نوشته‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:112
 msgid "Link Author"
-msgstr "پیوند نویسنده"
+msgstr ""
 
 #: includes/filtered.class.php:113
 msgid "Select to replace author link with people, for each post."
-msgstr "جایگزینی پیوند نویسنده با افراد، در نوشته‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:175
 msgctxt "Profile CPT Labels: Name"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/filtered.class.php:176
 msgctxt "Profile CPT Labels: Menu Name"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/filtered.class.php:177
 msgctxt "Profile CPT Labels: Singular Name"
 msgid "Person"
-msgstr "فرد"
+msgstr ""
 
 #: includes/filtered.class.php:178
 msgctxt "Profile CPT Labels"
@@ -110,42 +103,42 @@ msgstr ""
 #: includes/filtered.class.php:180
 msgctxt "Profile CPT Labels"
 msgid "Edit Person"
-msgstr "ویرایش فرد"
+msgstr ""
 
 #: includes/filtered.class.php:181
 msgctxt "Profile CPT Labels"
 msgid "New Person"
-msgstr "افزودن فرد تازه"
+msgstr ""
 
 #: includes/filtered.class.php:182
 msgctxt "Profile CPT Labels"
 msgid "View Person"
-msgstr "نمایش فرد"
+msgstr ""
 
 #: includes/filtered.class.php:183
 msgctxt "Profile CPT Labels"
 msgid "Search People"
-msgstr "جست‌وجوی افراد"
+msgstr ""
 
 #: includes/filtered.class.php:184
 msgctxt "Profile CPT Labels"
 msgid "No people found."
-msgstr "فردی پیدا نشد."
+msgstr ""
 
 #: includes/filtered.class.php:185
 msgctxt "Profile CPT Labels"
 msgid "No people found in Trash."
-msgstr "هیچ فردی در سطل زباله پیدا شده است."
+msgstr ""
 
 #: includes/filtered.class.php:186
 msgctxt "Profile CPT Labels"
 msgid "All People"
-msgstr "همهٔ افراد"
+msgstr ""
 
 #: includes/filtered.class.php:187
 msgctxt "Profile CPT Labels"
 msgid "People Archives"
-msgstr "بایگانی افراد"
+msgstr ""
 
 #: includes/filtered.class.php:188
 msgctxt "Profile CPT Labels"
@@ -160,7 +153,7 @@ msgstr ""
 #: includes/filtered.class.php:190
 msgctxt "Profile CPT Labels"
 msgid "Profile Picture"
-msgstr "تصویر نمایه"
+msgstr ""
 
 #: includes/filtered.class.php:191
 msgctxt "Profile CPT Labels"
@@ -185,32 +178,32 @@ msgstr ""
 #: includes/filtered.class.php:195
 msgctxt "Profile CPT Labels"
 msgid "People list navigation"
-msgstr "ناوبری فهرست افراد"
+msgstr ""
 
 #: includes/filtered.class.php:196
 msgctxt "Profile CPT Labels"
 msgid "People list"
-msgstr "فهرست افراد"
+msgstr ""
 
 #: includes/filtered.class.php:203
 msgctxt "Group Tax Labels: Name"
 msgid "Groups"
-msgstr "گروه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:204
 msgctxt "Group Tax Labels: Menu Name"
 msgid "Groups"
-msgstr "گروه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:205
 msgctxt "Group Tax Labels: Singular Name"
 msgid "Group"
-msgstr "گروه"
+msgstr ""
 
 #: includes/filtered.class.php:206
 msgctxt "Group Tax Labels"
 msgid "Search Groups"
-msgstr "جست‌وجوی گروه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:207
 msgctxt "Group Tax Labels"
@@ -220,87 +213,87 @@ msgstr ""
 #: includes/filtered.class.php:208
 msgctxt "Group Tax Labels"
 msgid "All Groups"
-msgstr "همهٔ گروه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:209
 msgctxt "Group Tax Labels"
 msgid "Edit Group"
-msgstr "ویرایش گروه"
+msgstr ""
 
 #: includes/filtered.class.php:210
 msgctxt "Group Tax Labels"
 msgid "View Group"
-msgstr "نمایش گروه"
+msgstr ""
 
 #: includes/filtered.class.php:211
 msgctxt "Group Tax Labels"
 msgid "Update Group"
-msgstr "به‌روزرسانی گروه"
+msgstr ""
 
 #: includes/filtered.class.php:212
 msgctxt "Group Tax Labels"
 msgid "Add New Group"
-msgstr "افزودن گروه تازه"
+msgstr ""
 
 #: includes/filtered.class.php:213
 msgctxt "Group Tax Labels"
 msgid "New Group Name"
-msgstr "عنوان گروه تازه"
+msgstr ""
 
 #: includes/filtered.class.php:214
 msgctxt "Group Tax Labels"
 msgid "Separate groups with commas"
-msgstr "با ویرگول لاتین جدا کنید"
+msgstr ""
 
 #: includes/filtered.class.php:215
 msgctxt "Group Tax Labels"
 msgid "Add or remove groups"
-msgstr "افزودن یا پاک‌کردن گروه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:216
 msgctxt "Group Tax Labels"
 msgid "Choose from the most used groups"
-msgstr "انتخاب از میان گروه‌های بیشتر استفاده شده"
+msgstr ""
 
 #: includes/filtered.class.php:217
 msgctxt "Group Tax Labels"
 msgid "No groups found."
-msgstr "گروهی پیدا نشد."
+msgstr ""
 
 #: includes/filtered.class.php:218
 msgctxt "Group Tax Labels"
 msgid "No groups"
-msgstr "بدون گروه"
+msgstr ""
 
 #: includes/filtered.class.php:219
 msgctxt "Group Tax Labels"
 msgid "Groups list navigation"
-msgstr "ناوبری فهرست گروه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:220
 msgctxt "Group Tax Labels"
 msgid "Groups list"
-msgstr "فهرست گروه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:227
 msgctxt "People Tax Labels: Name"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/filtered.class.php:228
 msgctxt "People Tax Labels: Menu Name"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/filtered.class.php:229
 msgctxt "People Tax Labels: Singular Name"
 msgid "Person"
-msgstr "فرد"
+msgstr ""
 
 #: includes/filtered.class.php:230
 msgctxt "People Tax Labels"
 msgid "Search People"
-msgstr "جست‌وجوی افراد"
+msgstr ""
 
 #: includes/filtered.class.php:231
 msgctxt "People Tax Labels"
@@ -310,32 +303,32 @@ msgstr ""
 #: includes/filtered.class.php:232
 msgctxt "People Tax Labels"
 msgid "All People"
-msgstr "همهٔ افراد"
+msgstr ""
 
 #: includes/filtered.class.php:233
 msgctxt "People Tax Labels"
 msgid "Edit Person"
-msgstr "ویرایش فرد"
+msgstr ""
 
 #: includes/filtered.class.php:234
 msgctxt "People Tax Labels"
 msgid "View Person"
-msgstr "نمایش فرد"
+msgstr ""
 
 #: includes/filtered.class.php:235
 msgctxt "People Tax Labels"
 msgid "Update Person"
-msgstr "به‌روزرسانی فرد"
+msgstr ""
 
 #: includes/filtered.class.php:236
 msgctxt "People Tax Labels"
 msgid "Add New Person"
-msgstr "افزودن فرد تازه"
+msgstr ""
 
 #: includes/filtered.class.php:237
 msgctxt "People Tax Labels"
 msgid "New Person Name"
-msgstr "عنوان فرد تازه"
+msgstr ""
 
 #: includes/filtered.class.php:238
 msgctxt "People Tax Labels"
@@ -355,42 +348,42 @@ msgstr ""
 #: includes/filtered.class.php:241
 msgctxt "People Tax Labels"
 msgid "No people found."
-msgstr "فردی پیدا نشد."
+msgstr ""
 
 #: includes/filtered.class.php:242
 msgctxt "People Tax Labels"
 msgid "No people"
-msgstr "بدون فرد"
+msgstr ""
 
 #: includes/filtered.class.php:243
 msgctxt "People Tax Labels"
 msgid "People list navigation"
-msgstr "ناوبری فهرست افراد"
+msgstr ""
 
 #: includes/filtered.class.php:244
 msgctxt "People Tax Labels"
 msgid "People list"
-msgstr "فهرست افراد"
+msgstr ""
 
 #: includes/filtered.class.php:251
 msgctxt "Affiliations Tax Labels: Name"
 msgid "Affiliations"
-msgstr "وابستگی‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:252
 msgctxt "Affiliations Tax Labels: Menu Name"
 msgid "Affiliations"
-msgstr "وابستگی‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:253
 msgctxt "Affiliations Tax Labels: Singular Name"
 msgid "Affiliation"
-msgstr "وابستگی"
+msgstr ""
 
 #: includes/filtered.class.php:254
 msgctxt "Affiliations Tax Labels"
 msgid "Search Affiliations"
-msgstr "جست‌وجوی وابستگی‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:255
 msgctxt "Affiliations Tax Labels"
@@ -400,32 +393,32 @@ msgstr ""
 #: includes/filtered.class.php:256
 msgctxt "Affiliations Tax Labels"
 msgid "All Affiliations"
-msgstr "همهٔ وابستگی‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:257
 msgctxt "Affiliations Tax Labels"
 msgid "Edit Affiliation"
-msgstr "ویرایش وابستگی"
+msgstr ""
 
 #: includes/filtered.class.php:258
 msgctxt "Affiliations Tax Labels"
 msgid "View Affiliation"
-msgstr "نمایش وابستگی"
+msgstr ""
 
 #: includes/filtered.class.php:259
 msgctxt "Affiliations Tax Labels"
 msgid "Update Affiliation"
-msgstr "به‌روزرسانی وابستگی"
+msgstr ""
 
 #: includes/filtered.class.php:260
 msgctxt "Affiliations Tax Labels"
 msgid "Add New Affiliation"
-msgstr "افزودن وابستگی تازه"
+msgstr ""
 
 #: includes/filtered.class.php:261
 msgctxt "Affiliations Tax Labels"
 msgid "New Affiliation Name"
-msgstr "عنوان وابستگی تازه"
+msgstr ""
 
 #: includes/filtered.class.php:262
 msgctxt "Affiliations Tax Labels"
@@ -465,57 +458,57 @@ msgstr ""
 #: includes/filtered.class.php:275
 msgctxt "Relation Tax Labels: Name"
 msgid "Relations"
-msgstr "رابطه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:276
 msgctxt "Relation Tax Labels: Menu Name"
 msgid "Relations"
-msgstr "رابطه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:277
 msgctxt "Relation Tax Labels: Singular Name"
 msgid "Relation"
-msgstr "رابطه"
+msgstr ""
 
 #: includes/filtered.class.php:278
 msgctxt "Relation Tax Labels"
 msgid "Search Relations"
-msgstr "جست‌وجوی رابطه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:279
 msgctxt "Relation Tax Labels"
 msgid "Popular Relations"
-msgstr "همهٔ رابطه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:280
 msgctxt "Relation Tax Labels"
 msgid "All Relations"
-msgstr "همهٔ رابطه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:281
 msgctxt "Relation Tax Labels"
 msgid "Edit Relation"
-msgstr "ویرایش رابطه"
+msgstr ""
 
 #: includes/filtered.class.php:282
 msgctxt "Relation Tax Labels"
 msgid "View Relation"
-msgstr "نمایش رابطه"
+msgstr ""
 
 #: includes/filtered.class.php:283
 msgctxt "Relation Tax Labels"
 msgid "Update Relation"
-msgstr "به‌روزرسانی رابطه"
+msgstr ""
 
 #: includes/filtered.class.php:284
 msgctxt "Relation Tax Labels"
 msgid "Add New Relation"
-msgstr "افزودن رابطه تازه"
+msgstr ""
 
 #: includes/filtered.class.php:285
 msgctxt "Relation Tax Labels"
 msgid "New Relation Name"
-msgstr "عنوان رابطه تازه"
+msgstr ""
 
 #: includes/filtered.class.php:286
 msgctxt "Relation Tax Labels"
@@ -555,156 +548,154 @@ msgstr ""
 #: includes/filtered.class.php:299
 msgctxt "Relation Tax Defaults"
 msgid "Author"
-msgstr "مؤلف"
+msgstr ""
 
 #: includes/filtered.class.php:300
 msgctxt "Relation Tax Defaults"
 msgid "Coauthor"
-msgstr "مؤلف همکار"
+msgstr ""
 
 #: includes/filtered.class.php:301
 msgctxt "Relation Tax Defaults"
 msgid "Editor"
-msgstr "ویرایشگر"
+msgstr ""
 
 #: includes/filtered.class.php:302
 msgctxt "Relation Tax Defaults"
 msgid "Photographer"
-msgstr "عکاس"
+msgstr ""
 
 #: includes/filtered.class.php:303
 msgctxt "Relation Tax Defaults"
 msgid "Translator"
-msgstr "مترجم"
+msgstr ""
 
 #: includes/filtered.class.php:304
 msgctxt "Relation Tax Defaults"
 msgid "Reporter"
-msgstr "گزارش‌گر"
+msgstr ""
 
 #: includes/filtered.class.php:305
 msgctxt "Relation Tax Defaults"
 msgid "Commentator"
-msgstr "مفسر"
+msgstr ""
 
 #: includes/filtered.class.php:306
 msgctxt "Relation Tax Defaults"
 msgid "Artist"
-msgstr "هنرمند"
+msgstr ""
 
 #: includes/filtered.class.php:307
 msgctxt "Relation Tax Defaults"
 msgid "Coartist"
-msgstr "هنرمند همکار"
+msgstr ""
 
 #: includes/filtered.class.php:308
 msgctxt "Relation Tax Defaults"
 msgid "Illustrator"
-msgstr "تصویرگر"
+msgstr ""
 
 #: includes/filtered.class.php:309
 msgctxt "Relation Tax Defaults"
 msgid "Collected by"
-msgstr "جمع‌آور"
+msgstr ""
 
 #: includes/filtered.class.php:310
 msgctxt "Relation Tax Defaults"
 msgid "Poet"
-msgstr "شاعر"
+msgstr ""
 
 #: includes/filtered.class.php:311
 msgctxt "Relation Tax Defaults"
 msgid "Interviewer"
-msgstr "گفت‌وگو کننده"
+msgstr ""
 
 #: includes/filtered.class.php:312
 msgctxt "Relation Tax Defaults"
 msgid "Director"
-msgstr "کارگردان"
+msgstr ""
 
 #: includes/filtered.class.php:313
 msgctxt "Relation Tax Defaults"
 msgid "Selector"
-msgstr "انتخاب کننده"
+msgstr ""
 
 #: includes/filtered.class.php:314
 msgctxt "Relation Tax Defaults"
 msgid "Conductor"
-msgstr "تنظیم کننده"
+msgstr ""
 
 #: includes/filtered.class.php:322, includes/filtered.class.php:609
 msgid "Affiliation"
-msgstr "ارتباط‌"
+msgstr ""
 
 #: includes/filtered.class.php:323, includes/filtered.class.php:610
 msgid "Affiliation to this site"
-msgstr "نوع ارتباط این فرد با سایت شما"
+msgstr ""
 
 #: includes/filtered.class.php:324, includes/user.class.php:60
 msgid "User"
-msgstr "کاربر"
+msgstr ""
 
 #: includes/filtered.class.php:325
 msgid "User linked to this person"
-msgstr "کاربر مرتبط با این فرد"
+msgstr ""
 
 #: includes/filtered.class.php:326
 msgid "Edit the linked user profile"
-msgstr "ویرایش کاربر مرتبط با این فرد"
+msgstr ""
 
-#: includes/filtered.class.php:327, includes/people.class.php:109,
-#: includes/profile.class.php:165
+#: includes/filtered.class.php:327, includes/people.class.php:109, includes/profile.class.php:165
 msgid "Profile"
-msgstr "نمایه"
+msgstr ""
 
 #: includes/filtered.class.php:328
 msgid "Profile linked to this person"
-msgstr "نمایه مرتبط با این فرد"
+msgstr ""
 
 #: includes/filtered.class.php:329
 msgid "Visit the linked person profile"
-msgstr "نمایش نمایه مرتبط با این فرد"
+msgstr ""
 
 #: includes/filtered.class.php:330
 msgid "Avatar"
-msgstr "آواتار"
+msgstr ""
 
 #: includes/filtered.class.php:331
 msgid "Select User"
-msgstr "انتخاب کاربر"
+msgstr ""
 
 #: includes/filtered.class.php:332
 msgid "Unlink User"
-msgstr "قطع ارتباط کاربر"
+msgstr ""
 
 #: includes/filtered.class.php:333
 msgid "Select Profile"
-msgstr "انتخاب نمایه"
+msgstr ""
 
 #: includes/filtered.class.php:334
 msgid "Unlink Profile"
-msgstr "قطع ارتباط نمایه"
+msgstr ""
 
 #: includes/filtered.class.php:335
 msgid "Edit This User"
-msgstr "ویرایش این کاربر"
+msgstr ""
 
 #: includes/filtered.class.php:336
 msgid "Edit this Profile"
-msgstr "ویرایش این نمایه"
+msgstr ""
 
 #: includes/filtered.class.php:337
 msgid "No user linked to this person."
-msgstr "مرتبط با این فرد"
+msgstr ""
 
 #: includes/filtered.class.php:338
 msgid "No profile linked to this person."
 msgstr ""
 
-#: includes/filtered.class.php:339, includes/filtered.class.php:573,
-#: includes/filtered.class.php:611
+#: includes/filtered.class.php:339, includes/filtered.class.php:573, includes/filtered.class.php:611
 msgid "There are no affiliations available."
-msgstr "وابستگی‌ها تعریف نشده‌اند."
+msgstr ""
 
 #: includes/filtered.class.php:340
 msgid "There are no users available."
@@ -716,140 +707,137 @@ msgstr ""
 
 #: includes/filtered.class.php:348
 msgid "Overwrite"
-msgstr "رونویسی"
+msgstr ""
 
 #: includes/filtered.class.php:349
 msgid "Overwrite with this Profile"
-msgstr "رونویسی با استفاده از این نمایه"
+msgstr ""
 
 #: includes/filtered.class.php:350
 msgid "Change"
-msgstr "تغییر"
+msgstr ""
 
 #: includes/filtered.class.php:351
 msgid "Change to this Profile"
-msgstr "تغییر به این نمایه"
+msgstr ""
 
-#: includes/filtered.class.php:352, includes/filtered.class.php:364,
-#: includes/filtered.class.php:376
+#: includes/filtered.class.php:352, includes/filtered.class.php:364, includes/filtered.class.php:376
 msgid "Add"
-msgstr "افزودن"
+msgstr ""
 
 #: includes/filtered.class.php:353
 msgid "Add This Profile"
-msgstr "افزودن این نمایه"
+msgstr ""
 
-#: includes/filtered.class.php:354, includes/filtered.class.php:366,
-#: includes/filtered.class.php:378
+#: includes/filtered.class.php:354, includes/filtered.class.php:366, includes/filtered.class.php:378
 msgid "View"
-msgstr "نمایش"
+msgstr ""
 
 #: includes/filtered.class.php:355
 msgid "View on root site"
-msgstr "نمایش نمایه در سایت افراد"
+msgstr ""
 
-#: includes/filtered.class.php:356, includes/filtered.class.php:368,
-#: includes/filtered.class.php:380
+#: includes/filtered.class.php:356, includes/filtered.class.php:368, includes/filtered.class.php:380
 msgid "Edit"
-msgstr "ویرایش"
+msgstr ""
 
 #: includes/filtered.class.php:357
 msgid "Edit on root site"
-msgstr "ویرایش نمایه در سایت افراد"
+msgstr ""
 
 #: includes/filtered.class.php:365
 msgid "Add this person"
-msgstr "افزودن این فرد"
+msgstr ""
 
 #: includes/filtered.class.php:367
 msgid "View this person"
-msgstr "نمایش این فرد"
+msgstr ""
 
 #: includes/filtered.class.php:369
 msgid "Edit this person"
-msgstr "ویرایش این فرد"
+msgstr ""
 
 #: includes/filtered.class.php:377
 msgid "Add this user"
-msgstr "افزودن این کاربر"
+msgstr ""
 
 #: includes/filtered.class.php:379
 msgid "View this user"
-msgstr "نمایش این کاربر"
+msgstr ""
 
 #: includes/filtered.class.php:381
 msgid "Edit this user"
-msgstr "ویرایش این کاربر"
+msgstr ""
 
 #: includes/filtered.class.php:396
 msgctxt "remote_meta_titles"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/filtered.class.php:403
 msgctxt "remote_meta_descriptions"
 msgid "People Involved in the post"
-msgstr "افرادی که در این نوشته مشارکت داشته‌اند"
+msgstr ""
 
 #: includes/filtered.class.php:410, includes/filtered.class.php:465
 msgid "Public (Tagged)"
-msgstr "نمایان (الصاق شده)"
+msgstr ""
 
 #: includes/filtered.class.php:411, includes/filtered.class.php:466
 msgid "Public"
-msgstr "نمایان"
+msgstr ""
 
 #: includes/filtered.class.php:412, includes/filtered.class.php:467
 msgid "Hidden (Tagged)"
-msgstr "مخفی (الصاق شده)"
+msgstr ""
 
 #: includes/filtered.class.php:413, includes/filtered.class.php:468
 msgid "Hidden"
-msgstr "مخفی"
+msgstr ""
 
 #: includes/filtered.class.php:439
 msgctxt "remote_meta_columns"
 msgid "<span title=\"Order\">O</span>"
-msgstr "<span title=\"Order\">ت</span>"
+msgstr ""
 
 #: includes/filtered.class.php:440, includes/filtered.class.php:448
 msgctxt "remote_meta_columns"
 msgid "Person"
-msgstr "فرد"
+msgstr ""
 
 #: includes/filtered.class.php:441
 msgctxt "remote_meta_columns"
 msgid "Filter / Override"
-msgstr "پالایه / رونویسی"
+msgstr ""
 
 #: includes/filtered.class.php:442
 msgctxt "remote_meta_columns"
 msgid "Visibility / Relations"
-msgstr "نمایانی / ارتباطات"
+msgstr ""
 
 #: includes/filtered.class.php:453
 msgctxt "remote_meta_columns"
 msgid "Override"
-msgstr "رونویسی"
+msgstr ""
 
 #: includes/filtered.class.php:457
 msgctxt "remote_meta_columns"
 msgid "Filter"
-msgstr "پالایه"
+msgstr ""
 
 #: includes/filtered.class.php:462
 msgctxt "remote_meta_columns"
 msgid "Visibility"
-msgstr "نمایانی"
+msgstr ""
 
 #: includes/filtered.class.php:478
 msgctxt "remote_meta_columns"
 msgid "Delete"
-msgstr "حذف"
+msgstr ""
 
 #: includes/filtered.class.php:512
 msgid "Honorific"
-msgstr "افتخاری"
+msgstr ""
 
 #: includes/filtered.class.php:513, includes/filtered.class.php:527
 msgid "Aliases"
@@ -861,100 +849,100 @@ msgstr ""
 
 #: includes/filtered.class.php:515, includes/filtered.class.php:529
 msgid "Born"
-msgstr "تولد"
+msgstr ""
 
 #: includes/filtered.class.php:516, includes/filtered.class.php:530
 msgid "Died"
-msgstr "مرگ"
+msgstr ""
 
 #: includes/filtered.class.php:517, includes/filtered.class.php:531
 msgid "Nationality"
-msgstr "ملیت"
+msgstr ""
 
 #: includes/filtered.class.php:518, includes/filtered.class.php:532
 msgid "Occupation"
-msgstr "حرفه"
+msgstr ""
 
 #: includes/filtered.class.php:519, includes/filtered.class.php:533
 msgid "Website"
-msgstr "وب‌گاه"
+msgstr ""
 
 #: includes/filtered.class.php:520, includes/filtered.class.php:534
 msgid "Wikipedia Page"
-msgstr "صفحه ویکی‌پدیا"
+msgstr ""
 
 #: includes/filtered.class.php:521, includes/filtered.class.php:535
 msgid "Email"
-msgstr "ایمیل"
+msgstr ""
 
 #: includes/filtered.class.php:526
 msgid "Honorific Title"
-msgstr "عنوان افتخاری"
+msgstr ""
 
 #: includes/filtered.class.php:540
 msgctxt "add_meta_boxes"
 msgid "Meta"
-msgstr "متا"
+msgstr ""
 
 #: includes/filtered.class.php:549
 msgctxt "Nationality Tax Labels: Name"
 msgid "Nationalities"
-msgstr "ملیت‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:550
 msgctxt "Nationality Tax Labels: Menu Name"
 msgid "Nationalities"
-msgstr "ملیت‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:551
 msgctxt "Nationality Tax Labels: Singular Name"
 msgid "Nationality"
-msgstr "ملیت"
+msgstr ""
 
 #: includes/filtered.class.php:552
 msgctxt "Nationality Tax Labels"
 msgid "Search Nationalities"
-msgstr "جست‌وجوی ملیت‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:553
 msgctxt "Nationality Tax Labels"
 msgid "All Nationalities"
-msgstr "همهٰ ملیت‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:554
 msgctxt "Nationality Tax Labels"
 msgid "Parent Nationality"
-msgstr "ملیت اصلی"
+msgstr ""
 
 #: includes/filtered.class.php:555
 msgctxt "Nationality Tax Labels"
 msgid "Parent Nationality:"
-msgstr "ملیت اصلی:"
+msgstr ""
 
 #: includes/filtered.class.php:556
 msgctxt "Nationality Tax Labels"
 msgid "Edit Nationality"
-msgstr "ویرایش ملیت"
+msgstr ""
 
 #: includes/filtered.class.php:557
 msgctxt "Nationality Tax Labels"
 msgid "View Nationality"
-msgstr "نمایش ملیت"
+msgstr ""
 
 #: includes/filtered.class.php:558
 msgctxt "Nationality Tax Labels"
 msgid "Update Nationality"
-msgstr "به‌روزرسانی ملیت"
+msgstr ""
 
 #: includes/filtered.class.php:559
 msgctxt "Nationality Tax Labels"
 msgid "Add New Nationality"
-msgstr "افزودن ملیت تازه"
+msgstr ""
 
 #: includes/filtered.class.php:560
 msgctxt "Nationality Tax Labels"
 msgid "New Nationality Name"
-msgstr "عنوان ملیت تازه"
+msgstr ""
 
 #: includes/filtered.class.php:561
 msgctxt "Nationality Tax Labels"
@@ -969,103 +957,92 @@ msgstr ""
 #: includes/filtered.class.php:563
 msgctxt "Nationality Tax Labels"
 msgid "Nationalities list navigation"
-msgstr "ناوبری فهرست ملیت‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:564
 msgctxt "Nationality Tax Labels"
 msgid "Nationalities list"
-msgstr "فهرست ملیت‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:571
 msgid "Search in people and add them as contributor to this post"
-msgstr "جست‌وجو در میان افراد و افزودن آن به عنوان فرد مشارکت‌کننده در این نوشته"
+msgstr ""
 
-#: includes/filtered.class.php:572, includes/filtered.class.php:582,
-#: includes/filtered.class.php:591, includes/filtered.class.php:601
+#: includes/filtered.class.php:572, includes/filtered.class.php:582, includes/filtered.class.php:591, includes/filtered.class.php:601
 msgid "John Doe"
-msgstr "محمد محمدی"
+msgstr ""
 
 #: includes/filtered.class.php:574
 msgid "Search People"
-msgstr "جست‌وجوی افراد"
+msgstr ""
 
 #: includes/filtered.class.php:581
 msgid "Search in profiles and add them as a person on this site"
-msgstr "جست‌وجو در میان نمایه‌ها و افزودن آن به عنوان فرد در این سایت"
+msgstr ""
 
 #: includes/filtered.class.php:583
 msgid "Search Profiles"
-msgstr "جست‌وجوی نمایه‌ها"
+msgstr ""
 
 #: includes/filtered.class.php:590
 msgid "Search in users and add them as a person on this site"
-msgstr "جست‌وجو در میان کاربران و افزودن آن به عنوان فرد در این سایت"
+msgstr ""
 
 #: includes/filtered.class.php:592
 msgid "Search Users"
-msgstr "جست‌وجوی کاربران"
+msgstr ""
 
 #: includes/filtered.class.php:599
 msgid "Manually add a person on this site"
-msgstr "افزودن فرد تازه، به صورت دستی برای این سایت"
+msgstr ""
 
 #: includes/filtered.class.php:600
 msgid "Name"
-msgstr "نام"
+msgstr ""
 
 #: includes/filtered.class.php:602
 msgid "The name is how it appears on your site."
-msgstr "این فرد در سایت شما با این نام نمایش داده می‌شود."
+msgstr ""
 
 #: includes/filtered.class.php:603
 msgid "Slug"
-msgstr "نامک"
+msgstr ""
 
 #: includes/filtered.class.php:604
 msgid "john-doe"
-msgstr "محمد-محمدی"
+msgstr ""
 
 #: includes/filtered.class.php:605
-msgid ""
-"The &#8220;slug&#8221; is the URL-friendly version of the name. It is "
-"usually all lowercase and contains only letters, numbers, and hyphens."
+msgid "The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens."
 msgstr ""
-"نامک نسخه لاتین واژه است که در نشانی (URL)‌هااستفاده می‌شود. برای نامگذاری فقط "
-"از حروف،‌ ارقام و خط تیره استفاده کنید. نمایش فقط با حروف کوچک خواهد بود."
 
 #: includes/filtered.class.php:606
 msgid "Description"
-msgstr "توضیحات"
+msgstr ""
 
 #: includes/filtered.class.php:607
 msgid "John Doe is a very talented guy..."
-msgstr "محمد محمدی فرد بسیار با استعدادی است."
+msgstr ""
 
 #: includes/filtered.class.php:608
-msgid ""
-"The description is not prominent by default; however, some themes may show "
-"it."
+msgid "The description is not prominent by default; however, some themes may show it."
 msgstr ""
-"توضیحات به صورت پیش فرض مهم نیستند، با این حال برخی از پوسته‌ها ممکن است آنها "
-"را نمایش دهند."
 
 #: includes/filtered.class.php:612
 msgid "Add New Person"
-msgstr "افزودن فرد تازه"
+msgstr ""
 
 #: includes/importer.class.php:158
 msgid "Import People"
-msgstr "درون‌ریزی افراد"
+msgstr ""
 
 #: includes/importer.class.php:161
 msgid "Import Custom Fields"
 msgstr ""
 
-#: includes/importer.class.php:177, includes/importer.class.php:246,
-#: includes/importer.class.php:322
-#, fuzzy
+#: includes/importer.class.php:177, includes/importer.class.php:246, includes/importer.class.php:322
 msgid "ID"
-msgstr "نهاد"
+msgstr ""
 
 #: includes/importer.class.php:178
 msgid "Meta : %s"
@@ -1074,16 +1051,15 @@ msgstr ""
 #: includes/importer.class.php:180, includes/importer.class.php:252
 msgctxt "Importer"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/importer.class.php:222
 msgid "Check for Custom Fields and import them into People"
 msgstr ""
 
 #: includes/importer.class.php:226, includes/importer.class.php:293
-#, fuzzy
 msgid "Check"
-msgstr "برای فعال کردن مالیات روی خریدها این گزینه را فعال کنید."
+msgstr ""
 
 #: includes/importer.class.php:235
 msgid "No custom fields!"
@@ -1103,15 +1079,15 @@ msgstr ""
 
 #: includes/importer.class.php:295, includes/remotemetatable.class.php:260
 msgid "Delete"
-msgstr "حذف"
+msgstr ""
 
 #: includes/importer.class.php:300
 msgid "Update from Terms"
-msgstr "درون‌ریزی از برچسب‌ها"
+msgstr ""
 
 #: includes/importer.class.php:324
 msgid "Title"
-msgstr "عنوان"
+msgstr ""
 
 #: includes/importer.class.php:353
 msgid "Check for people terms and update people meta table for each post"
@@ -1119,7 +1095,7 @@ msgstr ""
 
 #: includes/importer.class.php:357
 msgid "Check Posts"
-msgstr "بررسی نوشته‌ها"
+msgstr ""
 
 #: includes/importer.class.php:358
 msgid "Update Selected"
@@ -1127,54 +1103,51 @@ msgstr ""
 
 #: includes/people.class.php:135, includes/people.class.php:222
 msgid "&mdash; With no affiliations &mdash;"
-msgstr "&mdash; بدون ارتباط &mdash;"
+msgstr ""
 
 #: includes/people.class.php:250
 msgid "&mdash; People Affiliations &mdash;"
-msgstr "&mdash; نوع ارتباط &mdash;"
+msgstr ""
 
 #: includes/people.class.php:276
 msgid "&mdash; User Roles &mdash;"
-msgstr "&mdash; نقش‌های کاربری &mdash;"
+msgstr ""
 
 #: includes/people.class.php:299
 msgid "&mdash; Profile Groups &mdash;"
-msgstr "&mdash; گروه‌های نمایه &mdash;"
+msgstr ""
 
-#: includes/profile.class.php:85, includes/remote.class.php:386,
-#: includes/user.class.php:27
+#: includes/profile.class.php:85, includes/remote.class.php:386, includes/user.class.php:27
 msgid "<i>No Profile Summary</i>"
-msgstr "بدون توضیحات نمایه"
+msgstr ""
 
 #: includes/profile.class.php:99, includes/user.class.php:32
 msgid "Groups: "
-msgstr "گروه‌ها:"
+msgstr ""
 
 #: includes/profile.class.php:100, includes/user.class.php:32
 msgid ", "
-msgstr "، "
+msgstr ""
 
 #: includes/profile.class.php:176
 msgid "Build Profile"
-msgstr "ساختن نمایه"
+msgstr ""
 
 #: includes/profile.class.php:177
 msgid "Picture from Profile"
 msgstr ""
 
 #: includes/profile.class.php:178
-#, fuzzy
 msgid "Update from Profile"
-msgstr "درون‌ریزی از برچسب‌ها"
+msgstr ""
 
 #: includes/profile.class.php:179
-#, fuzzy
 msgid "Update Remote Profile"
-msgstr "ویرایش این نمایه"
+msgstr ""
 
 #: includes/relation.class.php:41
 msgid "Install Default Relations"
-msgstr "نصب رابطه‌های پیش‌فرض"
+msgstr ""
 
 #: includes/relation.class.php:48
 msgid "Error while adding default relations."
@@ -1186,39 +1159,39 @@ msgstr ""
 
 #: includes/remote.class.php:244
 msgid "Unknown Person"
-msgstr "فرد نامشخص"
+msgstr ""
 
 #: includes/remote.class.php:281
 msgctxt "people byline walker between delimiter"
 msgid ", "
-msgstr "، "
+msgstr ""
 
 #: includes/remote.class.php:282
 msgctxt "people byline walker between last delimiter"
 msgid " and "
-msgstr " و "
+msgstr ""
 
 #: includes/remote.class.php:283
 msgctxt "people byline walker pre"
 msgid "Written by "
-msgstr " "
+msgstr ""
 
 #: includes/remoteadmin.class.php:81, includes/remoteadmin.class.php:103
 msgid "Search for People"
-msgstr "جست‌وجوی افراد"
+msgstr ""
 
 #: includes/remoteadmin.class.php:126
 msgid "People Manegment"
-msgstr "مدیریت افراد"
+msgstr ""
 
 #: includes/remoteadmin.class.php:184
 msgctxt "add_meta_boxes"
 msgid "People"
-msgstr "افراد مرتبط"
+msgstr ""
 
 #: includes/remoteadmin.class.php:187
 msgid "Managment"
-msgstr "مدیریت"
+msgstr ""
 
 #: includes/remoteadmin.class.php:210
 msgid "Add or modify peoples"
@@ -1227,24 +1200,24 @@ msgstr ""
 #: includes/remoteadmin.class.php:211
 msgctxt "Admin post edit button"
 msgid "Add People"
-msgstr "افزودن افراد"
+msgstr ""
 
 #: includes/remoteadmin.class.php:228
 msgctxt "Remote: Admin: Right Now"
 msgid "Person"
 msgid_plural "People"
-msgstr[0] "فرد"
-msgstr[1] "افراد"
+msgstr[0] ""
+msgstr[1] ""
 
 #: includes/remoteadmin.class.php:241
 msgctxt "Column"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/remoteadmin.class.php:263
 msgctxt "admin post column"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/remoteadmin.class.php:285
 msgctxt "post people column"
@@ -1253,12 +1226,12 @@ msgstr ""
 
 #: includes/remoteadmin.class.php:305, includes/rootadmin.class.php:52
 msgid "Picture"
-msgstr "تصویر"
+msgstr ""
 
 #: includes/remoteadmin.class.php:306
 msgctxt "Root: Column Title"
 msgid "Person"
-msgstr "فرد"
+msgstr ""
 
 #: includes/remoteadmin.class.php:311
 msgctxt "Root: Column Title"
@@ -1274,64 +1247,61 @@ msgid "&mdash;"
 msgstr ""
 
 #: includes/remoteadmin.class.php:368
-msgid ""
-"&#8220;<a href=\"%1$s\" title=\"People, the way involved in your site\" "
-">gPeople</a>&#8221; is a <a href=\"%2$s\">geminorum</a> project"
+msgid "&#8220;<a href=\"%1$s\" title=\"People, the way involved in your site\" >gPeople</a>&#8221; is a <a href=\"%2$s\">geminorum</a> project"
 msgstr ""
 
 #: includes/remoteadmin.class.php:378
 msgid "Profiles"
-msgstr "نمایه‌ها"
+msgstr ""
 
 #: includes/remoteadmin.class.php:379
 msgid "Users"
-msgstr "کاربران"
+msgstr ""
 
 #: includes/remoteadmin.class.php:401
 msgid "Current"
-msgstr "افراد مرتبط"
+msgstr ""
 
 #: includes/remoteadmin.class.php:402
 msgid "Add People"
-msgstr "افزودن افراد"
+msgstr ""
 
 #: includes/remoteadmin.class.php:403
 msgid "Add Profiles"
-msgstr "افزودن نمایه‌ها"
+msgstr ""
 
 #: includes/remoteadmin.class.php:404
 msgid "Add Users"
-msgstr "افزودن کاربران"
+msgstr ""
 
 #: includes/remoteadmin.class.php:405
 msgid "Manual Add"
-msgstr "افزودن دستی"
+msgstr ""
 
 #: includes/remoteadmin.class.php:420
-#, fuzzy
 msgid "Search"
-msgstr "بگرد"
+msgstr ""
 
 #: includes/remoteajax.class.php:23
 msgctxt "Modal Title"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/remoteajax.class.php:27
 msgid "Please wait &hellip;"
-msgstr "چند لحظه صبر کنید &hellip;"
+msgstr ""
 
 #: includes/remoteajax.class.php:28, includes/remoteajax.class.php:35
 msgid "Adding &hellip;"
-msgstr "افزودن &hellip;"
+msgstr ""
 
 #: includes/remoteajax.class.php:29
 msgid "Added"
-msgstr "افزوده شد."
+msgstr ""
 
 #: includes/remoteajax.class.php:30
 msgid "Error"
-msgstr "خطا"
+msgstr ""
 
 #: includes/remoteajax.class.php:94
 msgid "Errors while setting the terms!"
@@ -1351,7 +1321,7 @@ msgstr ""
 
 #: includes/remoteajax.class.php:138, includes/remoteajax.class.php:194
 msgid "%s added."
-msgstr "%s افزوده شد."
+msgstr ""
 
 #: includes/remoteajax.class.php:143
 msgid "Term Not found"
@@ -1375,50 +1345,47 @@ msgstr ""
 
 #: includes/remoteajax.class.php:256
 msgid "%s users found"
-msgstr "%s کاربر پیدا شد."
+msgstr ""
 
 #: includes/remoteajax.class.php:263
 msgid "No user matches your criteria."
-msgstr "کاربری با مشخصات مورد نظر شما پیدا نشد."
+msgstr ""
 
 #: includes/remoteajax.class.php:294, includes/remoteajax.class.php:346
 msgid "Nobody matches your criteria."
-msgstr "فردی با مشخصات مورد نظر شما پیدا نشد."
+msgstr ""
 
 #: includes/remoteajax.class.php:318, includes/remoteajax.class.php:417
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Next results</a>"
-msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">بعدی</a>"
+msgstr ""
 
 #: includes/remoteajax.class.php:319, includes/remoteajax.class.php:418
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Previous results</a>"
-msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">قبلی</a>"
+msgstr ""
 
 #: includes/remoteajax.class.php:327, includes/remoteajax.class.php:425
-#, fuzzy
 msgid "Founded %s profile"
-msgstr "افزودن این نمایه"
+msgstr ""
 
 #: includes/remoteajax.class.php:328
-#, fuzzy
 msgid "%s people found"
-msgstr "فردی پیدا نشد."
+msgstr ""
 
 #: includes/remoteajax.class.php:331
 msgid "Showing %1$s-%2$s results out of %3$s people found.%4$s"
-msgstr "نمایش %1$s-%2$s از مجموع %3$s فرد%4$s"
+msgstr ""
 
 #: includes/remoteajax.class.php:427
-#, fuzzy
 msgid "%s profile found"
-msgstr "فردی پیدا نشد."
+msgstr ""
 
 #: includes/remoteajax.class.php:429
 msgid "Showing %1$s-%2$s results out of %3$s profile found.%4$s"
-msgstr "نمایش %1$s-%2$s از مجموع %3$s نمایه%4$s"
+msgstr ""
 
 #: includes/remoteajax.class.php:443
 msgid "No profile matches your criteria."
-msgstr "نمایه‌ای با مشخصات مورد نظر شما پیدا نشد."
+msgstr ""
 
 #: includes/remoteajax.class.php:451
 msgid "dont know what to do?"
@@ -1427,12 +1394,12 @@ msgstr ""
 #: includes/remotemetatable.class.php:20
 msgctxt "Meta Table"
 msgid "Person"
-msgstr "فرد"
+msgstr ""
 
 #: includes/remotemetatable.class.php:21
 msgctxt "Meta Table"
 msgid "People"
-msgstr "افراد"
+msgstr ""
 
 #: includes/remotemetatable.class.php:76
 msgid "&mdash; Not Definded &mdash;"
@@ -1444,45 +1411,39 @@ msgstr ""
 
 #: includes/remotemetatable.class.php:226
 msgid "Nobody assigned yet."
-msgstr "هنوز فردی مرتبط نشده است."
+msgstr ""
 
 #: includes/remotemetatable.class.php:276
 msgid "Save & Back to Post"
-msgstr "ذخیره و بازگشت به نوشته"
+msgstr ""
 
-# @ genesis
 #: includes/remotetemplate.class.php:103
-#, fuzzy
 msgid "About"
-msgstr "درباره"
+msgstr ""
 
 #: includes/rootadmin.class.php:54
-#, fuzzy
 msgid "Person"
-msgstr "فرد"
+msgstr ""
 
 #: includes/rootadmin.class.php:55
-#, fuzzy
 msgid "Meta"
-msgstr "متا"
+msgstr ""
 
 #: includes/rootadmin.class.php:86
-#, fuzzy
 msgid "Creator"
-msgstr "ایجاد‌کننده"
+msgstr ""
 
 #: includes/rootadmin.class.php:95
 msgid "Profile Summary"
-msgstr "خلاصه نمایه"
+msgstr ""
 
 #: includes/rootadmin.class.php:113
 msgid "Profile updated. <a href=\"%s\">View profile</a>"
 msgstr ""
 
 #: includes/rootadmin.class.php:116
-#, fuzzy
 msgid "Profile updated."
-msgstr "نمایه به‌روز شد."
+msgstr ""
 
 #: includes/rootadmin.class.php:117
 msgid "Profile restored to revision from %s"
@@ -1501,14 +1462,11 @@ msgid "Profile submitted. <a target=\"_blank\" href=\"%s\">Preview profile</a>"
 msgstr ""
 
 #: includes/rootadmin.class.php:121
-msgid ""
-"Profile scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href="
-"\"%2$s\">Preview profile</a>"
+msgid "Profile scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview profile</a>"
 msgstr ""
 
 #: includes/rootadmin.class.php:122
-msgid ""
-"Profile draft updated. <a target=\"_blank\" href=\"%s\">Preview profile</a>"
+msgid "Profile draft updated. <a target=\"_blank\" href=\"%s\">Preview profile</a>"
 msgstr ""
 
 #: includes/rootadmin.class.php:132
@@ -1519,18 +1477,16 @@ msgstr ""
 msgctxt "Root: Admin: Right Now"
 msgid "Person"
 msgid_plural "People"
-msgstr[0] "فرد"
-msgstr[1] "فرد"
+msgstr[0] ""
+msgstr[1] ""
 
 #: includes/rootmeta.class.php:115
-#, fuzzy
 msgid "Settings"
-msgstr "تنظیمات"
+msgstr ""
 
 #: includes/rootmeta.class.php:201
-#, fuzzy
 msgid "-Not Set-"
-msgstr "تغییر والد"
+msgstr ""
 
 #: includes/rootmeta.class.php:206
 msgid "<em>Create nationalities first</em>"
@@ -1539,229 +1495,4 @@ msgstr ""
 #: includes/user.class.php:63
 msgctxt "User not found"
 msgid "(Not Found)"
-msgstr "(پیدا نشد)"
-
-#~ msgctxt "Profile CPT Labels: name"
-#~ msgid "People"
-#~ msgstr "افراد"
-
-#~ msgctxt "Profile CPT Labels: singular_name"
-#~ msgid "Person"
-#~ msgstr "فرد"
-
-#~ msgctxt "People Tax Labels: label"
-#~ msgid "People"
-#~ msgstr "افراد"
-
-#~ msgctxt "People Tax Labels: name"
-#~ msgid "People"
-#~ msgstr "افراد"
-
-#~ msgctxt "People Tax Labels: singular_name"
-#~ msgid "Person"
-#~ msgstr "فرد"
-
-#~ msgctxt "People Tax Labels: search_items"
-#~ msgid "Search People"
-#~ msgstr "جست‌وجوی افراد"
-
-#~ msgctxt "People Tax Labels: menu_name"
-#~ msgid "People"
-#~ msgstr "افراد"
-
-#~ msgctxt "Affiliation Tax Labels: name"
-#~ msgid "Affiliations"
-#~ msgstr "وابستگی"
-
-#~ msgctxt "Affiliation Tax Labels: singular_name"
-#~ msgid "Affiliation"
-#~ msgstr "وابستگی"
-
-#~ msgctxt "Affiliation Tax Labels: search_items"
-#~ msgid "Search Affiliations"
-#~ msgstr "جست‌وجوی وابستگی‌ها"
-
-#~ msgctxt "Affiliation Tax Labels: all_items"
-#~ msgid "All Affiliations"
-#~ msgstr "همهٔ وابستگی‌ها"
-
-#~ msgctxt "Affiliation Tax Labels: add_new_item"
-#~ msgid "Add New Affiliation"
-#~ msgstr "افزودن وابستگی تازه"
-
-#~ msgctxt "Affiliation Tax Labels: menu_name"
-#~ msgid "Affiliations"
-#~ msgstr "انواع وابستگی"
-
-#~ msgctxt "Rel Tax Labels: name"
-#~ msgid "Relations"
-#~ msgstr "رابطه‌ها"
-
-#~ msgctxt "Rel Tax Labels: singular_name"
-#~ msgid "Relation"
-#~ msgstr "رابطه"
-
-#~ msgctxt "Rel Tax Labels: search_items"
-#~ msgid "Search Relations"
-#~ msgstr "جست‌وجوی رابطه‌ها"
-
-#~ msgctxt "Rel Tax Labels: all_items"
-#~ msgid "All Relations"
-#~ msgstr "همهٔ رابطه‌ها"
-
-#~ msgctxt "Rel Tax Labels: menu_name"
-#~ msgid "Relations"
-#~ msgstr "رابطه‌ها"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Author"
-#~ msgstr "مؤلف"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Coauthor"
-#~ msgstr "مؤلف همکار"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Editor"
-#~ msgstr "ویرایشگر"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Photographer"
-#~ msgstr "عکاس"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Translator"
-#~ msgstr "مترجم"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Reporter"
-#~ msgstr "گزارش‌گر"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Commentator"
-#~ msgstr "مفسر"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Artist"
-#~ msgstr "هنرمند"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Coartist"
-#~ msgstr "هنرمند همکار"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Illustrator"
-#~ msgstr "تصویرگر"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Collected by"
-#~ msgstr "جمع‌آور"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Poet"
-#~ msgstr "شاعر"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Interviewer"
-#~ msgstr "گفت‌وگو کننده"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Director"
-#~ msgstr "کارگردان"
-
-#~ msgctxt "Rel Tax Defaults"
-#~ msgid "Selector"
-#~ msgstr "انتخاب کننده"
-
-#~ msgid "Profile Picture"
-#~ msgstr "تصویر نمایه"
-
-#~ msgid "Please wait..."
-#~ msgstr "چند لحظه صبر کنید …"
-
-#~ msgid "Adding&hellip;"
-#~ msgstr "در حال افزودن …"
-
-#~ msgid "View Profile"
-#~ msgstr "نمایش نمایه"
-
-#~ msgctxt "people_tax_labels"
-#~ msgid "People"
-#~ msgstr "افراد"
-
-#~ msgctxt "people_tax_labels"
-#~ msgid "Person"
-#~ msgstr "فرد"
-
-#~ msgctxt "people_tax_labels"
-#~ msgid "Search People"
-#~ msgstr "جست‌وجوی افراد"
-
-#~ msgctxt "people_tax_labels"
-#~ msgid "Add New Person"
-#~ msgstr "افزودن فرد"
-
-#~ msgctxt "profile_nationality_tax_menu_name"
-#~ msgid "Nationalities"
-#~ msgstr "ملیت‌ها"
-
-#~ msgid "From Profiles"
-#~ msgstr "از نمایه‌ها"
-
-#~ msgid "From Users"
-#~ msgstr "از کاربران"
-
-#~ msgid "Manual"
-#~ msgstr "دستی"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Author"
-#~ msgstr "مؤلف"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Coauthor"
-#~ msgstr "مؤلف همکار"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Editor"
-#~ msgstr "ویرایشگر"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Photographer"
-#~ msgstr "عکاس"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Translator"
-#~ msgstr "مترجم"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Reporter"
-#~ msgstr "گزارش‌گر"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Artist"
-#~ msgstr "هنرمند"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Coartist"
-#~ msgstr "هنرمند همکار"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Illustrator"
-#~ msgstr "تصویرگر"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Poet"
-#~ msgstr "شاعر"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Interviewer"
-#~ msgstr "گفت‌وگو کننده"
-
-#~ msgctxt "rel_tax_defaults"
-#~ msgid "Director"
-#~ msgstr "کارگردان"
-
-# @ default
-#~ msgid "Cheatin&#8217; uh?"
-#~ msgstr "کلک میزنی، ها؟"
+msgstr ""
