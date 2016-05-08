@@ -1,3 +1,8 @@
+### 3.2.4
+* png/jpg line endings
+* dashboard glance items
+* restyling admin meta box
+
 ### 3.2.3
 * colorbox z-index fixed
 
