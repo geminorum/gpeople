@@ -39,7 +39,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	public function admin_init()
 	{
 		add_filter( 'parent_file', array( $this, 'parent_file' ) );
-		add_action( 'right_now_content_table_end', array( $this, 'right_now_content_table_end' ) );
+		add_filter( 'dashboard_glance_items', array( $this, 'dashboard_glance_items' ), 8 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 20, 2 );
 
 		// FIXME:
@@ -220,18 +220,16 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		echo '</div>';
 	}
 
-	// right now admin dashboard widget
-	public function right_now_content_table_end()
+	public function dashboard_glance_items( $items )
 	{
-		$num_people = wp_count_terms( $this->constants['people_tax'] );
-		$num = number_format_i18n( $num_people );
-		$text = _nx( 'Person', 'People', $num_people, 'Remote: Admin: Right Now', GPEOPLE_TEXTDOMAIN );
-		if ( current_user_can( 'manage_categories' ) ) {
-			$num = '<a href="edit-tags.php?taxonomy='.$this->constants['people_tax'].'">'.$num.'</a>';
-			$text = '<a href="edit-tags.php?taxonomy='.$this->constants['people_tax'].'">'.$text.'</a>';
-		}
-		echo '<tr><td class="first b b_'.$this->constants['people_tax'].'s">'.$num.'</td>';
-		echo '<td class="t '.$this->constants['people_tax'].'s">'.$text.'</td></tr>';
+		$people = wp_count_terms( $this->constants['people_tax'] );
+		$text   = _nx( 'Person', 'People', $people, 'Remote: Admin: At a Glance', GPEOPLE_TEXTDOMAIN );
+		$count  = number_format_i18n( $people );
+		$template = current_user_can( 'manage_categories' ) ? '<a href="edit-tags.php?taxonomy=%3$s">%1$s %2$s</a>' : '%1$s %2$s';
+
+		$items[] = sprintf( $template, $count, $text, $this->constants['people_tax'] );
+
+		return $items;
 	}
 
 	// affiliation tax edit screen
