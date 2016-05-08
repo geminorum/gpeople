@@ -199,23 +199,26 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		echo '<div class="gpeople-admin-wrap-metabox remote-post">';
 
 		echo gPluginFormHelper::html( 'div', array(
-			'id' => 'gpeople_saved_byline',
+			'id'    => 'gpeople_saved_byline',
 			'class' => 'metabox-row byline',
+			'title' => _x( 'Byline as Appears on Your Site', 'Remote: Admin Meta Box: Title Attr', GPEOPLE_TEXTDOMAIN ),
 		), $gPeopleNetwork->remote->get_people( $post->ID ) );
 
 		$html = gPluginFormHelper::html( 'a', array(
-			'id' => 'gpeople-meta-add-people',
-			'href' => '#',
+			'id'    => 'gpeople-meta-add-people',
+			'href'  => '#',
 			'class' => 'gpeople-modal-open button',
-			'title' => __( 'Add or modify peoples', GPEOPLE_TEXTDOMAIN ),
-		), '<span class="dashicons dashicons-groups"></span>'._x( 'Add People', 'Admin post edit button', GPEOPLE_TEXTDOMAIN ) );
+			'title' => _x( 'Add or Modify People for This Post', 'Remote: Admin Meta Box: Title Attr', GPEOPLE_TEXTDOMAIN ),
+		), '<span class="dashicons dashicons-groups"></span>'
+			._x( 'Add People', 'Remote: Admin Meta Box: Button Text', GPEOPLE_TEXTDOMAIN ) );
 
 		echo gPluginFormHelper::html( 'div', array(
 			'class' => 'metabox-row metabox-action',
 		), $html );
 
 		if ( gPluginWPHelper::isDev() )
-			echo get_the_term_list( $post->ID, $this->constants['people_tax'], '<ul class="metabox-row metabox-list"><li>', '</li><li>', '</li></ul>' );
+			echo get_the_term_list( $post->ID, $this->constants['people_tax'],
+				'<ul class="metabox-row metabox-list"><li>', '</li><li>', '</li></ul>' );
 
 		echo '</div>';
 	}
