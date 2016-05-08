@@ -48,9 +48,12 @@
 		font-family: tahoma;
 	}
 
-	a,
-	a:hover {
+	a {
 		text-decoration: none;
+		color: #555;
+		&:hover {
+			color: #000;
+		}
 	}
 }
 

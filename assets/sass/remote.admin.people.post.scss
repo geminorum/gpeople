@@ -13,6 +13,24 @@
 	.metabox-row {
 		margin-bottom: 10px;
 
+		&.byline {
+			margin-top: 10px;
+			padding: 4px 6px;
+
+			font-size: 0.9em;
+			color: #555;
+			background: #ebebeb;
+			border: 1px solid #e5e5e5;
+			border-radius: 2px;
+
+			a {
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+
 		&.metabox-action {
 
 			.button {
@@ -41,11 +59,17 @@
 
 		&.metabox-list {
 			margin: 0;
+			font-size: 0.8em;
 			li {
-				margin-bottom: 10px;
-
+				margin-bottom: 5px;
 				&:last-of-type {
 					margin-bottom: 0px;
+				}
+			}
+			a {
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
 				}
 			}
 		}
