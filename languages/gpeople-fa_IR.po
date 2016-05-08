@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gPeople v3.2.3\n"
+"Project-Id-Version: gPeople v3.2.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-05-08 10:28+0430\n"
+"PO-Revision-Date: 2016-05-08 13:54+0430\n"
 "Last-Translator: geminorum <contact@geminorum.ir>\n"
 "Language-Team: geminorum <contact@geminorum.ir>\n"
 "Language: fa_IR\n"
@@ -545,12 +545,12 @@ msgstr ""
 #: includes/filtered.class.php:291
 msgctxt "Relation Tax Labels"
 msgid "Relations list navigation"
-msgstr ""
+msgstr "ناوبری فهرست رابطه‌ها"
 
 #: includes/filtered.class.php:292
 msgctxt "Relation Tax Labels"
 msgid "Relations list"
-msgstr ""
+msgstr "فهرست رابطه‌ها"
 
 #: includes/filtered.class.php:299
 msgctxt "Relation Tax Defaults"
@@ -1063,7 +1063,6 @@ msgstr ""
 
 #: includes/importer.class.php:177, includes/importer.class.php:246,
 #: includes/importer.class.php:322
-#, fuzzy
 msgid "ID"
 msgstr "نهاد"
 
@@ -1081,9 +1080,8 @@ msgid "Check for Custom Fields and import them into People"
 msgstr ""
 
 #: includes/importer.class.php:226, includes/importer.class.php:293
-#, fuzzy
 msgid "Check"
-msgstr "برای فعال کردن مالیات روی خریدها این گزینه را فعال کنید."
+msgstr ""
 
 #: includes/importer.class.php:235
 msgid "No custom fields!"
@@ -1163,14 +1161,12 @@ msgid "Picture from Profile"
 msgstr ""
 
 #: includes/profile.class.php:178
-#, fuzzy
 msgid "Update from Profile"
-msgstr "درون‌ریزی از برچسب‌ها"
+msgstr ""
 
 #: includes/profile.class.php:179
-#, fuzzy
 msgid "Update Remote Profile"
-msgstr "ویرایش این نمایه"
+msgstr ""
 
 #: includes/relation.class.php:41
 msgid "Install Default Relations"
@@ -1220,94 +1216,100 @@ msgstr "افراد مرتبط"
 msgid "Managment"
 msgstr "مدیریت"
 
-#: includes/remoteadmin.class.php:210
-msgid "Add or modify peoples"
-msgstr ""
+#: includes/remoteadmin.class.php:204
+msgctxt "Remote: Admin Meta Box: Title Attr"
+msgid "Byline as Appears on Your Site"
+msgstr "اطلاعات پدید‌آورنده به این صورت روی سایت نمایش داده میشود."
 
 #: includes/remoteadmin.class.php:211
-msgctxt "Admin post edit button"
+msgctxt "Remote: Admin Meta Box: Title Attr"
+msgid "Add or Modify People for This Post"
+msgstr "افزودن یا اصلاح افراد مرتبط با این پست"
+
+#: includes/remoteadmin.class.php:213
+msgctxt "Remote: Admin Meta Box: Button Text"
 msgid "Add People"
 msgstr "افزودن افراد"
 
-#: includes/remoteadmin.class.php:228
-msgctxt "Remote: Admin: Right Now"
+#: includes/remoteadmin.class.php:229
+msgctxt "Remote: Admin: At a Glance"
 msgid "Person"
 msgid_plural "People"
 msgstr[0] "فرد"
-msgstr[1] "افراد"
+msgstr[1] "فرد"
 
-#: includes/remoteadmin.class.php:241
+#: includes/remoteadmin.class.php:242
 msgctxt "Column"
 msgid "People"
 msgstr "افراد"
 
-#: includes/remoteadmin.class.php:263
+#: includes/remoteadmin.class.php:264
 msgctxt "admin post column"
 msgid "People"
 msgstr "افراد"
 
-#: includes/remoteadmin.class.php:285
+#: includes/remoteadmin.class.php:286
 msgctxt "post people column"
 msgid "<small><a href=\"%s\">%s</a></small> "
 msgstr ""
 
-#: includes/remoteadmin.class.php:305, includes/rootadmin.class.php:52
+#: includes/remoteadmin.class.php:306, includes/rootadmin.class.php:52
 msgid "Picture"
 msgstr "تصویر"
 
-#: includes/remoteadmin.class.php:306
+#: includes/remoteadmin.class.php:307
 msgctxt "Root: Column Title"
 msgid "Person"
 msgstr "فرد"
 
-#: includes/remoteadmin.class.php:311
+#: includes/remoteadmin.class.php:312
 msgctxt "Root: Column Title"
 msgid "Short Bio"
 msgstr ""
 
-#: includes/remoteadmin.class.php:315
+#: includes/remoteadmin.class.php:316
 msgid "<span title=\"Affiliation / Releations\">Aff. / Rel.</span>"
 msgstr ""
 
-#: includes/remoteadmin.class.php:338
+#: includes/remoteadmin.class.php:339
 msgid "&mdash;"
 msgstr ""
 
-#: includes/remoteadmin.class.php:368
+#: includes/remoteadmin.class.php:369
 msgid ""
 "&#8220;<a href=\"%1$s\" title=\"People, the way involved in your site\" "
 ">gPeople</a>&#8221; is a <a href=\"%2$s\">geminorum</a> project"
 msgstr ""
 
-#: includes/remoteadmin.class.php:378
+#: includes/remoteadmin.class.php:379
 msgid "Profiles"
 msgstr "نمایه‌ها"
 
-#: includes/remoteadmin.class.php:379
+#: includes/remoteadmin.class.php:380
 msgid "Users"
 msgstr "کاربران"
 
-#: includes/remoteadmin.class.php:401
+#: includes/remoteadmin.class.php:402
 msgid "Current"
 msgstr "افراد مرتبط"
 
-#: includes/remoteadmin.class.php:402
+#: includes/remoteadmin.class.php:403
 msgid "Add People"
 msgstr "افزودن افراد"
 
-#: includes/remoteadmin.class.php:403
+#: includes/remoteadmin.class.php:404
 msgid "Add Profiles"
 msgstr "افزودن نمایه‌ها"
 
-#: includes/remoteadmin.class.php:404
+#: includes/remoteadmin.class.php:405
 msgid "Add Users"
 msgstr "افزودن کاربران"
 
-#: includes/remoteadmin.class.php:405
+#: includes/remoteadmin.class.php:406
 msgid "Manual Add"
 msgstr "افزودن دستی"
 
-#: includes/remoteadmin.class.php:420
+#: includes/remoteadmin.class.php:421
 #, fuzzy
 msgid "Search"
 msgstr "بگرد"
@@ -1394,23 +1396,20 @@ msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Previous results</a>"
 msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">قبلی</a>"
 
 #: includes/remoteajax.class.php:327, includes/remoteajax.class.php:425
-#, fuzzy
 msgid "Founded %s profile"
-msgstr "افزودن این نمایه"
+msgstr ""
 
 #: includes/remoteajax.class.php:328
-#, fuzzy
 msgid "%s people found"
-msgstr "فردی پیدا نشد."
+msgstr ""
 
 #: includes/remoteajax.class.php:331
 msgid "Showing %1$s-%2$s results out of %3$s people found.%4$s"
 msgstr "نمایش %1$s-%2$s از مجموع %3$s فرد%4$s"
 
 #: includes/remoteajax.class.php:427
-#, fuzzy
 msgid "%s profile found"
-msgstr "فردی پیدا نشد."
+msgstr ""
 
 #: includes/remoteajax.class.php:429
 msgid "Showing %1$s-%2$s results out of %3$s profile found.%4$s"
@@ -1452,22 +1451,18 @@ msgstr "ذخیره و بازگشت به نوشته"
 
 # @ genesis
 #: includes/remotetemplate.class.php:103
-#, fuzzy
 msgid "About"
 msgstr "درباره"
 
 #: includes/rootadmin.class.php:54
-#, fuzzy
 msgid "Person"
 msgstr "فرد"
 
 #: includes/rootadmin.class.php:55
-#, fuzzy
 msgid "Meta"
 msgstr "متا"
 
 #: includes/rootadmin.class.php:86
-#, fuzzy
 msgid "Creator"
 msgstr "ایجاد‌کننده"
 
@@ -1480,7 +1475,6 @@ msgid "Profile updated. <a href=\"%s\">View profile</a>"
 msgstr ""
 
 #: includes/rootadmin.class.php:116
-#, fuzzy
 msgid "Profile updated."
 msgstr "نمایه به‌روز شد."
 
@@ -1516,7 +1510,7 @@ msgid "Enter name here"
 msgstr ""
 
 #: includes/rootadmin.class.php:141
-msgctxt "Root: Admin: Right Now"
+msgctxt "Root: Admin: At a Glance"
 msgid "Person"
 msgid_plural "People"
 msgstr[0] "فرد"
@@ -1540,6 +1534,22 @@ msgstr ""
 msgctxt "User not found"
 msgid "(Not Found)"
 msgstr "(پیدا نشد)"
+
+#~ msgctxt "Admin post edit button"
+#~ msgid "Add People"
+#~ msgstr "افزودن افراد"
+
+#~ msgctxt "Remote: Admin: Right Now"
+#~ msgid "Person"
+#~ msgid_plural "People"
+#~ msgstr[0] "فرد"
+#~ msgstr[1] "افراد"
+
+#~ msgctxt "Root: Admin: Right Now"
+#~ msgid "Person"
+#~ msgid_plural "People"
+#~ msgstr[0] "فرد"
+#~ msgstr[1] "فرد"
 
 #~ msgctxt "Profile CPT Labels: name"
 #~ msgid "People"
