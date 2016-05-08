@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gPeople v3.2.2\n"
+"Project-Id-Version: gPeople v3.2.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-05-06 21:13+0430\n"
+"PO-Revision-Date: 2016-05-08 10:28+0430\n"
 "Last-Translator: geminorum <contact@geminorum.ir>\n"
 "Language-Team: geminorum <contact@geminorum.ir>\n"
 "Language: fa_IR\n"
@@ -100,12 +100,12 @@ msgstr "فرد"
 #: includes/filtered.class.php:178
 msgctxt "Profile CPT Labels"
 msgid "Add New"
-msgstr ""
+msgstr "افزودن فرد"
 
 #: includes/filtered.class.php:179
 msgctxt "Profile CPT Labels"
 msgid "Add New Person"
-msgstr ""
+msgstr "افزودن فرد تازه"
 
 #: includes/filtered.class.php:180
 msgctxt "Profile CPT Labels"
@@ -215,7 +215,7 @@ msgstr "جست‌وجوی گروه‌ها"
 #: includes/filtered.class.php:207
 msgctxt "Group Tax Labels"
 msgid "Popular Groups"
-msgstr ""
+msgstr "گروه‌های محبوب"
 
 #: includes/filtered.class.php:208
 msgctxt "Group Tax Labels"
@@ -305,7 +305,7 @@ msgstr "جست‌وجوی افراد"
 #: includes/filtered.class.php:231
 msgctxt "People Tax Labels"
 msgid "Popular People"
-msgstr ""
+msgstr "افراد محبوب"
 
 #: includes/filtered.class.php:232
 msgctxt "People Tax Labels"
@@ -340,17 +340,17 @@ msgstr "عنوان فرد تازه"
 #: includes/filtered.class.php:238
 msgctxt "People Tax Labels"
 msgid "Separate people with commas"
-msgstr ""
+msgstr "با کامای لاتین جدا کنید"
 
 #: includes/filtered.class.php:239
 msgctxt "People Tax Labels"
 msgid "Add or remove people"
-msgstr ""
+msgstr "افزودن یا پاک‌کردن افراد"
 
 #: includes/filtered.class.php:240
 msgctxt "People Tax Labels"
 msgid "Choose from the most used people"
-msgstr ""
+msgstr "انتخاب از میان افراد بیشتر استفاده شده"
 
 #: includes/filtered.class.php:241
 msgctxt "People Tax Labels"
@@ -395,7 +395,7 @@ msgstr "جست‌وجوی وابستگی‌ها"
 #: includes/filtered.class.php:255
 msgctxt "Affiliations Tax Labels"
 msgid "Popular Affiliations"
-msgstr ""
+msgstr "وابستگی‌های محبوب"
 
 #: includes/filtered.class.php:256
 msgctxt "Affiliations Tax Labels"
@@ -430,37 +430,37 @@ msgstr "عنوان وابستگی تازه"
 #: includes/filtered.class.php:262
 msgctxt "Affiliations Tax Labels"
 msgid "Separate affiliations with commas"
-msgstr ""
+msgstr "با کامای لاتین جدا کنید"
 
 #: includes/filtered.class.php:263
 msgctxt "Affiliations Tax Labels"
 msgid "Add or remove affiliations"
-msgstr ""
+msgstr "افزودن یا پاک‌کردن وابستگی‌ها"
 
 #: includes/filtered.class.php:264
 msgctxt "Affiliations Tax Labels"
 msgid "Choose from the most used affiliations"
-msgstr ""
+msgstr "انتخاب از میان وابستگی‌های بیشتر استفاده شده"
 
 #: includes/filtered.class.php:265
 msgctxt "Affiliations Tax Labels"
 msgid "No affiliations found."
-msgstr ""
+msgstr "هیچ وابستگی پیدا نشد."
 
 #: includes/filtered.class.php:266
 msgctxt "Affiliations Tax Labels"
 msgid "No affiliations"
-msgstr ""
+msgstr "بدون وابستگی"
 
 #: includes/filtered.class.php:267
 msgctxt "Affiliations Tax Labels"
 msgid "Affiliations list navigation"
-msgstr ""
+msgstr "ناوبری فهرست وابستگی‌ها"
 
 #: includes/filtered.class.php:268
 msgctxt "Affiliations Tax Labels"
 msgid "Affiliations list"
-msgstr ""
+msgstr "فهرست وابستگی‌ها"
 
 #: includes/filtered.class.php:275
 msgctxt "Relation Tax Labels: Name"
@@ -959,12 +959,12 @@ msgstr "عنوان ملیت تازه"
 #: includes/filtered.class.php:561
 msgctxt "Nationality Tax Labels"
 msgid "No nationalities found."
-msgstr ""
+msgstr "هیچ ملیتی پیدا نشد."
 
 #: includes/filtered.class.php:562
 msgctxt "Nationality Tax Labels"
 msgid "No nationalities"
-msgstr ""
+msgstr "بدون ملیت"
 
 #: includes/filtered.class.php:563
 msgctxt "Nationality Tax Labels"
