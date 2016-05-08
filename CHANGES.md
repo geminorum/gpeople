@@ -1,3 +1,6 @@
+### 3.2.3
+* colorbox z-index fixed
+
 ### 3.2.2
 * setting up gulp
 * fixed hook callbacks on ajax calls
