@@ -16,8 +16,6 @@ jQuery(document).ready(function($){
 			$('#gpeople-tab-content-'+active).fadeIn();
 		};
 
-
-
 	// opening the modal
 	$('a.gpeople-modal-open').click(function(e){
 		e.preventDefault();
@@ -340,7 +338,7 @@ jQuery(document).ready(function($){
 			success: function(response) {
 				if ( true === response.success ) {
 					//$("#gpeople-people-saved-messages").html(response.data);
-					$("#gpeople_saved_byline").html(response.data);
+					$("#gpeople_saved_byline").html(response.data).fadeIn('fast');
 					$.colorbox.close();
 				} else {
 					$("#gpeople-people-saved-messages").html(response.data);

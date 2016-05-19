@@ -198,11 +198,14 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 		echo '<div class="gpeople-admin-wrap-metabox remote-post">';
 
+		$byline = $gPeopleNetwork->remote->get_people( $post->ID );
+
 		echo gPluginFormHelper::html( 'div', array(
 			'id'    => 'gpeople_saved_byline',
 			'class' => 'metabox-row byline',
 			'title' => _x( 'Byline as Appears on Your Site', 'Remote: Admin Meta Box: Title Attr', GPEOPLE_TEXTDOMAIN ),
-		), $gPeopleNetwork->remote->get_people( $post->ID ) );
+			'style' => $byline ? FALSE : 'display:none;',
+		), $byline );
 
 		$html = gPluginFormHelper::html( 'a', array(
 			'id'    => 'gpeople-meta-add-people',
