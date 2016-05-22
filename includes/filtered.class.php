@@ -137,7 +137,7 @@ class gPeopleFiltered extends gPluginFilteredCore
 			),
 			'profile_taxonomies' => array(
 				'category'      => FALSE, // shared cats with posts
-				'post_tag'      => FALSE, // shared tags with posts
+				'post_tag'      => TRUE, // shared tags with posts
 				'profile_group' => TRUE, // find a way to sync with plugin constants
 			),
 			'profile_capabilities' => array(
