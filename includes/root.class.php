@@ -7,10 +7,8 @@ class gPeopleRootComponent extends gPluginComponentCore
 	{
 		parent::setup_actions();
 
-		if ( function_exists( 'gEditorial' ) ) {
-			// add_action( 'geditorial_meta_init', array( $this, 'meta_init' ) );
-			// add_filter( 'geditorial_tweaks_strings', array( $this, 'tweaks_strings' ) );
-		}
+		add_action( 'geditorial_meta_init', array( $this, 'meta_init' ) );
+		add_filter( 'geditorial_tweaks_strings', array( $this, 'tweaks_strings' ) );
 	}
 
 	public function init()
@@ -79,48 +77,51 @@ class gPeopleRootComponent extends gPluginComponentCore
 		) );
 	}
 
-	public function meta_init( $meta_module )
+	public function meta_init()
 	{
-		// gnetwork_dump($meta_module); die();
-		// gEditorial
-		gEditorial()->meta->add_post_type_fields( $this->constants['profile_cpt'], array( 'sfsdfsfd' ) );
-@gPluginUtils::dump( get_all_post_type_supports( $this->constants['profile_cpt'] ) ); die();
-		add_filter( 'geditorial_meta_strings', array( $this, 'meta_strings' ) );
-		add_filter( 'geditorial_meta_sanitize_post_meta', array( $this, 'meta_sanitize_post_meta' ), 10 , 4 );
-		add_filter( 'geditorial_meta_box_callback', array( $this, 'meta_box_callback' ), 10 , 2 );
+		add_post_type_support(
+			$this->constants['profile_cpt'],
+			array( 'meta_fields' ),
+			self::getFilters( 'profile_cpt_meta_fields' ) );
 
-		$this->geditorial_meta = TRUE;
-	}
+		// FIXME: move to current_screen
+		add_filter( 'geditorial_meta_box_callback', array( $this, 'meta_box_callback' ), 10, 2 );
+		add_filter( 'geditorial_meta_dbx_callback', array( $this, 'meta_box_callback' ), 10, 2 );
 
-	public function meta_strings( $strings )
-	{
-		$profile_cpt = $this->constants['profile_cpt'];
-		$strings['titles'][$profile_cpt] = $this->strings['titles']['publication_cpt'];
-		$strings['descriptions'][$profile_cpt] = $this->strings['descriptions']['publication_cpt'];
-
-		return $strings;
+		register_taxonomy( $this->constants['profile_nationality_tax'], $this->constants['profile_cpt'], array(
+			'labels'                => self::getFilters( 'profile_nationality_tax_labels' ),
+			'public'                => TRUE,
+			'show_in_nav_menus'     => FALSE,
+			'show_ui'               => TRUE,
+			'show_tagcloud'         => FALSE,
+			'show_admin_column'     => TRUE,
+			'hierarchical'          => TRUE,
+			'meta_box_cb'           => FALSE,
+			'update_count_callback' => array( 'gPluginTaxonomyHelper', 'update_count_callback' ),
+			'rewrite'               => array(
+				'slug'         => $this->constants['profile_nationality_slug'],
+				'hierarchical' => FALSE,
+			),
+			'query_var' => TRUE,
+			'capabilities' => array(
+				'manage_terms' => 'edit_others_posts', // 'manage_categories',
+				'edit_terms'   => 'edit_others_posts', // 'manage_categories',
+				'delete_terms' => 'edit_others_posts', // 'manage_categories',
+				'assign_terms' => 'edit_posts', // 'edit_published_posts',
+			),
+		));
 	}
 
 	public function meta_box_callback( $callback, $post_type )
 	{
 		if ( $post_type == $this->constants['profile_cpt'] )
-			return FALSE;
+			return TRUE;
 
 		return $callback;
 	}
 
 	public function tweaks_strings( $strings )
 	{
-		$new = array(
-			'taxonomies' => array(
-				$this->constants['group_tax'] => array(
-					'column'     => 'taxonomy-'.$this->constants['group_tax'],
-					'dashicon'   => $this->module->dashicon,
-					'title_attr' => '', //$this->get_string( 'name', 'subject_tax', 'labels' ),
-				),
-			),
-		);
-
-		return gPluginUtils::recursiveParseArgs( $new, $strings );
+		return gPluginUtils::recursiveParseArgs( self::getFilters( 'root_tweaks_strings' ), $strings );
 	}
 }

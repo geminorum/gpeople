@@ -486,58 +486,76 @@ class gPeopleFiltered extends gPluginFilteredCore
 		);
 	}
 
-	protected function root_meta_fields()
+	protected function profile_cpt_meta_fields()
 	{
 		return array(
-			$this->constants['profile_cpt'] => array(
-				'ot'          => FALSE,
-				'st'          => TRUE,
-				'alt_name'    => FALSE,
-				'born'        => FALSE,
-				'died'        => FALSE,
-				'nationality' => TRUE,
-				'occupation'  => TRUE,
-				'site'        => TRUE,
-				'wikipedia'   => FALSE,
-				'mail'        => FALSE,
+			'honorific'   => array(
+				'title'       => __( 'Honorific', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Honorific Title', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'title_before'
+			),
+			'alias'   => array(
+				'title'       => __( 'Alias', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Also Known As', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'title_after'
+			),
+			'alt_name'   => array(
+				'title'       => __( 'Alternative Name', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Alternative Name', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'text'
+			),
+			'born'   => array(
+				'title'       => __( 'Born', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Date of Birth', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'text'
+			),
+			'died'   => array(
+				'title'       => __( 'Died', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Date of Death', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'text'
+			),
+			'nationality' => array(
+				'title'       => __( 'Nationality', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Nationality', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'term',
+				'tax'         => $this->constants['profile_nationality_tax'],
+			),
+			'occupation'   => array(
+				'title'       => __( 'Occupation', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Occupation', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'text'
+			),
+			'site'   => array(
+				'title'       => __( 'Website', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Official Website', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'link'
+			),
+			'wikipedia'   => array(
+				'title'       => __( 'Wikipedia', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Wikipedia Page', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'link'
+			),
+			'mail'   => array(
+				'title'       => __( 'Email', GPEOPLE_TEXTDOMAIN ),
+				'description' => __( 'Email', GPEOPLE_TEXTDOMAIN ),
+				'type'        => 'email'
 			),
 		);
 	}
 
-	protected function root_meta_strings()
+	protected function root_tweaks_strings()
 	{
 		return array(
-			'titles' => array(
-				$this->constants['profile_cpt'] => array(
-					'ot'          => __( 'Honorific', GPEOPLE_TEXTDOMAIN ),
-					'st'          => __( 'Aliases', GPEOPLE_TEXTDOMAIN ),
-					'alt_name'    => __( 'Alternative Name', GPEOPLE_TEXTDOMAIN ),
-					'born'        => __( 'Born', GPEOPLE_TEXTDOMAIN ),
-					'died'        => __( 'Died', GPEOPLE_TEXTDOMAIN ),
-					'nationality' => __( 'Nationality', GPEOPLE_TEXTDOMAIN ),
-					'occupation'  => __( 'Occupation', GPEOPLE_TEXTDOMAIN ),
-					'site'        => __( 'Website', GPEOPLE_TEXTDOMAIN ),
-					'wikipedia'   => __( 'Wikipedia Page', GPEOPLE_TEXTDOMAIN ),
-					'mail'        => __( 'Email', GPEOPLE_TEXTDOMAIN ),
+			'taxonomies' => array(
+				$this->constants['profile_nationality_tax'] => array(
+					'column'     => 'taxonomy-'.$this->constants['profile_nationality_tax'],
+					'dashicon'   => 'admin-site',
+					'title_attr' => __( 'Nationality', GPEOPLE_TEXTDOMAIN ),
 				),
-			),
-			'descriptions' => array(
-				$this->constants['profile_cpt'] => array(
-					'ot'          => __( 'Honorific Title', GPEOPLE_TEXTDOMAIN ),
-					'st'          => __( 'Aliases', GPEOPLE_TEXTDOMAIN ),
-					'alt_name'    => __( 'Alternative Name', GPEOPLE_TEXTDOMAIN ),
-					'born'        => __( 'Born', GPEOPLE_TEXTDOMAIN ),
-					'died'        => __( 'Died', GPEOPLE_TEXTDOMAIN ),
-					'nationality' => __( 'Nationality', GPEOPLE_TEXTDOMAIN ),
-					'occupation'  => __( 'Occupation', GPEOPLE_TEXTDOMAIN ),
-					'site'        => __( 'Website', GPEOPLE_TEXTDOMAIN ),
-					'wikipedia'   => __( 'Wikipedia Page', GPEOPLE_TEXTDOMAIN ),
-					'mail'        => __( 'Email', GPEOPLE_TEXTDOMAIN ),
-				),
-			),
-			'misc' => array(
-				$this->constants['profile_cpt'] => array(
-					'box_title' => _x( 'Meta', 'add_meta_boxes', GPEOPLE_TEXTDOMAIN ),
+				$this->constants['profile_group_tax'] => array(
+					'column'     => 'taxonomy-'.$this->constants['profile_group_tax'],
+					'dashicon'   => 'admin-users',
+					'title_attr' => __( 'Profile Groups', GPEOPLE_TEXTDOMAIN ),
 				),
 			),
 		);
