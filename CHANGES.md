@@ -1,3 +1,7 @@
+### 3.3.0
+* meta fields for root profiles
+* hiding empty byline on admin meta box
+
 ### 3.2.4
 * png/jpg line endings
 * dashboard glance items
