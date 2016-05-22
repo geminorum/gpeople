@@ -25,7 +25,7 @@ class gPeopleProfile extends gPluginModuleCore
 				gPeopleRootComponent::switch_setup( $this->constants );
 			}
 
-			$groups = gPluginTaxonomyHelper::prepareTerms( $this->constants['group_tax'] );
+			$groups = gPluginTaxonomyHelper::prepareTerms( $this->constants['profile_group_tax'] );
 
 			if ( $this->switch )
 				restore_current_blog();
@@ -95,7 +95,7 @@ class gPeopleProfile extends gPluginModuleCore
 			'picture'     => $this->get_root_thumbnail( $profile->ID ),
 
 			'groups'      => get_the_term_list(
-				$profile->ID, $this->constants['group_tax'],
+				$profile->ID, $this->constants['profile_group_tax'],
 				__( 'Groups: ', GPEOPLE_TEXTDOMAIN ),
 				__( ', ', GPEOPLE_TEXTDOMAIN ), ''
 			),

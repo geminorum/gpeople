@@ -197,27 +197,27 @@ class gPeopleFiltered extends gPluginFilteredCore
 		);
 	}
 
-	protected function group_tax_labels()
+	protected function profile_group_tax_labels()
 	{
 		return array(
-            'name'                       => _x( 'Groups', 'Group Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
-            'menu_name'                  => _x( 'Groups', 'Group Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
-            'singular_name'              => _x( 'Group', 'Group Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
-            'search_items'               => _x( 'Search Groups', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'popular_items'              => NULL, // _x( 'Popular Groups', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'all_items'                  => _x( 'All Groups', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'edit_item'                  => _x( 'Edit Group', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'view_item'                  => _x( 'View Group', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'update_item'                => _x( 'Update Group', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_new_item'               => _x( 'Add New Group', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'new_item_name'              => _x( 'New Group Name', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'separate_items_with_commas' => _x( 'Separate groups with commas', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_or_remove_items'        => _x( 'Add or remove groups', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'choose_from_most_used'      => _x( 'Choose from the most used groups', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'not_found'                  => _x( 'No groups found.', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'no_terms'                   => _x( 'No groups', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list_navigation'      => _x( 'Groups list navigation', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list'                 => _x( 'Groups list', 'Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'name'                       => _x( 'Profile Groups', 'Profile Group Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
+            'menu_name'                  => _x( 'Profile Groups', 'Profile Group Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
+            'singular_name'              => _x( 'Profile Group', 'Profile Group Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
+            'search_items'               => _x( 'Search Profile Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'popular_items'              => NULL, // _x( 'Popular Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'all_items'                  => _x( 'All Profile Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'edit_item'                  => _x( 'Edit Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'view_item'                  => _x( 'View Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'update_item'                => _x( 'Update Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'add_new_item'               => _x( 'Add New Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'new_item_name'              => _x( 'New Profile Group Name', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'separate_items_with_commas' => _x( 'Separate profile groups with commas', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'add_or_remove_items'        => _x( 'Add or remove profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'choose_from_most_used'      => _x( 'Choose from the most used profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'not_found'                  => _x( 'No profile groups found.', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'no_terms'                   => _x( 'No profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'items_list_navigation'      => _x( 'Profile groups list navigation', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+            'items_list'                 => _x( 'Profile groups list', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 

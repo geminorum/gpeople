@@ -29,7 +29,7 @@ class gPeopleUser extends gPluginModuleCore
 			'edit'        => gPluginWPHelper::getUserEditLink( $user->ID ),
 			'images'      => $user_images,
 			'thumbnail'   => $user_thumbnail,
-			// 'groups'      => get_the_term_list( $profile->ID, $this->constants['group_tax'], __( 'Groups: ', GPEOPLE_TEXTDOMAIN ), __( ', ', GPEOPLE_TEXTDOMAIN ), '' ),
+			// 'groups'      => get_the_term_list( $profile->ID, $this->constants['profile_group_tax'], __( 'Groups: ', GPEOPLE_TEXTDOMAIN ), __( ', ', GPEOPLE_TEXTDOMAIN ), '' ),
 			'role'        => $user->user_level, // translate_user_role( $role['name'] );
 		) );
 

@@ -378,7 +378,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 
 		if ( isset( $post['group'] ) && $post['group'] ) {
 			$profile_args['tax_query'] = array( array(
-				'taxonomy' => $this->constants['group_tax'],
+				'taxonomy' => $this->constants['profile_group_tax'],
 				'field'    => 'id',
 				'terms'    => array( intval( $post['group'] ) ),
 				'operator' => 'IN',

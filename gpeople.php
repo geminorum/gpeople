@@ -114,9 +114,9 @@ function gpeople_init( $gplugin_version = NULL ){
 
 		'profile_cpt'              => 'profile',
 		'profile_archives'         => 'profiles',
-		'group_tax'                => 'profile_group',
-		'group_tax_slug'           => 'profiles/group',
-		'profile_nationality_tax'  => 'nationality',
+		'profile_group_tax'        => 'profile_group',
+		'profile_group_tax_slug'   => 'profiles/group',
+		'profile_nationality_tax'  => 'profile_nationality',
 		'profile_nationality_slug' => 'profiles/nationality',
 		'profile_meta_key'         => 'profiles',
 		'root_connection_type'     => 'profile_to_profile',

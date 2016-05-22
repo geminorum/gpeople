@@ -23,7 +23,7 @@ class gPeopleRootComponent extends gPluginComponentCore
 	public static function switch_setup( $constants )
 	{
 		register_post_type( $constants['profile_cpt'], array( 'show_ui' => FALSE ) );
-		register_taxonomy( $constants['group_tax'], $constants['profile_cpt'], array( 'show_ui' => FALSE ) );
+		register_taxonomy( $constants['profile_group_tax'], $constants['profile_cpt'], array( 'show_ui' => FALSE ) );
 	}
 
 	private function register_post_types()
@@ -55,8 +55,8 @@ class gPeopleRootComponent extends gPluginComponentCore
 
 	private function register_taxonomies()
 	{
-		register_taxonomy( $this->constants['group_tax'], $this->constants['profile_cpt'], array(
-			'labels'                => self::getFilters( 'group_tax_labels' ),
+		register_taxonomy( $this->constants['profile_group_tax'], $this->constants['profile_cpt'], array(
+			'labels'                => self::getFilters( 'profile_group_tax_labels' ),
 			'public'                => TRUE,
 			'show_admin_column'     => TRUE,
 			'show_in_nav_menus'     => FALSE,
@@ -66,7 +66,7 @@ class gPeopleRootComponent extends gPluginComponentCore
 			'update_count_callback' => array( 'gPluginTaxonomyHelper', 'update_count_callback' ),
 			'query_var'             => TRUE,
 			'rewrite'               => array(
-				'slug'         => $this->constants['group_tax'],
+				'slug'         => $this->constants['profile_group_tax_slug'],
 				'hierarchical' => FALSE,
 				'with_front'   => FALSE,
 			),
