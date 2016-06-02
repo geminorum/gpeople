@@ -71,7 +71,6 @@
 		.pipe(sourcemaps.write('./maps'))
 
 		.pipe(gulp.dest('./assets/css'));
-
 	});
 
 	gulp.task('watch', function() {

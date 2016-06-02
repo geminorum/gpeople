@@ -122,7 +122,6 @@ class gPeopleImporter extends gPluginImportCore
 					}
 
 				} else if ( isset( $_POST['post_term_update'], $_POST['_cb'] ) ) {
-					gnetwork_dump( $_POST ); die();
 
 					$count = 0;
 
@@ -133,9 +132,6 @@ class gPeopleImporter extends gPluginImportCore
 					wp_redirect( add_query_arg( array(
                         'message' => 'terms_imported',
                         'count'   => $count,
-						// 'type'    => $post['editorial_meta_post_type'],
-						// 'limit'   => $limit,
-						// 'paged'   => $paged,
 					), wp_get_referer() ) );
 
 					exit();
@@ -185,6 +181,7 @@ class gPeopleImporter extends gPluginImportCore
 						$custom_field_limit,
 						$custom_field_paged
 					) );
+
 				echo '<br />';
 			}
 

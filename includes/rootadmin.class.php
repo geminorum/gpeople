@@ -123,7 +123,7 @@ class gPeopleRootAdmin extends gPluginAdminCore
 			);
 		}
 
-		 return $messages;
+		return $messages;
 	}
 
 	public function enter_title_here( $title, $post )
