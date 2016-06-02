@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['_gplugin'] = array( 32, __FILE__, array(
+$GLOBALS['_gplugin'] = array( 34, __FILE__, array(
 	'gPluginFactory',
 	'gPluginClassCore',
 
@@ -26,6 +26,7 @@ $GLOBALS['_gplugin'] = array( 32, __FILE__, array(
 	'gPluginSession',
 
 	'gPluginWPHelper',
+	'gPluginWPRemote', // FIXME: DROP THIS
 	'gPluginTaxonomyHelper',
 	'gPluginCacheHelper',
 
@@ -38,6 +39,8 @@ $GLOBALS['_gplugin'] = array( 32, __FILE__, array(
 	'gPluginLocationHelper',
 	'gPluginDateTimeHelper',
 
+	'gPluginHTTP',
+	'gPluginHTML',
 	'gPluginUtils',
 	'gPluginHashed',
 ) );

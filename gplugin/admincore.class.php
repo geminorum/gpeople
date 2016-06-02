@@ -172,7 +172,7 @@ class gPluginAdminCore extends gPluginClassCore
 	public function admin_print_styles_settings()
 	{
 		if ( strpos( $_SERVER['REQUEST_URI'], 'page='.$this->args['domain'] ) )
-			gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/'.$this->component.'.admin.settings.css.', $this->constants['plugin_ver'] );
+			gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/'.$this->component.'.admin.settings.css', $this->constants['plugin_ver'] );
 	}
 
 	public function settings_link( $links )

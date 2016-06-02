@@ -97,6 +97,12 @@ class gPluginClassCore implements gPluginClassCoreInterface
 		return $out;
 	}
 
+	// ANCESTOR: is_wp_error()
+	public static function isError( $thing )
+	{
+		return ( ( $thing instanceof \WP_Error ) || ( $thing instanceof Error ) );
+	}
+
 	public static function dump( $var, $htmlsafe = TRUE, $echo = TRUE )
 	{
 		$result = var_export( $var, TRUE );

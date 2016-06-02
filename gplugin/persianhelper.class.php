@@ -35,10 +35,11 @@ if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper ext
 			chr(0xD9).chr(0xA7) => chr(0xDB).chr(0xB7),
 			chr(0xD9).chr(0xA8) => chr(0xDB).chr(0xB8),
 			chr(0xD9).chr(0xA9) => chr(0xDB).chr(0xB9),
-			chr(0xD9).chr(0x83) => chr(0xDA).chr(0xA9),
-			chr(0xD9).chr(0x89) => chr(0xDB).chr(0x8C),
-			chr(0xD9).chr(0x8A) => chr(0xDB).chr(0x8C),
-			chr(0xDB).chr(0x80) => chr(0xD9).chr(0x87).chr(0xD9).chr(0x94)
+			
+			chr(0xD9).chr(0x83) => chr(0xDA).chr(0xA9), // ARABIC LETTER KAF > ARABIC LETTER KEHEH
+			chr(0xD9).chr(0x89) => chr(0xDB).chr(0x8C), // ARABIC LETTER ALEF MAKSURA > ARABIC LETTER FARSI YEH
+			chr(0xD9).chr(0x8A) => chr(0xDB).chr(0x8C), // ARABIC LETTER YEH > ARABIC LETTER FARSI YEH
+			chr(0xDB).chr(0x80) => chr(0xD9).chr(0x87).chr(0xD9).chr(0x94),
 		);
 
 		return strtr( $text, $pairs );
@@ -225,7 +226,7 @@ if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper ext
 		$text = strtr( $text, $this->en_fa() );
 		$text = strtr( $text, $this->ar_fa() );
 
-		# should not replace exnglish chars in english phrases
+		# should not replace english chars in english phrases
 		//$text = preg_replace_callback( '/([a-z\-_]{2,}[۰-۹]+|[۰-۹]+[a-z\-_]{2,})/i', array( $this, 'repelace_character' ), $text );
 
 		# put zwnj between word and prefix (mi* nemi*)
