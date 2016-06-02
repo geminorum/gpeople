@@ -8,7 +8,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	public function admin_settings_load()
 	{
 		global $gPeopleNetwork;
-		$sub = isset( $_REQUEST['sub'] ) ? $_REQUEST['sub'] : NULL;
+		$sub = isset( $_REQUEST['sub'] ) ? $_REQUEST['sub'] : 'general';
 
 		if ( ! empty( $_POST ) ) {
 
