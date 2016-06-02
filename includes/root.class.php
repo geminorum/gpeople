@@ -122,6 +122,7 @@ class gPeopleRootComponent extends gPluginComponentCore
 
 	public function tweaks_strings( $strings )
 	{
-		return gPluginUtils::recursiveParseArgs( self::getFilters( 'root_tweaks_strings' ), $strings );
+		$new = self::getFilters( 'root_tweaks_strings' );
+		return gPluginUtils::recursiveParseArgs( $new, $strings );
 	}
 }
