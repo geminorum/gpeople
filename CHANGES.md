@@ -1,3 +1,8 @@
+### 3.3.1
+* fixed strict notice on root meta fields
+* default sub on admin settings
+* using new gNetwork table helper
+
 ### 3.3.0
 * meta fields for root profiles
 * hiding empty byline on admin meta box
