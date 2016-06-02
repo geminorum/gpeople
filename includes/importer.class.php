@@ -172,8 +172,8 @@ class gPeopleImporter extends gPluginImportCore
 				else
 					$custom_field_paged = $paged;
 
-				if ( class_exists( 'gEditorialHelper' ) )
-					gEditorialHelper::table( array(
+				if ( class_exists( 'geminorum\\gNetwork\\HTML' ) )
+					geminorum\gNetwork\HTML::tableList( array(
 						'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
 						'meta'    => sprintf( __( 'Meta : %s', GPEOPLE_TEXTDOMAIN ), $post['custom_field'] ),
 						'people'  => array(
@@ -240,8 +240,9 @@ class gPeopleImporter extends gPluginImportCore
 			echo '<tr><th scope="row">'.__( 'Import gEditorial Meta', GPEOPLE_TEXTDOMAIN ).'</th><td>';
 
 			if ( isset( $_POST['editorial_meta_check'] ) ) {
-				if ( class_exists( 'gNetworkBaseCore' ) )
-					gNetworkBaseCore::tableList( array(
+
+				if ( class_exists( 'geminorum\\gNetwork\\HTML' ) )
+					geminorum\gNetwork\HTML::tableList( array(
                         '_cb'     => '_index',
                         'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
                         'meta'    => array(
@@ -316,8 +317,8 @@ class gPeopleImporter extends gPluginImportCore
 				else
 					$post_term_type = $type;
 
-				if ( class_exists( 'gNetworkBaseCore' ) )
-					gNetworkBaseCore::tableList( array(
+				if ( class_exists( 'geminorum\\gNetwork\\HTML' ) )
+					geminorum\gNetwork\HTML::tableList( array(
                         '_cb'     => '_index',
                         'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
 						'title'    => array(
