@@ -17,8 +17,7 @@ class gPeopleImporter extends gPluginImportCore
 			// add_action( 'gpeople_root_settings_sub_import_root', array( $this, 'root_settings_sub' ), 10, 2 );
 			// add_action( 'gpeople_remote_settings_sub_import_remote', array( $this, 'remote_settings_sub' ), 10, 2 );
 
-			// WORKING but DISABLED
-			// add_filter( 'gpeople_importer_meta_pre', array( $this, 'meta_pre' ), 10, 3 );
+			add_filter( 'gpeople_importer_meta_pre', array( $this, 'meta_pre' ), 10, 3 );
 		}
 
 		// people tax merging
@@ -461,7 +460,7 @@ class gPeopleImporter extends gPluginImportCore
 	// wrapper
 	public function meta_pre_table( $metas, $row, $column )
 	{
-		$people = $this->meta_pre( array( $row['meta'] ), 0, NULL );
+		$people = $this->meta_pre( array( $row->meta ), 0, NULL );
 		return gPluginUtils::dump_get( $people );
 	}
 
@@ -652,7 +651,7 @@ class gPeopleImporter extends gPluginImportCore
 
 		}
 
-		//return gPluginTaxonomyHelper::deleteMetaKeys( $meta_key, $limit );
+		// return gPluginTaxonomyHelper::deleteMetaKeys( $meta_key, $limit );
 		return 1;
 	}
 
