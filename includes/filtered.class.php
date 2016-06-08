@@ -102,6 +102,12 @@ class gPeopleFiltered extends gPluginFilteredCore
 					'title' => NULL,
 					'callback' => '__return_false',
 					'fields' => array(
+						'content_actions' => array(
+                            'title'       => __( 'Content Actions', GPEOPLE_TEXTDOMAIN ),
+                            'description' => __( 'Add people byline before content, using gNetwork Content Actions.', GPEOPLE_TEXTDOMAIN ),
+                            'type'        => 'enabled',
+                            'default'     => FALSE,
+						),
 						'before_content' => array(
                             'title'       => __( 'Before Content', GPEOPLE_TEXTDOMAIN ),
                             'description' => __( 'Add people byline before content, for each post.', GPEOPLE_TEXTDOMAIN ),

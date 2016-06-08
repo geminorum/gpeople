@@ -22,7 +22,8 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 			if ( $this->settings->get( 'before_content', FALSE ) )
 				add_filter( 'the_content', array( $this, 'the_content' ), 25 );
-			else
+			
+			if ( $this->settings->get( 'content_actions', FALSE ) )
 				add_action( 'gnetwork_themes_content_before', array( $this, 'content_before' ), 20 );
 
 			if ( $this->settings->get( 'author_link', FALSE ) )
