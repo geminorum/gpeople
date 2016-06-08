@@ -448,12 +448,14 @@ class gPeopleImporter extends gPluginImportCore
 
 	public function meta_row_table( $metas, $row, $column )
 	{
+		$post_id = is_array( $row ) ? $row['post_id'] : $row->post_id;
+
 		$url = add_query_arg( array(
 			'action' => 'edit',
-			'post'   => $row['post_id'],
+			'post'   => $post_id,
 		), get_admin_url( NULL, 'post.php' ) );
 
-		$terms = get_the_term_list( $row['post_id'], $this->constants['people_tax'], '<br />', ', ', '' );
+		$terms = get_the_term_list( $post_id, $this->constants['people_tax'], '<br />', ', ', '' );
 		return $metas.' <small>( <a href="'.$url.'" target="_blank">Edit</a> | <a href="#" target="_blank">View</a> )</small><br /><small>'.$terms.'</small>';
 	}
 
