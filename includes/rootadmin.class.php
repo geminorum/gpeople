@@ -69,7 +69,7 @@ class gPeopleRootAdmin extends gPluginAdminCore
 	{
 		if ( 'picture' == $column_name ) {
 			if ( $picture = gPluginWPHelper::get_featured_image_src( $post_id, 'thumbnail', FALSE ) )
-				echo gPluginFormHelper::html( 'img', array(
+				echo gPluginHTML::tag( 'img', array(
 					'src' => $picture,
 					// 'style' => 'max-width:50px;max-height:60px;',
 				) );

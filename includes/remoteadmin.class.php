@@ -200,14 +200,14 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 		$byline = $gPeopleNetwork->remote->get_people( $post->ID );
 
-		echo gPluginFormHelper::html( 'div', array(
+		echo gPluginHTML::tag( 'div', array(
 			'id'    => 'gpeople_saved_byline',
 			'class' => 'metabox-row byline',
 			'title' => _x( 'Byline as Appears on Your Site', 'Remote: Admin Meta Box: Title Attr', GPEOPLE_TEXTDOMAIN ),
 			'style' => $byline ? FALSE : 'display:none;',
 		), $byline );
 
-		$html = gPluginFormHelper::html( 'a', array(
+		$html = gPluginHTML::tag( 'a', array(
 			'id'    => 'gpeople-meta-add-people',
 			'href'  => '#',
 			'class' => 'gpeople-modal-open button',
@@ -215,7 +215,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		), '<span class="dashicons dashicons-groups"></span>'
 			._x( 'Add People', 'Remote: Admin Meta Box: Button Text', GPEOPLE_TEXTDOMAIN ) );
 
-		echo gPluginFormHelper::html( 'div', array(
+		echo gPluginHTML::tag( 'div', array(
 			'class' => 'metabox-row metabox-action',
 		), $html );
 
@@ -349,7 +349,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		} else if ( 'picture' == $column ) {
 
 			if ( $picture = $gPeopleNetwork->picture->get_people_image( $term_id, 'thumbnail' ) )
-				echo gPluginFormHelper::html( 'img', array( 'src' => $picture ) );
+				echo gPluginHTML::tag( 'img', array( 'src' => $picture ) );
 		}
 	}
 

@@ -22,7 +22,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 			if ( $this->settings->get( 'before_content', FALSE ) )
 				add_filter( 'the_content', array( $this, 'the_content' ), 25 );
-			
+
 			if ( $this->settings->get( 'content_actions', FALSE ) )
 				add_action( 'gnetwork_themes_content_before', array( $this, 'content_before' ), 20 );
 
@@ -320,7 +320,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 				$attr = apply_filters( 'people_byline_walker_attr', $attr, $person, $args, $people, $atts );
 
-				$tag = gPluginFormHelper::html( ( $args['link'] && $person['link'] ? 'a' : 'span' ) , $attr, $person['name'] );
+				$tag = gPluginHTML::tag( ( $args['link'] && $person['link'] ? 'a' : 'span' ) , $attr, $person['name'] );
 
 				if ( $person['filter'] ) {
 					if ( FALSE === strpos( $person['filter'], '%s' ) )

@@ -16,7 +16,7 @@ class gPeoplePicture extends gPluginModuleCore
 		$src = apply_filters( 'gpeople_remote_default_profile_image', GPEOPLE_URL.'assets/images/default_avatar.png' );
 
 		if ( $tag )
-			return gPluginFormHelper::html( 'img', array( 'src' => $src ) );
+			return gPluginHTML::tag( 'img', array( 'src' => $src ) );
 
 		return $src;
 	}

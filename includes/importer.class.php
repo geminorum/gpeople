@@ -213,7 +213,7 @@ class gPeopleImporter extends gPluginImportCore
 				) );
 
 
-				echo gPluginFormHelper::html( 'p', array(
+				echo gPluginHTML::tag( 'p', array(
 					'class' => 'description',
 				), __( 'Check for Custom Fields and import them into People', GPEOPLE_TEXTDOMAIN ) );
 
@@ -226,7 +226,7 @@ class gPeopleImporter extends gPluginImportCore
 
 
 			} else {
-				echo gPluginFormHelper::html( 'p', array(
+				echo gPluginHTML::tag( 'p', array(
 					'class' => 'description',
 				), __( 'No custom fields!', GPEOPLE_TEXTDOMAIN ) );
 			}
@@ -281,7 +281,7 @@ class gPeopleImporter extends gPluginImportCore
 				'field_class'  => 'small-text',
 			) );
 
-			echo gPluginFormHelper::html( 'p', array(
+			echo gPluginHTML::tag( 'p', array(
 				'class' => 'description',
 			), __( 'Check for Editorial Meta Authors and import them into People', GPEOPLE_TEXTDOMAIN ) );
 
@@ -345,7 +345,7 @@ class gPeopleImporter extends gPluginImportCore
 				'field_class'  => 'small-text',
 			) );
 
-			echo gPluginFormHelper::html( 'p', array(
+			echo gPluginHTML::tag( 'p', array(
 				'class' => 'description',
 			), __( 'Check for people terms and update people meta table for each post', GPEOPLE_TEXTDOMAIN ) );
 

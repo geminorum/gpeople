@@ -63,7 +63,7 @@ class gPeopleRemoteTemplate extends gPluginTemplateCore
 					$tag_atts = array();
 
 				$tag_atts['src'] = $src;
-				$tag = gPluginFormHelper::html( 'img', $tag_atts );
+				$tag = gPluginHTML::tag( 'img', $tag_atts );
 
 				if ( isset( $atts['echo'] ) ) {
 					if ( ! $atts['echo'] )
