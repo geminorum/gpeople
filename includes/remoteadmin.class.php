@@ -184,11 +184,11 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			$title = _x( 'People', 'add_meta_boxes', GPEOPLE_TEXTDOMAIN );
 
 			if ( current_user_can( 'manage_categories' ) )
-				$title .= ' <span class="gpeople-admin-action-metabox"><a href="'.esc_url( gPluginWPHelper::getEditTaxLink( $this->constants['people_tax'] ) ).'" target="_blank">'.__( 'Managment', GPEOPLE_TEXTDOMAIN ).'</a></span>';
+				$title .= ' <span class="postbox-title-action gpeople-postbox-title-action"><a href="'
+					.esc_url( gPluginWPHelper::getEditTaxLink( $this->constants['people_tax'] ) )
+					.'" target="_blank">'._x( 'Management', 'add_meta_boxes', GPEOPLE_TEXTDOMAIN ).'</a></span>';
 
 			add_meta_box( 'gpeople-people', $title, array( $this, 'do_meta_box' ), $post_type, 'side', 'high' );
-
-			// 	remove_meta_box( 'tagsdiv-'.$this->constants['people_tax'], $post_type, 'side' );
 		}
 	}
 
