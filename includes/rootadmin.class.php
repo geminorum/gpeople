@@ -128,10 +128,7 @@ class gPeopleRootAdmin extends gPluginAdminCore
 
 	public function enter_title_here( $title, $post )
 	{
-		if ( $this->constants['profile_cpt'] == $post->post_type )
-			return __( 'Enter name here', GPEOPLE_TEXTDOMAIN );
-
-		return $title;
+		return _x( 'Enter name here', 'Root: Admin: Profile Title Placeholder', GPEOPLE_TEXTDOMAIN );
 	}
 
 	public function dashboard_glance_items( $items )
