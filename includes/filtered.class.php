@@ -71,10 +71,10 @@ class gPeopleFiltered extends gPluginFilteredCore
 					'callback' => '__return_false',
 					'fields' => array(
 						'gpeople_remote' => array(
-                            'title'       => _x( 'People', 'Settings: Field Name', GPEOPLE_TEXTDOMAIN ),
-                            'description' => _x( 'Select to enable gPeople remote tools on this site', 'Settings: Field Description', GPEOPLE_TEXTDOMAIN ),
-                            'type'        => 'enabled',
-                            'default'     => FALSE,
+							'title'       => _x( 'People', 'Settings: Field Name', GPEOPLE_TEXTDOMAIN ),
+							'description' => _x( 'Select to enable gPeople remote tools on this site', 'Settings: Field Description', GPEOPLE_TEXTDOMAIN ),
+							'type'        => 'enabled',
+							'default'     => FALSE,
 						),
 					),
 				),
@@ -83,10 +83,10 @@ class gPeopleFiltered extends gPluginFilteredCore
 
 		// if ( defined( 'GPEOPLE_ENABLE_MULTIROOTBLOG' ) && constant( 'GPEOPLE_ENABLE_MULTIROOTBLOG' ) )
 		// 	$args['sections']['gplugin']['fields']['gpeople_root'] = array(
-        //         'title'       => __( 'People Home', GPEOPLE_TEXTDOMAIN ),
-        //         'description' => __( 'select to enable gPeople profile management on this site', GPEOPLE_TEXTDOMAIN ),
-        //         'type'        => 'enabled',
-        //         'default'     => FALSE,
+		// 	'title'       => __( 'People Home', GPEOPLE_TEXTDOMAIN ),
+		// 	'description' => __( 'select to enable gPeople profile management on this site', GPEOPLE_TEXTDOMAIN ),
+		// 	'type'        => 'enabled',
+		// 	'default'     => FALSE,
 		// 	);
 
 		return $args;
@@ -95,30 +95,31 @@ class gPeopleFiltered extends gPluginFilteredCore
 	protected function remote_settings_args()
 	{
 		return array(
-			'page'         => 'gpeople_remote_general',
 			'option_group' => 'gpeople_remote',
-			'sections'     => array(
+			'page'         => 'gpeople_remote_general',
+
+			'sections' => array(
 				'default' => array(
-					'title' => NULL,
+					'title'    => NULL,
 					'callback' => '__return_false',
-					'fields' => array(
+					'fields'   => array(
 						'content_actions' => array(
-                            'title'       => __( 'Content Actions', GPEOPLE_TEXTDOMAIN ),
-                            'description' => __( 'Add people byline before content, using gNetwork Content Actions.', GPEOPLE_TEXTDOMAIN ),
-                            'type'        => 'enabled',
-                            'default'     => FALSE,
+							'title'       => __( 'Content Actions', GPEOPLE_TEXTDOMAIN ),
+							'description' => __( 'Add people byline before content, using gNetwork Content Actions.', GPEOPLE_TEXTDOMAIN ),
+							'type'        => 'enabled',
+							'default'     => FALSE,
 						),
 						'before_content' => array(
-                            'title'       => __( 'Before Content', GPEOPLE_TEXTDOMAIN ),
-                            'description' => __( 'Add people byline before content, for each post.', GPEOPLE_TEXTDOMAIN ),
-                            'type'        => 'enabled',
-                            'default'     => FALSE,
+							'title'       => __( 'Before Content', GPEOPLE_TEXTDOMAIN ),
+							'description' => __( 'Add people byline before content, for each post.', GPEOPLE_TEXTDOMAIN ),
+							'type'        => 'enabled',
+							'default'     => FALSE,
 						),
 						'author_link' => array(
-                            'title'       => __( 'Link Author', GPEOPLE_TEXTDOMAIN ),
-                            'description' => __( 'Select to replace author link with people, for each post.', GPEOPLE_TEXTDOMAIN ),
-                            'type'        => 'enabled',
-                            'default'     => FALSE,
+							'title'       => __( 'Link Author', GPEOPLE_TEXTDOMAIN ),
+							'description' => __( 'Select to replace author link with people, for each post.', GPEOPLE_TEXTDOMAIN ),
+							'type'        => 'enabled',
+							'default'     => FALSE,
 						),
 					),
 				),
@@ -167,6 +168,7 @@ class gPeopleFiltered extends gPluginFilteredCore
 		);
 	}
 
+	// FIXME: DEPRECATED
 	protected function remote_support_post_types()
 	{
 		return array(
@@ -206,96 +208,96 @@ class gPeopleFiltered extends gPluginFilteredCore
 	protected function profile_group_tax_labels()
 	{
 		return array(
-            'name'                       => _x( 'Profile Groups', 'Profile Group Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
-            'menu_name'                  => _x( 'Profile Groups', 'Profile Group Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
-            'singular_name'              => _x( 'Profile Group', 'Profile Group Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
-            'search_items'               => _x( 'Search Profile Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'popular_items'              => NULL, // _x( 'Popular Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'all_items'                  => _x( 'All Profile Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'edit_item'                  => _x( 'Edit Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'view_item'                  => _x( 'View Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'update_item'                => _x( 'Update Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_new_item'               => _x( 'Add New Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'new_item_name'              => _x( 'New Profile Group Name', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'separate_items_with_commas' => _x( 'Separate profile groups with commas', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_or_remove_items'        => _x( 'Add or remove profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'choose_from_most_used'      => _x( 'Choose from the most used profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'not_found'                  => _x( 'No profile groups found.', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'no_terms'                   => _x( 'No profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list_navigation'      => _x( 'Profile groups list navigation', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list'                 => _x( 'Profile groups list', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'name'                       => _x( 'Profile Groups', 'Profile Group Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
+			'menu_name'                  => _x( 'Profile Groups', 'Profile Group Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
+			'singular_name'              => _x( 'Profile Group', 'Profile Group Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
+			'search_items'               => _x( 'Search Profile Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'popular_items'              => NULL, // _x( 'Popular Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'all_items'                  => _x( 'All Profile Groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'edit_item'                  => _x( 'Edit Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'view_item'                  => _x( 'View Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'update_item'                => _x( 'Update Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_new_item'               => _x( 'Add New Profile Group', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'new_item_name'              => _x( 'New Profile Group Name', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'separate_items_with_commas' => _x( 'Separate profile groups with commas', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_or_remove_items'        => _x( 'Add or remove profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'choose_from_most_used'      => _x( 'Choose from the most used profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'not_found'                  => _x( 'No profile groups found.', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'no_terms'                   => _x( 'No profile groups', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list_navigation'      => _x( 'Profile groups list navigation', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list'                 => _x( 'Profile groups list', 'Profile Group Tax Labels', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
 	protected function people_tax_labels()
 	{
 		return array(
-            'name'                       => _x( 'People', 'People Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
-            'menu_name'                  => _x( 'People', 'People Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
-            'singular_name'              => _x( 'Person', 'People Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
-            'search_items'               => _x( 'Search People', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'popular_items'              => NULL, // _x( 'Popular People', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'all_items'                  => _x( 'All People', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'edit_item'                  => _x( 'Edit Person', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'view_item'                  => _x( 'View Person', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'update_item'                => _x( 'Update Person', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_new_item'               => _x( 'Add New Person', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'new_item_name'              => _x( 'New Person Name', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'separate_items_with_commas' => _x( 'Separate people with commas', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_or_remove_items'        => _x( 'Add or remove people', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'choose_from_most_used'      => _x( 'Choose from the most used people', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'not_found'                  => _x( 'No people found.', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'no_terms'                   => _x( 'No people', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list_navigation'      => _x( 'People list navigation', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list'                 => _x( 'People list', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'name'                       => _x( 'People', 'People Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
+			'menu_name'                  => _x( 'People', 'People Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
+			'singular_name'              => _x( 'Person', 'People Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
+			'search_items'               => _x( 'Search People', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'popular_items'              => NULL, // _x( 'Popular People', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'all_items'                  => _x( 'All People', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'edit_item'                  => _x( 'Edit Person', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'view_item'                  => _x( 'View Person', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'update_item'                => _x( 'Update Person', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_new_item'               => _x( 'Add New Person', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'new_item_name'              => _x( 'New Person Name', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'separate_items_with_commas' => _x( 'Separate people with commas', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_or_remove_items'        => _x( 'Add or remove people', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'choose_from_most_used'      => _x( 'Choose from the most used people', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'not_found'                  => _x( 'No people found.', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'no_terms'                   => _x( 'No people', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list_navigation'      => _x( 'People list navigation', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list'                 => _x( 'People list', 'People Tax Labels', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
 	protected function affiliation_tax_labels()
 	{
 		return array(
-            'name'                       => _x( 'Affiliations', 'Affiliations Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
-            'menu_name'                  => _x( 'Affiliations', 'Affiliations Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
-            'singular_name'              => _x( 'Affiliation', 'Affiliations Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
-            'search_items'               => _x( 'Search Affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'popular_items'              => NULL, // _x( 'Popular Affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'all_items'                  => _x( 'All Affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'edit_item'                  => _x( 'Edit Affiliation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'view_item'                  => _x( 'View Affiliation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'update_item'                => _x( 'Update Affiliation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_new_item'               => _x( 'Add New Affiliation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'new_item_name'              => _x( 'New Affiliation Name', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'separate_items_with_commas' => _x( 'Separate affiliations with commas', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_or_remove_items'        => _x( 'Add or remove affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'choose_from_most_used'      => _x( 'Choose from the most used affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'not_found'                  => _x( 'No affiliations found.', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'no_terms'                   => _x( 'No affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list_navigation'      => _x( 'Affiliations list navigation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list'                 => _x( 'Affiliations list', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'name'                       => _x( 'Affiliations', 'Affiliations Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
+			'menu_name'                  => _x( 'Affiliations', 'Affiliations Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
+			'singular_name'              => _x( 'Affiliation', 'Affiliations Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
+			'search_items'               => _x( 'Search Affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'popular_items'              => NULL, // _x( 'Popular Affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'all_items'                  => _x( 'All Affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'edit_item'                  => _x( 'Edit Affiliation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'view_item'                  => _x( 'View Affiliation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'update_item'                => _x( 'Update Affiliation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_new_item'               => _x( 'Add New Affiliation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'new_item_name'              => _x( 'New Affiliation Name', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'separate_items_with_commas' => _x( 'Separate affiliations with commas', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_or_remove_items'        => _x( 'Add or remove affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'choose_from_most_used'      => _x( 'Choose from the most used affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'not_found'                  => _x( 'No affiliations found.', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'no_terms'                   => _x( 'No affiliations', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list_navigation'      => _x( 'Affiliations list navigation', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list'                 => _x( 'Affiliations list', 'Affiliations Tax Labels', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
 	protected function rel_tax_labels()
 	{
 		return array(
-            'name'                       => _x( 'Relations', 'Relation Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
-            'menu_name'                  => _x( 'Relations', 'Relation Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
-            'singular_name'              => _x( 'Relation', 'Relation Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
-            'search_items'               => _x( 'Search Relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'popular_items'              => NULL, // _x( 'Popular Relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'all_items'                  => _x( 'All Relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'edit_item'                  => _x( 'Edit Relation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'view_item'                  => _x( 'View Relation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'update_item'                => _x( 'Update Relation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_new_item'               => _x( 'Add New Relation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'new_item_name'              => _x( 'New Relation Name', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'separate_items_with_commas' => _x( 'Separate relations with commas', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_or_remove_items'        => _x( 'Add or remove relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'choose_from_most_used'      => _x( 'Choose from the most used relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'not_found'                  => _x( 'No relations found.', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'no_terms'                   => _x( 'No relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list_navigation'      => _x( 'Relations list navigation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list'                 => _x( 'Relations list', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'name'                       => _x( 'Relations', 'Relation Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
+			'menu_name'                  => _x( 'Relations', 'Relation Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
+			'singular_name'              => _x( 'Relation', 'Relation Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
+			'search_items'               => _x( 'Search Relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'popular_items'              => NULL, // _x( 'Popular Relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'all_items'                  => _x( 'All Relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'edit_item'                  => _x( 'Edit Relation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'view_item'                  => _x( 'View Relation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'update_item'                => _x( 'Update Relation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_new_item'               => _x( 'Add New Relation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'new_item_name'              => _x( 'New Relation Name', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'separate_items_with_commas' => _x( 'Separate relations with commas', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_or_remove_items'        => _x( 'Add or remove relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'choose_from_most_used'      => _x( 'Choose from the most used relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'not_found'                  => _x( 'No relations found.', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'no_terms'                   => _x( 'No relations', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list_navigation'      => _x( 'Relations list navigation', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list'                 => _x( 'Relations list', 'Relation Tax Labels', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
@@ -423,14 +425,14 @@ class gPeopleFiltered extends gPluginFilteredCore
 	protected function remote_meta_data()
 	{
 		return array(
-            'o'        => 0, // order
-            'id'       => 0, // term id
-            'feat'     => 0, // featured
-            'vis'      => 'tagged', // visibility string
-            'filter'   => '', // filter
-            'override' => '', // override
-            'rel'      => 'none', // rel tax term
-            'temp'     => '', // temporary title, in case there's no people term available.
+			'o'        => 0, // order
+			'id'       => 0, // term id
+			'feat'     => 0, // featured
+			'vis'      => 'tagged', // visibility string
+			'filter'   => '', // filter
+			'override' => '', // override
+			'rel'      => 'none', // rel tax term
+			'temp'     => '', // temporary title, in case there's no people term available.
 		);
 	}
 
@@ -570,22 +572,22 @@ class gPeopleFiltered extends gPluginFilteredCore
 	protected function profile_nationality_tax_labels()
 	{
 		return array(
-            'name'                  => _x( 'Nationalities', 'Nationality Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
-            'menu_name'             => _x( 'Nationalities', 'Nationality Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
-            'singular_name'         => _x( 'Nationality', 'Nationality Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
-            'search_items'          => _x( 'Search Nationalities', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'all_items'             => _x( 'All Nationalities', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'parent_item'           => _x( 'Parent Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'parent_item_colon'     => _x( 'Parent Nationality:', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'edit_item'             => _x( 'Edit Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'view_item'             => _x( 'View Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'update_item'           => _x( 'Update Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'add_new_item'          => _x( 'Add New Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'new_item_name'         => _x( 'New Nationality Name', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'not_found'             => _x( 'No nationalities found.', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'no_terms'              => _x( 'No nationalities', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list_navigation' => _x( 'Nationalities list navigation', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
-            'items_list'            => _x( 'Nationalities list', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'name'                  => _x( 'Nationalities', 'Nationality Tax Labels: Name', GPEOPLE_TEXTDOMAIN ),
+			'menu_name'             => _x( 'Nationalities', 'Nationality Tax Labels: Menu Name', GPEOPLE_TEXTDOMAIN ),
+			'singular_name'         => _x( 'Nationality', 'Nationality Tax Labels: Singular Name', GPEOPLE_TEXTDOMAIN ),
+			'search_items'          => _x( 'Search Nationalities', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'all_items'             => _x( 'All Nationalities', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'parent_item'           => _x( 'Parent Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'parent_item_colon'     => _x( 'Parent Nationality:', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'edit_item'             => _x( 'Edit Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'view_item'             => _x( 'View Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'update_item'           => _x( 'Update Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'add_new_item'          => _x( 'Add New Nationality', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'new_item_name'         => _x( 'New Nationality Name', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'not_found'             => _x( 'No nationalities found.', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'no_terms'              => _x( 'No nationalities', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list_navigation' => _x( 'Nationalities list navigation', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
+			'items_list'            => _x( 'Nationalities list', 'Nationality Tax Labels', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
