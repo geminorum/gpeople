@@ -12,7 +12,10 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 	{
 		global $gPeopleNetwork;
 
+		// FIXME: DEPRECATED
 		$this->supported_post_types = $gPeopleNetwork->getFilters( 'remote_support_post_types' );
+
+		$this->supported_post_types = $this->settings->get( 'supported_posttypes', $this->supported_post_types );
 
 		$this->register_taxonomies();
 

@@ -95,14 +95,22 @@ class gPeopleFiltered extends gPluginFilteredCore
 	protected function remote_settings_args()
 	{
 		return array(
-			'option_group' => 'gpeople_remote',
-			'page'         => 'gpeople_remote_general',
+			'register_hook'     => 'load-settings_page_gpeople',
+			'settings_sanitize' => FALSE,
+			'option_group'      => 'gpeople_remote',
+			'page'              => 'gpeople_remote_general',
 
 			'sections' => array(
 				'default' => array(
 					'title'    => NULL,
 					'callback' => '__return_false',
 					'fields'   => array(
+						'supported_posttypes' => array(
+							'title'       => __( 'Supported PostTypes', GPEOPLE_TEXTDOMAIN ),
+							'description' => __( 'Select posttypes with people support', GPEOPLE_TEXTDOMAIN ),
+							'type'        => 'posttypes',
+							'default'     => array( 'post', 'page' ),
+						),
 						'content_actions' => array(
 							'title'       => __( 'Content Actions', GPEOPLE_TEXTDOMAIN ),
 							'description' => __( 'Add people byline before content, using gNetwork Content Actions.', GPEOPLE_TEXTDOMAIN ),
