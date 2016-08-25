@@ -5,7 +5,7 @@ class gPeopleUser extends gPluginModuleCore
 
 	public function setup_actions()
 	{
-        $this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
+		$this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
 	}
 
 	// before : get_remote_user_data()

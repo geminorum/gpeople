@@ -5,8 +5,8 @@ class gPeopleProfile extends gPluginModuleCore
 
 	public function setup_actions()
 	{
-        $this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
-        $this->groups = array();
+		$this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
+		$this->groups = array();
 	}
 
 	// before: get_root_groups()

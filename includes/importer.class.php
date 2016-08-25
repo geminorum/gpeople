@@ -84,9 +84,9 @@ class gPeopleImporter extends gPluginImportCore
 				if ( isset( $_POST['custom_fields_import'] ) ) {
 					if ( isset( $post['custom_field'] ) ) {
 
-                        $limit  = isset( $post['custom_field_limit'] ) ? $post['custom_field_limit'] : FALSE;
-                        $offset = isset( $post['custom_field_offset'] ) ? $post['custom_field_offset'] : 0;
-                        $result = $this->import_from_meta( $post['custom_field'], $limit, $offset, TRUE );
+						$limit  = isset( $post['custom_field_limit'] ) ? $post['custom_field_limit'] : FALSE;
+						$offset = isset( $post['custom_field_offset'] ) ? $post['custom_field_offset'] : 0;
+						$result = $this->import_from_meta( $post['custom_field'], $limit, $offset, TRUE );
 
 						if ( $result ) {
 							wp_redirect( add_query_arg( array(
@@ -101,8 +101,8 @@ class gPeopleImporter extends gPluginImportCore
 
 				} else if ( isset( $_POST['editorial_meta_import'] ) ) {
 
-                    $limit = isset( $post['editorial_meta_limit'] ) ? $post['editorial_meta_limit'] : 25;
-                    $paged = isset( $post['editorial_meta_paged'] ) ? $post['editorial_meta_paged'] : 1;
+					$limit = isset( $post['editorial_meta_limit'] ) ? $post['editorial_meta_limit'] : 25;
+					$paged = isset( $post['editorial_meta_paged'] ) ? $post['editorial_meta_paged'] : 1;
 
 					if ( isset( $post['editorial_meta_post_type'] ) ) {
 						$metas = $this->get_editorial_meta( stripslashes( $post['editorial_meta_post_type'] ), $limit, $paged );
@@ -129,8 +129,8 @@ class gPeopleImporter extends gPluginImportCore
 							$count++;
 
 					wp_redirect( add_query_arg( array(
-                        'message' => 'terms_imported',
-                        'count'   => $count,
+						'message' => 'terms_imported',
+						'count'   => $count,
 					), wp_get_referer() ) );
 
 					exit();
@@ -144,10 +144,10 @@ class gPeopleImporter extends gPluginImportCore
 	{
 		global $gPeopleNetwork;
 
-        $post  = isset( $_REQUEST['gpeople_importer'] ) ? $_REQUEST['gpeople_importer'] : array();
-        $limit = isset( $post['limit'] ) ? stripslashes( $post['limit'] ) : 25;
-        $paged = isset( $post['paged'] ) ? stripslashes( $post['paged'] ) : 1;
-        $type  = isset( $post['type'] ) ? stripslashes( $post['type'] ) : 'post';
+		$post  = isset( $_REQUEST['gpeople_importer'] ) ? $_REQUEST['gpeople_importer'] : array();
+		$limit = isset( $post['limit'] ) ? stripslashes( $post['limit'] ) : 25;
+		$paged = isset( $post['paged'] ) ? stripslashes( $post['paged'] ) : 1;
+		$type  = isset( $post['type'] ) ? stripslashes( $post['type'] ) : 'post';
 
 		echo '<form method="post" action="">';
 			echo '<h3>'.__( 'Import People', GPEOPLE_TEXTDOMAIN ).'</h3>';
@@ -239,9 +239,9 @@ class gPeopleImporter extends gPluginImportCore
 
 				if ( class_exists( 'geminorum\\gNetwork\\HTML' ) )
 					geminorum\gNetwork\HTML::tableList( array(
-                        '_cb'     => '_index',
-                        'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
-                        'meta'    => array(
+						'_cb'     => '_index',
+						'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
+						'meta'    => array(
 							'title' => __( 'Meta: Author Simple', GPEOPLE_TEXTDOMAIN ),
 							'callback' => array( $this, 'meta_row_table' ),
 						),
@@ -315,9 +315,9 @@ class gPeopleImporter extends gPluginImportCore
 
 				if ( class_exists( 'geminorum\\gNetwork\\HTML' ) )
 					geminorum\gNetwork\HTML::tableList( array(
-                        '_cb'     => '_index',
-                        'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
-						'title'    => array(
+						'_cb'     => '_index',
+						'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
+						'title'   => array(
 							'title' => __( 'Title', GPEOPLE_TEXTDOMAIN ),
 							'callback' => array( $this, 'meta_row_table' ),
 						),
@@ -470,34 +470,34 @@ class gPeopleImporter extends gPluginImportCore
 	public function meta_pre( $meta, $post_id, $meta_key )
 	{
 		$same = array(
-            ':'       => '',
+			':'       => '',
 			// '/' => '| برگردان ', this is norm on firooze.net
-            '/'   => '|',
-            '،'   => '|',
-            '؛'   => '|',
-            ';'   => '|',
-            ','   => '|',
-            ' و ' => '|',
+			'/'   => '|',
+			'،'   => '|',
+			'؛'   => '|',
+			';'   => '|',
+			','   => '|',
+			' و ' => '|',
 		);
 
 		$map = array(
-            'تالیف'           => 'author',
-            'مترجم'           => 'translator',
-            'گفت‌وگو و ترجمه' => 'translator',
-            'ترجمه و تالیف'   => 'translator',
-            'ترجمهٔ'          => 'translator',
-            'ترجمه از'        => 'translator',
-            'ترجمه'           => 'translator',
-            'برگردان از'      => 'translator',
-            'برگردان'         => 'translator',
-            'گفت‌و‌گو'        => 'interviewer',
-            'انتخاب'          => 'selector',
-            'طرح‌ها'          => 'illustrator',
-            'طرح'             => 'illustrator',
-            'عکس‌ها'          => 'photographer',
-            'عکس'             => 'photographer',
-            'متن‌ها'          => 'commentator',
-            'متن'             => 'commentator',
+			'تالیف'           => 'author',
+			'مترجم'           => 'translator',
+			'گفت‌وگو و ترجمه' => 'translator',
+			'ترجمه و تالیف'   => 'translator',
+			'ترجمهٔ'          => 'translator',
+			'ترجمه از'        => 'translator',
+			'ترجمه'           => 'translator',
+			'برگردان از'      => 'translator',
+			'برگردان'         => 'translator',
+			'گفت‌و‌گو'        => 'interviewer',
+			'انتخاب'          => 'selector',
+			'طرح‌ها'          => 'illustrator',
+			'طرح'             => 'illustrator',
+			'عکس‌ها'          => 'photographer',
+			'عکس'             => 'photographer',
+			'متن‌ها'          => 'commentator',
+			'متن'             => 'commentator',
 		);
 
 		$people = array();
@@ -575,9 +575,9 @@ class gPeopleImporter extends gPluginImportCore
 	{
 		global $gPeopleNetwork;
 
-        $metas    = array();
-        $terms    = get_the_terms( $post_id, $this->constants['people_tax'] );
-        $pre_data = $gPeopleNetwork->getFilters( 'remote_meta_defaults' );
+		$metas    = array();
+		$terms    = get_the_terms( $post_id, $this->constants['people_tax'] );
+		$pre_data = $gPeopleNetwork->getFilters( 'remote_meta_defaults' );
 
 		if ( $terms && ! is_wp_error( $terms ) )
 			foreach ( $terms as $term )
@@ -690,11 +690,11 @@ class gPeopleImporter extends gPluginImportCore
 		if ( ! $post )
 			return FALSE;
 
-        $defaults  = $gPeopleNetwork->getFilters( 'remote_meta_defaults' );
-        $relations = gPluginTaxonomyHelper::prepareTerms( $gPeopleNetwork->constants['rel_people_tax'], array(), NULL, 'slug' );
+		$defaults  = $gPeopleNetwork->getFilters( 'remote_meta_defaults' );
+		$relations = gPluginTaxonomyHelper::prepareTerms( $gPeopleNetwork->constants['rel_people_tax'], array(), NULL, 'slug' );
 
-        $counter = 1;
-        $metas    = array();
+		$counter = 1;
+		$metas   = array();
 
 		foreach ( $people as $person ) {
 

@@ -355,9 +355,9 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 			$term = get_term_by( 'id', $term_or_id, $this->constants['people_tax'] );
 
 		$data = array_merge( $pre_data, array(
-            'id'   => $term->term_id,
+			'id'   => $term->term_id,
 			'temp' => $term->name,
-            // 'o'    => 0,
+			// 'o'    => 0,
 
 			// commented out in pref of the pre_data filter
 			// 'vis'      => 'public',
@@ -488,8 +488,8 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 			}
 		}
 
-        $people_tax   = wp_set_object_terms( intval( $post_id ), ( count( $people_terms ) ? array_values( $people_terms ) : NULL ), $this->constants['people_tax'], FALSE );
-        $rel_post_tax = wp_set_object_terms( intval( $post_id ), ( count( $rel_post_terms ) ? array_values( $rel_post_terms ) : NULL ), $this->constants['rel_post_tax'], FALSE );
+		$people_tax   = wp_set_object_terms( intval( $post_id ), ( count( $people_terms ) ? array_values( $people_terms ) : NULL ), $this->constants['people_tax'], FALSE );
+		$rel_post_tax = wp_set_object_terms( intval( $post_id ), ( count( $rel_post_terms ) ? array_values( $rel_post_terms ) : NULL ), $this->constants['rel_post_tax'], FALSE );
 
 		if ( is_wp_error( $people_tax ) || is_wp_error( $rel_post_tax ) )
 			return FALSE;

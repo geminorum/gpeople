@@ -193,12 +193,12 @@ class gPeopleRemoteMetaTable extends WP_List_Table
 			) ) );
 		**/
 
-        $per_page    = 10;
-        $this->items = array_slice( $this->meta,( ( $this->get_pagenum() - 1 ) * $per_page ), $per_page );
+		$per_page    = 10;
+		$this->items = array_slice( $this->meta,( ( $this->get_pagenum() - 1 ) * $per_page ), $per_page );
 
 		$this->set_pagination_args( array(
-            'total_items' => count( $this->meta ),
-            'per_page'    => $per_page,
+			'total_items' => count( $this->meta ),
+			'per_page'    => $per_page,
 		) );
 	}
 
@@ -206,8 +206,8 @@ class gPeopleRemoteMetaTable extends WP_List_Table
 	{
 		static $alternate_class = '';
 
-        $alternate_class = ( $alternate_class == '' ? ' alternate' : '' );
-        $row_class       = ' class="gpeople_meta_row' . $alternate_class . '"';
+		$alternate_class = ( $alternate_class == '' ? ' alternate' : '' );
+		$row_class       = ' class="gpeople_meta_row' . $alternate_class . '"';
 
 		echo '<tr id="gpeople_people_term-'.$this->current.'" rel="'.( isset( $item['id'] ) ? $item['id'] : '0' ).'"'.$row_class.'>';
 			$this->single_row_columns( $item );

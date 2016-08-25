@@ -56,11 +56,11 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 
 			if ( isset( $post['people_internal'] ) && count( $post['people_internal'] ) ) {
 
-	            $data     = $gPeopleNetwork->getFilters( 'remote_meta_data' );
-	            $defaults = $gPeopleNetwork->getFilters( 'remote_meta_defaults' );
+				$data     = $gPeopleNetwork->getFilters( 'remote_meta_data' );
+				$defaults = $gPeopleNetwork->getFilters( 'remote_meta_defaults' );
 
 				$counter = 1;
-	            $meta    = array();
+				$meta    = array();
 
 				foreach ( $post['people_internal'] as $internal ) {
 

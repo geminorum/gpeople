@@ -38,9 +38,9 @@ class gPeopleRelation extends gPluginModuleCore
 
 	public function after_rel_table( $taxonomy )
 	{
-        $button = __( 'Install Default Relations', GPEOPLE_TEXTDOMAIN );
-        $action = 'gpeople_action';
-        $url    = add_query_arg( $action, 'install_default_relations' );
+		$button = __( 'Install Default Relations', GPEOPLE_TEXTDOMAIN );
+		$action = 'gpeople_action';
+		$url    = add_query_arg( $action, 'install_default_relations' );
 
 		if ( isset( $_REQUEST[$action] ) ) {
 
