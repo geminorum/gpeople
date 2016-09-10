@@ -1,1 +1,0 @@
-{"version":3,"sources":["root.admin.profile.post.scss"],"names":[],"mappings":"AAGA,gFAAmD,UAAW,CAAI","file":"root.admin.profile.post.css","sourcesContent":["\n\ntable.gpeople-profile-name-box { width:100%; }\ntable.gpeople-profile-name-box tbody tr td input { width:100%; }\n"],"sourceRoot":"/source/"}

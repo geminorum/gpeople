@@ -2,23 +2,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 /// gPeople Partials: Admin All ------------------------------------------------
-
 .gpeople-admin-wrap {
-
 	.credits {
 		direction: ltr;
-
 		p {
 			font-size: 0.98em;
 		}
 	}
-
 	.signature {
 		@include body-rtl() {
 			direction: ltr;
 		}
 	}
-
 	.credits,
 	.signature {
 		color: #777;
@@ -35,38 +30,28 @@
 		}
 	}
 }
-
-.gpeople-admin-action-metabox {
-	padding: 0;
-	position: absolute;
-	right: 40px;
-	top: 6px;
-
-	@include body-rtl() {
-		left: 40px;
-		right: auto;
-		font-family: tahoma;
+.hndle {
+	.gpeople-postbox-title-action {
+		opacity: 0;
+		float: right;
+		line-height: 1.2;
+		@include body-rtl() {
+			float: left;
+		}
 	}
-
-	a {
-		text-decoration: none;
-		color: #555;
-		&:hover {
-			color: #000;
+	&:hover {
+		.gpeople-postbox-title-action {
+			opacity: 1;
 		}
 	}
 }
-
 .gpeople-admin-wrap-metabox {}
-
 // TINYMCE BUTTON ICONS
 .gpeople-tinymce-icon {
-
 	&:before {
 		font-family: "dashicons";
 		content: "\f159"; // DEFAULT
 	}
-
 	&.icon-gp_person:before {
 		content: "\f100";
 	}
