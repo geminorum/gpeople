@@ -24,7 +24,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 
 		$gPeopleNetwork->enqueue_asset_config( array(
 			'nonce'            => wp_create_nonce( $this->ajax_nonce ),
-			'loading'          => gPluginWPHelper::notice( __( 'Please wait &hellip;', GPEOPLE_TEXTDOMAIN ), 'updated fade', FALSE ),
+			'loading'          => gPluginHTML::info( __( 'Please wait &hellip;', GPEOPLE_TEXTDOMAIN ) ),
 			'spinner'          => __( 'Adding &hellip;', GPEOPLE_TEXTDOMAIN ), //'<span class="spinner"></span>',
 			'added'            => __( 'Added', GPEOPLE_TEXTDOMAIN ),
 			'error'            => __( 'Error', GPEOPLE_TEXTDOMAIN ),
@@ -190,8 +190,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 
 						$data = array(
 							'row'     => $this->get_table_row( $meta ),
-							'message' => gPluginWPHelper::notice(
-								sprintf( __( '%s added.', GPEOPLE_TEXTDOMAIN ), $new_term->name ), 'updated', FALSE ),
+							'message' => gPluginHTML::success( sprintf( __( '%s added.', GPEOPLE_TEXTDOMAIN ), $new_term->name ) ),
 						);
 
 						wp_send_json_success( $data );
@@ -253,8 +252,10 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 			$data = array(
 				'list'    => $data_raw,
 				'html'    => gPeopleMustache::render( 'remote-people-search-users', $data_html ),
-				'message' => gPluginWPHelper::notice( sprintf( __( '%s users found', GPEOPLE_TEXTDOMAIN ),
-					number_format_i18n( count( $users ) ) ), 'updated', FALSE ),
+				'message' => gPluginHTML::info(
+					sprintf( __( '%s users found', GPEOPLE_TEXTDOMAIN ),
+						number_format_i18n( count( $users ) ) )
+				),
 			);
 
 			wp_send_json_success( $data );

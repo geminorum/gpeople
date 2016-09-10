@@ -36,7 +36,7 @@ class gPeopleFiltered extends gPluginFilteredCore
 	{
 		$field = isset( $_GET['field'] ) ? $_GET['field'] : '';
 		return array(
-			'meta_imported' => self::updated( sprintf( __( 'Meta Field %s Imported', GPEOPLE_TEXTDOMAIN ), $field ) ),
+			'meta_imported' => self::success( sprintf( __( 'Meta Field %s Imported', GPEOPLE_TEXTDOMAIN ), $field ) ),
 		);
 	}
 
@@ -49,7 +49,7 @@ class gPeopleFiltered extends gPluginFilteredCore
 	{
 		return array(
 			'error'   => self::error( __( 'There was an error durring updating proccess', GPEOPLE_TEXTDOMAIN ) ),
-			'updated' => self::updated( __( 'Settings successfully updated.', GPEOPLE_TEXTDOMAIN ) ),
+			'updated' => self::success( __( 'Settings successfully updated.', GPEOPLE_TEXTDOMAIN ) ),
 		);
 	}
 
