@@ -8,27 +8,6 @@ class gPluginAdminCore extends gPluginClassCore
 	protected $priority_init       = 10;
 	protected $priority_admin_init = 10;
 
-	// FIXME: DROP THIS
-	public function setup_globals( $constants = array(), $args = array() )
-	{
-		parent::setup_globals( $constants, $args );
-
-		if ( isset( $this->_component ) ) {
-			self::__dep( 'var $_component' );
-			$this->component = $this->_component;
-		}
-
-		if ( isset( $this->_init_priority ) ) {
-			self::__dep( 'var $_init_priority' );
-			$this->priority_init = $this->_init_priority;
-		}
-
-		if ( isset( $this->_admin_init_priority ) ) {
-			self::__dep( 'var $_admin_init_priority' );
-			$this->priority_admin_init = $this->_admin_init_priority;
-		}
-	}
-
 	public function setup_actions()
 	{
 		if ( method_exists( $this, 'init' ) )
@@ -82,17 +61,18 @@ class gPluginAdminCore extends gPluginClassCore
 		$messages = $this->getFilters( $this->component.'_settings_messages', array() );
 		$titles   = $this->getFilters( $this->component.'_settings_titles', array() );
 
-		echo '<div class="wrap">';
+		echo '<div class="wrap -settings-wrap">';
 			printf( '<h1>%s</h1>', ( isset( $titles['title'] ) ? $titles['title'] : $this->args['title'] ) );
 
 			gPluginFormHelper::headerNav( $uri, $sub, $subs );
 
-			if ( isset( $_GET['message'] ) ) {
-				if ( isset( $messages[$_REQUEST['message']] ) ) {
+			if ( ! empty( $_GET['message'] ) ) {
+
+				if ( empty( $messages[$_REQUEST['message']] ) )
+					gPluginHTML::notice( $_REQUEST['message'], 'notice-error' );
+				else
 					echo $messages[$_REQUEST['message']];
-				} else {
-					gPluginWPHelper::notice( $_REQUEST['message'], 'error fade' );
-				}
+
 				$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'message' ), $_SERVER['REQUEST_URI'] );
 			}
 
@@ -113,11 +93,6 @@ class gPluginAdminCore extends gPluginClassCore
 			do_settings_sections( $this->args['domain'].'_'.$this->component.'_'.$sub );
 			submit_button();
 		echo '</form>';
-
-		// if ( gPluginWPHelper::isDev() ) {
-		// 	$options = $this->settings->get_options();
-		// 	gPluginUtils::dump( $options );
-		// }
 	}
 
 	// FIXME: DEPRECATED
@@ -131,7 +106,7 @@ class gPluginAdminCore extends gPluginClassCore
 
 	public function linkStyleSheet( $post_type, $base = 'post' )
 	{
-		gPluginFormHelper::linkStyleSheet(
+		gPluginHTML::linkStyleSheet(
 			$this->constants['plugin_url'].
 			'assets/css/'.
 			$this->component.'.'.
@@ -172,7 +147,7 @@ class gPluginAdminCore extends gPluginClassCore
 	public function admin_print_styles_settings()
 	{
 		if ( strpos( $_SERVER['REQUEST_URI'], 'page='.$this->args['domain'] ) )
-			gPluginFormHelper::linkStyleSheet( $this->constants['plugin_url'].'assets/css/'.$this->component.'.admin.settings.css', $this->constants['plugin_ver'] );
+			gPluginHTML::linkStyleSheet( $this->constants['plugin_url'].'assets/css/'.$this->component.'.admin.settings.css', $this->constants['plugin_ver'] );
 	}
 
 	public function settings_link( $links )

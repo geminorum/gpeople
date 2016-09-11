@@ -24,12 +24,12 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		$html = '';
 
 		foreach ( $subs as $slug => $page )
-			$html .= self::html( 'a', array(
+			$html .= gPluginHTML::tag( 'a', array(
 				'class' => 'nav-tab '.$prefix.$slug.( $slug == $active ? ' nav-tab-active' : '' ),
 				'href'  => add_query_arg( 'sub', $slug, $uri ),
 			), $page );
 
-		echo self::html( $tag, array(
+		echo gPluginHTML::tag( $tag, array(
 			'class' => 'nav-tab-wrapper',
 		), $html );
 	}
@@ -42,14 +42,14 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		$html = '';
 
 		foreach ( $tabs as $tab => $title )
-			$html .= self::html( 'a', array(
+			$html .= gPluginHTML::tag( 'a', array(
 				'class'    => 'nav-tab '.$prefix.$tab.( $tab == $active ? ' nav-tab-active' : '' ),
 				'href'     => '#',
 				'data-tab' => $tab,
 				'rel'      => $tab, // back comp
 			), $title );
 
-		echo self::html( $tag, array(
+		echo gPluginHTML::tag( $tag, array(
 			'class' => 'nav-tab-wrapper',
 		), $html );
 	}
@@ -65,26 +65,20 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		echo '</'.$tag.'>';
 	}
 
+	// FIXME: DROP THIS
+	// DEPRICATED: use `gPluginHTML::linkStyleSheet()`
 	public static function linkStyleSheet( $url, $version = NULL, $media = 'all' )
 	{
-		if ( is_array( $version ) )
-			$url = add_query_arg( $version, $url );
-
-		else if ( $version )
-			$url = add_query_arg( 'ver', $version, $url );
-
-		echo "\t".self::html( 'link', array(
-			'rel'   => 'stylesheet',
-			'href'  => $url,
-			'type'  => 'text/css',
-			'media' => $media,
-		) )."\n";
+		self::__dep( 'gPluginHTML::linkStyleSheet()' );
+		gPluginHTML::linkStyleSheet( $url, $version, $media );
 	}
 
-	// NOTE: like WP core but without filter and fallback
-	// ANCESTOR: sanitize_html_class()
+	// FIXME: DROP THIS
+	// DEPRICATED: use `gPluginHTML::sanitizeClass()`
 	public static function sanitizeHTMLClass( $class )
 	{
+		self::__dep( 'gPluginHTML::sanitizeClass()' );
+
 		// strip out any % encoded octets
 		$sanitized = preg_replace( '|%[a-fA-F0-9][a-fA-F0-9]|', '', $class );
 
@@ -94,10 +88,12 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		return $sanitized;
 	}
 
-	// NOTE: like WP core but without filter
-	// ANCESTOR: tag_escape()
+	// FIXME: DROP THIS
+	// DEPRICATED: use `gPluginHTML::sanitizeTag()`
 	public static function sanitizeHTMLTag( $tag )
 	{
+		self::__dep( 'gPluginHTML::sanitizeTag()' );
+
 		return strtolower( preg_replace('/[^a-zA-Z0-9_:]/', '', $tag ) );
 	}
 
@@ -176,8 +172,12 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		return $html.'>';
 	}
 
+	// FIXME: DROP THIS
+	// DEPRICATED: use `gPluginHTML::tag()`
 	public static function html( $tag, $atts = array(), $content = FALSE, $sep = '' )
 	{
+		self::__dep( 'gPluginHTML::tag()' );
+
 		$tag = self::sanitizeHTMLTag( $tag );
 
 		if ( is_array( $atts ) )
@@ -215,7 +215,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 
 			if ( ! is_null( $args['none_title'] ) ) {
 
-				$html .= self::html( 'option', array(
+				$html .= gPluginHTML::tag( 'option', array(
 					'value'    => $args['none_value'],
 					'selected' => $args['selected'] == $args['none_value'],
 				), esc_html( $args['none_title'] ) );
@@ -231,13 +231,13 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 				else
 					$title = $value;
 
-				$html .= self::html( 'option', array(
+				$html .= gPluginHTML::tag( 'option', array(
 					'value'    => $key,
 					'selected' => $args['selected'] == $key,
 				), esc_html( $title ) );
 			}
 
-			$html = self::html( 'select', array(
+			$html = gPluginHTML::tag( 'select', array(
 				'name'     => $args['name'],
 				'id'       => $args['id'],
 				'class'    => $args['class'],
@@ -320,20 +320,20 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		$html = '';
 
 		if ( $none ) {
-			$html .= self::html( 'option', array(
+			$html .= gPluginHTML::tag( 'option', array(
 				'value'    => $none_val,
 				'selected' => $selected == $none_val,
 			), esc_html( $none ) );
 		}
 
 		foreach ( $list as $key => $item ) {
-			$html .= self::html( 'option', array(
+			$html .= gPluginHTML::tag( 'option', array(
 				'value'    => $key,
 				'selected' => $selected == $key,
 			), esc_html( ( $prop ? ( $obj ? $item->{$prop} : $item[$prop] ) : $item ) ) );
 		}
 
-		return self::html( 'select', array(
+		return gPluginHTML::tag( 'select', array(
 			'id'   => $name,
 			'name' => $name,
 		), $html );

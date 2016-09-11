@@ -62,16 +62,13 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 		return $rounded;
 	}
 
-	public static function strposArray( $haystack, $needle )
+	public static function strposArray( $needles, $haystack )
 	{
-		if ( ! is_array( $haystack ) )
-			$haystack = array( $haystack );
-
-		foreach ( $haystack as $key => $what )
-			if ( FALSE !== ( $pos = strpos( $what, $needle ) ) )
+		foreach ( (array) $needles as $key => $needle )
+			if ( FALSE !== strpos( $haystack, $needle ) )
 				return $key;
 
-		return FALSE; // NOTE: always check for FALSE
+		return FALSE;
 	}
 
 	// FIXME: DEPRECATED

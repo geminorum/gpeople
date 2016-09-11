@@ -42,19 +42,37 @@ if ( ! class_exists( 'gPluginFilteredCore' ) ) { class gPluginFilteredCore exten
 		return $this->filtered[$group];
 	}
 
-	// HELPER
 	public static function error( $message )
 	{
-		return gPluginWPHelper::notice( $message, 'error fade', FALSE );
+		return gPluginHTML::error( $message );
 	}
 
-	// HELPER
+	public static function success( $message )
+	{
+		return gPluginHTML::success( $message );
+	}
+
+	public static function warning( $message )
+	{
+		return gPluginHTML::warning( $message );
+	}
+
+	public static function info( $message )
+	{
+		return gPluginHTML::info( $message );
+	}
+
+	// FIXME: DEPRECATED
 	public static function updated( $message )
 	{
-		return gPluginWPHelper::notice( $message, 'updated fade', FALSE );
+		self::__dep( 'self::success()' );
+		return gPluginHTML::success( $message );
 	}
 
-	// gPlugin default group filters
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/// gPlugin default group filters
 
 	// protected function admin_settings_subs() { return array(); }
 	// protected function admin_settings_messages() { return array(); }

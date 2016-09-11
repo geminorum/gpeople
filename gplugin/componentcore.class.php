@@ -21,24 +21,6 @@ if ( ! class_exists( 'gPluginComponentCore' ) ) { class gPluginComponentCore ext
 			'option_group' => FALSE,
 		) );
 
-		// FIXME: DROP THIS
-		if ( isset( $this->_plugins_loaded ) ) {
-			self::__dep( 'var $_plugins_loaded' );
-			$this->priority_plugins_loaded = $this->_plugins_loaded;
-		}
-
-		// FIXME: DROP THIS
-		if ( isset( $this->_init_priority ) ) {
-			self::__dep( 'var $_init_priority' );
-			$this->priority_init = $this->_init_priority;
-		}
-
-		// FIXME: DROP THIS
-		if ( isset( $this->_admin_init_priority ) ) {
-			self::__dep( 'var $_admin_init_priority' );
-			$this->priority_admin_init = $this->_admin_init_priority;
-		}
-
 		if ( FALSE === $this->args['option_group'] )
 			$this->inject( 'args', array( 'option_group' => $this->args['domain'] ) );
 
@@ -68,12 +50,18 @@ if ( ! class_exists( 'gPluginComponentCore' ) ) { class gPluginComponentCore ext
 
 	public function setup_settings()
 	{
-		if ( isset( $this->constants['class_'.$this->args['component'].'_settings'] ) )
+		$key = 'class_'.$this->args['component'].'_settings';
+
+		if ( isset( $this->constants[$key] ) ) {
 			$this->settings = gPluginFactory::get(
-				$this->constants['class_'.$this->args['component'].'_settings'],
+				$this->constants[$key],
 				$this->constants,
 				$this->getFilters( $this->args['component'].'_settings_args' )
 			);
+
+			if ( method_exists( $this, 'settings_args_late' ) )
+				add_filter( 'gplugin_settings_args_'.strtolower( $this->constants[$key] ), array( $this, 'settings_args_late' ) );
+		}
 	}
 
 	public function setup_actions()
@@ -231,11 +219,7 @@ if ( ! class_exists( 'gPluginComponentCore' ) ) { class gPluginComponentCore ext
 			break;
 			case 'term' :
 
-				// TODO: DROP: gPluginTermMeta
-				if ( function_exists( 'get_term_meta' ) )
-					$meta = get_term_meta( $id, $key, TRUE );
-				else
-					$meta = gPluginTermMeta::get_term_meta( $id, $key, TRUE );
+				$meta = get_term_meta( $id, $key, TRUE );
 
 			break;
 			case 'post' :
@@ -275,7 +259,9 @@ if ( ! class_exists( 'gPluginComponentCore' ) ) { class gPluginComponentCore ext
 		switch ( $to ) {
 			case 'user' :
 
-				if ( FALSE === $value || ( is_array( $value ) && ! count( $value ) ) )
+				if ( FALSE === $value
+					|| ( is_array( $value )
+						&& ! count( $value ) ) )
 					delete_user_meta( $id, $key );
 				else
 					update_user_meta( $id, $key, $meta );
@@ -283,24 +269,20 @@ if ( ! class_exists( 'gPluginComponentCore' ) ) { class gPluginComponentCore ext
 			break;
 			case 'term' :
 
-				// TODO: DROP: gPluginTermMeta
-				if ( FALSE === $value || ( is_array( $value ) && ! count( $value ) ) ) {
-					if ( function_exists( 'delete_term_meta' ) )
-						delete_term_meta( $id, $key );
-					else
-						gPluginTermMeta::delete_term_meta( $id, $key );
-				} else {
-					if ( function_exists( 'update_term_meta' ) )
-						update_term_meta( $id, $key, $meta );
-					else
-						gPluginTermMeta::update_term_meta( $id, $key, $meta );
-				}
+				if ( FALSE === $value
+					|| ( is_array( $value )
+						&& ! count( $value ) ) )
+					delete_term_meta( $id, $key );
+				else
+					update_term_meta( $id, $key, $meta );
 
 			break;
 			case 'post' :
 			default :
 
-				if ( FALSE === $value || ( is_array( $value ) && ! count( $value ) ) )
+				if ( FALSE === $value
+					|| ( is_array( $value )
+						&& ! count( $value ) ) )
 					delete_post_meta( $id, $key );
 				else
 					update_post_meta( $id, $key, $meta );

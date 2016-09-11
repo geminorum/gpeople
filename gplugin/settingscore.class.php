@@ -161,7 +161,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 
 			case 'hidden' :
 
-				echo gPluginFormHelper::html( 'input', array(
+				echo gPluginHTML::tag( 'input', array(
 					'type'  => 'hidden',
 					'name'  => $name,
 					'id'    => $id,
@@ -173,17 +173,17 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 			break;
 			case 'enabled' :
 
-				$html = gPluginFormHelper::html( 'option', array(
+				$html = gPluginHTML::tag( 'option', array(
 					'value'    => '0',
 					'selected' => '0' == $value,
 				), ( isset( $args['values'][0] ) ? $args['values'][0] : esc_html__( 'Disabled' ) ) );
 
-				$html .= gPluginFormHelper::html( 'option', array(
+				$html .= gPluginHTML::tag( 'option', array(
 					'value'    => '1',
 					'selected' => '1' == $value,
 				), ( isset( $args['values'][1] ) ? $args['values'][1] : esc_html__( 'Enabled' ) ) );
 
-				echo gPluginFormHelper::html( 'select', array(
+				echo gPluginHTML::tag( 'select', array(
 					'class' => $args['field_class'],
 					'name'  => $name,
 					'id'    => $id,
@@ -196,7 +196,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 				if ( ! $args['field_class'] )
 					$args['field_class'] = 'regular-text';
 
-				echo gPluginFormHelper::html( 'input', array(
+				echo gPluginHTML::tag( 'input', array(
 					'type'        => 'text',
 					'class'       => $args['field_class'],
 					'name'        => $name,
@@ -216,7 +216,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 				if ( ! $args['dir'] )
 					$args['dir'] = 'ltr';
 
-				echo gPluginFormHelper::html( 'input', array(
+				echo gPluginHTML::tag( 'input', array(
 					'type'        => 'number',
 					'class'       => $args['field_class'],
 					'name'        => $name,
@@ -236,7 +236,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 
 					if ( ! is_null( $args['none_title'] ) ) {
 
-						$html = gPluginFormHelper::html( 'input', array(
+						$html = gPluginHTML::tag( 'input', array(
 							'type'     => 'checkbox',
 							'class'    => $args['field_class'],
 							'name'     => $name.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
@@ -247,7 +247,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 							'dir'      => $args['dir'],
 						) );
 
-						echo '<p>'.gPluginFormHelper::html( 'label', array(
+						echo '<p>'.gPluginHTML::tag( 'label', array(
 							'for' => $id.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
 						), $html.'&nbsp;'.esc_html( $args['none_title'] ) ).'</p>';
 					}
@@ -257,7 +257,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 						if ( in_array( $value_name, $exclude ) )
 							continue;
 
-						$html = gPluginFormHelper::html( 'input', array(
+						$html = gPluginHTML::tag( 'input', array(
 							'type'     => 'checkbox',
 							'class'    => $args['field_class'],
 							'name'     => $name.'['.$value_name.']',
@@ -268,14 +268,14 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 							'dir'      => $args['dir'],
 						) );
 
-						echo '<p>'.gPluginFormHelper::html( 'label', array(
+						echo '<p>'.gPluginHTML::tag( 'label', array(
 							'for' => $id.'-'.$value_name,
 						), $html.'&nbsp;'.esc_html( $value_title ) ).'</p>';
 					}
 
 				} else {
 
-					$html = gPluginFormHelper::html( 'input', array(
+					$html = gPluginHTML::tag( 'input', array(
 						'type'     => 'checkbox',
 						'class'    => $args['field_class'],
 						'name'     => $name,
@@ -286,7 +286,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 						'dir'      => $args['dir'],
 					) );
 
-					echo '<p>'.gPluginFormHelper::html( 'label', array(
+					echo '<p>'.gPluginHTML::tag( 'label', array(
 						'for' => $id,
 					), $html.'&nbsp;'.$args['description'] ).'</p>';
 
@@ -300,7 +300,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 
 					if ( ! is_null( $args['none_title'] ) ) {
 
-						$html = gPluginFormHelper::html( 'input', array(
+						$html = gPluginHTML::tag( 'input', array(
 							'type'     => 'radio',
 							'class'    => $args['field_class'],
 							'name'     => $name,
@@ -311,7 +311,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 							'dir'      => $args['dir'],
 						) );
 
-						echo '<p>'.gPluginFormHelper::html( 'label', array(
+						echo '<p>'.gPluginHTML::tag( 'label', array(
 							'for' => $id.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
 						), $html.'&nbsp;'.esc_html( $args['none_title'] ) ).'</p>';
 					}
@@ -321,7 +321,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 						if ( in_array( $value_name, $exclude ) )
 							continue;
 
-						$html = gPluginFormHelper::html( 'input', array(
+						$html = gPluginHTML::tag( 'input', array(
 							'type'     => 'radio',
 							'class'    => $args['field_class'],
 							'name'     => $name,
@@ -332,7 +332,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 							'dir'      => $args['dir'],
 						) );
 
-						echo '<p>'.gPluginFormHelper::html( 'label', array(
+						echo '<p>'.gPluginHTML::tag( 'label', array(
 							'for' => $id.'-'.$value_name,
 						), $html.'&nbsp;'.esc_html( $value_title ) ).'</p>';
 					}
@@ -345,7 +345,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 
 					if ( ! is_null( $args['none_title'] ) ) {
 
-						$html .= gPluginFormHelper::html( 'option', array(
+						$html .= gPluginHTML::tag( 'option', array(
 							'value'    => is_null( $args['none_value'] ) ? FALSE : $args['none_value'],
 							'selected' => $value == $args['none_value'],
 						), esc_html( $args['none_title'] ) );
@@ -356,14 +356,13 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 						if ( in_array( ( $args['rekey'] ? $value_title : $value_name ), $exclude ) )
 							continue;
 
-						$html .= gPluginFormHelper::html( 'option', array(
-							// 'value'    => $value_name,
+						$html .= gPluginHTML::tag( 'option', array(
 							'value'    => $args['rekey'] ? $value_title : $value_name,
 							'selected' => $value == $value_name,
 						), esc_html( $value_title ) );
 					}
 
-					echo gPluginFormHelper::html( 'select', array(
+					echo gPluginHTML::tag( 'select', array(
 						'name'     => $name,
 						'id'       => $id,
 						'class'    => $args['field_class'],
@@ -378,7 +377,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 				if ( ! $args['field_class'] )
 					$args['field_class'] = 'large-text';
 
-				echo gPluginFormHelper::html( 'textarea', array(
+				echo gPluginHTML::tag( 'textarea', array(
 					'name'        => $name,
 					'id'          => $id,
 					'rows'        => 5,
@@ -403,7 +402,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 			break;
 			case 'file' :
 
-				echo gPluginFormHelper::html( 'input', array(
+				echo gPluginHTML::tag( 'input', array(
 					'type'     => 'file',
 					'name'     => $id, //$name,
 					'id'       => $id,
@@ -412,6 +411,30 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 					'disabled' => $args['disabled'],
 					'dir'      => $args['dir'],
 				) );
+
+			break;
+			case 'posttypes' :
+
+				foreach ( gPluginWPHelper::getPostTypes() as $value_name => $value_title ) {
+
+					if ( in_array( $value_name, $exclude ) )
+						continue;
+
+					$html = gPluginHTML::tag( 'input', array(
+						'type'     => 'checkbox',
+						'class'    => $args['field_class'],
+						'name'     => $name.'['.$value_name.']',
+						'id'       => $id.'-'.$value_name,
+						'value'    => '1',
+						'checked'  => in_array( $value_name, ( array ) $value ),
+						'disabled' => $args['disabled'],
+						'dir'      => $args['dir'],
+					) );
+
+					echo '<p>'.gPluginHTML::tag( 'label', array(
+						'for' => $id.'-'.$value_name,
+					), $html.'&nbsp;'.esc_html( $value_title ) ).'</p>';
+				}
 
 			break;
 			case 'custom' :
@@ -436,7 +459,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 			echo '&nbsp;'.$args['after'];
 
 		if ( $args['description'] && FALSE !== $args['values'] )
-			echo gPluginFormHelper::html( 'p', array(
+			echo gPluginHTML::tag( 'p', array(
 				'class' => 'description',
 			), $args['description'] );
 	}
@@ -460,7 +483,8 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 		else
 			$options = get_option( $this->option_group, array() );
 
-		return gPluginUtils::recursiveParseArgs( $options, self::get_option_defaults() );
+		// return gPluginUtils::recursiveParseArgs( $options, self::get_option_defaults() );
+		return array_merge( self::get_option_defaults(), $options );
 	}
 
 	public function update_options( $options = NULL )
@@ -471,7 +495,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 		if ( $this->args['site_options'] )
 			return update_site_option( $this->option_group, $options );
 		else
-			return update_option( $this->option_group, $options );
+			return update_option( $this->option_group, $options, TRUE );
 	}
 
 	public function get_option_defaults()
@@ -495,10 +519,8 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 		return (array) apply_filters( $this->option_group.'_option_defaults', $defaults );
 	}
 
-	protected function get_field_defaults( $field_name, $field_args )
+	protected function get_field_defaults( $field_name, $field_args, $default = '' )
 	{
-		// if ( 'checkbox' == $field_args['type'] && isset( $field_args['values'] ) )
-
 		if ( isset( $field_args['constant'] )
 			&& $field_args['constant']
 			&& defined( $field_args['constant'] ) )
@@ -507,7 +529,7 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 		if ( isset( $field_args['default'] ) )
 			return $field_args['default'];
 
-		return '';
+		return $default;
 	}
 
 	public function settings_sanitize( $input )
@@ -547,13 +569,21 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 					else if ( isset( $field_args['values'] ) && FALSE === $field_args['values'] )
 						$output[$field] = $field_args['default'];
 
-					// multiple checkboxes
+					// filled multiple checkboxes
 					else if ( is_array( $input[$field] ) )
 						$output[$field] = gPluginUtils::getKeys( $input[$field] );
 
 					// default
 					else
 						$output[$field] = $input[$field];
+
+				// empty multiple checkboxes
+				} else if ( isset( $field_args['values'] ) && FALSE !== $field_args['values'] ) {
+					$output[$field] = array();
+
+				// custom multiple checkboxes
+				} else if ( in_array( $field_args['type'], array( 'posttypes' ) ) ) {
+					$output[$field] = array();
 
 				// previously stored value
 				} else if ( isset( $stored[$field] ) ) {

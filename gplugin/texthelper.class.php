@@ -9,6 +9,11 @@ if ( ! class_exists( 'gPluginTextHelper' ) ) { class gPluginTextHelper extends g
 		return preg_replace( '/(.*)[,،;؛] (.*)/u', '$2 $1', $string );
 	}
 
+	public static function email2username( $email, $strict = TRUE )
+	{
+		return preg_replace( '/\s+/', '', sanitize_user( preg_replace( '/([^@]*).*/', '$1', $email ), $strict ) );
+	}
+
 	// https://gist.github.com/geminorum/5eec57816adb003ccefb
 	public static function joinString( $parts, $between, $last )
 	{

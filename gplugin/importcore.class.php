@@ -9,7 +9,7 @@ if ( ! class_exists( 'gPluginImportCore' ) ) { class gPluginImportCore extends g
 		EXAMPLE :
 			$attachment_id = self::selectAttachment( gPluginFileHelper::mime( 'csv' ) );
 			if ( $attachment_id )
-				$file_path = gPluginWPHelper::get_attachmnet_path( $attachment_id );
+				$file_path = gPluginWPHelper::get_attachment_path( $attachment_id );
 	*/
 	public static function selectAttachment( $mime_type = '', $selected = NULL, $name = 'attach_id' )
 	{
@@ -30,12 +30,12 @@ if ( ! class_exists( 'gPluginImportCore' ) ) { class gPluginImportCore extends g
 				$selected = $_REQUEST[$name];
 
 			foreach ( $attachments as $attachment )
-				$html .= gPluginFormHelper::html( 'option', array(
+				$html .= gPluginHTML::tag( 'option', array(
 					'value'    => $attachment->ID,
 					'selected' => $selected == $attachment->ID,
 				), esc_html( date_i18n( __( 'Y/m/j' ), strtotime( $attachment->post_date ) ).' — '.$attachment->post_title ) );
 
-			echo gPluginFormHelper::html( 'select', array(
+			echo gPluginHTML::tag( 'select', array(
 				'name' => $name,
 			), $html );
 		}

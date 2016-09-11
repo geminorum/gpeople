@@ -17,30 +17,6 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 			'options' => array(),
 		) );
 
-		// FIXME: DROP THIS
-		if ( isset( $this->_asset_styles ) ) {
-			self::__dep( 'var $_asset_styles' );
-			$this->asset_styles = $this->_asset_styles;
-		}
-
-		// FIXME: DROP THIS
-		if ( isset( $this->_asset_config ) ) {
-			self::__dep( 'var $_asset_config' );
-			$this->asset_config = $this->_asset_config;
-		}
-
-		// FIXME: DROP THIS
-		if ( isset( $this->_asset_object ) ) {
-			self::__dep( 'var $_asset_object' );
-			$this->asset_object = $this->_asset_object;
-		}
-
-		// FIXME: DROP THIS
-		if ( isset( $this->_asset_args ) ) {
-			self::__dep( 'var $_asset_args' );
-			$this->asset_args = $this->_asset_args;
-		}
-
 		$this->constants    = apply_filters( $this->args['domain'].'_network_constants', $constants );
 		$this->current_blog = get_current_blog_id();
 		// $this->blog_map     = get_site_option( $this->args['domain'].'_blog_map', array() ); // FIXME
@@ -50,21 +26,17 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 
 		if ( isset( $this->constants['class_filters'] ) )
 			gPluginFactory::get( $this->constants['class_filters'], $constants, $args );
-
-		$this->setup_settings();
 	}
 
 	public function setup_actions()
 	{
 		$this->setup_constants();
+		$this->setup_settings();
 
 		if ( method_exists( $this, 'load_textdomain' ) )
 			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 
 		add_action( 'init', array( $this, 'init' ) );
-
-		if ( isset( $this->constants['class_network_settings'] ) && method_exists( $this, 'settings_args_late' ) )
-			add_filter( 'gplugin_settings_args_'.strtolower( $this->constants['class_network_settings'] ), array( $this, 'settings_args_late' ) );
 
 		if ( is_network_admin() ) {
 
@@ -135,12 +107,16 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 
 	public function setup_settings()
 	{
-		if ( isset( $this->constants['class_network_settings'] ) )
+		if ( isset( $this->constants['class_network_settings'] ) ) {
 			$this->settings = gPluginFactory::get(
 				$this->constants['class_network_settings'],
 				$this->constants,
 				$this->getFilters( 'network_settings_args' )
 			);
+
+			if ( method_exists( $this, 'settings_args_late' ) )
+				add_filter( 'gplugin_settings_args_'.strtolower( $this->constants['class_network_settings'] ), array( $this, 'settings_args_late' ) );
+		}
 
 		if ( isset( $this->constants['class_component_settings'] ) )
 			$this->components = gPluginFactory::get(
@@ -209,17 +185,18 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 		$subs     = $this->getFilters( 'network_settings_subs', array() );
 		$titles   = $this->getFilters( 'network_settings_titles', array() );
 
-		echo '<div class="wrap">';
+		echo '<div class="wrap -settings-wrap">';
 			printf( '<h1>%s</h1>', ( isset( $titles['title'] ) ? $titles['title'] : $this->args['title'] ) );
 
 			gPluginFormHelper::headerNav( $uri, $sub, $subs );
 
-			if ( isset( $_GET['message'] ) ) {
-				if ( isset( $messages[$_REQUEST['message']] ) ) {
+			if ( ! empty( $_GET['message'] ) ) {
+
+				if ( empty( $messages[$_REQUEST['message']] ) )
+					gPluginHTML::notice( $_REQUEST['message'], 'notice-error' );
+				else
 					echo $messages[$_REQUEST['message']];
-				} else {
-					gPluginWPHelper::notice( $_REQUEST['message'], 'error fade' );
-				}
+
 				$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'message' ), $_SERVER['REQUEST_URI'] );
 			}
 

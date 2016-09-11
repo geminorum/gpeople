@@ -1,10 +1,10 @@
-<?php
+<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
 
-$GLOBALS['_gplugin'] = array( 34, __FILE__, array(
+$GLOBALS['_gplugin'] = array( 35, __FILE__, array(
 	'gPluginFactory',
 	'gPluginClassCore',
 
-	'gPluginPluginCore',
+	'gPluginPluginCore', // FIXME: DEPRECATED
 	'gPluginModuleCore',
 
 	'gPluginNetworkCore',
@@ -17,16 +17,15 @@ $GLOBALS['_gplugin'] = array( 34, __FILE__, array(
 	'gPluginMetaCore',
 	'gPluginAjaxCore',
 
-	'gPluginTemplateCore',
-	'gPluginListTableCore', // FIXME: DROP THIS
+	'gPluginTemplateCore', // FIXME: DEPRECATED
+	'gPluginListTableCore', // FIXME: DEPRECATED
 	'gPluginLoggerCore',
 	'gPluginImportCore',
 
-	// 'gPluginTermMeta', // FIXME: DROP THIS
 	'gPluginSession',
 
 	'gPluginWPHelper',
-	'gPluginWPRemote', // FIXME: DROP THIS
+	'gPluginWPRemote', // FIXME: DEPRECATED
 	'gPluginTaxonomyHelper',
 	'gPluginCacheHelper',
 
@@ -35,7 +34,6 @@ $GLOBALS['_gplugin'] = array( 34, __FILE__, array(
 	'gPluginFormHelper',
 	'gPluginTextHelper',
 	'gPluginFileHelper',
-	// 'gPluginImageHelper', // NOT USED YET
 	'gPluginLocationHelper',
 	'gPluginDateTimeHelper',
 

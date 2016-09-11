@@ -114,13 +114,13 @@ if ( ! class_exists( 'gPluginTaxonomyHelper' ) ) { class gPluginTaxonomyHelper e
 	}
 
 	// FIXME: DEPRECATED
-	public static function prepare_terms( $taxonomy, $args = array(), $terms = NULL, $key = 'term_id', $obj = TRUE )
+	public static function prepare_terms( $taxonomy, $extra = array(), $terms = NULL, $key = 'term_id', $object = TRUE )
 	{
 		self::__dep( 'gPluginTaxonomyHelper::prepareTerms()');
-		return self::prepareTerms( $taxonomy, $args, $terms, $key, $obj );
+		return self::prepareTerms( $taxonomy, $extra, $terms, $key, $object );
 	}
 
-	public static function prepareTerms( $taxonomy, $args = array(), $terms = NULL, $key = 'term_id', $obj = TRUE )
+	public static function prepareTerms( $taxonomy, $extra = array(), $terms = NULL, $key = 'term_id', $object = TRUE )
 	{
 		$new_terms = array();
 
@@ -129,7 +129,7 @@ if ( ! class_exists( 'gPluginTaxonomyHelper' ) ) { class gPluginTaxonomyHelper e
 				'hide_empty' => FALSE,
 				'orderby'    => 'name',
 				'order'      => 'ASC'
-			), $args ) );
+			), $extra ) );
 		}
 
 		if ( is_wp_error( $terms ) || FALSE === $terms )
@@ -148,7 +148,7 @@ if ( ! class_exists( 'gPluginTaxonomyHelper' ) ) { class gPluginTaxonomyHelper e
 				'id'          => $term->term_id,
 			);
 
-			$new_terms[$term->{$key}] = $obj ? (object) $new : $new;
+			$new_terms[$term->{$key}] = $object ? (object) $new : $new;
 		}
 
 		return $new_terms;

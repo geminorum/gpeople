@@ -132,7 +132,7 @@ class gPluginClassCore implements gPluginClassCoreInterface
 		if ( defined( 'WP_DEBUG_LOG' ) && ! WP_DEBUG_LOG )
 			return;
 
-		if ( is_array( $log ) )
+		if ( is_array( $log ) || is_object( $log ) )
 			error_log( print_r( $log, TRUE ) );
 		else
 			error_log( $log );
