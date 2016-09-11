@@ -38,7 +38,7 @@ Requires PHP: 5.3
 define( 'GPEOPLE_VERSION', '3.3.1' );
 define( 'GPEOPLE_VERSION_DB', '0.1' );
 define( 'GPEOPLE_VERSION_GPLUGIN', 35 );
-define( 'GPEOPLE_FILE', __FILE__ );
+define( 'GPEOPLE_FILE', basename( GPEOPLE_DIR ).'/'.basename( __FILE__ ) );
 define( 'GPEOPLE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GPEOPLE_URL', plugin_dir_url( __FILE__ ) );
 
