@@ -1,3 +1,14 @@
+### 3.3.2
+* all: switch to gplugin html class
+* all: colorbox updated to 1.6.4
+* assets: ortho support for inputs
+* network: using new gNetwork helper on overview
+* importer: fixed fatal on custom fields
+* importer: check for object on column callback
+* remote: setting for supported posttypes
+* remote: setting for byline on content actions
+* remoteadmin: default action css class for metabox
+
 ### 3.3.1
 * fixed strict notice on root meta fields
 * default sub on admin settings

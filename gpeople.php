@@ -3,7 +3,7 @@
 Plugin Name: gPeople
 Plugin URI: http://geminorum.ir/wordpress/gpeople
 Description: People, the way involved in your site. Depends on <a href="http://geminorum.ir/wordpress/gplugin/">gPlugin</a>
-Version: 3.3.1
+Version: 3.3.2
 License: GPLv3+
 Author: geminorum
 Author URI: http://geminorum.ir
@@ -17,12 +17,12 @@ Requires WP: 4.5
 Requires PHP: 5.3
 */
 
-define( 'GPEOPLE_VERSION', '3.3.1' );
+define( 'GPEOPLE_VERSION', '3.3.2' );
 define( 'GPEOPLE_VERSION_DB', '0.1' );
 define( 'GPEOPLE_VERSION_GPLUGIN', 35 );
-define( 'GPEOPLE_FILE', basename( GPEOPLE_DIR ).'/'.basename( __FILE__ ) );
 define( 'GPEOPLE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GPEOPLE_URL', plugin_dir_url( __FILE__ ) );
+define( 'GPEOPLE_FILE', basename( GPEOPLE_DIR ).'/'.basename( __FILE__ ) );
 
 if ( file_exists( WP_PLUGIN_DIR.'/gpeople-custom.php' ) )
 	require( WP_PLUGIN_DIR.'/gpeople-custom.php' );
