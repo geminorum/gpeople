@@ -4,7 +4,7 @@ Plugin Name: gPeople
 Plugin URI: http://geminorum.ir/wordpress/gpeople
 Description: People, the way involved in your site. Depends on <a href="http://geminorum.ir/wordpress/gplugin/">gPlugin</a>
 Version: 3.3.1
-License: GNU/GPL 2
+License: GPLv3+
 Author: geminorum
 Author URI: http://geminorum.ir
 Network: true
@@ -15,24 +15,6 @@ GitHub Plugin URI: https://github.com/geminorum/gpeople
 GitHub Branch: master
 Requires WP: 4.5
 Requires PHP: 5.3
-*/
-
-/*
-	Copyright 2016 geminorum
-
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	(at your option) any later version.
-
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
 define( 'GPEOPLE_VERSION', '3.3.1' );

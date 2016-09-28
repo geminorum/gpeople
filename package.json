@@ -2,6 +2,7 @@
   "name": "gpeople",
   "version": "3.3.1",
   "description": "People, the way involved in your site",
+  "license": "GPL-3+",
   "author": {
     "name": "Nasser Rafie",
     "email": "contact@geminorum.ir",
