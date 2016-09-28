@@ -7,9 +7,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n\n"
-
-#: gpeople.php:92
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: gpeople.php:74
 msgid "gPeople"
 msgstr ""
 
@@ -21,7 +20,7 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: includes/filtered.class.php:11, includes/filtered.class.php:31, includes/importer.class.php:227, includes/importer.class.php:294
+#: includes/filtered.class.php:11, includes/filtered.class.php:31, includes/importer.class.php:223, includes/importer.class.php:291
 msgid "Import"
 msgstr ""
 
@@ -59,1064 +58,1088 @@ msgstr ""
 msgid "select to enable gPeople profile management on this site"
 msgstr ""
 
-#: includes/filtered.class.php:106
+#: includes/filtered.class.php:109
+msgid "Supported PostTypes"
+msgstr ""
+
+#: includes/filtered.class.php:110
+msgid "Select posttypes with people support"
+msgstr ""
+
+#: includes/filtered.class.php:115
+msgid "Simple Mode"
+msgstr ""
+
+#: includes/filtered.class.php:116
+msgid "Simple UI with no enhancements!"
+msgstr ""
+
+#: includes/filtered.class.php:121
+msgid "Content Actions"
+msgstr ""
+
+#: includes/filtered.class.php:122
+msgid "Add people byline before content, using gNetwork Content Actions."
+msgstr ""
+
+#: includes/filtered.class.php:127
 msgid "Before Content"
 msgstr ""
 
-#: includes/filtered.class.php:107
+#: includes/filtered.class.php:128
 msgid "Add people byline before content, for each post."
 msgstr ""
 
-#: includes/filtered.class.php:112
+#: includes/filtered.class.php:133
 msgid "Link Author"
 msgstr ""
 
-#: includes/filtered.class.php:113
+#: includes/filtered.class.php:134
 msgid "Select to replace author link with people, for each post."
 msgstr ""
 
-#: includes/filtered.class.php:175
+#: includes/filtered.class.php:197
 msgctxt "Profile CPT Labels: Name"
 msgid "People"
 msgstr ""
 
-#: includes/filtered.class.php:176
+#: includes/filtered.class.php:198
 msgctxt "Profile CPT Labels: Menu Name"
 msgid "People"
 msgstr ""
 
-#: includes/filtered.class.php:177
+#: includes/filtered.class.php:199
 msgctxt "Profile CPT Labels: Singular Name"
 msgid "Person"
 msgstr ""
 
-#: includes/filtered.class.php:178
+#: includes/filtered.class.php:200
 msgctxt "Profile CPT Labels"
 msgid "Add New"
 msgstr ""
 
-#: includes/filtered.class.php:179
+#: includes/filtered.class.php:201
 msgctxt "Profile CPT Labels"
 msgid "Add New Person"
 msgstr ""
 
-#: includes/filtered.class.php:180
+#: includes/filtered.class.php:202
 msgctxt "Profile CPT Labels"
 msgid "Edit Person"
 msgstr ""
 
-#: includes/filtered.class.php:181
+#: includes/filtered.class.php:203
 msgctxt "Profile CPT Labels"
 msgid "New Person"
 msgstr ""
 
-#: includes/filtered.class.php:182
+#: includes/filtered.class.php:204
 msgctxt "Profile CPT Labels"
 msgid "View Person"
 msgstr ""
 
-#: includes/filtered.class.php:183
+#: includes/filtered.class.php:205
 msgctxt "Profile CPT Labels"
 msgid "Search People"
 msgstr ""
 
-#: includes/filtered.class.php:184
+#: includes/filtered.class.php:206
 msgctxt "Profile CPT Labels"
 msgid "No people found."
 msgstr ""
 
-#: includes/filtered.class.php:185
+#: includes/filtered.class.php:207
 msgctxt "Profile CPT Labels"
 msgid "No people found in Trash."
 msgstr ""
 
-#: includes/filtered.class.php:186
+#: includes/filtered.class.php:208
 msgctxt "Profile CPT Labels"
 msgid "All People"
 msgstr ""
 
-#: includes/filtered.class.php:187
+#: includes/filtered.class.php:209
 msgctxt "Profile CPT Labels"
 msgid "People Archives"
 msgstr ""
 
-#: includes/filtered.class.php:188
+#: includes/filtered.class.php:210
 msgctxt "Profile CPT Labels"
 msgid "Insert into person"
 msgstr ""
 
-#: includes/filtered.class.php:189
+#: includes/filtered.class.php:211
 msgctxt "Profile CPT Labels"
 msgid "Uploaded to this person"
 msgstr ""
 
-#: includes/filtered.class.php:190
+#: includes/filtered.class.php:212
 msgctxt "Profile CPT Labels"
 msgid "Profile Picture"
 msgstr ""
 
-#: includes/filtered.class.php:191
+#: includes/filtered.class.php:213
 msgctxt "Profile CPT Labels"
 msgid "Set profile picture"
 msgstr ""
 
-#: includes/filtered.class.php:192
+#: includes/filtered.class.php:214
 msgctxt "Profile CPT Labels"
 msgid "Remove profile picture"
 msgstr ""
 
-#: includes/filtered.class.php:193
+#: includes/filtered.class.php:215
 msgctxt "Profile CPT Labels"
 msgid "Use as profile picture"
 msgstr ""
 
-#: includes/filtered.class.php:194
+#: includes/filtered.class.php:216
 msgctxt "Profile CPT Labels"
 msgid "Filter people list"
 msgstr ""
 
-#: includes/filtered.class.php:195
+#: includes/filtered.class.php:217
 msgctxt "Profile CPT Labels"
 msgid "People list navigation"
 msgstr ""
 
-#: includes/filtered.class.php:196
+#: includes/filtered.class.php:218
 msgctxt "Profile CPT Labels"
 msgid "People list"
 msgstr ""
 
-#: includes/filtered.class.php:203
+#: includes/filtered.class.php:225
 msgctxt "Profile Group Tax Labels: Name"
 msgid "Profile Groups"
 msgstr ""
 
-#: includes/filtered.class.php:204
+#: includes/filtered.class.php:226
 msgctxt "Profile Group Tax Labels: Menu Name"
 msgid "Profile Groups"
 msgstr ""
 
-#: includes/filtered.class.php:205
+#: includes/filtered.class.php:227
 msgctxt "Profile Group Tax Labels: Singular Name"
 msgid "Profile Group"
 msgstr ""
 
-#: includes/filtered.class.php:206
+#: includes/filtered.class.php:228
 msgctxt "Profile Group Tax Labels"
 msgid "Search Profile Groups"
 msgstr ""
 
-#: includes/filtered.class.php:207
+#: includes/filtered.class.php:229
 msgctxt "Profile Group Tax Labels"
 msgid "Popular Groups"
 msgstr ""
 
-#: includes/filtered.class.php:208
+#: includes/filtered.class.php:230
 msgctxt "Profile Group Tax Labels"
 msgid "All Profile Groups"
 msgstr ""
 
-#: includes/filtered.class.php:209
+#: includes/filtered.class.php:231
 msgctxt "Profile Group Tax Labels"
 msgid "Edit Profile Group"
 msgstr ""
 
-#: includes/filtered.class.php:210
+#: includes/filtered.class.php:232
 msgctxt "Profile Group Tax Labels"
 msgid "View Profile Group"
 msgstr ""
 
-#: includes/filtered.class.php:211
+#: includes/filtered.class.php:233
 msgctxt "Profile Group Tax Labels"
 msgid "Update Profile Group"
 msgstr ""
 
-#: includes/filtered.class.php:212
+#: includes/filtered.class.php:234
 msgctxt "Profile Group Tax Labels"
 msgid "Add New Profile Group"
 msgstr ""
 
-#: includes/filtered.class.php:213
+#: includes/filtered.class.php:235
 msgctxt "Profile Group Tax Labels"
 msgid "New Profile Group Name"
 msgstr ""
 
-#: includes/filtered.class.php:214
+#: includes/filtered.class.php:236
 msgctxt "Profile Group Tax Labels"
 msgid "Separate profile groups with commas"
 msgstr ""
 
-#: includes/filtered.class.php:215
+#: includes/filtered.class.php:237
 msgctxt "Profile Group Tax Labels"
 msgid "Add or remove profile groups"
 msgstr ""
 
-#: includes/filtered.class.php:216
+#: includes/filtered.class.php:238
 msgctxt "Profile Group Tax Labels"
 msgid "Choose from the most used profile groups"
 msgstr ""
 
-#: includes/filtered.class.php:217
+#: includes/filtered.class.php:239
 msgctxt "Profile Group Tax Labels"
 msgid "No profile groups found."
 msgstr ""
 
-#: includes/filtered.class.php:218
+#: includes/filtered.class.php:240
 msgctxt "Profile Group Tax Labels"
 msgid "No profile groups"
 msgstr ""
 
-#: includes/filtered.class.php:219
+#: includes/filtered.class.php:241
 msgctxt "Profile Group Tax Labels"
 msgid "Profile groups list navigation"
 msgstr ""
 
-#: includes/filtered.class.php:220
+#: includes/filtered.class.php:242
 msgctxt "Profile Group Tax Labels"
 msgid "Profile groups list"
 msgstr ""
 
-#: includes/filtered.class.php:227
+#: includes/filtered.class.php:249
 msgctxt "People Tax Labels: Name"
 msgid "People"
 msgstr ""
 
-#: includes/filtered.class.php:228
+#: includes/filtered.class.php:250
 msgctxt "People Tax Labels: Menu Name"
 msgid "People"
 msgstr ""
 
-#: includes/filtered.class.php:229
+#: includes/filtered.class.php:251
 msgctxt "People Tax Labels: Singular Name"
 msgid "Person"
 msgstr ""
 
-#: includes/filtered.class.php:230
+#: includes/filtered.class.php:252
 msgctxt "People Tax Labels"
 msgid "Search People"
 msgstr ""
 
-#: includes/filtered.class.php:231
+#: includes/filtered.class.php:253
 msgctxt "People Tax Labels"
 msgid "Popular People"
 msgstr ""
 
-#: includes/filtered.class.php:232
+#: includes/filtered.class.php:254
 msgctxt "People Tax Labels"
 msgid "All People"
 msgstr ""
 
-#: includes/filtered.class.php:233
+#: includes/filtered.class.php:255
 msgctxt "People Tax Labels"
 msgid "Edit Person"
 msgstr ""
 
-#: includes/filtered.class.php:234
+#: includes/filtered.class.php:256
 msgctxt "People Tax Labels"
 msgid "View Person"
 msgstr ""
 
-#: includes/filtered.class.php:235
+#: includes/filtered.class.php:257
 msgctxt "People Tax Labels"
 msgid "Update Person"
 msgstr ""
 
-#: includes/filtered.class.php:236
+#: includes/filtered.class.php:258
 msgctxt "People Tax Labels"
 msgid "Add New Person"
 msgstr ""
 
-#: includes/filtered.class.php:237
+#: includes/filtered.class.php:259
 msgctxt "People Tax Labels"
 msgid "New Person Name"
 msgstr ""
 
-#: includes/filtered.class.php:238
+#: includes/filtered.class.php:260
 msgctxt "People Tax Labels"
 msgid "Separate people with commas"
 msgstr ""
 
-#: includes/filtered.class.php:239
+#: includes/filtered.class.php:261
 msgctxt "People Tax Labels"
 msgid "Add or remove people"
 msgstr ""
 
-#: includes/filtered.class.php:240
+#: includes/filtered.class.php:262
 msgctxt "People Tax Labels"
 msgid "Choose from the most used people"
 msgstr ""
 
-#: includes/filtered.class.php:241
+#: includes/filtered.class.php:263
 msgctxt "People Tax Labels"
 msgid "No people found."
 msgstr ""
 
-#: includes/filtered.class.php:242
+#: includes/filtered.class.php:264
 msgctxt "People Tax Labels"
 msgid "No people"
 msgstr ""
 
-#: includes/filtered.class.php:243
+#: includes/filtered.class.php:265
 msgctxt "People Tax Labels"
 msgid "People list navigation"
 msgstr ""
 
-#: includes/filtered.class.php:244
+#: includes/filtered.class.php:266
 msgctxt "People Tax Labels"
 msgid "People list"
 msgstr ""
 
-#: includes/filtered.class.php:251
+#: includes/filtered.class.php:273
 msgctxt "Affiliations Tax Labels: Name"
 msgid "Affiliations"
 msgstr ""
 
-#: includes/filtered.class.php:252
+#: includes/filtered.class.php:274
 msgctxt "Affiliations Tax Labels: Menu Name"
 msgid "Affiliations"
 msgstr ""
 
-#: includes/filtered.class.php:253
+#: includes/filtered.class.php:275
 msgctxt "Affiliations Tax Labels: Singular Name"
 msgid "Affiliation"
 msgstr ""
 
-#: includes/filtered.class.php:254
+#: includes/filtered.class.php:276
 msgctxt "Affiliations Tax Labels"
 msgid "Search Affiliations"
 msgstr ""
 
-#: includes/filtered.class.php:255
+#: includes/filtered.class.php:277
 msgctxt "Affiliations Tax Labels"
 msgid "Popular Affiliations"
 msgstr ""
 
-#: includes/filtered.class.php:256
+#: includes/filtered.class.php:278
 msgctxt "Affiliations Tax Labels"
 msgid "All Affiliations"
 msgstr ""
 
-#: includes/filtered.class.php:257
+#: includes/filtered.class.php:279
 msgctxt "Affiliations Tax Labels"
 msgid "Edit Affiliation"
 msgstr ""
 
-#: includes/filtered.class.php:258
+#: includes/filtered.class.php:280
 msgctxt "Affiliations Tax Labels"
 msgid "View Affiliation"
 msgstr ""
 
-#: includes/filtered.class.php:259
+#: includes/filtered.class.php:281
 msgctxt "Affiliations Tax Labels"
 msgid "Update Affiliation"
 msgstr ""
 
-#: includes/filtered.class.php:260
+#: includes/filtered.class.php:282
 msgctxt "Affiliations Tax Labels"
 msgid "Add New Affiliation"
 msgstr ""
 
-#: includes/filtered.class.php:261
+#: includes/filtered.class.php:283
 msgctxt "Affiliations Tax Labels"
 msgid "New Affiliation Name"
 msgstr ""
 
-#: includes/filtered.class.php:262
+#: includes/filtered.class.php:284
 msgctxt "Affiliations Tax Labels"
 msgid "Separate affiliations with commas"
 msgstr ""
 
-#: includes/filtered.class.php:263
+#: includes/filtered.class.php:285
 msgctxt "Affiliations Tax Labels"
 msgid "Add or remove affiliations"
 msgstr ""
 
-#: includes/filtered.class.php:264
+#: includes/filtered.class.php:286
 msgctxt "Affiliations Tax Labels"
 msgid "Choose from the most used affiliations"
 msgstr ""
 
-#: includes/filtered.class.php:265
+#: includes/filtered.class.php:287
 msgctxt "Affiliations Tax Labels"
 msgid "No affiliations found."
 msgstr ""
 
-#: includes/filtered.class.php:266
+#: includes/filtered.class.php:288
 msgctxt "Affiliations Tax Labels"
 msgid "No affiliations"
 msgstr ""
 
-#: includes/filtered.class.php:267
+#: includes/filtered.class.php:289
 msgctxt "Affiliations Tax Labels"
 msgid "Affiliations list navigation"
 msgstr ""
 
-#: includes/filtered.class.php:268
+#: includes/filtered.class.php:290
 msgctxt "Affiliations Tax Labels"
 msgid "Affiliations list"
 msgstr ""
 
-#: includes/filtered.class.php:275
+#: includes/filtered.class.php:297
 msgctxt "Relation Tax Labels: Name"
 msgid "Relations"
 msgstr ""
 
-#: includes/filtered.class.php:276
+#: includes/filtered.class.php:298
 msgctxt "Relation Tax Labels: Menu Name"
 msgid "Relations"
 msgstr ""
 
-#: includes/filtered.class.php:277
+#: includes/filtered.class.php:299
 msgctxt "Relation Tax Labels: Singular Name"
 msgid "Relation"
 msgstr ""
 
-#: includes/filtered.class.php:278
+#: includes/filtered.class.php:300
 msgctxt "Relation Tax Labels"
 msgid "Search Relations"
 msgstr ""
 
-#: includes/filtered.class.php:279
+#: includes/filtered.class.php:301
 msgctxt "Relation Tax Labels"
 msgid "Popular Relations"
 msgstr ""
 
-#: includes/filtered.class.php:280
+#: includes/filtered.class.php:302
 msgctxt "Relation Tax Labels"
 msgid "All Relations"
 msgstr ""
 
-#: includes/filtered.class.php:281
+#: includes/filtered.class.php:303
 msgctxt "Relation Tax Labels"
 msgid "Edit Relation"
 msgstr ""
 
-#: includes/filtered.class.php:282
+#: includes/filtered.class.php:304
 msgctxt "Relation Tax Labels"
 msgid "View Relation"
 msgstr ""
 
-#: includes/filtered.class.php:283
+#: includes/filtered.class.php:305
 msgctxt "Relation Tax Labels"
 msgid "Update Relation"
 msgstr ""
 
-#: includes/filtered.class.php:284
+#: includes/filtered.class.php:306
 msgctxt "Relation Tax Labels"
 msgid "Add New Relation"
 msgstr ""
 
-#: includes/filtered.class.php:285
+#: includes/filtered.class.php:307
 msgctxt "Relation Tax Labels"
 msgid "New Relation Name"
 msgstr ""
 
-#: includes/filtered.class.php:286
+#: includes/filtered.class.php:308
 msgctxt "Relation Tax Labels"
 msgid "Separate relations with commas"
 msgstr ""
 
-#: includes/filtered.class.php:287
+#: includes/filtered.class.php:309
 msgctxt "Relation Tax Labels"
 msgid "Add or remove relations"
 msgstr ""
 
-#: includes/filtered.class.php:288
+#: includes/filtered.class.php:310
 msgctxt "Relation Tax Labels"
 msgid "Choose from the most used relations"
 msgstr ""
 
-#: includes/filtered.class.php:289
+#: includes/filtered.class.php:311
 msgctxt "Relation Tax Labels"
 msgid "No relations found."
 msgstr ""
 
-#: includes/filtered.class.php:290
+#: includes/filtered.class.php:312
 msgctxt "Relation Tax Labels"
 msgid "No relations"
 msgstr ""
 
-#: includes/filtered.class.php:291
+#: includes/filtered.class.php:313
 msgctxt "Relation Tax Labels"
 msgid "Relations list navigation"
 msgstr ""
 
-#: includes/filtered.class.php:292
+#: includes/filtered.class.php:314
 msgctxt "Relation Tax Labels"
 msgid "Relations list"
 msgstr ""
 
-#: includes/filtered.class.php:299
+#: includes/filtered.class.php:321
 msgctxt "Relation Tax Defaults"
 msgid "Author"
 msgstr ""
 
-#: includes/filtered.class.php:300
+#: includes/filtered.class.php:322
 msgctxt "Relation Tax Defaults"
 msgid "Coauthor"
 msgstr ""
 
-#: includes/filtered.class.php:301
+#: includes/filtered.class.php:323
 msgctxt "Relation Tax Defaults"
 msgid "Editor"
 msgstr ""
 
-#: includes/filtered.class.php:302
+#: includes/filtered.class.php:324
 msgctxt "Relation Tax Defaults"
 msgid "Photographer"
 msgstr ""
 
-#: includes/filtered.class.php:303
+#: includes/filtered.class.php:325
 msgctxt "Relation Tax Defaults"
 msgid "Translator"
 msgstr ""
 
-#: includes/filtered.class.php:304
+#: includes/filtered.class.php:326
 msgctxt "Relation Tax Defaults"
 msgid "Reporter"
 msgstr ""
 
-#: includes/filtered.class.php:305
+#: includes/filtered.class.php:327
 msgctxt "Relation Tax Defaults"
 msgid "Commentator"
 msgstr ""
 
-#: includes/filtered.class.php:306
+#: includes/filtered.class.php:328
 msgctxt "Relation Tax Defaults"
 msgid "Artist"
 msgstr ""
 
-#: includes/filtered.class.php:307
+#: includes/filtered.class.php:329
 msgctxt "Relation Tax Defaults"
 msgid "Coartist"
 msgstr ""
 
-#: includes/filtered.class.php:308
+#: includes/filtered.class.php:330
 msgctxt "Relation Tax Defaults"
 msgid "Illustrator"
 msgstr ""
 
-#: includes/filtered.class.php:309
+#: includes/filtered.class.php:331
 msgctxt "Relation Tax Defaults"
 msgid "Collected by"
 msgstr ""
 
-#: includes/filtered.class.php:310
+#: includes/filtered.class.php:332
 msgctxt "Relation Tax Defaults"
 msgid "Poet"
 msgstr ""
 
-#: includes/filtered.class.php:311
+#: includes/filtered.class.php:333
 msgctxt "Relation Tax Defaults"
 msgid "Interviewer"
 msgstr ""
 
-#: includes/filtered.class.php:312
+#: includes/filtered.class.php:334
 msgctxt "Relation Tax Defaults"
 msgid "Director"
 msgstr ""
 
-#: includes/filtered.class.php:313
+#: includes/filtered.class.php:335
 msgctxt "Relation Tax Defaults"
 msgid "Selector"
 msgstr ""
 
-#: includes/filtered.class.php:314
+#: includes/filtered.class.php:336
 msgctxt "Relation Tax Defaults"
 msgid "Conductor"
 msgstr ""
 
-#: includes/filtered.class.php:322, includes/filtered.class.php:627
+#: includes/filtered.class.php:344, includes/filtered.class.php:649
 msgid "Affiliation"
 msgstr ""
 
-#: includes/filtered.class.php:323, includes/filtered.class.php:628
+#: includes/filtered.class.php:345, includes/filtered.class.php:650
 msgid "Affiliation to this site"
 msgstr ""
 
-#: includes/filtered.class.php:324, includes/user.class.php:60
+#: includes/filtered.class.php:346, includes/user.class.php:60
 msgid "User"
 msgstr ""
 
-#: includes/filtered.class.php:325
+#: includes/filtered.class.php:347
 msgid "User linked to this person"
 msgstr ""
 
-#: includes/filtered.class.php:326
+#: includes/filtered.class.php:348
 msgid "Edit the linked user profile"
 msgstr ""
 
-#: includes/filtered.class.php:327, includes/people.class.php:109, includes/profile.class.php:165
+#: includes/filtered.class.php:349, includes/people.class.php:109, includes/profile.class.php:165
 msgid "Profile"
 msgstr ""
 
-#: includes/filtered.class.php:328
+#: includes/filtered.class.php:350
 msgid "Profile linked to this person"
 msgstr ""
 
-#: includes/filtered.class.php:329
+#: includes/filtered.class.php:351
 msgid "Visit the linked person profile"
 msgstr ""
 
-#: includes/filtered.class.php:330
+#: includes/filtered.class.php:352
 msgid "Avatar"
 msgstr ""
 
-#: includes/filtered.class.php:331
+#: includes/filtered.class.php:353
 msgid "Select User"
 msgstr ""
 
-#: includes/filtered.class.php:332
+#: includes/filtered.class.php:354
 msgid "Unlink User"
 msgstr ""
 
-#: includes/filtered.class.php:333
+#: includes/filtered.class.php:355
 msgid "Select Profile"
 msgstr ""
 
-#: includes/filtered.class.php:334
+#: includes/filtered.class.php:356
 msgid "Unlink Profile"
 msgstr ""
 
-#: includes/filtered.class.php:335
+#: includes/filtered.class.php:357
 msgid "Edit This User"
 msgstr ""
 
-#: includes/filtered.class.php:336
+#: includes/filtered.class.php:358
 msgid "Edit this Profile"
 msgstr ""
 
-#: includes/filtered.class.php:337
+#: includes/filtered.class.php:359
 msgid "No user linked to this person."
 msgstr ""
 
-#: includes/filtered.class.php:338
+#: includes/filtered.class.php:360
 msgid "No profile linked to this person."
 msgstr ""
 
-#: includes/filtered.class.php:339, includes/filtered.class.php:591, includes/filtered.class.php:629
+#: includes/filtered.class.php:361, includes/filtered.class.php:613, includes/filtered.class.php:651
 msgid "There are no affiliations available."
 msgstr ""
 
-#: includes/filtered.class.php:340
+#: includes/filtered.class.php:362
 msgid "There are no users available."
 msgstr ""
 
-#: includes/filtered.class.php:341
+#: includes/filtered.class.php:363
 msgid "There are no people available."
 msgstr ""
 
-#: includes/filtered.class.php:348
+#: includes/filtered.class.php:370
 msgid "Overwrite"
 msgstr ""
 
-#: includes/filtered.class.php:349
+#: includes/filtered.class.php:371
 msgid "Overwrite with this Profile"
 msgstr ""
 
-#: includes/filtered.class.php:350
+#: includes/filtered.class.php:372
 msgid "Change"
 msgstr ""
 
-#: includes/filtered.class.php:351
+#: includes/filtered.class.php:373
 msgid "Change to this Profile"
 msgstr ""
 
-#: includes/filtered.class.php:352, includes/filtered.class.php:364, includes/filtered.class.php:376
+#: includes/filtered.class.php:374, includes/filtered.class.php:386, includes/filtered.class.php:398
 msgid "Add"
 msgstr ""
 
-#: includes/filtered.class.php:353
+#: includes/filtered.class.php:375
 msgid "Add This Profile"
 msgstr ""
 
-#: includes/filtered.class.php:354, includes/filtered.class.php:366, includes/filtered.class.php:378
+#: includes/filtered.class.php:376, includes/filtered.class.php:388, includes/filtered.class.php:400
 msgid "View"
 msgstr ""
 
-#: includes/filtered.class.php:355
+#: includes/filtered.class.php:377
 msgid "View on root site"
 msgstr ""
 
-#: includes/filtered.class.php:356, includes/filtered.class.php:368, includes/filtered.class.php:380
+#: includes/filtered.class.php:378, includes/filtered.class.php:390, includes/filtered.class.php:402
 msgid "Edit"
 msgstr ""
 
-#: includes/filtered.class.php:357
+#: includes/filtered.class.php:379
 msgid "Edit on root site"
 msgstr ""
 
-#: includes/filtered.class.php:365
+#: includes/filtered.class.php:387
 msgid "Add this person"
 msgstr ""
 
-#: includes/filtered.class.php:367
+#: includes/filtered.class.php:389
 msgid "View this person"
 msgstr ""
 
-#: includes/filtered.class.php:369
+#: includes/filtered.class.php:391
 msgid "Edit this person"
 msgstr ""
 
-#: includes/filtered.class.php:377
+#: includes/filtered.class.php:399
 msgid "Add this user"
 msgstr ""
 
-#: includes/filtered.class.php:379
+#: includes/filtered.class.php:401
 msgid "View this user"
 msgstr ""
 
-#: includes/filtered.class.php:381
+#: includes/filtered.class.php:403
 msgid "Edit this user"
 msgstr ""
 
-#: includes/filtered.class.php:396
+#: includes/filtered.class.php:418
 msgctxt "remote_meta_titles"
 msgid "People"
 msgstr ""
 
-#: includes/filtered.class.php:403
+#: includes/filtered.class.php:425
 msgctxt "remote_meta_descriptions"
 msgid "People Involved in the post"
 msgstr ""
 
-#: includes/filtered.class.php:410, includes/filtered.class.php:465
+#: includes/filtered.class.php:432, includes/filtered.class.php:487
 msgid "Public (Tagged)"
 msgstr ""
 
-#: includes/filtered.class.php:411, includes/filtered.class.php:466
+#: includes/filtered.class.php:433, includes/filtered.class.php:488
 msgid "Public"
 msgstr ""
 
-#: includes/filtered.class.php:412, includes/filtered.class.php:467
+#: includes/filtered.class.php:434, includes/filtered.class.php:489
 msgid "Hidden (Tagged)"
 msgstr ""
 
-#: includes/filtered.class.php:413, includes/filtered.class.php:468
+#: includes/filtered.class.php:435, includes/filtered.class.php:490
 msgid "Hidden"
 msgstr ""
 
-#: includes/filtered.class.php:439
+#: includes/filtered.class.php:461
 msgctxt "remote_meta_columns"
 msgid "<span title=\"Order\">O</span>"
 msgstr ""
 
-#: includes/filtered.class.php:440, includes/filtered.class.php:448
+#: includes/filtered.class.php:462, includes/filtered.class.php:470
 msgctxt "remote_meta_columns"
 msgid "Person"
 msgstr ""
 
-#: includes/filtered.class.php:441
+#: includes/filtered.class.php:463
 msgctxt "remote_meta_columns"
 msgid "Filter / Override"
 msgstr ""
 
-#: includes/filtered.class.php:442
+#: includes/filtered.class.php:464
 msgctxt "remote_meta_columns"
 msgid "Visibility / Relations"
 msgstr ""
 
-#: includes/filtered.class.php:453
+#: includes/filtered.class.php:475
 msgctxt "remote_meta_columns"
 msgid "Override"
 msgstr ""
 
-#: includes/filtered.class.php:457
+#: includes/filtered.class.php:479
 msgctxt "remote_meta_columns"
 msgid "Filter"
 msgstr ""
 
-#: includes/filtered.class.php:462
+#: includes/filtered.class.php:484
 msgctxt "remote_meta_columns"
 msgid "Visibility"
 msgstr ""
 
-#: includes/filtered.class.php:478
+#: includes/filtered.class.php:500
 msgctxt "remote_meta_columns"
 msgid "Delete"
 msgstr ""
 
-#: includes/filtered.class.php:493
+#: includes/filtered.class.php:515
 msgid "Honorific"
 msgstr ""
 
-#: includes/filtered.class.php:494
+#: includes/filtered.class.php:516
 msgid "Honorific Title"
 msgstr ""
 
-#: includes/filtered.class.php:498
+#: includes/filtered.class.php:520
 msgid "Alias"
 msgstr ""
 
-#: includes/filtered.class.php:499
+#: includes/filtered.class.php:521
 msgid "Also Known As"
 msgstr ""
 
-#: includes/filtered.class.php:503, includes/filtered.class.php:504
+#: includes/filtered.class.php:525, includes/filtered.class.php:526
 msgid "Alternative Name"
 msgstr ""
 
-#: includes/filtered.class.php:508
+#: includes/filtered.class.php:530
 msgid "Born"
 msgstr ""
 
-#: includes/filtered.class.php:509
+#: includes/filtered.class.php:531
 msgid "Date of Birth"
 msgstr ""
 
-#: includes/filtered.class.php:513
+#: includes/filtered.class.php:535
 msgid "Died"
 msgstr ""
 
-#: includes/filtered.class.php:514
+#: includes/filtered.class.php:536
 msgid "Date of Death"
 msgstr ""
 
-#: includes/filtered.class.php:518, includes/filtered.class.php:519, includes/filtered.class.php:553
+#: includes/filtered.class.php:540, includes/filtered.class.php:541, includes/filtered.class.php:575
 msgid "Nationality"
 msgstr ""
 
-#: includes/filtered.class.php:524, includes/filtered.class.php:525
+#: includes/filtered.class.php:546, includes/filtered.class.php:547
 msgid "Occupation"
 msgstr ""
 
-#: includes/filtered.class.php:529
+#: includes/filtered.class.php:551
 msgid "Website"
 msgstr ""
 
-#: includes/filtered.class.php:530
+#: includes/filtered.class.php:552
 msgid "Official Website"
 msgstr ""
 
-#: includes/filtered.class.php:534
+#: includes/filtered.class.php:556
 msgid "Wikipedia"
 msgstr ""
 
-#: includes/filtered.class.php:535
+#: includes/filtered.class.php:557
 msgid "Wikipedia Page"
 msgstr ""
 
-#: includes/filtered.class.php:539, includes/filtered.class.php:540
+#: includes/filtered.class.php:561, includes/filtered.class.php:562
 msgid "Email"
 msgstr ""
 
-#: includes/filtered.class.php:558
+#: includes/filtered.class.php:580
 msgid "Profile Groups"
 msgstr ""
 
-#: includes/filtered.class.php:567
+#: includes/filtered.class.php:589
 msgctxt "Nationality Tax Labels: Name"
 msgid "Nationalities"
 msgstr ""
 
-#: includes/filtered.class.php:568
+#: includes/filtered.class.php:590
 msgctxt "Nationality Tax Labels: Menu Name"
 msgid "Nationalities"
 msgstr ""
 
-#: includes/filtered.class.php:569
+#: includes/filtered.class.php:591
 msgctxt "Nationality Tax Labels: Singular Name"
 msgid "Nationality"
 msgstr ""
 
-#: includes/filtered.class.php:570
+#: includes/filtered.class.php:592
 msgctxt "Nationality Tax Labels"
 msgid "Search Nationalities"
 msgstr ""
 
-#: includes/filtered.class.php:571
+#: includes/filtered.class.php:593
 msgctxt "Nationality Tax Labels"
 msgid "All Nationalities"
 msgstr ""
 
-#: includes/filtered.class.php:572
+#: includes/filtered.class.php:594
 msgctxt "Nationality Tax Labels"
 msgid "Parent Nationality"
 msgstr ""
 
-#: includes/filtered.class.php:573
+#: includes/filtered.class.php:595
 msgctxt "Nationality Tax Labels"
 msgid "Parent Nationality:"
 msgstr ""
 
-#: includes/filtered.class.php:574
+#: includes/filtered.class.php:596
 msgctxt "Nationality Tax Labels"
 msgid "Edit Nationality"
 msgstr ""
 
-#: includes/filtered.class.php:575
+#: includes/filtered.class.php:597
 msgctxt "Nationality Tax Labels"
 msgid "View Nationality"
 msgstr ""
 
-#: includes/filtered.class.php:576
+#: includes/filtered.class.php:598
 msgctxt "Nationality Tax Labels"
 msgid "Update Nationality"
 msgstr ""
 
-#: includes/filtered.class.php:577
+#: includes/filtered.class.php:599
 msgctxt "Nationality Tax Labels"
 msgid "Add New Nationality"
 msgstr ""
 
-#: includes/filtered.class.php:578
+#: includes/filtered.class.php:600
 msgctxt "Nationality Tax Labels"
 msgid "New Nationality Name"
 msgstr ""
 
-#: includes/filtered.class.php:579
+#: includes/filtered.class.php:601
 msgctxt "Nationality Tax Labels"
 msgid "No nationalities found."
 msgstr ""
 
-#: includes/filtered.class.php:580
+#: includes/filtered.class.php:602
 msgctxt "Nationality Tax Labels"
 msgid "No nationalities"
 msgstr ""
 
-#: includes/filtered.class.php:581
+#: includes/filtered.class.php:603
 msgctxt "Nationality Tax Labels"
 msgid "Nationalities list navigation"
 msgstr ""
 
-#: includes/filtered.class.php:582
+#: includes/filtered.class.php:604
 msgctxt "Nationality Tax Labels"
 msgid "Nationalities list"
 msgstr ""
 
-#: includes/filtered.class.php:589
+#: includes/filtered.class.php:611
 msgid "Search in people and add them as contributor to this post"
 msgstr ""
 
-#: includes/filtered.class.php:590, includes/filtered.class.php:600, includes/filtered.class.php:609, includes/filtered.class.php:619
+#: includes/filtered.class.php:612, includes/filtered.class.php:622, includes/filtered.class.php:631, includes/filtered.class.php:641
 msgid "John Doe"
 msgstr ""
 
-#: includes/filtered.class.php:592
+#: includes/filtered.class.php:614
 msgid "Search People"
 msgstr ""
 
-#: includes/filtered.class.php:599
+#: includes/filtered.class.php:621
 msgid "Search in profiles and add them as a person on this site"
 msgstr ""
 
-#: includes/filtered.class.php:601
+#: includes/filtered.class.php:623
 msgid "Search Profiles"
 msgstr ""
 
-#: includes/filtered.class.php:608
+#: includes/filtered.class.php:630
 msgid "Search in users and add them as a person on this site"
 msgstr ""
 
-#: includes/filtered.class.php:610
+#: includes/filtered.class.php:632
 msgid "Search Users"
 msgstr ""
 
-#: includes/filtered.class.php:617
+#: includes/filtered.class.php:639
 msgid "Manually add a person on this site"
 msgstr ""
 
-#: includes/filtered.class.php:618
+#: includes/filtered.class.php:640
 msgid "Name"
 msgstr ""
 
-#: includes/filtered.class.php:620
+#: includes/filtered.class.php:642
 msgid "The name is how it appears on your site."
 msgstr ""
 
-#: includes/filtered.class.php:621
+#: includes/filtered.class.php:643
 msgid "Slug"
 msgstr ""
 
-#: includes/filtered.class.php:622
+#: includes/filtered.class.php:644
 msgid "john-doe"
 msgstr ""
 
-#: includes/filtered.class.php:623
+#: includes/filtered.class.php:645
 msgid "The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens."
 msgstr ""
 
-#: includes/filtered.class.php:624
+#: includes/filtered.class.php:646
 msgid "Description"
 msgstr ""
 
-#: includes/filtered.class.php:625
+#: includes/filtered.class.php:647
 msgid "John Doe is a very talented guy..."
 msgstr ""
 
-#: includes/filtered.class.php:626
+#: includes/filtered.class.php:648
 msgid "The description is not prominent by default; however, some themes may show it."
 msgstr ""
 
-#: includes/filtered.class.php:630
+#: includes/filtered.class.php:652
 msgid "Add New Person"
 msgstr ""
 
-#: includes/importer.class.php:158
+#: includes/importer.class.php:153
 msgid "Import People"
 msgstr ""
 
-#: includes/importer.class.php:161
+#: includes/importer.class.php:156
 msgid "Import Custom Fields"
 msgstr ""
 
-#: includes/importer.class.php:177, includes/importer.class.php:246, includes/importer.class.php:322
+#: includes/importer.class.php:172, includes/importer.class.php:243, includes/importer.class.php:319
 msgid "ID"
 msgstr ""
 
-#: includes/importer.class.php:178
+#: includes/importer.class.php:173
 msgid "Meta : %s"
 msgstr ""
 
-#: includes/importer.class.php:180, includes/importer.class.php:252
+#: includes/importer.class.php:175, includes/importer.class.php:249
 msgctxt "Importer"
 msgid "People"
 msgstr ""
 
-#: includes/importer.class.php:222
+#: includes/importer.class.php:218
 msgid "Check for Custom Fields and import them into People"
 msgstr ""
 
-#: includes/importer.class.php:226, includes/importer.class.php:293
+#: includes/importer.class.php:222, includes/importer.class.php:290
 msgid "Check"
 msgstr ""
 
-#: includes/importer.class.php:235
+#: includes/importer.class.php:231
 msgid "No custom fields!"
 msgstr ""
 
-#: includes/importer.class.php:240
+#: includes/importer.class.php:236
 msgid "Import gEditorial Meta"
 msgstr ""
 
-#: includes/importer.class.php:248
+#: includes/importer.class.php:245
 msgid "Meta: Author Simple"
 msgstr ""
 
-#: includes/importer.class.php:289
+#: includes/importer.class.php:286
 msgid "Check for Editorial Meta Authors and import them into People"
 msgstr ""
 
-#: includes/importer.class.php:295, includes/remotemetatable.class.php:260
+#: includes/importer.class.php:292, includes/remotemetatable.class.php:260
 msgid "Delete"
 msgstr ""
 
-#: includes/importer.class.php:300
+#: includes/importer.class.php:297
 msgid "Update from Terms"
 msgstr ""
 
-#: includes/importer.class.php:324
+#: includes/importer.class.php:321
 msgid "Title"
 msgstr ""
 
-#: includes/importer.class.php:353
+#: includes/importer.class.php:350
 msgid "Check for people terms and update people meta table for each post"
 msgstr ""
 
-#: includes/importer.class.php:357
+#: includes/importer.class.php:354
 msgid "Check Posts"
 msgstr ""
 
-#: includes/importer.class.php:358
+#: includes/importer.class.php:355
 msgid "Update Selected"
 msgstr ""
 
@@ -1136,7 +1159,7 @@ msgstr ""
 msgid "&mdash; Profile Groups &mdash;"
 msgstr ""
 
-#: includes/profile.class.php:85, includes/remote.class.php:386, includes/user.class.php:27
+#: includes/profile.class.php:85, includes/remote.class.php:402, includes/user.class.php:27
 msgid "<i>No Profile Summary</i>"
 msgstr ""
 
@@ -1176,134 +1199,135 @@ msgstr ""
 msgid "Default relations added."
 msgstr ""
 
-#: includes/remote.class.php:244
+#: includes/remote.class.php:260
 msgid "Unknown Person"
 msgstr ""
 
-#: includes/remote.class.php:281
+#: includes/remote.class.php:297
 msgctxt "people byline walker between delimiter"
 msgid ", "
 msgstr ""
 
-#: includes/remote.class.php:282
+#: includes/remote.class.php:298
 msgctxt "people byline walker between last delimiter"
 msgid " and "
 msgstr ""
 
-#: includes/remote.class.php:283
+#: includes/remote.class.php:299
 msgctxt "people byline walker pre"
 msgid "Written by "
 msgstr ""
 
-#: includes/remoteadmin.class.php:81, includes/remoteadmin.class.php:103
+#: includes/remoteadmin.class.php:84, includes/remoteadmin.class.php:106
 msgid "Search for People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:126
+#: includes/remoteadmin.class.php:129
 msgid "People Manegment"
 msgstr ""
 
-#: includes/remoteadmin.class.php:184
+#: includes/remoteadmin.class.php:187
 msgctxt "add_meta_boxes"
 msgid "People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:187
-msgid "Managment"
+#: includes/remoteadmin.class.php:192
+msgctxt "add_meta_boxes"
+msgid "Management"
 msgstr ""
 
-#: includes/remoteadmin.class.php:206
+#: includes/remoteadmin.class.php:209
 msgctxt "Remote: Admin Meta Box: Title Attr"
 msgid "Byline as Appears on Your Site"
 msgstr ""
 
-#: includes/remoteadmin.class.php:214
+#: includes/remoteadmin.class.php:217
 msgctxt "Remote: Admin Meta Box: Title Attr"
 msgid "Add or Modify People for This Post"
 msgstr ""
 
-#: includes/remoteadmin.class.php:216
+#: includes/remoteadmin.class.php:219
 msgctxt "Remote: Admin Meta Box: Button Text"
 msgid "Add People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:232
+#: includes/remoteadmin.class.php:235
 msgctxt "Remote: Admin: At a Glance"
 msgid "Person"
 msgid_plural "People"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/remoteadmin.class.php:245
+#: includes/remoteadmin.class.php:248
 msgctxt "Column"
 msgid "People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:267
+#: includes/remoteadmin.class.php:270
 msgctxt "admin post column"
 msgid "People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:289
+#: includes/remoteadmin.class.php:292
 msgctxt "post people column"
 msgid "<small><a href=\"%s\">%s</a></small> "
 msgstr ""
 
-#: includes/remoteadmin.class.php:309, includes/rootadmin.class.php:52
+#: includes/remoteadmin.class.php:312, includes/rootadmin.class.php:52
 msgid "Picture"
 msgstr ""
 
-#: includes/remoteadmin.class.php:310
+#: includes/remoteadmin.class.php:313
 msgctxt "Root: Column Title"
 msgid "Person"
 msgstr ""
 
-#: includes/remoteadmin.class.php:315
+#: includes/remoteadmin.class.php:318
 msgctxt "Root: Column Title"
 msgid "Short Bio"
 msgstr ""
 
-#: includes/remoteadmin.class.php:319
+#: includes/remoteadmin.class.php:322
 msgid "<span title=\"Affiliation / Releations\">Aff. / Rel.</span>"
 msgstr ""
 
-#: includes/remoteadmin.class.php:342
+#: includes/remoteadmin.class.php:345
 msgid "&mdash;"
 msgstr ""
 
-#: includes/remoteadmin.class.php:372
+#: includes/remoteadmin.class.php:375
 msgid "&#8220;<a href=\"%1$s\" title=\"People, the way involved in your site\" >gPeople</a>&#8221; is a <a href=\"%2$s\">geminorum</a> project"
 msgstr ""
 
-#: includes/remoteadmin.class.php:382
+#: includes/remoteadmin.class.php:385
 msgid "Profiles"
 msgstr ""
 
-#: includes/remoteadmin.class.php:383
+#: includes/remoteadmin.class.php:386
 msgid "Users"
 msgstr ""
 
-#: includes/remoteadmin.class.php:405
+#: includes/remoteadmin.class.php:408
 msgid "Current"
 msgstr ""
 
-#: includes/remoteadmin.class.php:406
+#: includes/remoteadmin.class.php:409
 msgid "Add People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:407
+#: includes/remoteadmin.class.php:410
 msgid "Add Profiles"
 msgstr ""
 
-#: includes/remoteadmin.class.php:408
+#: includes/remoteadmin.class.php:411
 msgid "Add Users"
 msgstr ""
 
-#: includes/remoteadmin.class.php:409
+#: includes/remoteadmin.class.php:412
 msgid "Manual Add"
 msgstr ""
 
-#: includes/remoteadmin.class.php:424
+#: includes/remoteadmin.class.php:427
 msgid "Search"
 msgstr ""
 
@@ -1344,7 +1368,7 @@ msgstr ""
 msgid "No Post ID!"
 msgstr ""
 
-#: includes/remoteajax.class.php:138, includes/remoteajax.class.php:194
+#: includes/remoteajax.class.php:138, includes/remoteajax.class.php:193
 msgid "%s added."
 msgstr ""
 
@@ -1356,15 +1380,15 @@ msgstr ""
 msgid "No term ID"
 msgstr ""
 
-#: includes/remoteajax.class.php:200
+#: includes/remoteajax.class.php:199
 msgid "Can not save the term."
 msgstr ""
 
-#: includes/remoteajax.class.php:206
+#: includes/remoteajax.class.php:205
 msgid "The term already exists."
 msgstr ""
 
-#: includes/remoteajax.class.php:209
+#: includes/remoteajax.class.php:208
 msgid "The form is empty."
 msgstr ""
 
@@ -1372,47 +1396,47 @@ msgstr ""
 msgid "%s users found"
 msgstr ""
 
-#: includes/remoteajax.class.php:263
+#: includes/remoteajax.class.php:264
 msgid "No user matches your criteria."
 msgstr ""
 
-#: includes/remoteajax.class.php:294, includes/remoteajax.class.php:346
+#: includes/remoteajax.class.php:295, includes/remoteajax.class.php:347
 msgid "Nobody matches your criteria."
 msgstr ""
 
-#: includes/remoteajax.class.php:318, includes/remoteajax.class.php:417
+#: includes/remoteajax.class.php:319, includes/remoteajax.class.php:418
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Next results</a>"
 msgstr ""
 
-#: includes/remoteajax.class.php:319, includes/remoteajax.class.php:418
+#: includes/remoteajax.class.php:320, includes/remoteajax.class.php:419
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Previous results</a>"
 msgstr ""
 
-#: includes/remoteajax.class.php:327, includes/remoteajax.class.php:425
+#: includes/remoteajax.class.php:328, includes/remoteajax.class.php:426
 msgid "Founded %s profile"
 msgstr ""
 
-#: includes/remoteajax.class.php:328
+#: includes/remoteajax.class.php:329
 msgid "%s people found"
 msgstr ""
 
-#: includes/remoteajax.class.php:331
+#: includes/remoteajax.class.php:332
 msgid "Showing %1$s-%2$s results out of %3$s people found.%4$s"
 msgstr ""
 
-#: includes/remoteajax.class.php:427
+#: includes/remoteajax.class.php:428
 msgid "%s profile found"
 msgstr ""
 
-#: includes/remoteajax.class.php:429
+#: includes/remoteajax.class.php:430
 msgid "Showing %1$s-%2$s results out of %3$s profile found.%4$s"
 msgstr ""
 
-#: includes/remoteajax.class.php:443
+#: includes/remoteajax.class.php:444
 msgid "No profile matches your criteria."
 msgstr ""
 
-#: includes/remoteajax.class.php:451
+#: includes/remoteajax.class.php:452
 msgid "dont know what to do?"
 msgstr ""
 
@@ -1440,10 +1464,6 @@ msgstr ""
 
 #: includes/remotemetatable.class.php:276
 msgid "Save & Back to Post"
-msgstr ""
-
-#: includes/remotetemplate.class.php:103
-msgid "About"
 msgstr ""
 
 #: includes/rootadmin.class.php:54
@@ -1494,11 +1514,12 @@ msgstr ""
 msgid "Profile draft updated. <a target=\"_blank\" href=\"%s\">Preview profile</a>"
 msgstr ""
 
-#: includes/rootadmin.class.php:132
+#: includes/rootadmin.class.php:131
+msgctxt "Root: Admin: Profile Title Placeholder"
 msgid "Enter name here"
 msgstr ""
 
-#: includes/rootadmin.class.php:141
+#: includes/rootadmin.class.php:138
 msgctxt "Root: Admin: At a Glance"
 msgid "Person"
 msgid_plural "People"
