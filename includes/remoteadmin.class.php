@@ -115,8 +115,10 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				// $gPeopleNetwork->colorbox();
 				$this->enqueue_style( 'people', $screen->base );
 
-				add_filter( 'manage_'.$screen->post_type.'_posts_columns', array( $this, 'manage_posts_columns' ), 10 );
+				add_filter( 'manage_'.$screen->post_type.'_posts_columns', array( $this, 'manage_posts_columns' ), 20 );
 				add_filter( 'manage_'.$screen->post_type.'_posts_custom_column', array( $this, 'custom_column'), 10, 2 );
+
+				add_action( 'geditorial_tweaks_column_row', array( $this, 'column_row_wordcount' ), -100 );
 
 			} else if ( 'post' == $screen->base ) {
 
@@ -262,9 +264,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 		foreach ( $posts_columns as $key => $value ) {
 
-			if ( 'author' == $key
-				|| 'geditorial-meta-author' == $key )
-					$new_columns['gpeople'] = _x( 'People', 'admin post column', GPEOPLE_TEXTDOMAIN );
+			if ( 'author' == $key )
+				$new_columns['gpeople'] = _x( 'People', 'admin post column', GPEOPLE_TEXTDOMAIN );
 			else
 				$new_columns[$key] = $value;
 		}
@@ -274,25 +275,37 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 	public function custom_column( $column_name, $post_id )
 	{
-		global $gPeopleNetwork, $typenow, $post;
+		if ( 'gpeople' != $column_name )
+			return;
 
-		switch ( $column_name ) {
+		global $gPeopleNetwork, $post;
 
-			case 'author' :
-			case 'gpeople' :
-			case 'geditorial-meta-author' :
+		echo $gPeopleNetwork->remote->get_people( $post->ID );
 
-				echo $gPeopleNetwork->remote->get_people( $post->ID );
+		echo '<br />';
 
-				echo '<br />';
+		printf( _x( '<small><a href="%s">%s</a></small> ', 'post people column', GPEOPLE_TEXTDOMAIN ),
+			esc_url( add_query_arg( array(
+				'post_type' => $post->post_type,
+				'author' => get_the_author_meta( 'ID' )
+			), 'edit.php' ) ),
+			get_the_author()
+		);
+	}
 
-				printf( _x( '<small><a href="%s">%s</a></small> ', 'post people column', GPEOPLE_TEXTDOMAIN ),
-					esc_url( add_query_arg( array(
-						'post_type' => $post->post_type,
-						'author' => get_the_author_meta( 'ID' )
-					), 'edit.php' ) ),
-					get_the_author()
-				);
+	public function column_row_wordcount( $post )
+	{
+		global $gPeopleNetwork;
+
+		if ( $people = $gPeopleNetwork->remote->get_people( $post->ID ) ) {
+			echo '<div class="-row people">';
+
+				echo '<span class="-icon" title="'
+					.esc_attr_x( 'People', 'Remote Admin: Row Icon Title', GPEOPLE_TEXTDOMAIN )
+					.'"><span class="dashicons dashicons-admin-users"></span></span>';
+
+					echo $people;
+			echo '</div>';
 		}
 	}
 
