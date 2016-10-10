@@ -1,3 +1,6 @@
+### 3.3.3
+* main/remoteadmin: only replace author column
+
 ### 3.3.2
 * all: switch to gplugin html class
 * all: colorbox updated to 1.6.4
