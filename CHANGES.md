@@ -1,3 +1,6 @@
+### 3.3.4
+* main/filtered: new posttype labels in WP4.7
+
 ### 3.3.3
 * main/remoteadmin: only replace author column
 
