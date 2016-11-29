@@ -1,17 +1,17 @@
 <ul class="gpeople-data-list">
-    {{#list}}
-    <li>
-        {{#thumbnail}}
-        <img class="gpeople-data-list-thumbnail" src="{{{thumbnail}}}" />
-        {{/thumbnail}}
+	{{#list}}
+	<li>
+		{{#thumbnail}}
+		<img class="gpeople-data-list-thumbnail" src="{{{thumbnail}}}" />
+		{{/thumbnail}}
 		<h4>{{{title}}} <span>({{{name}}})</span></h4>
-        <div class="gpeople-data-list-controls">
-			<a href="#" class="gpeople-data-list-add-user button button-small" rel="{{user_id}}" title="{{add-user-title}}">{{add-user}}</a> 
-			<a target="_blank" href="{{{link}}}" title="{{view-user-title}}">{{view-user}}</a> | 
+		<div class="gpeople-data-list-controls">
+			<a href="#" class="gpeople-data-list-add-user button button-small" rel="{{user_id}}" title="{{add-user-title}}">{{add-user}}</a>
+			<a target="_blank" href="{{{link}}}" title="{{view-user-title}}">{{view-user}}</a> |
 			<a target="_blank" href="{{{edit}}}" title="{{edit-user-title}}">{{edit-user}}</a>
-        </div>
+		</div>
 		<div class="gpeople-data-list-excerpt">{{{excerpt}}}</div>
 		<div class="clear"></div>
-    </li>
-    {{/list}}
+	</li>
+	{{/list}}
 </ul><div class="clear"></div>

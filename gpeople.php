@@ -71,9 +71,9 @@ function gpeople_init( $gplugin_version = NULL ){
 			require_once( GPEOPLE_DIR.'includes/'.$file.'.class.php' );
 
 	$args = array(
-        'title'   => __( 'gPeople', GPEOPLE_TEXTDOMAIN ),
-        'domain'  => 'gpeople',
-        'network' => TRUE,
+		'title'   => __( 'gPeople', GPEOPLE_TEXTDOMAIN ),
+		'domain'  => 'gpeople',
+		'network' => TRUE,
 	);
 
 	$constants = array(
