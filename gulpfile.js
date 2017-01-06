@@ -1,88 +1,66 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	var
-		gulp = require('gulp'),
-		sass = require('gulp-sass'), // https://github.com/dlmanning/gulp-sass
-		changed = require('gulp-changed'),
-		tinypng = require('gulp-tinypng'), // https://github.com/creativeaura/gulp-tinypng
-		nano = require('gulp-cssnano'), // https://github.com/ben-eb/gulp-cssnano
-		sourcemaps = require('gulp-sourcemaps'),
-		smushit = require('gulp-smushit'), // https://github.com/heldr/gulp-smushit
-		excludeGitignore = require('gulp-exclude-gitignore'), // https://github.com/sboudrias/gulp-exclude-gitignore
-		wpPot = require('gulp-wp-pot'), // https://github.com/rasmusbe/gulp-wp-pot
-		sort = require('gulp-sort'),
-		fs = require('fs');
+  var
+    gulp = require('gulp'),
+    sass = require('gulp-sass'), // https://github.com/dlmanning/gulp-sass
+    nano = require('gulp-cssnano'), // https://github.com/ben-eb/gulp-cssnano
+    sourcemaps = require('gulp-sourcemaps'),
+    smushit = require('gulp-smushit'), // https://github.com/heldr/gulp-smushit
+    excludeGitignore = require('gulp-exclude-gitignore'), // https://github.com/sboudrias/gulp-exclude-gitignore
+    wpPot = require('gulp-wp-pot'), // https://github.com/rasmusbe/gulp-wp-pot
+    fs = require('fs');
 
-	var
-		json = JSON.parse(fs.readFileSync('./package.json'));
+  var
+    pkg = JSON.parse(fs.readFileSync('./package.json'));
 
-	gulp.task('tinypng', function() {
+  gulp.task('smushit', function() {
 
-		return gulp.src('./assets/images/raw/*.png')
+    return gulp.src('./assets/images/raw/**/*.{jpg,png}')
 
-		.pipe(tinypng(''))
+      .pipe(smushit())
 
-		.pipe(gulp.dest('./assets/images'));
-	});
+      .pipe(gulp.dest('./assets/images'));
+  });
 
-	gulp.task('smushit', function() {
+  gulp.task('pot', function() {
 
-		return gulp.src('./assets/images/raw/**/*.{jpg,png}')
+    return gulp.src(['./**/*.php', '!./assets/libs/**', '!./gplugin/**'])
 
-		.pipe(smushit())
+      .pipe(excludeGitignore())
 
-		.pipe(gulp.dest('./assets/images'));
-	});
+      .pipe(wpPot(pkg._pot))
 
-	gulp.task('pot', function() {
+      .pipe(gulp.dest('./languages/' + pkg.name + '.pot'));
+  });
 
-		return gulp.src([
-			'./**/*.php',
-			'!./assets/libs/**',
-			'!./gplugin/**',
-		])
+  gulp.task('sass', function() {
 
-		.pipe(excludeGitignore())
+    return gulp.src('./assets/sass/**/*.scss')
 
-		.pipe(sort())
+      // .pipe(sourcemaps.init())
 
-		.pipe(wpPot(json._pot))
+      .pipe(sass().on('error', sass.logError)).pipe(nano({
+        // http://cssnano.co/optimisations/
+        zindex: false,
+        discardComments: {
+          removeAll: true
+        }
+      }))
 
-		.pipe(gulp.dest('./languages'));
-	});
+      // .pipe(sourcemaps.write('./maps'))
 
-	gulp.task('sass', function() {
+      .pipe(gulp.dest('./assets/css'));
+  });
 
-		return gulp.src('./assets/sass/**/*.scss')
+  gulp.task('watch', function() {
 
-		// .pipe(sourcemaps.init())
+    gulp.watch('./assets/sass/**/*.scss', gulp.series('sass'));
+  });
 
-		.pipe(sass().on('error', sass.logError))
+  gulp.task('default', function() {
 
-		.pipe(nano({
-			// http://cssnano.co/optimisations/
-			zindex: false,
-			discardComments: {
-				removeAll: true
-			}
-		}))
-
-		// .pipe(sourcemaps.write('./maps'))
-
-		.pipe(gulp.dest('./assets/css'));
-	});
-
-	gulp.task('watch', function() {
-
-		gulp.watch('./assets/sass/**/*.scss', [
-			'sass'
-		]);
-	});
-
-	gulp.task('default', function() {
-
-		console.log('Hi, I\'m Gulp!');
-	});
-
+    console.log('Hi, I\'m Gulp!');
+    console.log("Sass is:\n" + require('node-sass').info);
+  });
 }());

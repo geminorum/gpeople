@@ -1,4 +1,5 @@
 <?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+
 /*
 Plugin Name: gPeople
 Plugin URI: http://geminorum.ir/wordpress/gpeople
