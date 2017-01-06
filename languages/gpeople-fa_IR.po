@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gPeople v3.3.4\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: gPeople v3.3.5\n"
+"Report-Msgid-Bugs-To: https://github.com/geminorum/gpeople/issues\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-11-29 21:38+0330\n"
+"PO-Revision-Date: 2017-01-06 19:51+0330\n"
 "Last-Translator: geminorum <contact@geminorum.ir>\n"
 "Language-Team: geminorum <contact@geminorum.ir>\n"
 "Language: fa_IR\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 
-#: gpeople.php:74
+#: gpeople.php:75
 msgid "gPeople"
 msgstr "جی‌پیپل!"
 
@@ -58,28 +58,12 @@ msgctxt "Settings: Field Description"
 msgid "Select to enable gPeople remote tools on this site"
 msgstr "فعال‌سازی ابزارهای افراد در این سایت"
 
-#: includes/filtered.class.php:86
-msgid "People Home"
-msgstr "صفحه اصلی افراد"
-
-#: includes/filtered.class.php:87
-msgid "select to enable gPeople profile management on this site"
-msgstr "فعال‌سازی نمایه‌های افراد در این سایت"
-
 #: includes/filtered.class.php:109
 msgid "Supported PostTypes"
 msgstr ""
 
 #: includes/filtered.class.php:110
 msgid "Select posttypes with people support"
-msgstr ""
-
-#: includes/filtered.class.php:115
-msgid "Simple Mode"
-msgstr ""
-
-#: includes/filtered.class.php:116
-msgid "Simple UI with no enhancements!"
 msgstr ""
 
 #: includes/filtered.class.php:121
@@ -246,11 +230,6 @@ msgctxt "Profile Group Tax Labels"
 msgid "Search Profile Groups"
 msgstr "جست‌وجوی گروه‌ها"
 
-#: includes/filtered.class.php:231
-msgctxt "Profile Group Tax Labels"
-msgid "Popular Groups"
-msgstr "گروه‌های محبوب"
-
 #: includes/filtered.class.php:232
 msgctxt "Profile Group Tax Labels"
 msgid "All Profile Groups"
@@ -335,11 +314,6 @@ msgstr "فرد"
 msgctxt "People Tax Labels"
 msgid "Search People"
 msgstr "جست‌وجوی افراد"
-
-#: includes/filtered.class.php:255
-msgctxt "People Tax Labels"
-msgid "Popular People"
-msgstr "افراد محبوب"
 
 #: includes/filtered.class.php:256
 msgctxt "People Tax Labels"
@@ -426,11 +400,6 @@ msgctxt "Affiliations Tax Labels"
 msgid "Search Affiliations"
 msgstr "جست‌وجوی وابستگی‌ها"
 
-#: includes/filtered.class.php:279
-msgctxt "Affiliations Tax Labels"
-msgid "Popular Affiliations"
-msgstr "وابستگی‌های محبوب"
-
 #: includes/filtered.class.php:280
 msgctxt "Affiliations Tax Labels"
 msgid "All Affiliations"
@@ -515,11 +484,6 @@ msgstr "رابطه"
 msgctxt "Relation Tax Labels"
 msgid "Search Relations"
 msgstr "جست‌وجوی رابطه‌ها"
-
-#: includes/filtered.class.php:303
-msgctxt "Relation Tax Labels"
-msgid "Popular Relations"
-msgstr "همهٔ رابطه‌ها"
 
 #: includes/filtered.class.php:304
 msgctxt "Relation Tax Labels"
@@ -1197,11 +1161,11 @@ msgstr "&mdash; گروه‌های نمایه &mdash;"
 msgid "<i>No Profile Summary</i>"
 msgstr "بدون توضیحات نمایه"
 
-#: includes/profile.class.php:99, includes/user.class.php:32
+#: includes/profile.class.php:99
 msgid "Groups: "
 msgstr "گروه‌ها:"
 
-#: includes/profile.class.php:100, includes/user.class.php:32
+#: includes/profile.class.php:100
 msgid ", "
 msgstr "، "
 
@@ -1211,14 +1175,6 @@ msgstr "ساختن نمایه"
 
 #: includes/profile.class.php:177
 msgid "Picture from Profile"
-msgstr ""
-
-#: includes/profile.class.php:178
-msgid "Update from Profile"
-msgstr ""
-
-#: includes/profile.class.php:179
-msgid "Update Remote Profile"
 msgstr ""
 
 #: includes/relation.class.php:41
@@ -1232,10 +1188,6 @@ msgstr ""
 #: includes/relation.class.php:51
 msgid "Default relations added."
 msgstr ""
-
-#: includes/remote.class.php:260
-msgid "Unknown Person"
-msgstr "فرد نامشخص"
 
 #: includes/remote.class.php:297
 msgctxt "people byline walker between delimiter"
@@ -1312,10 +1264,6 @@ msgctxt "Remote Admin: Row Icon Title"
 msgid "People"
 msgstr "افراد"
 
-#: includes/remoteadmin.class.php:325, includes/rootadmin.class.php:52
-msgid "Picture"
-msgstr "تصویر"
-
 #: includes/remoteadmin.class.php:326
 msgctxt "Root: Column Title"
 msgid "Person"
@@ -1368,10 +1316,6 @@ msgstr "افزودن کاربران"
 msgid "Manual Add"
 msgstr "افزودن دستی"
 
-#: includes/remoteadmin.class.php:440
-msgid "Search"
-msgstr "بگرد"
-
 #: includes/remoteajax.class.php:23
 msgctxt "Modal Title"
 msgid "People"
@@ -1399,10 +1343,6 @@ msgstr ""
 
 #: includes/remoteajax.class.php:106
 msgid "Cannot save meta"
-msgstr ""
-
-#: includes/remoteajax.class.php:110
-msgid "The form is empty"
 msgstr ""
 
 #: includes/remoteajax.class.php:116
@@ -1453,21 +1393,9 @@ msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">بعدی</a>"
 msgid "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">Previous results</a>"
 msgstr "<a href=\"#\" rel=\"%1$s\" class=\"%2$s\">قبلی</a>"
 
-#: includes/remoteajax.class.php:328, includes/remoteajax.class.php:426
-msgid "Founded %s profile"
-msgstr ""
-
-#: includes/remoteajax.class.php:329
-msgid "%s people found"
-msgstr ""
-
 #: includes/remoteajax.class.php:332
 msgid "Showing %1$s-%2$s results out of %3$s people found.%4$s"
 msgstr "نمایش %1$s-%2$s از مجموع %3$s فرد%4$s"
-
-#: includes/remoteajax.class.php:428
-msgid "%s profile found"
-msgstr ""
 
 #: includes/remoteajax.class.php:430
 msgid "Showing %1$s-%2$s results out of %3$s profile found.%4$s"
@@ -1511,61 +1439,57 @@ msgstr "ذخیره و بازگشت به نوشته"
 msgid "Person"
 msgstr "فرد"
 
-#: includes/rootadmin.class.php:55
-msgid "Meta"
-msgstr "متا"
-
-#: includes/rootadmin.class.php:86
+#: includes/rootadmin.class.php:83
 msgid "Creator"
 msgstr "ایجاد‌کننده"
 
-#: includes/rootadmin.class.php:95
+#: includes/rootadmin.class.php:93
 msgid "Profile Summary"
 msgstr "خلاصه نمایه"
 
-#: includes/rootadmin.class.php:113
+#: includes/rootadmin.class.php:111
 msgid "Profile updated. <a href=\"%s\">View profile</a>"
 msgstr "نمایه به‌روزرسانی شد. <a href=\"%s\">دیدن نمایه</a>"
 
-#: includes/rootadmin.class.php:116
+#: includes/rootadmin.class.php:114
 msgid "Profile updated."
 msgstr "نمایه به‌روز شد."
 
-#: includes/rootadmin.class.php:117
+#: includes/rootadmin.class.php:115
 msgid "Profile restored to revision from %s"
 msgstr ""
 
-#: includes/rootadmin.class.php:118
+#: includes/rootadmin.class.php:116
 msgid "Profile published. <a href=\"%s\">View profile</a>"
 msgstr ""
 
-#: includes/rootadmin.class.php:119
+#: includes/rootadmin.class.php:117
 msgid "Profile saved."
 msgstr "نمایه ذخیره شد."
 
-#: includes/rootadmin.class.php:120
+#: includes/rootadmin.class.php:118
 msgid "Profile submitted. <a target=\"_blank\" href=\"%s\">Preview profile</a>"
 msgstr "نمایه ارسال شد. <a target=\"_blank\" href=\"%s\">پیش‌نمایش نمایه</a>"
 
-#: includes/rootadmin.class.php:121
+#: includes/rootadmin.class.php:119
 msgid ""
 "Profile scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
 "\">Preview profile</a>"
 msgstr ""
 
-#: includes/rootadmin.class.php:122
+#: includes/rootadmin.class.php:120
 msgid ""
 "Profile draft updated. <a target=\"_blank\" href=\"%s\">Preview profile</a>"
 msgstr ""
 "پیش‌نویس نمایه به‌روزرسانی شد. <a target=\"_blank\" href=\"%s\">پیش‌نمایش نمایه</"
 "a>"
 
-#: includes/rootadmin.class.php:131
+#: includes/rootadmin.class.php:129
 msgctxt "Root: Admin: Profile Title Placeholder"
 msgid "Enter name here"
 msgstr "نام را اینجا وارد کنید"
 
-#: includes/rootadmin.class.php:138
+#: includes/rootadmin.class.php:136
 msgctxt "Root: Admin: At a Glance"
 msgid "Person"
 msgid_plural "People"
@@ -1576,6 +1500,40 @@ msgstr[1] "فرد"
 msgctxt "User not found"
 msgid "(Not Found)"
 msgstr "(پیدا نشد)"
+
+#~ msgid "People Home"
+#~ msgstr "صفحه اصلی افراد"
+
+#~ msgid "select to enable gPeople profile management on this site"
+#~ msgstr "فعال‌سازی نمایه‌های افراد در این سایت"
+
+#~ msgctxt "Profile Group Tax Labels"
+#~ msgid "Popular Groups"
+#~ msgstr "گروه‌های محبوب"
+
+#~ msgctxt "People Tax Labels"
+#~ msgid "Popular People"
+#~ msgstr "افراد محبوب"
+
+#~ msgctxt "Affiliations Tax Labels"
+#~ msgid "Popular Affiliations"
+#~ msgstr "وابستگی‌های محبوب"
+
+#~ msgctxt "Relation Tax Labels"
+#~ msgid "Popular Relations"
+#~ msgstr "همهٔ رابطه‌ها"
+
+#~ msgid "Unknown Person"
+#~ msgstr "فرد نامشخص"
+
+#~ msgid "Picture"
+#~ msgstr "تصویر"
+
+#~ msgid "Search"
+#~ msgstr "بگرد"
+
+#~ msgid "Meta"
+#~ msgstr "متا"
 
 #~ msgid "Enter name here"
 #~ msgstr "نام را اینجا وارد کنید"
