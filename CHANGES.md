@@ -1,3 +1,8 @@
+### 3.3.5
+* main/remoteadmin: tweaks column using li
+* main/rootadmin: using gplugin helper for image tag
+* main/rootadmin: check for cap instead of super admin
+
 ### 3.3.4
 * main/filtered: new posttype labels in WP4.7
 
