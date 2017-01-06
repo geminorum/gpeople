@@ -75,8 +75,10 @@ class gPeopleRootAdmin extends gPluginAdminCore
 	{
 		$post_type_object = get_post_type_object( $this->constants['profile_cpt'] );
 
-		if ( is_super_admin() || current_user_can( $post_type_object->cap->edit_others_posts ) ) {
+		if ( current_user_can( $post_type_object->cap->edit_others_posts ) ) {
+
 			remove_meta_box( 'authordiv', $this->constants['profile_cpt'], 'normal' );
+
 			add_meta_box( 'authordiv',
 				__( 'Creator', GPEOPLE_TEXTDOMAIN ),
 				'post_author_meta_box',
@@ -86,6 +88,7 @@ class gPeopleRootAdmin extends gPluginAdminCore
 		}
 
 		remove_meta_box( 'postexcerpt', $this->constants['profile_cpt'], 'normal' );
+
 		add_meta_box( 'postexcerpt',
 			__( 'Profile Summary', GPEOPLE_TEXTDOMAIN ),
 			'post_excerpt_meta_box',
