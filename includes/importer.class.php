@@ -22,7 +22,7 @@ class gPeopleImporter extends gPluginImportCore
 
 		// people tax merging
 		add_action( 'pre_delete_term', array( $this, 'pre_delete_term' ), 10, 2 );
-		add_action( 'gnetwork_taxonomy_term_merged', array( $this, 'term_merged' ), 10, 3 );
+		add_action( 'gnetwork_taxonomy_term_merged', array( $this, 'term_merged' ), 10, 4 );
 	}
 
 	// unsetting connected terms before deleting people tax
@@ -36,16 +36,18 @@ class gPeopleImporter extends gPluginImportCore
 	}
 
 	// resetting term_id for merged people taxes
-	public function term_merged( $taxonomy, $to_term_obj, $old_term )
+	public function term_merged( $taxonomy, $to_term_obj, $old_term, $old_meta )
 	{
+		global $gPeopleNetwork;
+
 		if ( $taxonomy != $this->constants['people_tax']
 			|| is_wp_error( $old_term ) )
 				return;
 
-		global $gPeopleNetwork;
-
 		$posts = get_objects_in_term( $to_term_obj->term_id, $this->constants['people_tax'] );
+
 		if ( ! is_wp_error( $posts ) && count( $posts ) ) {
+
 			foreach ( $posts as $post_id ) {
 
 				$meta = $gPeopleNetwork->remote->get_postmeta( $post_id, FALSE, array() );
