@@ -81,14 +81,10 @@ class gPeopleRootComponent extends gPluginComponentCore
 
 	public function meta_init()
 	{
-		add_post_type_support(
-			$this->constants['profile_cpt'],
+		add_post_type_support( $this->constants['profile_cpt'],
 			array( 'meta_fields' ),
-			self::getFilters( 'profile_cpt_meta_fields' ) );
-
-		// FIXME: move to current_screen
-		add_filter( 'geditorial_meta_box_callback', array( $this, 'meta_box_callback' ), 10, 2 );
-		add_filter( 'geditorial_meta_dbx_callback', array( $this, 'meta_box_callback' ), 10, 2 );
+			self::getFilters( 'profile_cpt_meta_fields' )
+		);
 
 		register_taxonomy( $this->constants['profile_nationality_tax'], $this->constants['profile_cpt'], array(
 			'labels'                => self::getFilters( 'profile_nationality_tax_labels' ),
@@ -112,14 +108,6 @@ class gPeopleRootComponent extends gPluginComponentCore
 				'assign_terms' => 'edit_posts', // 'edit_published_posts',
 			),
 		));
-	}
-
-	public function meta_box_callback( $callback, $post_type )
-	{
-		if ( $post_type == $this->constants['profile_cpt'] )
-			return TRUE;
-
-		return $callback;
 	}
 
 	public function tweaks_taxonomy_info( $info, $object, $post_type )
