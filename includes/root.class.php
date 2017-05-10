@@ -8,13 +8,15 @@ class gPeopleRootComponent extends gPluginComponentCore
 		parent::setup_actions();
 
 		add_action( 'geditorial_meta_init', array( $this, 'meta_init' ) );
-		add_filter( 'geditorial_tweaks_strings', array( $this, 'tweaks_strings' ) );
 	}
 
 	public function init()
 	{
 		$this->register_post_types();
 		$this->register_taxonomies();
+
+		if ( is_admin() )
+			add_filter( 'geditorial_tweaks_taxonomy_info', array( $this, 'tweaks_taxonomy_info' ), 10, 3 );
 	}
 
 	// to use on remote, when switch blog
@@ -120,9 +122,14 @@ class gPeopleRootComponent extends gPluginComponentCore
 		return $callback;
 	}
 
-	public function tweaks_strings( $strings )
+	public function tweaks_taxonomy_info( $info, $object, $post_type )
 	{
-		$new = self::getFilters( 'root_tweaks_strings' );
-		return gPluginUtils::recursiveParseArgs( $new, $strings );
+		if ( $post_type == $this->constants['profile_cpt'] ) {
+			$icons = self::getFilters( 'root_tweaks_taxonomy_info' );
+			if ( array_key_exists( $object->name, $icons ) )
+				return $icons[$object->name];
+		}
+
+		return $info;
 	}
 }

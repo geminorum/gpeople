@@ -561,20 +561,18 @@ class gPeopleFiltered extends gPluginFilteredCore
 		);
 	}
 
-	protected function root_tweaks_strings()
+	protected function root_tweaks_taxonomy_info()
 	{
 		return array(
-			'taxonomies' => array(
-				$this->constants['profile_nationality_tax'] => array(
-					'column'     => 'taxonomy-'.$this->constants['profile_nationality_tax'],
-					'dashicon'   => 'admin-site',
-					'title_attr' => __( 'Nationality', GPEOPLE_TEXTDOMAIN ),
-				),
-				$this->constants['profile_group_tax'] => array(
-					'column'     => 'taxonomy-'.$this->constants['profile_group_tax'],
-					'dashicon'   => 'admin-users',
-					'title_attr' => __( 'Profile Groups', GPEOPLE_TEXTDOMAIN ),
-				),
+			$this->constants['profile_nationality_tax'] => array(
+				'icon'  => 'admin-site',
+				'title' => __( 'Nationality', GPEOPLE_TEXTDOMAIN ),
+				'edit'  => NULL,
+			),
+			$this->constants['profile_group_tax'] => array(
+				'icon'  => 'admin-users',
+				'title' => __( 'Profile Groups', GPEOPLE_TEXTDOMAIN ),
+				'edit'  => NULL,
 			),
 		);
 	}
