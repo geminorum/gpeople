@@ -124,9 +124,9 @@ class gPeopleRemoteMetaTable extends WP_List_Table
 			break;
 			case 'people_rel_vis' :
 
-				$output = gPluginFormHelper::genDropdown( $this->relations, array(
+				$output = gPluginHTML::dropdown( $this->relations, array(
 					'name'       => sprintf( 'people_rel[%s]', $this->current ),
-					'property'   => 'name',
+					'prop'       => 'name',
 					'selected'   => isset( $item['rel'] ) ? $item['rel'] : ( isset( $this->pre_data['rel'] ) ? $this->pre_data['rel'] : 'none' ),
 					'none_title' => __( '&mdash; No Relations &mdash;', GPEOPLE_TEXTDOMAIN ),
 					'none_value' => 'none',
@@ -134,7 +134,7 @@ class gPeopleRemoteMetaTable extends WP_List_Table
 
 				$output .= '<br />';
 
-				$output .= gPluginFormHelper::genDropdown( $this->visibility, array(
+				$output .= gPluginHTML::dropdown( $this->visibility, array(
 					'name'     => sprintf( 'people_vis[%s]', $this->current ),
 					'selected' => isset( $item['vis'] ) ? $item['vis'] : ( isset( $this->pre_data['vis'] ) ? $this->pre_data['vis'] : 'tagged' ),
 				), TRUE );
