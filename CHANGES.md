@@ -1,3 +1,9 @@
+### 3.3.6
+* main/root: comp with new geditorial tweaks
+* main/root: comp with new geditorial meta
+* main/importer: more args for term merged filter
+* main/remote/metatable: comp with new dropdown generator
+
 ### 3.3.5
 * main/remoteadmin: tweaks column using li
 * main/rootadmin: using gplugin helper for image tag
