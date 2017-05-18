@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: gPeople v3.3.5\n"
+"Project-Id-Version: gPeople v3.3.6\n"
 "Report-Msgid-Bugs-To: https://github.com/geminorum/gpeople/issues\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-01-06 19:51+0330\n"
+"PO-Revision-Date: 2017-05-10 07:47+0430\n"
 "Last-Translator: geminorum <contact@geminorum.ir>\n"
 "Language-Team: geminorum <contact@geminorum.ir>\n"
 "Language: fa_IR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 
@@ -28,7 +28,7 @@ msgid "General"
 msgstr "همگانی"
 
 #: includes/filtered.class.php:11, includes/filtered.class.php:31,
-#: includes/importer.class.php:223, includes/importer.class.php:291
+#: includes/importer.class.php:225, includes/importer.class.php:293
 msgid "Import"
 msgstr "درون‌ریزی"
 
@@ -630,11 +630,11 @@ msgctxt "Relation Tax Defaults"
 msgid "Conductor"
 msgstr "تنظیم کننده"
 
-#: includes/filtered.class.php:346, includes/filtered.class.php:651
+#: includes/filtered.class.php:346, includes/filtered.class.php:649
 msgid "Affiliation"
 msgstr "ارتباط‌"
 
-#: includes/filtered.class.php:347, includes/filtered.class.php:652
+#: includes/filtered.class.php:347, includes/filtered.class.php:650
 msgid "Affiliation to this site"
 msgstr "نوع ارتباط این فرد با سایت شما"
 
@@ -699,8 +699,8 @@ msgstr "مرتبط با این فرد"
 msgid "No profile linked to this person."
 msgstr ""
 
-#: includes/filtered.class.php:363, includes/filtered.class.php:615,
-#: includes/filtered.class.php:653
+#: includes/filtered.class.php:363, includes/filtered.class.php:613,
+#: includes/filtered.class.php:651
 msgid "There are no affiliations available."
 msgstr "وابستگی‌ها تعریف نشده‌اند."
 
@@ -882,7 +882,7 @@ msgid "Date of Death"
 msgstr "تاریخ درگذشت"
 
 #: includes/filtered.class.php:542, includes/filtered.class.php:543,
-#: includes/filtered.class.php:577
+#: includes/filtered.class.php:575
 msgid "Nationality"
 msgstr "ملیت"
 
@@ -910,140 +910,140 @@ msgstr "صفحه ویکی‌پدیا"
 msgid "Email"
 msgstr "ایمیل"
 
-#: includes/filtered.class.php:582
+#: includes/filtered.class.php:580
 msgid "Profile Groups"
 msgstr "گروه‌ها"
 
-#: includes/filtered.class.php:591
+#: includes/filtered.class.php:589
 msgctxt "Nationality Tax Labels: Name"
 msgid "Nationalities"
 msgstr "ملیت‌ها"
 
-#: includes/filtered.class.php:592
+#: includes/filtered.class.php:590
 msgctxt "Nationality Tax Labels: Menu Name"
 msgid "Nationalities"
 msgstr "ملیت‌ها"
 
-#: includes/filtered.class.php:593
+#: includes/filtered.class.php:591
 msgctxt "Nationality Tax Labels: Singular Name"
 msgid "Nationality"
 msgstr "ملیت"
 
-#: includes/filtered.class.php:594
+#: includes/filtered.class.php:592
 msgctxt "Nationality Tax Labels"
 msgid "Search Nationalities"
 msgstr "جست‌وجوی ملیت‌ها"
 
-#: includes/filtered.class.php:595
+#: includes/filtered.class.php:593
 msgctxt "Nationality Tax Labels"
 msgid "All Nationalities"
 msgstr "همهٰ ملیت‌ها"
 
-#: includes/filtered.class.php:596
+#: includes/filtered.class.php:594
 msgctxt "Nationality Tax Labels"
 msgid "Parent Nationality"
 msgstr "ملیت اصلی"
 
-#: includes/filtered.class.php:597
+#: includes/filtered.class.php:595
 msgctxt "Nationality Tax Labels"
 msgid "Parent Nationality:"
 msgstr "ملیت اصلی:"
 
-#: includes/filtered.class.php:598
+#: includes/filtered.class.php:596
 msgctxt "Nationality Tax Labels"
 msgid "Edit Nationality"
 msgstr "ویرایش ملیت"
 
-#: includes/filtered.class.php:599
+#: includes/filtered.class.php:597
 msgctxt "Nationality Tax Labels"
 msgid "View Nationality"
 msgstr "نمایش ملیت"
 
-#: includes/filtered.class.php:600
+#: includes/filtered.class.php:598
 msgctxt "Nationality Tax Labels"
 msgid "Update Nationality"
 msgstr "به‌روزرسانی ملیت"
 
-#: includes/filtered.class.php:601
+#: includes/filtered.class.php:599
 msgctxt "Nationality Tax Labels"
 msgid "Add New Nationality"
 msgstr "افزودن ملیت تازه"
 
-#: includes/filtered.class.php:602
+#: includes/filtered.class.php:600
 msgctxt "Nationality Tax Labels"
 msgid "New Nationality Name"
 msgstr "عنوان ملیت تازه"
 
-#: includes/filtered.class.php:603
+#: includes/filtered.class.php:601
 msgctxt "Nationality Tax Labels"
 msgid "No nationalities found."
 msgstr "هیچ ملیتی پیدا نشد."
 
-#: includes/filtered.class.php:604
+#: includes/filtered.class.php:602
 msgctxt "Nationality Tax Labels"
 msgid "No nationalities"
 msgstr "بدون ملیت"
 
-#: includes/filtered.class.php:605
+#: includes/filtered.class.php:603
 msgctxt "Nationality Tax Labels"
 msgid "Nationalities list navigation"
 msgstr "ناوبری فهرست ملیت‌ها"
 
-#: includes/filtered.class.php:606
+#: includes/filtered.class.php:604
 msgctxt "Nationality Tax Labels"
 msgid "Nationalities list"
 msgstr "فهرست ملیت‌ها"
 
-#: includes/filtered.class.php:613
+#: includes/filtered.class.php:611
 msgid "Search in people and add them as contributor to this post"
 msgstr "جست‌وجو در میان افراد و افزودن آن به عنوان فرد مشارکت‌کننده در این نوشته"
 
-#: includes/filtered.class.php:614, includes/filtered.class.php:624,
-#: includes/filtered.class.php:633, includes/filtered.class.php:643
+#: includes/filtered.class.php:612, includes/filtered.class.php:622,
+#: includes/filtered.class.php:631, includes/filtered.class.php:641
 msgid "John Doe"
 msgstr "محمد محمدی"
 
-#: includes/filtered.class.php:616
+#: includes/filtered.class.php:614
 msgid "Search People"
 msgstr "جست‌وجوی افراد"
 
-#: includes/filtered.class.php:623
+#: includes/filtered.class.php:621
 msgid "Search in profiles and add them as a person on this site"
 msgstr "جست‌وجو در میان نمایه‌ها و افزودن آن به عنوان فرد در این سایت"
 
-#: includes/filtered.class.php:625
+#: includes/filtered.class.php:623
 msgid "Search Profiles"
 msgstr "جست‌وجوی نمایه‌ها"
 
-#: includes/filtered.class.php:632
+#: includes/filtered.class.php:630
 msgid "Search in users and add them as a person on this site"
 msgstr "جست‌وجو در میان کاربران و افزودن آن به عنوان فرد در این سایت"
 
-#: includes/filtered.class.php:634
+#: includes/filtered.class.php:632
 msgid "Search Users"
 msgstr "جست‌وجوی کاربران"
 
-#: includes/filtered.class.php:641
+#: includes/filtered.class.php:639
 msgid "Manually add a person on this site"
 msgstr "افزودن فرد تازه، به صورت دستی برای این سایت"
 
-#: includes/filtered.class.php:642
+#: includes/filtered.class.php:640
 msgid "Name"
 msgstr "نام"
 
-#: includes/filtered.class.php:644
+#: includes/filtered.class.php:642
 msgid "The name is how it appears on your site."
 msgstr "این فرد در سایت شما با این نام نمایش داده می‌شود."
 
-#: includes/filtered.class.php:645
+#: includes/filtered.class.php:643
 msgid "Slug"
 msgstr "نامک"
 
-#: includes/filtered.class.php:646
+#: includes/filtered.class.php:644
 msgid "john-doe"
 msgstr "محمد-محمدی"
 
-#: includes/filtered.class.php:647
+#: includes/filtered.class.php:645
 msgid ""
 "The &#8220;slug&#8221; is the URL-friendly version of the name. It is usually "
 "all lowercase and contains only letters, numbers, and hyphens."
@@ -1051,92 +1051,92 @@ msgstr ""
 "نامک نسخه لاتین واژه است که در نشانی (URL)‌هااستفاده می‌شود. برای نامگذاری فقط "
 "از حروف،‌ ارقام و خط تیره استفاده کنید. نمایش فقط با حروف کوچک خواهد بود."
 
-#: includes/filtered.class.php:648
+#: includes/filtered.class.php:646
 msgid "Description"
 msgstr "توضیحات"
 
-#: includes/filtered.class.php:649
+#: includes/filtered.class.php:647
 msgid "John Doe is a very talented guy..."
 msgstr "محمد محمدی فرد بسیار با استعدادی است."
 
-#: includes/filtered.class.php:650
+#: includes/filtered.class.php:648
 msgid ""
 "The description is not prominent by default; however, some themes may show it."
 msgstr ""
 "توضیحات به صورت پیش فرض مهم نیستند، با این حال برخی از پوسته‌ها ممکن است آنها "
 "را نمایش دهند."
 
-#: includes/filtered.class.php:654
+#: includes/filtered.class.php:652
 msgid "Add New Person"
 msgstr "افزودن فرد تازه"
 
-#: includes/importer.class.php:153
+#: includes/importer.class.php:155
 msgid "Import People"
 msgstr "درون‌ریزی افراد"
 
-#: includes/importer.class.php:156
+#: includes/importer.class.php:158
 msgid "Import Custom Fields"
 msgstr ""
 
-#: includes/importer.class.php:172, includes/importer.class.php:243,
-#: includes/importer.class.php:319
+#: includes/importer.class.php:174, includes/importer.class.php:245,
+#: includes/importer.class.php:321
 msgid "ID"
 msgstr "نهاد"
 
-#: includes/importer.class.php:173
+#: includes/importer.class.php:175
 msgid "Meta : %s"
 msgstr ""
 
-#: includes/importer.class.php:175, includes/importer.class.php:249
+#: includes/importer.class.php:177, includes/importer.class.php:251
 msgctxt "Importer"
 msgid "People"
 msgstr "افراد"
 
-#: includes/importer.class.php:218
+#: includes/importer.class.php:220
 msgid "Check for Custom Fields and import them into People"
 msgstr ""
 
-#: includes/importer.class.php:222, includes/importer.class.php:290
+#: includes/importer.class.php:224, includes/importer.class.php:292
 msgid "Check"
 msgstr ""
 
-#: includes/importer.class.php:231
+#: includes/importer.class.php:233
 msgid "No custom fields!"
 msgstr ""
 
-#: includes/importer.class.php:236
+#: includes/importer.class.php:238
 msgid "Import gEditorial Meta"
 msgstr ""
 
-#: includes/importer.class.php:245
+#: includes/importer.class.php:247
 msgid "Meta: Author Simple"
 msgstr ""
 
-#: includes/importer.class.php:286
+#: includes/importer.class.php:288
 msgid "Check for Editorial Meta Authors and import them into People"
 msgstr ""
 
-#: includes/importer.class.php:292, includes/remotemetatable.class.php:260
+#: includes/importer.class.php:294, includes/remotemetatable.class.php:260
 msgid "Delete"
 msgstr "حذف"
 
-#: includes/importer.class.php:297
+#: includes/importer.class.php:299
 msgid "Update from Terms"
 msgstr "درون‌ریزی از برچسب‌ها"
 
-#: includes/importer.class.php:321
+#: includes/importer.class.php:323
 msgid "Title"
 msgstr "عنوان"
 
-#: includes/importer.class.php:350
+#: includes/importer.class.php:352
 msgid "Check for people terms and update people meta table for each post"
 msgstr ""
 
-#: includes/importer.class.php:354
+#: includes/importer.class.php:356
 msgid "Check Posts"
 msgstr "بررسی نوشته‌ها"
 
-#: includes/importer.class.php:355
+#: includes/importer.class.php:357
 msgid "Update Selected"
 msgstr ""
 
