@@ -11,14 +11,14 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		$log = array_merge( array(
 			'error'   => $error,
 			'time'    => current_time( 'mysql' ),
-			'ip'      => gPluginUtils::IP(),
+			'ip'      => gPluginHTTP::IP(),
 			'message' => ( is_null( $wp_error ) ? '{NO WP_Error Object}' : $wp_error->get_error_message() ),
 		), $data );
 
 		error_log( print_r( $log, TRUE ) );
 	}
 
-	// EDITED: 8/12/2016, 8:53:06 AM
+	// EDITED: 12/25/2016, 1:27:21 PM
 	public static function getPostTypes( $mod = 0, $args = array( 'public' => TRUE ) )
 	{
 		$list = array();
@@ -27,7 +27,7 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 
 			// label
 			if ( 0 === $mod )
-				$list[$post_type] = $post_type_obj->label;
+				$list[$post_type] = $post_type_obj->label ? $post_type_obj->label : $post_type_obj->name;
 
 			// plural
 			else if ( 1 === $mod )
@@ -56,6 +56,52 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		return $list;
 	}
 
+	// EDITED: 12/27/2016, 6:36:20 AM
+	public static function getTaxonomies( $mod = 0, $args = array() )
+	{
+		$list = array();
+
+		foreach ( get_taxonomies( $args, 'objects' ) as $taxonomy => $taxonomy_obj ) {
+
+			// label
+			if ( 0 === $mod )
+				$list[$taxonomy] = $taxonomy_obj->label ? $taxonomy_obj->label : $taxonomy_obj->name;
+
+			// plural
+			else if ( 1 === $mod )
+				$list[$taxonomy] = $taxonomy_obj->labels->name;
+
+			// singular
+			else if ( 2 === $mod )
+				$list[$taxonomy] = $taxonomy_obj->labels->singular_name;
+
+			// nooped
+			else if ( 3 === $mod )
+				$list[$taxonomy] = array(
+					0          => $taxonomy_obj->labels->singular_name,
+					1          => $taxonomy_obj->labels->name,
+					'singular' => $taxonomy_obj->labels->singular_name,
+					'plural'   => $taxonomy_obj->labels->name,
+					'context'  => NULL,
+					'domain'   => NULL,
+				);
+
+			// object
+			else if ( 4 === $mod )
+				$list[$taxonomy] = $taxonomy_obj;
+
+			// with object_type
+			else if ( 5 === $mod )
+				$list[$taxonomy] = $taxonomy_obj->labels->name.gPluginHTML::joined( $taxonomy_obj->object_type, ' (', ')' );
+
+			// with name
+			else if ( 6 === $mod )
+				$list[$taxonomy] = $taxonomy_obj->labels->menu_name.' ('.$taxonomy_obj->name.')';
+		}
+
+		return $list;
+	}
+
 	// this must be wp core future!!
 	// support post-thumbnails for CPT
 	// call this late on after_setup_theme
@@ -75,7 +121,7 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 				// $post_types[] = 'post';
 				// $_wp_theme_features[$feature] = array( $post_types );
 
-			} else if ( is_array( $_wp_theme_features[$feature][0] ) ){
+			} else if ( is_array( $_wp_theme_features[$feature][0] ) ) {
 				$_wp_theme_features[$feature][0] = array_merge( $_wp_theme_features[$feature][0], $post_types );
 			}
 
@@ -126,28 +172,35 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 	// FROM: gEditorialHelper
 	public static function getPostIDbySlug( $slug, $post_type, $url = FALSE )
 	{
-		global $wpdb;
+		static $strings = array();
 
 		if ( $url ) {
 			$slug = rawurlencode( urldecode( $slug ) );
 			$slug = sanitize_title( basename( $slug ) );
 		}
 
+		$slug = trim( $slug );
+
+		if ( isset( $strings[$post_type][$slug] ) )
+			return $strings[$post_type][$slug];
+
+		global $wpdb;
+
 		$post_id = $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT ID FROM $wpdb->posts WHERE post_name = %s AND post_type = %s",
-				trim( $slug ),
+				$slug,
 				$post_type
 			)
 		);
 
 		if ( is_array( $post_id ) )
-			return $post_id[0];
+			return $strings[$post_type][$slug] = $post_id[0];
 
 		else if ( ! empty( $post_id ) )
 			return $post_id;
 
-		return FALSE;
+		return $strings[$post_type][$slug] = FALSE;
 	}
 
 	public static function getCurrentPostType()
@@ -367,6 +420,28 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		return $roles;
 	}
 
+	// must add `add_thickbox()` for thickbox
+	public static function getFeaturedImageHTML( $post_id, $size = 'thumbnail', $link = TRUE )
+	{
+		if ( ! $post_thumbnail_id = get_post_thumbnail_id( $post_id ) )
+			return '';
+
+		if ( ! $post_thumbnail_img = wp_get_attachment_image_src( $post_thumbnail_id, $size ) )
+			return '';
+
+		$image = gPluginHTML::tag( 'img', array( 'src' => $post_thumbnail_img[0] ) );
+
+		if ( ! $link )
+			return $image;
+
+		return gPluginHTML::tag( 'a', array(
+			'href'   => wp_get_attachment_url( $post_thumbnail_id ),
+			'title'  => get_the_title( $post_thumbnail_id ),
+			'class'  => 'thickbox',
+			'target' => '_blank',
+		), $image );
+	}
+
 	public static function getFeaturedImage( $post_id, $size = 'thumbnail', $default = FALSE )
 	{
 		if ( ! $post_thumbnail_id = get_post_thumbnail_id( $post_id ) )
@@ -488,13 +563,13 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		return ( version_compare( get_bloginfo( 'version' ), $minimum_version ) >= 0 );
 	}
 
-	public static function getUsers( $all_fields = FALSE, $network = FALSE )
+	public static function getUsers( $all_fields = FALSE, $network = FALSE, $extra = array() )
 	{
-		$users = get_users( array(
+		$users = get_users( array_merge( array(
 			'blog_id' => ( $network ? '' : $GLOBALS['blog_id'] ),
 			'orderby' => 'display_name',
 			'fields'  => ( $all_fields ? 'all_with_meta' : 'all' ),
-		) );
+		), $extra ) );
 
 		return gPluginUtils::reKey( $users, 'ID' );
 	}

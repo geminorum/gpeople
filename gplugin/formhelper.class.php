@@ -194,65 +194,17 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		return $html.$content.'</'.$tag.'>'.$sep;
 	}
 
+	// FIXME: DEPRECATED
 	public static function genDropdown( $list, $atts = array(), $object = FALSE )
 	{
-		$args = self::atts( array(
-			'id'         => '',
-			'name'       => '',
-			'none_title' => NULL, // select option none title
-			'none_value' => 0, // select option none value
-			'class'      => FALSE,
-			'selected'   => 0,
-			'disabled'   => FALSE,
-			'dir'        => FALSE,
-			'property'   => FALSE,
-			'exclude'    => array(),
-		), $atts );
-
-		$html = '';
-
-		if ( FALSE !== $list ) { // alow hiding
-
-			if ( ! is_null( $args['none_title'] ) ) {
-
-				$html .= gPluginHTML::tag( 'option', array(
-					'value'    => $args['none_value'],
-					'selected' => $args['selected'] == $args['none_value'],
-				), esc_html( $args['none_title'] ) );
-			}
-
-			foreach ( $list as $key => $value ) {
-
-				if ( in_array( $key, $args['exclude'] ) )
-					continue;
-
-				if ( $args['property'] )
-					$title = $object ? $value->{$args['property']} : $value[$args['property']];
-				else
-					$title = $value;
-
-				$html .= gPluginHTML::tag( 'option', array(
-					'value'    => $key,
-					'selected' => $args['selected'] == $key,
-				), esc_html( $title ) );
-			}
-
-			$html = gPluginHTML::tag( 'select', array(
-				'name'     => $args['name'],
-				'id'       => $args['id'],
-				'class'    => $args['class'],
-				'disabled' => $args['disabled'],
-				'dir'      => $args['dir'],
-			), $html );
-		}
-
-		return $html;
+		self::__dep( 'gPluginHTML::dropdown()' );
+		return gPluginHTML::dropdown( $list, $atts, $object );
 	}
 
 	// FIXME: DEPRECATED
 	public static function select( $list, $atts = array(), $selected = 0, $prop = FALSE, $none = FALSE, $none_val = 0 )
 	{
-		self::__dep( 'gPluginFormHelper::genDropdown()' );
+		self::__dep( 'gPluginHTML::dropdown()' );
 
 		$html = self::_tag_open( 'select', $atts, TRUE );
 
@@ -315,7 +267,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 
 	public static function dropdown( $list, $name, $prop = FALSE, $selected = 0, $none = FALSE, $none_val = 0, $obj = FALSE )
 	{
-		self::__dep( 'gPluginFormHelper::genDropdown()' );
+		self::__dep( 'gPluginHTML::dropdown()' );
 
 		$html = '';
 
@@ -342,7 +294,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 	// FIXME: DEPRECATED
 	public static function dropdown_e( $list, $name, $prop = FALSE, $selected = 0, $none = FALSE, $none_val = 0 )
 	{
-		self::__dep( 'gPluginFormHelper::genDropdown()' );
+		self::__dep( 'gPluginHTML::dropdown()' );
 
 		?><select name="<?php echo $name; ?>" id="<?php echo $name; ?>"><?php
 		if ( $none )

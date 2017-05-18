@@ -458,7 +458,7 @@ final class gPluginSession extends gPluginRecursiveArrayAccess implements Iterat
 		require_once( ABSPATH.'wp-includes/class-phpass.php' );
 		$hasher = new PasswordHash( 8, FALSE );
 
-		return md5( $hasher->get_random_bytes( 32 ) );
+		return wp_hash( $hasher->get_random_bytes( 32 ) );
 	}
 
 	/**

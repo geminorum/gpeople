@@ -16,7 +16,7 @@ class gPluginCacheHelper extends gPluginClassCore
 		$queried_object_id = get_queried_object_id();
 
 		if ( ! is_null( $queried_object ) && $queried_object_id > 0 )
-			return md5( serialize( $queried_object ) . $queried_object_id );
+			return wp_hash( serialize( $queried_object ).$queried_object_id );
 		else
 			return 0;
 	}
@@ -92,7 +92,7 @@ class gPluginCacheHelper extends gPluginClassCore
 	function zt_get_top_posts( $args, $force = FALSE )
 	{
 		// Define our cache key
-		$identifier = md5( maybe_serialize( $args ) );
+		$identifier = wp_hash( maybe_serialize( $args ) );
 		$cache_key = 'top-posts-' . $identifier;
 
 		// Define the cache group
@@ -151,7 +151,7 @@ class gPluginCacheHelper extends gPluginClassCore
 	function zt_get_top_posts_ANOTHERXX( $args, $force = FALSE )
 	{
 		// Define the cache key
-		$identifier = md5( maybe_serialize( $args ) );
+		$identifier = wp_hash( maybe_serialize( $args ) );
 		$cache_key = 'top-posts-' . $identifier;
 
 		// Define the cache group

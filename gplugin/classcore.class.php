@@ -8,7 +8,6 @@ interface gPluginClassCoreInterface
 	static function instance( $constants = array(), $args = array() );
 }
 
-// based on WP_Deregister_Users by John James Jacoby : http://wordpress.org/extend/plugins/deregister-users/
 class gPluginClassCore implements gPluginClassCoreInterface
 {
 	protected $data;
@@ -103,27 +102,42 @@ class gPluginClassCore implements gPluginClassCoreInterface
 		return ( ( $thing instanceof \WP_Error ) || ( $thing instanceof Error ) );
 	}
 
-	public static function dump( $var, $htmlsafe = TRUE, $echo = TRUE )
+	public static function dump( $var, $safe = TRUE, $echo = TRUE )
 	{
-		$result = var_export( $var, TRUE );
-
-		$html = '<pre dir="ltr" style="text-align:left;direction:ltr;">'
-			.( $htmlsafe ? htmlspecialchars( $result ) : $result ).'</pre>';
-
-		if ( ! $echo )
-			return $html;
-
-		echo $html;
+		$export = var_export( $var, TRUE );
+		if ( $safe ) $export = htmlspecialchars( $export );
+		$export = '<pre dir="ltr" style="text-align:left;direction:ltr;">'.$export.'</pre>';
+		if ( ! $echo ) return $export;
+		echo $export;
 	}
 
-	public static function kill( $var = FALSE )
+	public static function kill()
 	{
-		if ( $var )
-			self::dump( $var );
-
-		// FIXME: add query/memory/time info
-
+		foreach ( func_get_args() as $arg )
+			self::dump( $arg );
+		echo self::stat();
 		die();
+	}
+
+	public static function stat( $format = NULL )
+	{
+		if ( is_null( $format ) )
+			$format = '%d queries in %.3f seconds, using %.2fMB memory.';
+
+		return sprintf( $format,
+			@$GLOBALS['wpdb']->num_queries,
+			self::timerStop( FALSE, 3 ),
+			memory_get_peak_usage() / 1024 / 1024
+		);
+	}
+
+	// WP core function without number_format_i18n
+	public static function timerStop( $echo = FALSE, $precision = 3 )
+	{
+		global $timestart;
+		$total = number_format( ( microtime( TRUE ) - $timestart ), $precision );
+		if ( $echo ) echo $total;
+		return $total;
 	}
 
 	// INTERNAL
@@ -139,7 +153,7 @@ class gPluginClassCore implements gPluginClassCoreInterface
 	}
 
 	// INTERNAL: used on anything deprecated
-	protected static function __dep( $note = '', $prefix = 'DEP: ' )
+	protected static function __dep( $note = '', $prefix = 'DEP: ', $offset = 1 )
 	{
 		if ( defined( 'WP_DEBUG_LOG' ) && ! WP_DEBUG_LOG )
 			return;
@@ -148,20 +162,22 @@ class gPluginClassCore implements gPluginClassCoreInterface
 
 		$log = $prefix;
 
-		if ( isset( $trace[1]['object'] ) )
-			$log .= get_class( $trace[1]['object'] ).'::';
-		else if ( isset( $trace[1]['class'] ) )
-			$log .= $trace[1]['class'].'::';
+		if ( isset( $trace[$offset]['object'] ) )
+			$log .= get_class( $trace[$offset]['object'] ).'::';
+		else if ( isset( $trace[$offset]['class'] ) )
+			$log .= $trace[$offset]['class'].'::';
 
-		$log .= $trace[1]['function'].'()';
+		$log .= $trace[$offset]['function'].'()';
 
-		if ( isset( $trace[2]['function'] ) ) {
+		$offset++;
+
+		if ( isset( $trace[$offset]['function'] ) ) {
 			$log .= '|FROM: ';
-			if ( isset( $trace[2]['object'] ) )
-				$log .= get_class( $trace[2]['object'] ).'::';
-			else if ( isset( $trace[2]['class'] ) )
-				$log .= $trace[2]['class'].'::';
-			$log .= $trace[2]['function'].'()';
+			if ( isset( $trace[$offset]['object'] ) )
+				$log .= get_class( $trace[$offset]['object'] ).'::';
+			else if ( isset( $trace[$offset]['class'] ) )
+				$log .= $trace[$offset]['class'].'::';
+			$log .= $trace[$offset]['function'].'()';
 		}
 
 		if ( $note )

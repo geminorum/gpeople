@@ -63,45 +63,4 @@ if ( ! class_exists( 'gPluginFileHelper' ) ) { class gPluginFileHelper extends g
 		$parts = explode( '.', $string );
 		return end( $parts );
 	}
-
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-/// NOT USED YET ---------------------------------------------------------------
-
-	// TESTED: not working very well with UTF
-	// http://www.scriptville.in/parse-csv-data-to-array/
-	// Parse csv data to array
-	// Here, we have function to parse csv file into array. This function
-	// return associative array of each line with all column name in array
-	// as key and csv data for each line as key values.
-	public static function csvToArray( $file )
-	{
-		$rows = $headers = array();
-
-		if ( file_exists( $file ) && is_readable( $file ) ) {
-
-			$handle = fopen( $file, 'r' );
-
-			while ( ! feof( $handle ) ) {
-
-				$row = fgetcsv( $handle, 10240, ',', '"' );
-
-				if ( empty( $headers ) )
-					$headers = $row;
-				else if ( is_array( $row ) ) {
-					array_splice( $row, count( $headers ) );
-					$rows[] = array_combine( $headers, $row );
-				}
-			}
-
-			fclose( $handle );
-
-		} else {
-
-			throw new Exception( $file.' doesn`t exist or not readable.' );
-		}
-
-		return $rows;
-	}
 } }

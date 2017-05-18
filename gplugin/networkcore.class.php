@@ -146,6 +146,9 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 		// init here to help filtering the templates
 		if ( isset( $this->constants['class_mustache'] ) )
 			call_user_func( array( $this->constants['class_mustache'], 'init' ) );
+
+		if ( is_admin() && method_exists( $this, 'schedule_events' ) )
+			add_action( 'admin_init', array( $this, 'schedule_events' ) );
 	}
 
 	// FIXME: DEPRECATE THIS

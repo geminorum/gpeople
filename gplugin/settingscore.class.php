@@ -107,361 +107,18 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 		}
 	}
 
-	public function do_settings_field( $atts )
+	public function do_settings_field( $atts = array() )
 	{
-		$args = self::atts( array(
-			'title'        => '',
-			'label_for'    => '',
-			'type'         => 'enabled',
-			'field'        => FALSE,
-			'values'       => array(),
-			'exclude'      => '',
-			'none_title'   => NULL, // select option none title
-			'none_value'   => NULL, // select option none value
-			'filter'       => FALSE, // will use via sanitize
-			'dir'          => FALSE,
-			'default'      => '',
-			'description'  => isset( $atts['desc'] ) ? $atts['desc'] : '',
-			'before'       => '', // html to print before field
-			'after'        => '', // html to print after field
-			'field_class'  => '', // formally just class!
-			'class'        => '', // now used on wrapper
-			'option_group' => $this->option_group,
-			'disabled'     => FALSE,
-			'name_attr'    => FALSE, // override
-			'id_attr'      => FALSE, // override
-			'placeholder'  => FALSE,
-			'constant'     => FALSE, // override value if constant defined / also disabling
-			'rekey'        => FALSE, // use value as key // FIXME: DEPRECATED: use gPluginUtils::reKey()
-		), $atts );
-
-		if ( $args['rekey'] )
+		if ( isset( $atts['rekey'] ) )
 			self::__dep( 'gPluginUtils::sameKey()' );
 
-		if ( ! $args['field'] )
-			return;
-
-		$html    = '';
-		$value   = isset( $this->options[$args['field']] ) ? $this->options[$args['field']] : $args['default'];
-		$name    = $args['name_attr'] ? $args['name_attr'] : $args['option_group'].'['.esc_attr( $args['field'] ).']';
-		$id      = $args['id_attr'] ? $args['id_attr'] : $args['option_group'].'-'.esc_attr( $args['field'] );
-		$exclude = $args['exclude'] && ! is_array( $args['exclude'] ) ? array_filter( explode( ',', $args['exclude'] ) ) : array();
-
-		if ( $args['constant'] && defined( $args['constant'] ) ) {
-			$value = constant( $args['constant'] );
-
-			$args['disabled'] = TRUE;
-			$args['after']    = '<code>'.$args['constant'].'</code>';
-		}
-
-		if ( $args['before'] )
-			echo $args['before'].'&nbsp;';
-
-		switch ( $args['type'] ) {
-
-			case 'hidden' :
-
-				echo gPluginHTML::tag( 'input', array(
-					'type'  => 'hidden',
-					'name'  => $name,
-					'id'    => $id,
-					'value' => $value,
-				) );
-
-				$args['description'] = FALSE;
-
-			break;
-			case 'enabled' :
-
-				$html = gPluginHTML::tag( 'option', array(
-					'value'    => '0',
-					'selected' => '0' == $value,
-				), ( isset( $args['values'][0] ) ? $args['values'][0] : esc_html__( 'Disabled' ) ) );
-
-				$html .= gPluginHTML::tag( 'option', array(
-					'value'    => '1',
-					'selected' => '1' == $value,
-				), ( isset( $args['values'][1] ) ? $args['values'][1] : esc_html__( 'Enabled' ) ) );
-
-				echo gPluginHTML::tag( 'select', array(
-					'class' => $args['field_class'],
-					'name'  => $name,
-					'id'    => $id,
-					'dir'   => $args['dir'],
-				), $html );
-
-			break;
-			case 'text' :
-
-				if ( ! $args['field_class'] )
-					$args['field_class'] = 'regular-text';
-
-				echo gPluginHTML::tag( 'input', array(
-					'type'        => 'text',
-					'class'       => $args['field_class'],
-					'name'        => $name,
-					'id'          => $id,
-					'value'       => $value,
-					'dir'         => $args['dir'],
-					'disabled'    => $args['disabled'],
-					'placeholder' => $args['placeholder'],
-				) );
-
-			break;
-			case 'number' :
-
-				if ( ! $args['field_class'] )
-					$args['field_class'] = 'small-text';
-
-				if ( ! $args['dir'] )
-					$args['dir'] = 'ltr';
-
-				echo gPluginHTML::tag( 'input', array(
-					'type'        => 'number',
-					'class'       => $args['field_class'],
-					'name'        => $name,
-					'id'          => $id,
-					'value'       => $value,
-					'step'        => '1', // FIXME: get from args
-					'min'         => '0', // FIXME: get from args
-					'dir'         => $args['dir'],
-					'disabled'    => $args['disabled'],
-					'placeholder' => $args['placeholder'],
-				) );
-
-			break;
-			case 'checkbox' :
-
-				if ( count( $args['values'] ) ) {
-
-					if ( ! is_null( $args['none_title'] ) ) {
-
-						$html = gPluginHTML::tag( 'input', array(
-							'type'     => 'checkbox',
-							'class'    => $args['field_class'],
-							'name'     => $name.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
-							'id'       => $id.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
-							'value'    => is_null( $args['none_value'] ) ? '1' : $args['none_value'],
-							'checked'  => in_array( $args['none_value'], ( array ) $value ),
-							'disabled' => $args['disabled'],
-							'dir'      => $args['dir'],
-						) );
-
-						echo '<p>'.gPluginHTML::tag( 'label', array(
-							'for' => $id.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
-						), $html.'&nbsp;'.esc_html( $args['none_title'] ) ).'</p>';
-					}
-
-					foreach ( $args['values'] as $value_name => $value_title ) {
-
-						if ( in_array( $value_name, $exclude ) )
-							continue;
-
-						$html = gPluginHTML::tag( 'input', array(
-							'type'     => 'checkbox',
-							'class'    => $args['field_class'],
-							'name'     => $name.'['.$value_name.']',
-							'id'       => $id.'-'.$value_name,
-							'value'    => '1',
-							'checked'  => in_array( $value_name, ( array ) $value ),
-							'disabled' => $args['disabled'],
-							'dir'      => $args['dir'],
-						) );
-
-						echo '<p>'.gPluginHTML::tag( 'label', array(
-							'for' => $id.'-'.$value_name,
-						), $html.'&nbsp;'.esc_html( $value_title ) ).'</p>';
-					}
-
-				} else {
-
-					$html = gPluginHTML::tag( 'input', array(
-						'type'     => 'checkbox',
-						'class'    => $args['field_class'],
-						'name'     => $name,
-						'id'       => $id,
-						'value'    => '1',
-						'checked'  => $value,
-						'disabled' => $args['disabled'],
-						'dir'      => $args['dir'],
-					) );
-
-					echo '<p>'.gPluginHTML::tag( 'label', array(
-						'for' => $id,
-					), $html.'&nbsp;'.$args['description'] ).'</p>';
-
-					$args['description'] = FALSE;
-				}
-
-			break;
-			case 'radio' :
-
-				if ( count( $args['values'] ) ) {
-
-					if ( ! is_null( $args['none_title'] ) ) {
-
-						$html = gPluginHTML::tag( 'input', array(
-							'type'     => 'radio',
-							'class'    => $args['field_class'],
-							'name'     => $name,
-							'id'       => $id.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
-							'value'    => is_null( $args['none_value'] ) ? FALSE : $args['none_value'],
-							'checked'  => in_array( $args['none_value'], ( array ) $value ),
-							'disabled' => $args['disabled'],
-							'dir'      => $args['dir'],
-						) );
-
-						echo '<p>'.gPluginHTML::tag( 'label', array(
-							'for' => $id.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
-						), $html.'&nbsp;'.esc_html( $args['none_title'] ) ).'</p>';
-					}
-
-					foreach ( $args['values'] as $value_name => $value_title ) {
-
-						if ( in_array( $value_name, $exclude ) )
-							continue;
-
-						$html = gPluginHTML::tag( 'input', array(
-							'type'     => 'radio',
-							'class'    => $args['field_class'],
-							'name'     => $name,
-							'id'       => $id.'-'.$value_name,
-							'value'    => $value_name,
-							'checked'  => in_array( $value_name, ( array ) $value ),
-							'disabled' => $args['disabled'],
-							'dir'      => $args['dir'],
-						) );
-
-						echo '<p>'.gPluginHTML::tag( 'label', array(
-							'for' => $id.'-'.$value_name,
-						), $html.'&nbsp;'.esc_html( $value_title ) ).'</p>';
-					}
-				}
-
-			break;
-			case 'select' :
-
-				if ( FALSE !== $args['values'] ) { // alow hiding
-
-					if ( ! is_null( $args['none_title'] ) ) {
-
-						$html .= gPluginHTML::tag( 'option', array(
-							'value'    => is_null( $args['none_value'] ) ? FALSE : $args['none_value'],
-							'selected' => $value == $args['none_value'],
-						), esc_html( $args['none_title'] ) );
-					}
-
-					foreach ( $args['values'] as $value_name => $value_title ) {
-
-						if ( in_array( ( $args['rekey'] ? $value_title : $value_name ), $exclude ) )
-							continue;
-
-						$html .= gPluginHTML::tag( 'option', array(
-							'value'    => $args['rekey'] ? $value_title : $value_name,
-							'selected' => $value == $value_name,
-						), esc_html( $value_title ) );
-					}
-
-					echo gPluginHTML::tag( 'select', array(
-						'name'     => $name,
-						'id'       => $id,
-						'class'    => $args['field_class'],
-						'disabled' => $args['disabled'],
-						'dir'      => $args['dir'],
-					), $html );
-				}
-
-			break;
-			case 'textarea' :
-
-				if ( ! $args['field_class'] )
-					$args['field_class'] = 'large-text';
-
-				echo gPluginHTML::tag( 'textarea', array(
-					'name'        => $name,
-					'id'          => $id,
-					'rows'        => 5,
-					'cols'        => 45,
-					'class'       => $args['field_class'],
-					'disabled'    => $args['disabled'],
-					'placeholder' => $args['placeholder'],
-				// ), esc_textarea( $value ) );
-				), $value );
-
-			break;
-			case 'button' :
-
-				echo get_submit_button(
-					$value,
-					( empty( $args['field_class'] ) ? 'secondary' : $args['field_class'] ),
-					$args['field'], // $id,
-					FALSE,
-					$args['values']
-				);
-
-			break;
-			case 'file' :
-
-				echo gPluginHTML::tag( 'input', array(
-					'type'     => 'file',
-					'name'     => $id, //$name,
-					'id'       => $id,
-					// 'value' => $value,
-					'class'    => $args['field_class'],
-					'disabled' => $args['disabled'],
-					'dir'      => $args['dir'],
-				) );
-
-			break;
-			case 'posttypes' :
-
-				foreach ( gPluginWPHelper::getPostTypes() as $value_name => $value_title ) {
-
-					if ( in_array( $value_name, $exclude ) )
-						continue;
-
-					$html = gPluginHTML::tag( 'input', array(
-						'type'     => 'checkbox',
-						'class'    => $args['field_class'],
-						'name'     => $name.'['.$value_name.']',
-						'id'       => $id.'-'.$value_name,
-						'value'    => '1',
-						'checked'  => in_array( $value_name, ( array ) $value ),
-						'disabled' => $args['disabled'],
-						'dir'      => $args['dir'],
-					) );
-
-					echo '<p>'.gPluginHTML::tag( 'label', array(
-						'for' => $id.'-'.$value_name,
-					), $html.'&nbsp;'.esc_html( $value_title ) ).'</p>';
-				}
-
-			break;
-			case 'custom' :
-
-				if ( ! is_array( $args['values'] ) )
-					echo $args['values'];
-				else
-					echo $value;
-
-			break;
-			case 'debug' :
-
-				gPluginUtils::dump( $this->options );
-
-			break;
-			default :
-
-				echo 'Error: setting type not defind';
-		}
-
-		if ( $args['after'] )
-			echo '&nbsp;'.$args['after'];
-
-		if ( $args['description'] && FALSE !== $args['values'] )
-			echo gPluginHTML::tag( 'p', array(
-				'class' => 'description',
-			), $args['description'] );
+		// TODO: implement this!
+		$scripts = array();
+
+		gPluginSettings::fieldType( array_merge( array(
+			'options'      => $this->options,
+			'option_group' => $this->option_group,
+		), $atts ), $scripts );
 	}
 
 	public function get( $field, $default = FALSE )
@@ -562,16 +219,20 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 				} else if ( isset( $input[$field] ) ) {
 
 					// callback
-					if ( isset( $field_args['filter'] ) && $field_args['filter'] && is_callable( $field_args['filter'] ) )
-						$output[$field] = call_user_func_array( $field_args['filter'], array( $input[$field] ) );
+					if ( isset( $field_args['filter'] )
+						&& $field_args['filter']
+						&& is_callable( $field_args['filter'] ) )
+							$output[$field] = call_user_func_array( $field_args['filter'], array( $input[$field] ) );
 
 					// disabled select
-					else if ( isset( $field_args['values'] ) && FALSE === $field_args['values'] )
-						$output[$field] = $field_args['default'];
+					else if ( isset( $field_args['values'] )
+						&& FALSE === $field_args['values'] )
+							$output[$field] = $field_args['default'];
 
 					// filled multiple checkboxes
 					else if ( is_array( $input[$field] ) )
-						$output[$field] = gPluginUtils::getKeys( $input[$field] );
+						// $output[$field] = gPluginUtils::getKeys( $input[$field] );
+						$output[$field] = array_keys( $input[$field] );
 
 					// default
 					else
@@ -629,5 +290,3 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 		),
 	);
 */
-
-// ALSO : https://github.com/gilbitron/WordPress-Settings-Framework

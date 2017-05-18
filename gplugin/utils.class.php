@@ -3,39 +3,18 @@
 if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClassCore
 {
 
+	// FIXME: DEPRECATED
 	public static function IP( $pad = FALSE )
 	{
-		$ip = '';
-
-		if ( getenv( 'HTTP_CLIENT_IP' ) )
-			$ip = getenv( 'HTTP_CLIENT_IP' );
-
-		else if ( getenv( 'HTTP_X_FORWARDED_FOR' ) )
-			$ip = getenv( 'HTTP_X_FORWARDED_FOR' );
-
-		else if ( getenv( 'HTTP_X_FORWARDED' ) )
-			$ip = getenv( 'HTTP_X_FORWARDED' );
-
-		else if ( getenv( 'HTTP_FORWARDED_FOR' ) )
-			$ip = getenv( 'HTTP_FORWARDED_FOR' );
-
-		else if ( getenv( 'HTTP_FORWARDED' ) )
-			$ip = getenv( 'HTTP_FORWARDED' );
-
-		else
-			$ip = getenv( 'REMOTE_ADDR' );
-
-		if ( $pad )
-			return str_pad( $ip, 15, ' ', STR_PAD_LEFT );
-
-		return $ip;
+		self::__dep( 'gPluginHTTP::IP()' );
+		return gPluginHTTP::IP( $pad );
 	}
 
 	// FIXME: DEPRECATED
 	public static function getIP()
 	{
-		self::__dep( 'gPluginUtils::IP()' );
-		return self::IP();
+		self::__dep( 'gPluginHTTP::IP()' );
+		return gPluginHTTP::IP();
 	}
 
 	// FIXME: DEPRECATED
@@ -56,7 +35,7 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 	{
 		$rounded = array();
 
-		foreach( (array) $array as $key => $value )
+		foreach ( (array) $array as $key => $value )
 			$rounded[$key] = round( (float) $value, $precision, $mode );
 
 		return $rounded;
@@ -118,6 +97,17 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 		return $parsed;
 	}
 
+	public static function range( $start, $end, $step = 1, $format = TRUE )
+	{
+		$array = array();
+
+		foreach ( range( $start, $end, $step ) as $number )
+			$array[$number] = $format ? gPluginNumber::format( $number ) : $number;
+
+		return $array;
+	}
+
+	// USE: `array_keys()` on posted checkboxes
 	public static function getKeys( $options, $if = TRUE )
 	{
 		$keys = array();
@@ -151,16 +141,17 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 		return $same;
 	}
 
-	// recursive argument parsing
-	// @SOURCE: https://gist.github.com/boonebgorges/5510970
-	/***
-	* Values from $a override those from $b; keys in $b that don't exist
-	* in $a are passed through.
-	*
-	* This is different from array_merge_recursive(), both because of the
-	* order of preference ($a overrides $b) and because of the fact that
-	* array_merge_recursive() combines arrays deep in the tree, rather
-	* than overwriting the b array with the a array.
+	/**
+	 * recursive argument parsing
+	 * @link: https://gist.github.com/boonebgorges/5510970
+	 *
+	 * Values from $a override those from $b; keys in $b that don't exist
+	 * in $a are passed through.
+	 *
+	 * This is different from array_merge_recursive(), both because of the
+	 * order of preference ($a overrides $b) and because of the fact that
+	 * array_merge_recursive() combines arrays deep in the tree, rather
+	 * than overwriting the b array with the a array.
 	*/
 	public static function recursiveParseArgs( &$a, $b )
 	{

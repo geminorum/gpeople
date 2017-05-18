@@ -3,10 +3,10 @@
 if ( ! class_exists( 'gPluginTextHelper' ) ) { class gPluginTextHelper extends gPluginClassCore
 {
 
-	public static function reFormatName( $string )
+	public static function reFormatName( $string, $separator = ', ' )
 	{
 		// return preg_replace( '/(.*), (.*)/', '$2 $1', $string );
-		return preg_replace( '/(.*)[,،;؛] (.*)/u', '$2 $1', $string );
+		return preg_replace( '/(.*)[,،;؛] (.*)/u', '$2'.$separator.'$1', $string );
 	}
 
 	public static function email2username( $email, $strict = TRUE )
