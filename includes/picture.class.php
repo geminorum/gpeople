@@ -100,7 +100,7 @@ class gPeoplePicture extends gPluginModuleCore
 	// OLD: get_people_image()
 	public function get( $term_id_or_meta, $size = 'thumbnail', $tag = FALSE, $atts = '' )
 	{
-		self::__dep();
+		// self::__dep();
 
 		global $gPeopleNetwork;
 

@@ -386,7 +386,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 			) );
 		}
 
-		$profile_query = new WP_Query( $profile_args );
+		$profile_query = new \WP_Query( $profile_args );
 
 		if ( $profile_query->have_posts() ) {
 
@@ -395,7 +395,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 			$profile_args['offset']         = (int) $post['paged'];
 			$profile_args['nopaging']       = FALSE;
 
-			$profile_query = new WP_Query( $profile_args );
+			$profile_query = new \WP_Query( $profile_args );
 
 			global $post;
 			$pre_data  = $data_raw = array();

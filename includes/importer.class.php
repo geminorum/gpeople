@@ -169,8 +169,8 @@ class gPeopleImporter extends gPluginImportCore
 				else
 					$custom_field_paged = $paged;
 
-				if ( class_exists( 'geminorum\\gNetwork\\HTML' ) )
-					geminorum\gNetwork\HTML::tableList( array(
+				if ( class_exists( 'geminorum\\gNetwork\\Core\\HTML' ) )
+					\geminorum\gNetwork\Core\HTML::tableList( array(
 						'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
 						'meta'    => sprintf( __( 'Meta : %s', GPEOPLE_TEXTDOMAIN ), $post['custom_field'] ),
 						'people'  => array(
@@ -239,8 +239,8 @@ class gPeopleImporter extends gPluginImportCore
 
 			if ( isset( $_POST['editorial_meta_check'] ) ) {
 
-				if ( class_exists( 'geminorum\\gNetwork\\HTML' ) )
-					geminorum\gNetwork\HTML::tableList( array(
+				if ( class_exists( 'geminorum\\gNetwork\\Core\\HTML' ) )
+					\geminorum\gNetwork\Core\HTML::tableList( array(
 						'_cb'     => '_index',
 						'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
 						'meta'    => array(
@@ -315,8 +315,8 @@ class gPeopleImporter extends gPluginImportCore
 				else
 					$post_term_type = $type;
 
-				if ( class_exists( 'geminorum\\gNetwork\\HTML' ) )
-					geminorum\gNetwork\HTML::tableList( array(
+				if ( class_exists( 'geminorum\\gNetwork\\Core\\HTML' ) )
+					\geminorum\gNetwork\Core\HTML::tableList( array(
 						'_cb'     => '_index',
 						'post_id' => __( 'ID', GPEOPLE_TEXTDOMAIN ),
 						'title'   => array(
@@ -388,7 +388,7 @@ class gPeopleImporter extends gPluginImportCore
 			),
 		);
 
-		$query = new WP_Query( $args );
+		$query = new \WP_Query( $args );
 		$metas = array();
 
 		if ( $query->have_posts() ) {
@@ -432,7 +432,7 @@ class gPeopleImporter extends gPluginImportCore
 			),
 		);
 
-		$query = new WP_Query( $args );
+		$query = new \WP_Query( $args );
 		$posts = array();
 
 		if ( $query->have_posts() ) {
@@ -448,7 +448,7 @@ class gPeopleImporter extends gPluginImportCore
 		return $posts;
 	}
 
-	public function meta_row_table( $metas, $row, $column )
+	public function meta_row_table( $value, $row, $column, $index )
 	{
 		$post_id = is_array( $row ) ? $row['post_id'] : $row->post_id;
 
@@ -458,14 +458,14 @@ class gPeopleImporter extends gPluginImportCore
 		), get_admin_url( NULL, 'post.php' ) );
 
 		$terms = get_the_term_list( $post_id, $this->constants['people_tax'], '<br />', ', ', '' );
-		return $metas.' <small>( <a href="'.$url.'" target="_blank">Edit</a> | <a href="#" target="_blank">View</a> )</small><br /><small>'.$terms.'</small>';
+		return $value.' <small>( <a href="'.$url.'" target="_blank">Edit</a> | <a href="#" target="_blank">View</a> )</small><br /><small>'.$terms.'</small>';
 	}
 
 	// wrapper
-	public function meta_pre_table( $metas, $row, $column )
+	public function meta_pre_table( $value, $row, $column, $index )
 	{
-		$people = $this->meta_pre( array( $row->meta ), 0, NULL );
-		return gPluginUtils::dump_get( $people );
+		$people = $this->meta_pre( array( $row['meta'] ), 0, NULL );
+		return self::dump( $people, TRUE, FALSE );
 	}
 
 	// FIXME: moved / globalize this!

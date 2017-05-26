@@ -121,15 +121,15 @@ class gPeopleProfile extends gPluginModuleCore
 	public function get_images( $post, $sizes = NULL )
 	{
 		$images = array();
-		if ( ! has_post_thumbnail( $post->ID ) )
+
+		if ( ! $id = get_post_thumbnail_id( $post ) )
 			return $images;
 
 		if ( is_null( $sizes ) )
 			$sizes = array( 'thumbnail', 'medium', 'large', 'full' );
 
-		$thumbnail_id = get_post_thumbnail_id( $post->ID );
 		foreach ( $sizes as $size )
-			$images[$size] = wp_get_attachment_image_src( $thumbnail_id, $size );
+			$images[$size] = wp_get_attachment_image_src( $id, $size );
 
 		return $images;
 	}
@@ -142,15 +142,15 @@ class gPeopleProfile extends gPluginModuleCore
 		$link      = '';
 
 		if ( isset( $term_meta['profile-link'] ) ) {
-			$link =  $term_meta['profile-link'];
+			$link = $term_meta['profile-link'];
 
 		} else if ( isset( $term_meta['profile-id'] ) ) {
-			$link =  add_query_arg( array(
+			$link = add_query_arg( array(
 				'p' => $term_meta['profile-id'],
 			), get_blogaddress_by_id( GPEOPLE_ROOT_BLOG ) );
 
 		} else if ( $term_meta_profile_id = get_term_meta( $term_id, 'people_profile_id', TRUE ) ) {
-			$link =  add_query_arg( array(
+			$link = add_query_arg( array(
 				'p' => $term_meta_profile_id,
 			), get_blogaddress_by_id( GPEOPLE_ROOT_BLOG ) );
 		} else {
@@ -172,21 +172,24 @@ class gPeopleProfile extends gPluginModuleCore
 
 	public function taxonomy_bulk_actions( $actions, $taxonomy )
 	{
-		if ( $this->constants['people_tax'] == $taxonomy ) {
-			$actions['build_profile']    = __( 'Build Profile', GPEOPLE_TEXTDOMAIN );
-			$actions['pic_from_profile'] = __( 'Picture from Profile', GPEOPLE_TEXTDOMAIN );
-			// $actions['update_from_profile'] = __( 'Update from Profile', GPEOPLE_TEXTDOMAIN );
-			// $actions['update_profile']   = __( 'Update Remote Profile', GPEOPLE_TEXTDOMAIN );
-		}
+		if ( $this->constants['people_tax'] != $taxonomy )
+			return $actions;
 
-		return $actions;
+		return array_merge( $actions, array(
+			'build_profile'       => _x( 'Build Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
+			'pic_from_profile'    => _x( 'Picture from Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
+			// 'update_from_profile' => _x( 'Update from Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
+			// 'update_profile'      => _x( 'Update Remote Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
+		) );
 	}
 
 	public function taxonomy_bulk_callback( $callback, $action, $taxonomy )
 	{
 		if ( $this->constants['people_tax'] == $taxonomy ) {
+
 			if ( 'build_profile' == $action )
 				return array( $this, 'bulk_build_profile' );
+
 			else if ( 'pic_from_profile' == $action )
 				return array( $this, 'bulk_pic_from_profile' );
 		}
