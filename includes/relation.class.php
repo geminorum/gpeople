@@ -8,9 +8,9 @@ class gPeopleRelation extends gPluginModuleCore
 		$this->switch = GPEOPLE_ROOT_BLOG != $this->current_blog;
 		$this->before_edit_rel_terms = array();
 
-		add_action( 'edit_terms', array( $this, 'edit_terms' ), 10, 1 );
-		add_action( 'edited_term', array( $this, 'edited_term' ), 10, 3 );
-		add_action( 'created_term', array( $this, 'created_term' ), 10, 3 );
+		add_filter( 'wp_update_term_data', array( $this, 'wp_update_term_data' ), 10, 4 );
+		add_action( 'edited_'.$this->constants['rel_people_tax'], array( $this, 'edited_term' ), 10, 2 );
+		add_action( 'created_'.$this->constants['rel_people_tax'], array( $this, 'created_term' ), 10, 2 );
 	}
 
 	public function rel_table_action( $action_name )
@@ -57,40 +57,43 @@ class gPeopleRelation extends gPluginModuleCore
 	}
 
 	// used when a rel people tax info updated
-	// before edit : will save the old term and it's slug
-	public function edit_terms( $term_id )
+	// before edit: keeping the old term object
+	public function wp_update_term_data( $data, $term_id, $taxonomy, $args )
 	{
-		$before_term = get_term_by( 'id', $term_id, $this->constants['rel_people_tax'] );
-		if ( ! $before_term )
-			return;
+		if ( $taxonomy != $this->constants['rel_people_tax'] )
+			return $data;
 
-		$this->append( 'before_edit_rel_terms', $term_id, $before_term );
+		if ( ! $term = get_term_by( 'id', $term_id, $this->constants['rel_people_tax'] ) )
+			return $data;
+
+		$this->append( 'before_edit_rel_terms', $term_id, $term );
+
+		return $data;
 	}
 
 	// used when a rel people tax info updated
-	// after edit : change the rel_post by the saved old term
-	public function edited_term( $term_id, $tt_id, $taxonomy )
+	// after edit: change the rel_post by the old term
+	public function edited_term( $term_id, $tt_id )
 	{
-		if ( $taxonomy != $this->constants['rel_people_tax'] )
-			return;
-
 		if ( ! isset( $this->before_edit_rel_terms[$term_id] ) )
 			return;
 
-		$before_term = $this->before_edit_rel_terms[$term_id];
-		$after_term  = get_term_by( 'id', $term_id, $this->constants['rel_people_tax'] );
-		$post_term   = get_term_by( 'slug', $this->constants['rel_post_tax_pre'].$before_term->slug, $this->constants['rel_post_tax'] );
+		$before = $this->before_edit_rel_terms[$term_id];
+		$edited = get_term_by( 'id', $term_id, $this->constants['rel_people_tax'] );
 
-		wp_update_term( $post_term->term_id, $this->constants['rel_post_tax'], array( 'name' => $after_term->name, 'slug' => $this->constants['rel_post_tax_pre'].$after_term->slug ) );
+		if ( $mirrored = get_term_by( 'slug', $this->constants['rel_post_tax_pre'].$before->slug, $this->constants['rel_post_tax'] ) )
+			wp_update_term( $mirrored->term_id, $this->constants['rel_post_tax'], array(
+				'name' => $edited->name,
+				'slug' => $this->constants['rel_post_tax_pre'].$edited->slug,
+			) );
 	}
 
 	// after create new rel term
-	public function created_term( $term_id, $tt_id, $taxonomy )
+	public function created_term( $term_id, $tt_id )
 	{
-		if ( $taxonomy != $this->constants['rel_people_tax'] )
-			return;
-
-		$term = get_term_by( 'id', $term_id, $this->constants['rel_people_tax'] );
-		wp_insert_term( $term->name, $this->constants['rel_post_tax'], array( 'slug' => $this->constants['rel_post_tax_pre'].$term->slug ) );
+		if ( $term = get_term_by( 'id', $term_id, $this->constants['rel_people_tax'] ) )
+			wp_insert_term( $term->name, $this->constants['rel_post_tax'], array(
+				'slug' => $this->constants['rel_post_tax_pre'].$term->slug,
+			) );
 	}
 }
