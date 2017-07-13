@@ -42,6 +42,9 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		add_filter( 'dashboard_glance_items', array( $this, 'dashboard_glance_items' ), 8 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 20, 2 );
 
+		add_action( 'create_term', array( $this, 'edit_term' ), 10, 3 );
+		add_action( 'edit_term', array( $this, 'edit_term' ), 10, 3 );
+
 		// FIXME:
 		// removing people tax on attachment edit screen
 		// add_filter( 'attachment_fields_to_edit', array( $this, 'attachment_fields_to_edit' ), 8, 2 );
@@ -83,6 +86,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 				add_filter( 'manage_edit-'.$screen->taxonomy.'_columns', array( $this, 'manage_edit_people_columns' ) );
 				add_action( 'manage_'.$screen->taxonomy.'_custom_column', array( $this, 'manage_people_custom_column' ), 10, 3 );
+				add_action( 'quick_edit_custom_box', array( $this, 'quick_edit_custom_box' ), 10, 3 );
+				add_filter( 'term_name', array( $this, 'people_term_name' ), 10, 2 );
 				add_filter( $screen->taxonomy.'_row_actions', array( $this, 'people_row_actions' ), 12, 2 );
 				add_action( 'after-'.$screen->taxonomy.'-table', array( $this, 'after_people_table' ) );
 
@@ -318,19 +323,16 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 			if ( 'name' == $key ) {
 
-				// FIXME: temporarly
-				// $new_columns['picture'] = __( 'Picture', GPEOPLE_TEXTDOMAIN );
-				$new_columns[$key] = _x( 'Person', 'Root: Column Title', GPEOPLE_TEXTDOMAIN );
+				$new_columns[$key] = _x( 'Person', 'Root: Admin: Column Title', GPEOPLE_TEXTDOMAIN );
 
 			} else if ( 'description' == $key
-				|| 'gnetwork-description'  == $key ) {
+				|| 'gnetwork_description'  == $key ) {
 
-				$new_columns[$key] = _x( 'Short Bio', 'Root: Column Title', GPEOPLE_TEXTDOMAIN );
+				$new_columns[$key] = _x( 'Short Bio', 'Root: Admin: Column Title', GPEOPLE_TEXTDOMAIN );
 
-			} else if ( 'posts' == $key ) {
+			} else if ( 'slug' == $key ) {
 
-				$new_columns['affiliation'] = __( '<span title="Affiliation / Releations">Aff. / Rel.</span>', GPEOPLE_TEXTDOMAIN );
-				$new_columns[$key] = $value;
+				$new_columns['people-extra'] = _x( 'Extra', 'Root: Admin: Column Title', GPEOPLE_TEXTDOMAIN );
 
 			} else {
 				$new_columns[$key] = $value;
@@ -344,26 +346,100 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	{
 		global $gPeopleNetwork;
 
-		if ( 'affiliation' == $column ) {
+		if ( 'people-extra' == $column ) {
+
+			if ( $term = get_term( $term_id, $this->constants['people_tax'] ) )
+				echo '<div><code class="-slug code">'.apply_filters( 'editable_slug', $term->slug, $term ).'</code></div>';
 
 			$affiliations = wp_get_object_terms( $term_id, $this->constants['affiliation_tax'] );
 			$rel_people   = wp_get_object_terms( $term_id, $this->constants['rel_people_tax'] );
 
 			if ( ! empty( $affiliations ) )
-				echo $affiliations[0]->name;
+				echo '<div>'.$affiliations[0]->name.'</div>';
 			else
 				_e( '&mdash;', GPEOPLE_TEXTDOMAIN );
 
-			if ( ! empty( $rel_people ) ) {
-				foreach ( $rel_people as $rel_people_term )
-					echo '<br />'.$rel_people_term->name;
+			foreach ( $rel_people as $rel_people_term )
+				echo '<div>'.$rel_people_term->name.'</div>';
+
+
+			$first = get_term_meta( $term_id, $this->constants['metakey_people_firstname'], TRUE );
+			$last  = get_term_meta( $term_id, $this->constants['metakey_people_lastname'], TRUE );
+			$alt   = get_term_meta( $term_id, $this->constants['metakey_people_altname'], TRUE );
+
+			echo '<span class="firstname" data-firstname="'.$first.'"></span>';
+			echo '<span class="lastname" data-lastname="'.$last.'"></span>';
+			echo '<span class="altname" data-altname="'.$alt.'"></span>';
+		}
+	}
+
+	public function quick_edit_custom_box( $column, $screen, $taxonomy )
+	{
+		if ( 'people-extra' != $column )
+			return;
+
+		// TODO: add affiliation / must move out of mustache
+
+		echo '<fieldset><div class="inline-edit-col"><label><span class="title">';
+			_ex( 'First Name', 'Root: Admin: Column Title', GPEOPLE_TEXTDOMAIN );
+		echo '</span><span class="input-text-wrap">';
+			echo '<input type="text" class="ptitle" name="term-firstname" value="" />';
+		echo '</span></label></div></fieldset>';
+
+		echo '<fieldset><div class="inline-edit-col"><label><span class="title">';
+			_ex( 'Last Name', 'Root: Admin: Column Title', GPEOPLE_TEXTDOMAIN );
+		echo '</span><span class="input-text-wrap">';
+			echo '<input type="text" class="ptitle" name="term-lastname" value="" />';
+		echo '</span></label></div></fieldset>';
+
+		echo '<fieldset><div class="inline-edit-col"><label><span class="title">';
+			_ex( 'Alternative', 'Root: Admin: Column Title', GPEOPLE_TEXTDOMAIN );
+		echo '</span><span class="input-text-wrap">';
+			echo '<input type="text" class="ptitle" name="term-altname" value="" />';
+		echo '</span></label></div></fieldset>';
+	}
+
+	public function edit_term( $term_id, $tt_id, $taxonomy )
+	{
+		if ( $this->constants['people_tax'] != $taxonomy )
+			return;
+
+		$fields = [
+			'firstname' => $this->constants['metakey_people_firstname'],
+			'lastname'  => $this->constants['metakey_people_lastname'],
+			'altname'   => $this->constants['metakey_people_altname'],
+		];
+
+		foreach ( $fields as $field => $constant ) {
+
+			if ( ! array_key_exists( 'term-'.$field, $_REQUEST ) )
+				continue;
+
+			$meta = empty( $_REQUEST['term-'.$field] ) ? FALSE : trim( $_REQUEST['term-'.$field] );
+
+			if ( $meta ) {
+				update_term_meta( $term_id, $constant, $meta );
+			} else {
+				delete_term_meta( $term_id, $constant );
 			}
 
-		} else if ( 'picture' == $column ) {
-
-			if ( $picture = $gPeopleNetwork->picture->get_people_image( $term_id, 'thumbnail' ) )
-				echo gPluginHTML::tag( 'img', array( 'src' => $picture ) );
+			// FIXME: experiment: since the action may trigger twice
+			unset( $_REQUEST['term-'.$field] );
 		}
+	}
+
+	public function people_term_name( $name, $term )
+	{
+		// WTF: this filter called twice with different args!
+		if ( ! is_object( $term ) )
+			return $name;
+
+		$formatted = gPluginTextHelper::reFormatName( $term->name );
+
+		if ( $formatted == $term->name )
+			return $name;
+
+		return $formatted.' ['.$term->name.']';
 	}
 
 	public function people_row_actions( $actions, $term )

@@ -19,9 +19,15 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 		$this->register_taxonomies();
 
+
 		if ( is_admin() ) {
 
+			add_filter( 'pre_term_name', array( $this, 'pre_term_name' ), 12, 2 );
+
 		} else {
+
+			add_filter( 'single_term_title', array( $this, 'single_term_title' ), 8 );
+			add_filter( $this->constants['people_tax'].'_name', array( $this, 'people_term_name' ), 8, 3 );
 
 			if ( $this->settings->get( 'before_content', FALSE ) )
 				add_filter( 'the_content', array( $this, 'the_content' ), 25 );
@@ -205,6 +211,21 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 		}
 	}
 
+	public function pre_term_name( $term, $taxonomy )
+	{
+		return $this->constants['people_tax'] == $taxonomy ? gPluginTextHelper::formatName( $term ) : $term;
+	}
+
+	public function single_term_title( $title )
+	{
+		return is_tax( $this->constants['people_tax'] ) ? gPluginTextHelper::reFormatName( $title ) : $title;
+	}
+
+	public function people_term_name( $value, $term_id, $context )
+	{
+		return 'display' == $context ? gPluginTextHelper::reFormatName( $value ) : $value;
+	}
+
 	public function get_people( $post_id, $atts = array(), $walker = NULL )
 	{
 		$meta = $this->get_postmeta( $post_id, FALSE, array() );
@@ -233,7 +254,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 			if ( isset( $item['id'] ) && $item['id'] ) {
 				if ( $term = get_term_by( 'id', $item['id'], $this->constants['people_tax'] ) ) {
-					$new_people['name'] = $term->name;
+					$new_people['name'] = gPluginTextHelper::reFormatName( $term->name );
 					$new_people['link'] = get_term_link( $term, $this->constants['people_tax'] );
 				}
 			}
@@ -242,7 +263,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 				$new_people['name'] = $item['override'];
 
 			if ( ! $new_people['name'] && ( isset( $item['temp'] ) && $item['temp'] ) )
-				$new_people['name'] = $item['temp'];
+				$new_people['name'] = gPluginTextHelper::reFormatName( $item['temp'] );
 
 			if ( ! $new_people['name'] )
 				// $new_people['name'] = __( 'Unknown Person', GPEOPLE_TEXTDOMAIN );

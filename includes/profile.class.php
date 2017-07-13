@@ -176,8 +176,10 @@ class gPeopleProfile extends gPluginModuleCore
 			return $actions;
 
 		return array_merge( $actions, array(
-			'build_profile'       => _x( 'Build Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
-			'pic_from_profile'    => _x( 'Picture from Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
+			'extract_parts'    => _x( 'Extract the Parts', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
+			'extract_store'    => _x( 'Extract and Store', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
+			'build_profile'    => _x( 'Build Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
+			'pic_from_profile' => _x( 'Picture from Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
 			// 'update_from_profile' => _x( 'Update from Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
 			// 'update_profile'      => _x( 'Update Remote Profile', 'Modules: Profile', GPEOPLE_TEXTDOMAIN ),
 		) );
@@ -192,19 +194,65 @@ class gPeopleProfile extends gPluginModuleCore
 
 			else if ( 'pic_from_profile' == $action )
 				return array( $this, 'bulk_pic_from_profile' );
+
+			else if ( 'extract_parts' == $action )
+				return array( $this, 'bulk_extract_parts' );
+
+			else if ( 'extract_store' == $action )
+				return array( $this, 'bulk_extract_store' );
 		}
 
 		return $callback;
 	}
 
+	public function bulk_extract_store( $term_ids, $taxonomy )
+	{
+		return $this->bulk_extract_parts( $term_ids, $taxonomy, TRUE );
+	}
+
+	public function bulk_extract_parts( $term_ids, $taxonomy, $store = FALSE )
+	{
+		if ( $this->constants['people_tax'] != $taxonomy )
+			return FALSE;
+
+		$separator = ', ';
+
+		foreach ( $term_ids as $term_id ) {
+
+			if ( ! $term = get_term( $term_id, $taxonomy ) )
+				continue;
+
+			if ( FALSE !== stripos( $term->name, trim( $separator ) ) )
+				continue;
+
+			// remove NULL, FALSE and empty strings (""), but leave values of 0
+			$parts = array_filter( explode( ' ', $term->name, 2 ), 'strlen' );
+
+			if ( 1 == count( $parts ) )
+				continue;
+
+			if ( $store ) {
+				update_term_meta( $term_id, $this->constants['metakey_people_firstname'], $parts[0] );
+				update_term_meta( $term_id, $this->constants['metakey_people_lastname'], $parts[1] );
+			}
+
+			wp_update_term( $term_id, $taxonomy, [
+				'name' => $parts[1].$separator.$parts[0],
+				// 'slug' => $term->name,
+			] );
+		}
+
+		return TRUE;
+	}
+
 	public function bulk_pic_from_profile( $term_ids, $taxonomy )
 	{
+		if ( $this->constants['people_tax'] != $taxonomy )
+			return FALSE;
+
 		global $gPeopleNetwork;
 
 		$profiles = $pictures = array();
-
-		if ( $this->constants['people_tax'] != $taxonomy )
-			return FALSE;
 
 		$terms = gPluginTaxonomyHelper::prepareTerms( $this->constants['people_tax'], array( 'include' => $term_ids ) );
 

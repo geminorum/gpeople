@@ -115,4 +115,19 @@ jQuery(document).ready(function($) {
       $.colorbox.close();
     }
   };
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+    $('#the-list').on('click', 'a.editinline', function(event){
+      var tag = $(this).parents('tr').attr('id'),
+        firstname = $('td.people-extra span.firstname', '#' + tag).attr('data-firstname'),
+        lastname = $('td.people-extra span.lastname', '#' + tag).attr('data-lastname'),
+        altname = $('td.people-extra span.altname', '#' + tag).attr('data-altname');
+
+        $(':input[name="term-firstname"]', '.inline-edit-row').val(firstname);
+        $(':input[name="term-lastname"]', '.inline-edit-row').val(lastname);
+        $(':input[name="term-altname"]', '.inline-edit-row').val(altname);
+    });
 });

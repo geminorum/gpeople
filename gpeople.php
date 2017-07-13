@@ -114,6 +114,10 @@ function gpeople_init( $gplugin_version = NULL ){
 		'remote_connection_type'   => 'post_to_people',
 		'user_profile_map'         => 'gpeople_profile_map',
 		'user_term_map'            => 'gpeople_term_map',
+
+		'metakey_people_firstname' => 'firstname',
+		'metakey_people_lastname'  => 'lastname',
+		'metakey_people_altname'   => 'altname',
 	);
 
 	if ( class_exists( 'gPluginFactory' ) )
