@@ -2,57 +2,61 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 /// gPeople Partials: Admin All ------------------------------------------------
+
 .gpeople-admin-wrap {
-	.credits {
-		direction: ltr;
-		p {
-			font-size: 0.98em;
-		}
-	}
-	.signature {
-		@include body-rtl() {
-			direction: ltr;
-		}
-	}
-	.credits,
-	.signature {
-		color: #777;
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
-		a:hover {
-			color: #333;
-			text-decoration: underline;
-		}
-		@include body-rtl() {
-			margin-left: 25px;
-		}
-	}
+  .credits {
+    direction: ltr;
+    p {
+      font-size: 0.98em;
+    }
+  }
+  .signature {
+    @include body-rtl() {
+      direction: ltr;
+    }
+  }
+  .credits,
+  .signature {
+    color: #777;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #333;
+      text-decoration: underline;
+    }
+    @include body-rtl() {
+      margin-left: 25px;
+    }
+  }
 }
+
 .hndle {
-	.gpeople-postbox-title-action {
-		opacity: 0;
-		float: right;
-		line-height: 1.2;
-		@include body-rtl() {
-			float: left;
-		}
-	}
-	&:hover {
-		.gpeople-postbox-title-action {
-			opacity: 1;
-		}
-	}
+  .gpeople-postbox-title-action {
+    opacity: 0;
+    float: right;
+    line-height: 1.2;
+    @include body-rtl() {
+      float: left;
+    }
+  }
+  &:hover {
+    .gpeople-postbox-title-action {
+      opacity: 1;
+    }
+  }
 }
+
 .gpeople-admin-wrap-metabox {}
+
 // TINYMCE BUTTON ICONS
 .gpeople-tinymce-icon {
-	&:before {
-		font-family: "dashicons";
-		content: "\f159"; // DEFAULT
-	}
-	&.icon-gp_person:before {
-		content: "\f100";
-	}
+  &:before {
+    font-family: "dashicons";
+    content: "\f159"; // DEFAULT
+  }
+  &.icon-gp_person:before {
+    content: "\f100";
+  }
 }

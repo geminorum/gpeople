@@ -1,80 +1,83 @@
-@charset "UTF-8";
-
 @import "modules/all";
 @import "partials/base";
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 @import "partials/admin.all";
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 @import "partials/remote.admin.tabs";
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 .gpeople-admin-wrap-metabox.remote-post {
-	@include mainwrap();
+  @include mainwrap();
 
-	padding-top: 5px;
-	margin-bottom: -10px;
+  padding-top: 5px;
+  margin-bottom: -10px;
 
-	.metabox-row {
-		margin-bottom: 10px;
+  .metabox-row {
+    margin-bottom: 10px;
 
-		&.byline {
+    &.byline {
 
-			padding: 4px 6px;
+      padding: 4px 6px;
 
-			font-size: 0.9em;
-			color: #555;
-			background: #ebebeb;
-			border: 1px solid #e5e5e5;
-			border-radius: 2px;
+      font-size: 0.9em;
+      color: #555;
+      background: #ebebeb;
+      border: 1px solid #e5e5e5;
+      border-radius: 2px;
 
-			a {
-				text-decoration: none;
-				&:hover {
-					text-decoration: underline;
-				}
-			}
-		}
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
 
-		&.metabox-action {
+    &.metabox-action {
 
-			.button {
-				width: 100%;
-				padding-left: 3px;
+      .button {
+        width: 100%;
+        padding-left: 3px;
 
-				@include body-rtl() {
-					padding-right: 3px;
-				}
+        @include body-rtl() {
+          padding-right: 3px;
+        }
 
-				.dashicons {
-					width: 25px;
-					height: 25px;
-					font-size: 25px;
-					margin-top: 1px;
-					margin-right: 5px;
+        .dashicons {
+          width: 25px;
+          height: 25px;
+          font-size: 25px;
+          margin-top: 1px;
+          margin-right: 5px;
 
-					@include body-rtl() {
-						margin-right: 0px;
-						margin-left: 5px;
-					}
+          @include body-rtl() {
+            margin-right: 0px;
+            margin-left: 5px;
+          }
 
-				}
-			}
-		}
+        }
+      }
+    }
 
-		&.metabox-list {
-			margin: 0;
-			font-size: 0.8em;
-			li {
-				margin-bottom: 5px;
-				&:last-of-type {
-					margin-bottom: 0px;
-				}
-			}
-			a {
-				text-decoration: none;
-				&:hover {
-					text-decoration: underline;
-				}
-			}
-		}
-	}
+    &.metabox-list {
+      margin: 0;
+      font-size: 0.8em;
+      li {
+        margin-bottom: 5px;
+        &:last-of-type {
+          margin-bottom: 0px;
+        }
+      }
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }

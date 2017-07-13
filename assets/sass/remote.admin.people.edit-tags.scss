@@ -1,106 +1,117 @@
-@charset "UTF-8";
-
 @import "modules/all";
 @import "partials/base";
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 @import "partials/admin.all";
-
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 @import "partials/remote.admin.tabs";
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+.fixed {
+  .column-people-extra {}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 // wp default title, then we add our own
 body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
-	.form-wrap > h3 {
-		display: none;
-	}
+  .form-wrap > h3 {
+    display: none;
+  }
 }
 
 .gpeople-admin-wrap.remote-people-pre-add {
-	@include mainwrap();
+  @include mainwrap();
 
-	> h3 {
-		margin-top: 0;
-	}
+  > h3 {
+    margin-top: 0;
+  }
 
-	// wp core class
-	.form-field {
-		margin: 0 0 10px;
-		padding: 8px 0;
+  // wp core class
+  .form-field {
+    margin: 0 0 10px;
+    padding: 8px 0;
 
-		.description {
+    .description {
 
-		}
-	}
+    }
+  }
 
-	.button {
+  .button {
 
-	}
+  }
 
-	.remove {
-		color: red;
-		display: none;
-		margin: 0 12px;
-		line-height: 28px;
-	}
+  .remove {
+    color: red;
+    display: none;
+    margin: 0 12px;
+    line-height: 28px;
+  }
 
-	.profile-picture {
-		margin: 0 0 10px 10px;
-		float: right;
-		display: inline-block;
+  .profile-picture {
+    margin: 0 0 10px 10px;
+    float: right;
+    display: inline-block;
 
-		@include body-rtl() {
-			margin: 0 10px 10px 0;
-			float: left;
-		}
+    @include body-rtl() {
+      margin: 0 10px 10px 0;
+      float: left;
+    }
 
-		img {
-			max-width: 120px;
-			max-height: 120px;
-		}
-	}
+    img {
+      max-width: 120px;
+      max-height: 120px;
+    }
+  }
 }
 
-.wp-list-table {
-
-	th {
-		&.column-picture {
-			width: 60px !important;
-		}
-
-		&.column-name {
-			width: 190px !important;
-		}
-
-		&.column-slug {
-			width: 12%;
-		}
-
-		&.column-affiliation {
-			width: 95px !important;
-		}
-
-		&.column-linked {
-			width: 10%;
-		}
-
-		&.column-posts {
-			// width: 8% !important;
-			width: 64px !important;
-		}
-	}
-
-	td {
-		&.column-picture {
-			padding-bottom: 8px;
-			padding-top: 8px;
-			text-align: center;
-
-			img {
-				max-height: 50px;
-				max-width: 60px;
-			}
-		}
-
-		&.column-affiliation {
-			padding: 8px 5px;
-		}
-	}
-}
+// .wp-list-table {
+//
+//   th {
+//     &.column-picture {
+//       width: 60px !important;
+//     }
+//
+//     &.column-name {
+//       width: 190px !important;
+//     }
+//
+//     &.column-slug {
+//       width: 12%;
+//     }
+//
+//     // &.column-affiliation {
+//     //   width: 95px !important;
+//     // }
+//
+//     &.column-linked {
+//       width: 10%;
+//     }
+//
+//     &.column-posts {
+//       // width: 8% !important;
+//       width: 64px !important;
+//     }
+//   }
+//
+//   td {
+//     &.column-picture {
+//       padding-bottom: 8px;
+//       padding-top: 8px;
+//       text-align: center;
+//
+//       img {
+//         max-height: 50px;
+//         max-width: 60px;
+//       }
+//     }
+//
+//     &.column-affiliation {
+//       padding: 8px 5px;
+//     }
+//   }
+// }
