@@ -457,9 +457,9 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 	public function after_people_table( $taxonomy )
 	{
-		?><div class="form-wrap" style="text-align:right;">
-			<p><?php printf( __( '&#8220;<a href="%1$s" title="People, the way involved in your site" >gPeople</a>&#8221; is a <a href="%2$s">geminorum</a> project', GPEOPLE_TEXTDOMAIN ), 'http://geminorum.ir/wordpress/gpeople/', 'http://geminorum.ir' ); ?></p>
-		</div><?php
+		echo '<div class="form-wrap edit-term-notes"><p>';
+			printf( __( '&#8220;<a href="%1$s" title="People, the way involved in your site" >gPeople</a>&#8221; is a <a href="%2$s">geminorum</a> project', GPEOPLE_TEXTDOMAIN ), 'http://geminorum.ir/wordpress/gpeople/', 'http://geminorum.ir' );
+		echo '</p></div>';
 	}
 
 	// modal on edit people tax screen
