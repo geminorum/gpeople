@@ -150,7 +150,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 
 		switch ( $args['type'] ) {
 
-			case 'hidden' :
+			case 'hidden':
 
 				echo gPluginHTML::tag( 'input', array(
 					'type'  => 'hidden',
@@ -163,7 +163,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				$args['description'] = FALSE;
 
 			break;
-			case 'enabled' :
+			case 'enabled':
 
 				$html = gPluginHTML::tag( 'option', array(
 					'value'    => '0',
@@ -186,13 +186,10 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				), $html );
 
 			break;
-			case 'text' :
+			case 'text':
 
 				if ( ! $args['field_class'] )
 					$args['field_class'] = 'regular-text';
-
-				if ( ! count( $args['dir'] ) )
-					$args['data'] = array( 'accept' => 'text' );
 
 				echo gPluginHTML::tag( 'input', array(
 					'type'        => 'text',
@@ -208,16 +205,13 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				) );
 
 			break;
-			case 'number' :
+			case 'number':
 
 				if ( ! $args['field_class'] )
 					$args['field_class'] = 'small-text';
 
 				if ( ! $args['dir'] )
 					$args['dir'] = 'ltr';
-
-				if ( ! count( $args['dir'] ) )
-					$args['data'] = array( 'accept' => 'number' );
 
 				echo gPluginHTML::tag( 'input', array(
 					'type'        => 'number',
@@ -235,16 +229,13 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				) );
 
 			break;
-			case 'url' :
+			case 'url':
 
 				if ( ! $args['field_class'] )
-					$args['field_class'] = array( 'large-text', 'url-text' );
+					$args['field_class'] = array( 'regular-text', 'url-text' );
 
 				if ( ! $args['dir'] )
 					$args['dir'] = 'ltr';
-
-				if ( ! count( $args['dir'] ) )
-					$args['data'] = array( 'accept' => 'url' );
 
 				echo gPluginHTML::tag( 'input', array(
 					'type'        => 'url',
@@ -260,7 +251,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				) );
 
 			break;
-			case 'checkbox' :
+			case 'checkbox':
 
 				if ( count( $args['values'] ) ) {
 
@@ -328,7 +319,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				}
 
 			break;
-			case 'radio' :
+			case 'radio':
 
 				if ( count( $args['values'] ) ) {
 
@@ -375,7 +366,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				}
 
 			break;
-			case 'select' :
+			case 'select':
 
 				if ( FALSE !== $args['values'] ) {
 
@@ -413,8 +404,8 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				}
 
 			break;
-			case 'textarea' :
-			case 'textarea-quicktags' :
+			case 'textarea':
+			case 'textarea-quicktags':
 
 				if ( ! $args['field_class'] )
 					$args['field_class'] = 'large-text';
@@ -449,7 +440,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				), $value );
 
 			break;
-			case 'page' :
+			case 'page':
 
 				if ( ! $args['values'] )
 					$args['values'] = 'page';
@@ -494,7 +485,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				}
 
 			break;
-			case 'role' :
+			case 'role':
 
 				if ( ! $args['values'] )
 					$args['values'] = array_reverse( get_editable_roles() );
@@ -531,7 +522,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				), $html );
 
 			break;
-			case 'cap' :
+			case 'cap':
 
 				if ( ! $args['values'] )
 					$args['values'] = self::getUserCapList( NULL, $args['none_title'], $args['none_value'] );
@@ -565,7 +556,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				}
 
 			break;
-			case 'user' :
+			case 'user':
 
 				if ( ! $args['values'] )
 					$args['values'] = gPluginWPHelper::getUsers( FALSE, FALSE, $args['extra'] );
@@ -600,7 +591,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				), $html );
 
 			break;
-			case 'priority' :
+			case 'priority':
 
 				if ( ! $args['values'] )
 					$args['values'] = self::priorityOptions( FALSE );
@@ -630,7 +621,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				), $html );
 
 			break;
-			case 'button' :
+			case 'button':
 
 				echo get_submit_button(
 					$value,
@@ -641,7 +632,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				);
 
 			break;
-			case 'file' :
+			case 'file':
 
 				echo gPluginHTML::tag( 'input', array(
 					'type'     => 'file',
@@ -654,7 +645,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				) );
 
 			break;
-			case 'posttypes' :
+			case 'posttypes':
 
 				if ( ! $args['values'] )
 					$args['values'] = gPluginWPHelper::getPostTypes( 0,
@@ -683,7 +674,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				}
 
 			break;
-			case 'taxonomies' :
+			case 'taxonomies':
 
 				if ( ! $args['values'] )
 					$args['values'] = gPluginWPHelper::getTaxonomies( 0, $args['extra'] );
@@ -711,7 +702,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				}
 
 			break;
-			case 'callback' :
+			case 'callback':
 
 				if ( is_callable( $args['callback'] ) ) {
 
@@ -724,14 +715,14 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				}
 
 			break;
-			case 'noaccess' :
+			case 'noaccess':
 
 				echo gPluginHTML::tag( 'span', array(
 					'class' => '-type-noaccess',
 				), $args['string_noaccess'] );
 
 			break;
-			case 'custom' :
+			case 'custom':
 
 				if ( ! is_array( $args['values'] ) )
 					echo $args['values'];
@@ -739,12 +730,12 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 					echo $value;
 
 			break;
-			case 'debug' :
+			case 'debug':
 
 				self::dump( $args['options'] );
 
 			break;
-			default :
+			default:
 
 				echo 'Error: setting type not defind!';
 		}

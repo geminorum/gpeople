@@ -18,9 +18,25 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		return '<a class="-mailto" href="mailto:'.trim( $email ).'">'.( $title ? $title : trim( $email ) ).'</a>';
 	}
 
-	public static function scroll( $html, $to )
+	public static function tel( $number, $title = FALSE, $content = NULL )
 	{
-		return '<a class="scroll" href="#'.$to.'">'.$html.'</a>';
+		if ( is_null( $content ) )
+			$content = gPluginNumber::format( $number );
+
+		return '<a class="-tel" href="'.self::sanitizePhoneNumber( $number )
+				.'"'.( $title ? ' data-toggle="tooltip" title="'.self::escapeAttr( $title ).'"' : '' )
+				.' data-tel-number="'.self::escapeAttr( $number ).'">'
+				.'&#8206;'.$content.'&#8207;</a>';
+	}
+
+	public static function scroll( $html, $to, $title = '' )
+	{
+		return '<a class="scroll" title="'.$title.'" href="#'.$to.'">'.$html.'</a>';
+	}
+
+	public static function img( $src, $class = '', $alt = '' )
+	{
+		return '<img src="'.$src.'" class="'.$class.'" alt="'.$alt.'" />';
 	}
 
 	public static function h2( $html, $class = FALSE )
@@ -33,9 +49,11 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		echo self::tag( 'h3', array( 'class' => $class ), $html );
 	}
 
-	public static function desc( $html, $block = TRUE, $class = '' )
+	public static function desc( $html, $block = TRUE, $class = '', $nl2br = TRUE )
 	{
-		if ( $html ) echo $block ? '<p class="description '.$class.'">'.$html.'</p>' : '<span class="description '.$class.'">'.$html.'</span>';
+		if ( ! $html ) return;
+		if ( $nl2br ) $html = nl2br( trim( $html ) );
+		echo $block ? '<p class="description -description '.$class.'">'.$html.'</p>' : '<span class="description -description '.$class.'">'.$html.'</span>';
 	}
 
 	public static function inputHidden( $name, $value = '' )
@@ -43,9 +61,9 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		echo '<input type="hidden" name="'.self::escapeAttr( $name ).'" value="'.self::escapeAttr( $value ).'" />';
 	}
 
-	public static function joined( $items, $before = '', $after = '', $sep = '|' )
+	public static function joined( $items, $before = '', $after = '', $sep = '|', $empty = '' )
 	{
-		return count( $items ) ? ( $before.join( $sep, $items ).$after ) : '';
+		return count( $items ) ? ( $before.join( $sep, $items ).$after ) : $empty;
 	}
 
 	public static function tag( $tag, $atts = array(), $content = FALSE, $sep = '' )
@@ -76,7 +94,7 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 				$classes = array_merge( $classes, $arg );
 
 			else if ( $arg )
-				$classes = array_merge( $classes, explode( ' ', $arg ) );
+				$classes = array_merge( $classes, preg_split( '#\s+#', $arg ) );
 
 		return array_unique( array_filter( $classes, 'trim' ) );
 	}
@@ -269,27 +287,36 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 
 		echo '<tbody>';
 
-		foreach ( (array) $array as $key => $val ) {
-
-			if ( is_null( $val ) )
-				$val = 'NULL';
-
-			else if ( is_bool( $val ) )
-				$val = $val ? 'TRUE' : 'FALSE';
-
-			else if ( is_array( $val ) || is_object( $val ) )
-				$val = json_encode( $val );
-
-			else if ( empty( $val ) )
-				$val = 'EMPTY';
-
-			else
-				$val = nl2br( $val );
-
-			printf( $row, $key, $val );
-		}
+		foreach ( (array) $array as $key => $value )
+			printf( $row, $key, self::sanitizeDisplay( $value ) );
 
 		echo '</tbody></table>';
+	}
+
+	public static function sanitizeDisplay( $value )
+	{
+		if ( is_null( $value ) )
+			$value = 'NULL';
+
+		else if ( is_bool( $value ) )
+			$value = $value ? 'TRUE' : 'FALSE';
+
+		else if ( is_array( $value ) )
+			$value = self::joined( $value, '[', ']', ',', 'EMPTY ARRAY' );
+
+		else if ( is_object( $value ) )
+			$value = json_encode( $value );
+
+		else if ( is_int( $value ) )
+			$value = $value;
+
+		else if ( empty( $value ) )
+			$value = 'EMPTY';
+
+		else
+			$value = nl2br( trim( $value ) );
+
+		return $value;
 	}
 
 	// @REF: https://developer.wordpress.org/resource/dashicons/

@@ -3,10 +3,25 @@
 if ( ! class_exists( 'gPluginTextHelper' ) ) { class gPluginTextHelper extends gPluginClassCore
 {
 
+	public static function formatName( $string, $separator = ', ' )
+	{
+		// already formatted
+		if ( FALSE !== stripos( $string, trim( $separator ) ) )
+			return $string;
+
+		// remove NULL, FALSE and empty strings (""), but leave values of 0
+		$parts = array_filter( explode( ' ', $string, 2 ), 'strlen' );
+
+		if ( 1 == count( $parts ) )
+			return $string;
+
+		return $parts[1].$separator.$parts[0];
+	}
+
 	public static function reFormatName( $string, $separator = ', ' )
 	{
-		// return preg_replace( '/(.*), (.*)/', '$2 $1', $string );
-		return preg_replace( '/(.*)[,،;؛] (.*)/u', '$2'.$separator.'$1', $string );
+		return preg_replace( '/(.*), (.*)/', '$2 $1', $string );
+		// return preg_replace( '/(.*)([,،;؛]) (.*)/u', '$3'.$separator.'$1', $string ); // Wrong!
 	}
 
 	public static function email2username( $email, $strict = TRUE )

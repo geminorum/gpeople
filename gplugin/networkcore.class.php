@@ -203,8 +203,13 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 				$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'message' ), $_SERVER['REQUEST_URI'] );
 			}
 
-			if ( file_exists( $this->constants['plugin_dir'].'admin/network.'.$sub.'.php' ) )
+			if ( file_exists( $this->constants['plugin_dir'].'includes/settings/network.'.$sub.'.php' ) )
+				require_once( $this->constants['plugin_dir'].'includes/settings/network.'.$sub.'.php' );
+
+			// FIXME: DEPRICATED
+			else if ( file_exists( $this->constants['plugin_dir'].'admin/network.'.$sub.'.php' ) )
 				require_once( $this->constants['plugin_dir'].'admin/network.'.$sub.'.php' );
+
 			else
 				do_action( $this->args['domain'].'_network_settings_sub_'.$sub, $uri, $sub );
 

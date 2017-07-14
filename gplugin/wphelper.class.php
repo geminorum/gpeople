@@ -429,7 +429,15 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		if ( ! $post_thumbnail_img = wp_get_attachment_image_src( $post_thumbnail_id, $size ) )
 			return '';
 
-		$image = gPluginHTML::tag( 'img', array( 'src' => $post_thumbnail_img[0] ) );
+		$image = gPluginHTML::tag( 'img', array(
+			'src'   => $term_thumbnail_img[0],
+			'class' => '-featured',
+			'alt'   => '',
+			'data'  => array(
+				'post'       => $post_id,
+				'attachment' => $post_thumbnail_id,
+			),
+		) );
 
 		if ( ! $link )
 			return $image;
@@ -439,6 +447,10 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 			'title'  => get_the_title( $post_thumbnail_id ),
 			'class'  => 'thickbox',
 			'target' => '_blank',
+			'data'   => array(
+				'post'       => $post_id,
+				'attachment' => $post_thumbnail_id,
+			),
 		), $image );
 	}
 
@@ -606,6 +618,6 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 
 	public static function getRequestURI()
 	{
-		return stripslashes_deep( $_SERVER['REQUEST_URI'] );
+		return gPluginUtils::unslash( $_SERVER['REQUEST_URI'] );
 	}
 } }

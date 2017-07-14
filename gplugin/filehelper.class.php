@@ -47,10 +47,12 @@ if ( ! class_exists( 'gPluginFileHelper' ) ) { class gPluginFileHelper extends g
 		self::__dep();
 
 		switch ( strtolower( self::extension( $string ) ) ) {
+
 			case 'jpg': return TRUE;
 			case 'png': return TRUE;
 			case 'gif': return TRUE;
 		}
+
 		return FALSE;
 	}
 

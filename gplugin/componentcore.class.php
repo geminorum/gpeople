@@ -212,18 +212,19 @@ if ( ! class_exists( 'gPluginComponentCore' ) ) { class gPluginComponentCore ext
 		$key = $this->sanitize_meta_key( $key, $from );
 
 		switch ( $from ) {
-			case 'user' :
+
+			case 'user':
 
 				$meta = get_user_meta( $id, $key, FALSE );
 
 			break;
-			case 'term' :
+			case 'term':
 
 				$meta = get_term_meta( $id, $key, TRUE );
 
 			break;
-			case 'post' :
 			default :
+			case 'post':
 
 				$meta = get_metadata( 'post', $id, $key, TRUE );
 		}
@@ -257,33 +258,37 @@ if ( ! class_exists( 'gPluginComponentCore' ) ) { class gPluginComponentCore ext
 		}
 
 		switch ( $to ) {
-			case 'user' :
+
+			case 'user':
 
 				if ( FALSE === $value
 					|| ( is_array( $value )
 						&& ! count( $value ) ) )
 					delete_user_meta( $id, $key );
+
 				else
 					update_user_meta( $id, $key, $meta );
 
 			break;
-			case 'term' :
+			case 'term':
 
 				if ( FALSE === $value
 					|| ( is_array( $value )
 						&& ! count( $value ) ) )
 					delete_term_meta( $id, $key );
+
 				else
 					update_term_meta( $id, $key, $meta );
 
 			break;
-			case 'post' :
-			default :
+			default:
+			case 'post':
 
 				if ( FALSE === $value
 					|| ( is_array( $value )
 						&& ! count( $value ) ) )
 					delete_post_meta( $id, $key );
+
 				else
 					update_post_meta( $id, $key, $meta );
 		}

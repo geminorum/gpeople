@@ -15,6 +15,7 @@ if ( ! class_exists( 'gPluginHTTP' ) ) { class gPluginHTTP extends gPluginClassC
 		return (bool) ( 'GET' === strtoupper( $_SERVER['REQUEST_METHOD'] ) );
 	}
 
+	// @REF: `WP_Community_Events::get_unsafe_client_ip()`
 	public static function IP( $pad = FALSE )
 	{
 		$ip = '';
@@ -28,6 +29,9 @@ if ( ! class_exists( 'gPluginHTTP' ) ) { class gPluginHTTP extends gPluginClassC
 		else if ( getenv( 'HTTP_X_FORWARDED' ) )
 			$ip = getenv( 'HTTP_X_FORWARDED' );
 
+		else if ( getenv( 'HTTP_X_CLUSTER_CLIENT_IP' ) )
+			$ip = getenv( 'HTTP_X_CLUSTER_CLIENT_IP' );
+
 		else if ( getenv( 'HTTP_FORWARDED_FOR' ) )
 			$ip = getenv( 'HTTP_FORWARDED_FOR' );
 
@@ -36,6 +40,10 @@ if ( ! class_exists( 'gPluginHTTP' ) ) { class gPluginHTTP extends gPluginClassC
 
 		else
 			$ip = getenv( 'REMOTE_ADDR' );
+
+		// HTTP_X_FORWARDED_FOR can contain a chain of comma-separated addresses
+		$ip = explode( ',', $ip );
+		$ip = trim( $ip[0] );
 
 		$ip = self::normalizeIP( $ip );
 
@@ -47,7 +55,7 @@ if ( ! class_exists( 'gPluginHTTP' ) ) { class gPluginHTTP extends gPluginClassC
 
 	public static function normalizeIP( $ip )
 	{
-		return trim( preg_replace( '/[^0-9., ]/', '', stripslashes( $ip ) ) );
+		return trim( preg_replace( '/[^0-9a-fA-F:., ]/', '', stripslashes( $ip ) ) );
 	}
 
 	public static function headers( $array )

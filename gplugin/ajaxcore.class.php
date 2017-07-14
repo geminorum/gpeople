@@ -21,7 +21,7 @@ if ( ! class_exists( 'gPluginAjaxCore' ) ) { class gPluginAjaxCore extends gPlug
 	{
 		if ( wp_verify_nonce( $_REQUEST['_ajax_nonce'], $this->ajax_nonce ) ) {
 
-			$post = stripslashes_deep( $_POST );
+			$post = gPluginUtils::unslash( $_POST );
 			$sub  = isset( $post['sub'] ) ? $post['sub'] : 'nosub';
 
 			// if ( ! method_exists( $this, 'sub_'.$sub ) ) {

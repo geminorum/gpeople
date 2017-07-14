@@ -67,21 +67,30 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 		return $callback ? array_filter( $input, $callback ) : array_filter( $input );
 	}
 
-	// Maps a function to all non-iterable elements of an array or an object.
-	// This is similar to `array_walk_recursive()` but acts upon objects too.
-	// ANCESTOR: map_deep()
+	// maps a function to all non-iterable elements of an array or an object
+	// this is similar to `array_walk_recursive()` but acts upon objects too
+	// @REF: `map_deep()`
+	public static function mapDeep( $data, $callback )
+	{
+		if ( is_array( $data ) )
+			foreach ( $data as $index => $item )
+				$data[$index] = self::mapDeep( $item, $callback );
+
+		else if ( is_object( $data ) )
+			foreach ( get_object_vars( $data ) as $name => $value )
+				$data->$name = self::mapDeep( $value, $callback );
+
+		else
+			$data = call_user_func( $callback, $data );
+
+		return $data;
+	}
+
+	// FIXME: DEPRECATED
 	public static function mapArray( $value, $callback )
 	{
-		if ( is_array( $value )
-			|| is_object( $value ) ) {
-
-			foreach ( $value as &$item )
-				$item = self::mapArray( $item, $callback );
-
-			return $value;
-		}
-
-		return call_user_func( $callback, $value );
+		self::__dep( 'gPluginUtils::mapDeep()' );
+		return self::mapDeep( $value, $callback );
 	}
 
 	// for useing with $('form').serializeArray();
@@ -130,11 +139,12 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 		return $list;
 	}
 
+	// OR: `array_combine( $array, $array );`
 	public static function sameKey( $old )
 	{
 		$same = array();
 
-		foreach ( $old as $key => $value )
+		foreach ( (array) $old as $key => $value )
 			if ( FALSE !== $value && NULL !== $value )
 				$same[$value] = $value;
 
@@ -204,47 +214,38 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 		parse_str( $string, $array );
 
 		if ( get_magic_quotes_gpc() )
-			$array = self::stripslashes( $array );
+			$array = self::unslash( $array );
 	}
 
 	public static function unslash( $array )
 	{
-		return self::stripslashes( $array );
-	}
-
-	public static function stripslashes( $array )
-	{
-		return self::mapArray( $array, function( $value ){
+		return self::mapDeep( $array, function( $value ){
 			return is_string( $value ) ? stripslashes( $value ) : $value;
 		} );
 	}
 
+	// FIXME: DEPRECATED
+	public static function stripslashes( $array )
+	{
+		self::__dep( 'gPluginUtils::unslash()' );
+		return self::unslash( $value );
+	}
+
+	// FIXME: DEPRECATED
 	public static function stripslashes_deep( $value )
 	{
-		self::__dep( 'gPluginUtils::stripslashes()' );
-
-		if ( is_array( $value ) ) {
-			$value = array_map( array( __CLASS__, 'stripslashes_deep' ), $value );
-		} else if ( is_object( $value ) ) {
-			$vars = get_object_vars( $value );
-			foreach ( $vars as $key => $data ) {
-				$value->{$key} = self::stripslashes_deep( $data );
-			}
-		} else if ( is_string( $value ) ) {
-			$value = stripslashes( $value );
-		}
-
-		return $value;
+		self::__dep( 'gPluginUtils::unslash()' );
+		return self::unslash( $value );
 	}
 
 	public static function urlencode( $array )
 	{
-		return self::mapArray( $array, 'urlencode' );
+		return self::mapDeep( $array, 'urlencode' );
 	}
 
 	public static function urldecode( $array )
 	{
-		return self::mapArray( $array, 'urldecode' );
+		return self::mapDeep( $array, 'urldecode' );
 	}
 
 	// will remove trailing forward and backslashes if it exists already before adding
