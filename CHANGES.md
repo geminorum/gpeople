@@ -1,3 +1,10 @@
+### 3.4.0
+* gplugin: :up: 39
+* main/relation: rethinking relation sync
+* main/settings: static subs moved
+* main/remote: first attempt to reformat names
+* main/remoteadmin: support columns on quick edit
+
 ### 3.3.6
 * main/root: comp with new geditorial tweaks
 * main/root: comp with new geditorial meta
