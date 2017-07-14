@@ -48,6 +48,14 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		// FIXME:
 		// removing people tax on attachment edit screen
 		// add_filter( 'attachment_fields_to_edit', array( $this, 'attachment_fields_to_edit' ), 8, 2 );
+
+
+		if ( gPluginWPHelper::isAJAX() ) {
+
+			if ( ! empty( $_REQUEST['taxonomy'] )
+				&& $this->constants['people_tax'] == $_REQUEST['taxonomy'] )
+					$this->_edit_tags_screen( $_REQUEST['taxonomy'] );
+		}
 	}
 
 	// @REF: http://codex.wordpress.org/Plugin_API/Action_Reference
@@ -84,11 +92,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				$gPeopleNetwork->remote_ajax->asset_config( 'remoteAdd', __( 'Search for People', GPEOPLE_TEXTDOMAIN ) );
 				wp_enqueue_script( 'gpeople-remote-people-add', GPEOPLE_URL.'assets/js/remote.people.add.js', array( 'jquery' ), GPEOPLE_VERSION, TRUE );
 
-				add_filter( 'manage_edit-'.$screen->taxonomy.'_columns', array( $this, 'manage_edit_people_columns' ) );
-				add_action( 'manage_'.$screen->taxonomy.'_custom_column', array( $this, 'manage_people_custom_column' ), 10, 3 );
-				add_action( 'quick_edit_custom_box', array( $this, 'quick_edit_custom_box' ), 10, 3 );
-				add_filter( 'term_name', array( $this, 'people_term_name' ), 10, 2 );
-				add_filter( $screen->taxonomy.'_row_actions', array( $this, 'people_row_actions' ), 12, 2 );
+				$this->_edit_tags_screen( $screen->taxonomy );
+
 				add_action( 'after-'.$screen->taxonomy.'-table', array( $this, 'after_people_table' ) );
 
 				// remote: people tax bulk actions with gNetworkTaxonomy
@@ -139,6 +144,17 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				add_action( 'admin_footer', array( $this, 'modal_html_post' ) );
 			}
 		}
+	}
+
+	private function _edit_tags_screen( $taxonomy )
+	{
+		add_filter( 'manage_edit-'.$taxonomy.'_columns', array( $this, 'manage_edit_people_columns' ) );
+		add_action( 'manage_'.$taxonomy.'_custom_column', array( $this, 'manage_people_custom_column' ), 10, 3 );
+
+		add_action( 'quick_edit_custom_box', array( $this, 'quick_edit_custom_box' ), 10, 3 );
+		add_filter( $taxonomy.'_row_actions', array( $this, 'people_row_actions' ), 12, 2 );
+
+		add_filter( 'term_name', array( $this, 'people_term_name' ), 10, 2 );
 	}
 
 	public function admin_menu()
