@@ -158,6 +158,22 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 	public function content_before( $content )
 	{
+		if ( is_embed() )
+			return;
+
+		if ( ! is_main_query() )
+			return;
+
+		if ( ! in_the_loop() )
+			return;
+
+		if ( ! is_singular() )
+			return;
+
+		// not on the first page
+		if ( 1 != $GLOBALS['page'] )
+			return;
+
 		if ( $people = $this->get_people( get_the_ID() ) )
 			echo '<div class="people byline -before">'.$people.'</div>';
 	}
