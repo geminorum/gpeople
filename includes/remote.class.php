@@ -228,9 +228,12 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 		return 'display' == $context ? gPluginTextHelper::reFormatName( $value ) : $value;
 	}
 
-	public function get_people( $post_id, $atts = array(), $walker = NULL )
+	public function get_people( $post, $atts = array(), $walker = NULL )
 	{
-		$meta = $this->get_postmeta( $post_id, FALSE, array() );
+		if ( ! $post = get_post( $post ) )
+			return '';
+
+		$meta = $this->get_postmeta( $post->ID, FALSE, array() );
 
 		if ( ! count( $meta ) )
 			return '';
@@ -298,10 +301,10 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 			$people[] = $new_people;
 		}
 
-		return call_user_func_array( $walker, array( $people, $post_id, $atts ) );
+		return call_user_func_array( $walker, array( $people, $post, $atts ) );
 	}
 
-	public static function peopleBylineWalker( $people, $post_id = NULL, $atts = array() )
+	public static function peopleBylineWalker( $people, $post = NULL, $atts = array() )
 	{
 		$args = self::atts( apply_filters( 'people_byline_walker_defaults', array(
 			'default'      => '',
@@ -312,7 +315,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 			'after'        => '',
 			'link'         => TRUE,
 			'visible'      => current_user_can( 'edit_posts' ),
-		), $people, $post_id ), $atts );
+		), $people, $post ), $atts );
 
 		if ( ! $people || ! count( $people ) )
 			return $args['default'];
@@ -325,16 +328,15 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 			if ( $person['vis'] || $args['visible'] ) {
 
-				if ( $args['link'] && $person['link'] ) {
+				if ( $args['link'] && $person['link'] )
 					$attr = array(
-						'href'  => $person['link'],
 						'class' => 'gpeople-people-link',
+						'href'  => $person['link'],
 					);
-				} else {
-					$attr = array(
-						'class' => 'gpeople-people-span',
-					);
-				}
+
+				else
+					$attr = array( 'class' => 'gpeople-people-span' );
+
 
 				if ( 'none' != $person['rel'] )
 					$attr['rel'] = $person['rel'];
@@ -345,8 +347,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 				}
 
 				$attr = apply_filters( 'people_byline_walker_attr', $attr, $person, $args, $people, $atts );
-
-				$tag = gPluginHTML::tag( ( $args['link'] && $person['link'] ? 'a' : 'span' ) , $attr, $person['name'] );
+				$tag  = gPluginHTML::tag( ( $args['link'] && $person['link'] ? 'a' : 'span' ), $attr, $person['name'] );
 
 				if ( $person['filter'] ) {
 					if ( FALSE === strpos( $person['filter'], '%s' ) )
@@ -360,10 +361,13 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 		}
 
 		$count = count( $links );
+
 		if ( ! $count )
 			return $args['default'];
+
 		else if ( $count > 1 )
 			$html = gPluginTextHelper::joinString( $links, $args['between'], $args['between_last'] );
+
 		else
 			$html = $links[0];
 

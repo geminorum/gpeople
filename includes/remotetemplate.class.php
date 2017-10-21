@@ -3,15 +3,15 @@
 class gPeopleRemoteTemplate extends gPluginTemplateCore
 {
 
-	public static function post_byline( $post_id = NULL, $atts = array(), $cache = TRUE, $walker = NULL )
+	public static function post_byline( $post = NULL, $atts = array(), $cache = TRUE, $walker = NULL )
 	{
-		global $gPeopleNetwork, $post;
+		global $gPeopleNetwork;
 
-		if ( is_null( $post_id ) )
-			$post_id = $post->ID;
+		$post = get_post( $post );
 
 		// if on non-enabled remote blog
-		if ( FALSE == $gPeopleNetwork->remote ) {
+		if ( ! $post || ! $gPeopleNetwork->remote ) {
+
 			if ( isset( $atts['echo'] ) ) {
 				if ( ! $atts['echo'] ) {
 					if ( isset( $atts['default'] ) )
@@ -19,10 +19,11 @@ class gPeopleRemoteTemplate extends gPluginTemplateCore
 					return FALSE;
 				}
 			}
+
 			return;
 		}
 
-		$byline = $gPeopleNetwork->remote->get_people( $post_id, $atts, $walker );
+		$byline = $gPeopleNetwork->remote->get_people( $post->ID, $atts, $walker );
 
 		if ( isset( $atts['echo'] ) ) {
 			if ( ! $atts['echo'] )
@@ -84,8 +85,8 @@ class gPeopleRemoteTemplate extends gPluginTemplateCore
 	}
 }
 
-if ( ! function_exists( 'gpeople_byline' ) ) : function gpeople_byline( $post_id = NULL, $atts = array(), $cache = TRUE ) {
-	return gPeopleRemoteTemplate::post_byline( $post_id, $atts, $cache );
+if ( ! function_exists( 'gpeople_byline' ) ) : function gpeople_byline( $post = NULL, $atts = array(), $cache = TRUE ) {
+	return gPeopleRemoteTemplate::post_byline( $post, $atts, $cache );
 } endif;
 
 if ( ! function_exists( 'gpeople_person_image' ) ) : function gpeople_person_image( $term_id = NULL, $atts = array(), $cache = TRUE ) {
