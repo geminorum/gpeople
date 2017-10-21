@@ -66,8 +66,9 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 				'query_var'             => TRUE,
 				'update_count_callback' => array( 'gPluginTaxonomyHelper', 'update_count_callback' ),
 				'rewrite'               => array(
-					'slug' => $this->constants['people_slug'],
+					'slug'         => $this->constants['people_slug'],
 					'hierarchical' => FALSE,
+					'with_front'   => FALSE,
 				),
 				'capabilities' => array(
 					'manage_terms' => 'edit_others_posts', // 'manage_categories',
@@ -92,8 +93,9 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 				'query_var'             => TRUE,
 				'update_count_callback' => array( 'gPluginTaxonomyHelper', 'update_count_callback' ),
 				'rewrite'               => array(
-					'slug' => $this->constants['affiliation_slug'],
+					'slug'         => $this->constants['affiliation_slug'],
 					'hierarchical' => FALSE,
+					'with_front'   => FALSE,
 				),
 				'capabilities' => array(
 					'manage_terms' => 'edit_others_posts',
