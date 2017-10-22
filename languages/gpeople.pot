@@ -14,7 +14,7 @@ msgid "gPeople"
 msgstr ""
 
 #: gpeople.php:5
-msgid "3.4.0"
+msgid "3.4.1"
 msgstr ""
 
 #: gpeople.php:7
@@ -1142,7 +1142,7 @@ msgstr ""
 msgid "&mdash; Profile Groups &mdash;"
 msgstr ""
 
-#: includes/profile.class.php:85, includes/remote.class.php:411, includes/user.class.php:27
+#: includes/profile.class.php:85, includes/remote.class.php:417, includes/user.class.php:27
 msgid "<i>No Profile Summary</i>"
 msgstr ""
 
@@ -1186,144 +1186,144 @@ msgstr ""
 msgid "Default relations added."
 msgstr ""
 
-#: includes/remote.class.php:306
+#: includes/remote.class.php:311
 msgctxt "people byline walker between delimiter"
 msgid ", "
 msgstr ""
 
-#: includes/remote.class.php:307
+#: includes/remote.class.php:312
 msgctxt "people byline walker between last delimiter"
 msgid " and "
 msgstr ""
 
-#: includes/remote.class.php:308
+#: includes/remote.class.php:313
 msgctxt "people byline walker pre"
 msgid "Written by "
 msgstr ""
 
-#: includes/remoteadmin.class.php:84, includes/remoteadmin.class.php:108
+#: includes/remoteadmin.class.php:92, includes/remoteadmin.class.php:113
 msgid "Search for People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:133
+#: includes/remoteadmin.class.php:138
 msgid "People Manegment"
 msgstr ""
 
-#: includes/remoteadmin.class.php:191
+#: includes/remoteadmin.class.php:207
 msgctxt "add_meta_boxes"
 msgid "People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:196
+#: includes/remoteadmin.class.php:212
 msgctxt "add_meta_boxes"
 msgid "Management"
 msgstr ""
 
-#: includes/remoteadmin.class.php:213
+#: includes/remoteadmin.class.php:229
 msgctxt "Remote: Admin Meta Box: Title Attr"
 msgid "Byline as Appears on Your Site"
 msgstr ""
 
-#: includes/remoteadmin.class.php:221
+#: includes/remoteadmin.class.php:237
 msgctxt "Remote: Admin Meta Box: Title Attr"
 msgid "Add or Modify People for This Post"
 msgstr ""
 
-#: includes/remoteadmin.class.php:223
+#: includes/remoteadmin.class.php:239
 msgctxt "Remote: Admin Meta Box: Button Text"
 msgid "Add People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:239
+#: includes/remoteadmin.class.php:259
 msgctxt "Remote: Admin: At a Glance"
 msgid "Person"
 msgid_plural "People"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/remoteadmin.class.php:252
+#: includes/remoteadmin.class.php:270
 msgctxt "Column"
 msgid "People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:273
+#: includes/remoteadmin.class.php:291
 msgctxt "admin post column"
 msgid "People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:292
+#: includes/remoteadmin.class.php:310
 msgctxt "post people column"
 msgid "<small><a href=\"%s\">%s</a></small> "
 msgstr ""
 
-#: includes/remoteadmin.class.php:309
+#: includes/remoteadmin.class.php:327
 msgctxt "Remote Admin: Row Icon Title"
 msgid "People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:326
+#: includes/remoteadmin.class.php:344
 msgctxt "Root: Admin: Column Title"
 msgid "Person"
 msgstr ""
 
-#: includes/remoteadmin.class.php:331
+#: includes/remoteadmin.class.php:349
 msgctxt "Root: Admin: Column Title"
 msgid "Short Bio"
 msgstr ""
 
-#: includes/remoteadmin.class.php:335
+#: includes/remoteadmin.class.php:353
 msgctxt "Root: Admin: Column Title"
 msgid "Extra"
 msgstr ""
 
-#: includes/remoteadmin.class.php:360
+#: includes/remoteadmin.class.php:378
 msgid "&mdash;"
 msgstr ""
 
-#: includes/remoteadmin.class.php:384
+#: includes/remoteadmin.class.php:402
 msgctxt "Root: Admin: Column Title"
 msgid "First Name"
 msgstr ""
 
-#: includes/remoteadmin.class.php:390
+#: includes/remoteadmin.class.php:408
 msgctxt "Root: Admin: Column Title"
 msgid "Last Name"
 msgstr ""
 
-#: includes/remoteadmin.class.php:396
+#: includes/remoteadmin.class.php:414
 msgctxt "Root: Admin: Column Title"
 msgid "Alternative"
 msgstr ""
 
-#: includes/remoteadmin.class.php:461
+#: includes/remoteadmin.class.php:479
 msgid "&#8220;<a href=\"%1$s\" title=\"People, the way involved in your site\" >gPeople</a>&#8221; is a <a href=\"%2$s\">geminorum</a> project"
 msgstr ""
 
-#: includes/remoteadmin.class.php:471
+#: includes/remoteadmin.class.php:489
 msgid "Profiles"
 msgstr ""
 
-#: includes/remoteadmin.class.php:472
+#: includes/remoteadmin.class.php:490
 msgid "Users"
 msgstr ""
 
-#: includes/remoteadmin.class.php:494
+#: includes/remoteadmin.class.php:512
 msgid "Current"
 msgstr ""
 
-#: includes/remoteadmin.class.php:495
+#: includes/remoteadmin.class.php:513
 msgid "Add People"
 msgstr ""
 
-#: includes/remoteadmin.class.php:496
+#: includes/remoteadmin.class.php:514
 msgid "Add Profiles"
 msgstr ""
 
-#: includes/remoteadmin.class.php:497
+#: includes/remoteadmin.class.php:515
 msgid "Add Users"
 msgstr ""
 
-#: includes/remoteadmin.class.php:498
+#: includes/remoteadmin.class.php:516
 msgid "Manual Add"
 msgstr ""
 
@@ -1495,7 +1495,7 @@ msgctxt "Root: Admin: Profile Title Placeholder"
 msgid "Enter name here"
 msgstr ""
 
-#: includes/rootadmin.class.php:136
+#: includes/rootadmin.class.php:141
 msgctxt "Root: Admin: At a Glance"
 msgid "Person"
 msgid_plural "People"
