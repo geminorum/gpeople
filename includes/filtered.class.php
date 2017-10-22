@@ -3,38 +3,49 @@
 class gPeopleFiltered extends gPluginFilteredCore
 {
 
-	protected function root_settings_subs()
+	protected function root_settings_titles()
 	{
 		return array(
-			'overview'    => __( 'Overview', GPEOPLE_TEXTDOMAIN ),
-			'general'     => __( 'General', GPEOPLE_TEXTDOMAIN ),
-			'import_root' => __( 'Import', GPEOPLE_TEXTDOMAIN ),
+			'title' => _x( 'People Profiles', 'Root: Settings Titles', GPEOPLE_TEXTDOMAIN ),
+			'menu'  => _x( 'Profiles', 'Root: Settings Titles', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
-	protected function root_settings_messages() { return array(); }
-	protected function root_settings_titles() { return array(); }
+	protected function root_settings_subs()
+	{
+		return array(
+			'overview'    => _x( 'Overview', 'Root: Settings Subs', GPEOPLE_TEXTDOMAIN ),
+			'general'     => _x( 'General', 'Root: Settings Subs', GPEOPLE_TEXTDOMAIN ),
+			'import_root' => _x( 'Import', 'Root: Settings Subs', GPEOPLE_TEXTDOMAIN ),
+		);
+	}
+
+	protected function root_settings_messages()
+	{
+		return array();
+	}
 
 	protected function remote_settings_titles()
 	{
 		return array(
-			'title' => __( 'People Settings', GPEOPLE_TEXTDOMAIN ),
-			'menu'  => __( 'People Settings', GPEOPLE_TEXTDOMAIN ),
+			'title' => _x( 'People Settings', 'Remote: Settings Titles', GPEOPLE_TEXTDOMAIN ),
+			'menu'  => _x( 'People', 'Remote: Settings Titles', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
 	protected function remote_settings_subs()
 	{
 		return array(
-			'overview'      => __( 'Overview', GPEOPLE_TEXTDOMAIN ),
-			'general'       => __( 'General', GPEOPLE_TEXTDOMAIN ),
-			'import_remote' => __( 'Import', GPEOPLE_TEXTDOMAIN ),
+			'overview'      => _x( 'Overview', 'Remote: Settings Subs', GPEOPLE_TEXTDOMAIN ),
+			'general'       => _x( 'General', 'Remote: Settings Subs', GPEOPLE_TEXTDOMAIN ),
+			'import_remote' => _x( 'Import', 'Remote: Settings Subs', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
 	protected function remote_settings_messages()
 	{
 		$field = isset( $_GET['field'] ) ? $_GET['field'] : '';
+
 		return array(
 			'meta_imported' => self::success( sprintf( __( 'Meta Field %s Imported', GPEOPLE_TEXTDOMAIN ), $field ) ),
 		);
@@ -95,7 +106,7 @@ class gPeopleFiltered extends gPluginFilteredCore
 	protected function remote_settings_args()
 	{
 		return array(
-			'register_hook'     => 'load-settings_page_gpeople',
+			'register_hook'     => 'load-settings_page_gpeople-remote',
 			'settings_sanitize' => FALSE,
 			'option_group'      => 'gpeople_remote',
 			'page'              => 'gpeople_remote_general',
@@ -106,26 +117,26 @@ class gPeopleFiltered extends gPluginFilteredCore
 					'callback' => '__return_false',
 					'fields'   => array(
 						'supported_posttypes' => array(
-							'title'       => __( 'Supported PostTypes', GPEOPLE_TEXTDOMAIN ),
-							'description' => __( 'Select posttypes with people support', GPEOPLE_TEXTDOMAIN ),
+							'title'       => _x( 'Supported Posttypes', 'Remote: Settings', GPEOPLE_TEXTDOMAIN ),
+							'description' => _x( 'Select posttypes with people support.', 'Remote: Settings', GPEOPLE_TEXTDOMAIN ),
 							'type'        => 'posttypes',
-							'default'     => array( 'post', 'page' ),
+							'default'     => array( 'post' ),
 						),
 						'content_actions' => array(
-							'title'       => __( 'Content Actions', GPEOPLE_TEXTDOMAIN ),
-							'description' => __( 'Add people byline before content, using gNetwork Content Actions.', GPEOPLE_TEXTDOMAIN ),
+							'title'       => _x( 'Content Actions', 'Remote: Settings', GPEOPLE_TEXTDOMAIN ),
+							'description' => _x( 'Displays people byline before content, via gNetwork Content Actions.', 'Remote: Settings', GPEOPLE_TEXTDOMAIN ),
 							'type'        => 'enabled',
 							'default'     => FALSE,
 						),
 						'before_content' => array(
-							'title'       => __( 'Before Content', GPEOPLE_TEXTDOMAIN ),
-							'description' => __( 'Add people byline before content, for each post.', GPEOPLE_TEXTDOMAIN ),
+							'title'       => _x( 'Before Content', 'Remote: Settings', GPEOPLE_TEXTDOMAIN ),
+							'description' => _x( 'Displays people byline before content, for each post.', 'Remote: Settings', GPEOPLE_TEXTDOMAIN ),
 							'type'        => 'enabled',
 							'default'     => FALSE,
 						),
 						'author_link' => array(
-							'title'       => __( 'Link Author', GPEOPLE_TEXTDOMAIN ),
-							'description' => __( 'Select to replace author link with people, for each post.', GPEOPLE_TEXTDOMAIN ),
+							'title'       => _x( 'Link Author', 'Remote: Settings', GPEOPLE_TEXTDOMAIN ),
+							'description' => _x( 'Select to replace author link with people byline, for each post.', 'Remote: Settings', GPEOPLE_TEXTDOMAIN ),
 							'type'        => 'enabled',
 							'default'     => FALSE,
 						),
