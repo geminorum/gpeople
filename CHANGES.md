@@ -1,3 +1,9 @@
+### 3.4.1
+* main/admin: correct cap check for glance items
+* main/remote: rewrite with no front
+* main/remote: passing post object
+* main/remote: checks before insert in content
+
 ### 3.4.0
 * gplugin: :up: 39
 * main/relation: rethinking relation sync
