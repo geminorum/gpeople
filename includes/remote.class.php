@@ -266,28 +266,29 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 			'rel_title' => '',
 			'rel_link'  => FALSE,
 			'feat'      => FALSE,
+			'term'      => NULL,
 		);
 
 		$people = array();
 
 		foreach ( $meta as $item ) {
-			$new_people = $defaults;
+			$person = $defaults;
 
 			if ( isset( $item['id'] ) && $item['id'] ) {
-				if ( $term = get_term_by( 'id', $item['id'], $this->constants['people_tax'] ) ) {
-					$new_people['name'] = gPluginTextHelper::reFormatName( $term->name );
-					$new_people['link'] = get_term_link( $term, $this->constants['people_tax'] );
+				if ( $person['term'] = get_term_by( 'id', $item['id'], $this->constants['people_tax'] ) ) {
+					$person['name'] = gPluginTextHelper::reFormatName( $person['term']->name );
+					$person['link'] = get_term_link( $person['term'], $this->constants['people_tax'] );
 				}
 			}
 
 			if ( ( isset( $item['override'] ) && $item['override'] ) )
-				$new_people['name'] = $item['override'];
+				$person['name'] = $item['override'];
 
-			if ( ! $new_people['name'] && ( isset( $item['temp'] ) && $item['temp'] ) )
-				$new_people['name'] = gPluginTextHelper::reFormatName( $item['temp'] );
+			if ( ! $person['name'] && ( isset( $item['temp'] ) && $item['temp'] ) )
+				$person['name'] = gPluginTextHelper::reFormatName( $item['temp'] );
 
-			if ( ! $new_people['name'] )
-				// $new_people['name'] = __( 'Unknown Person', GPEOPLE_TEXTDOMAIN );
+			if ( ! $person['name'] )
+				// $person['name'] = __( 'Unknown Person', GPEOPLE_TEXTDOMAIN );
 				continue; // no name, no person!!
 
 			if ( isset( $item['rel'] ) && $item['rel'] && 'none' != $item['rel'] ) {
@@ -297,24 +298,24 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 				// 	$this->rels[$item['rel']] = get_term_by( 'slug', $item['rel'], $this->constants['rel_people_tax'] );
 				//
 				// if ( $this->rels[$item['rel']] ) {
-				// 	$new_people['rel'] = $this->rels[$item['rel']]->slug;
-				// 	$new_people['rel_title'] = $this->rels[$item['rel']]->name;
-				// 	$new_people['rel_link'] = get_term_link( $this->rels[$item['rel']], $this->constants['rel_people_tax'] );
+				// 	$person['rel'] = $this->rels[$item['rel']]->slug;
+				// 	$person['rel_title'] = $this->rels[$item['rel']]->name;
+				// 	$person['rel_link'] = get_term_link( $this->rels[$item['rel']], $this->constants['rel_people_tax'] );
 				// }
 
-				$new_people['rel'] = $item['rel'];
+				$person['rel'] = $item['rel'];
 			}
 
 			if ( isset( $item['vis'] ) && ( 'hidden' == $item['vis'] || 'none' == $item['vis'] ) )
-				$new_people['vis'] = FALSE;
+				$person['vis'] = FALSE;
 
 			if ( isset( $item['feat'] ) && $item['feat'] )
-				$new_people['feat'] = TRUE;
+				$person['feat'] = TRUE;
 
 			if ( isset( $item['filter'] ) && $item['filter'] )
-				$new_people['filter'] = $item['filter'];
+				$person['filter'] = $item['filter'];
 
-			$people[] = $new_people;
+			$people[] = $person;
 		}
 
 		return call_user_func_array( $walker, array( $people, $post, $atts ) );
@@ -359,7 +360,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 				if ( ! $person['vis'] ) {
 					$attr['style'] = 'opacity:0.6;';
-					$attr['class'] .= ' gpeople-people-hidden';
+					$attr['class'].= ' gpeople-people-hidden';
 				}
 
 				$attr = apply_filters( 'people_byline_walker_attr', $attr, $person, $args, $people, $atts );
