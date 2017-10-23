@@ -468,7 +468,7 @@ class gPeopleFiltered extends gPluginFilteredCore
 			'people_o'         => _x( '<span title="Order">O</span>', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 			'people_id'        => _x( 'Person', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 			'people_filt_over' => _x( 'Filter / Override', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
-			'people_rel_vis'   => _x( 'Visibility / Relations', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
+			'people_rel_vis'   => _x( 'Relations / Visibility', 'remote_meta_columns', GPEOPLE_TEXTDOMAIN ),
 		);
 
 

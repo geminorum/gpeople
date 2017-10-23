@@ -14,7 +14,7 @@ class gPeopleUser extends gPluginModuleCore
 		global $gPeopleNetwork;
 
 		$user_images = array();
-		$user_thumbnail = isset( $user_images['thumbnail'] ) ? $user_images['thumbnail'][0] : $gPeopleNetwork->picture->get_default();
+		$user_thumbnail = isset( $user_images['thumbnail'] ) ? $user_images['thumbnail'][0] : FALSE; // $gPeopleNetwork->picture->get_default();
 		$has_excerpt = ( ( isset( $user->description ) && ! empty( $user->description )  )? $user->description : FALSE );
 
 		$data = array_merge( $pre_data, array(
@@ -29,6 +29,8 @@ class gPeopleUser extends gPluginModuleCore
 			'edit'        => gPluginWPHelper::getUserEditLink( $user->ID ),
 			'images'      => $user_images,
 			'thumbnail'   => $user_thumbnail,
+			'img_default' => $user_thumbnail ? FALSE : '<span class="dashicons dashicons-admin-users"></span>',
+
 			// 'groups'      => get_the_term_list( $profile->ID, $this->constants['profile_group_tax'], __( 'Groups: ', GPEOPLE_TEXTDOMAIN ), __( ', ', GPEOPLE_TEXTDOMAIN ), '' ),
 			'role'        => $user->user_level, // translate_user_role( $role['name'] );
 		) );

@@ -12,6 +12,8 @@ class gPeoplePicture extends gPluginModuleCore
 	// before: get_default_image()
 	public function get_default( $tag = FALSE )
 	{
+		// return '<span class="dashicons dashicons-admin-users"></span>';
+
 		// MUST DEP FILTER
 		$src = apply_filters( 'gpeople_remote_default_profile_image', GPEOPLE_URL.'assets/images/default_avatar.png' );
 

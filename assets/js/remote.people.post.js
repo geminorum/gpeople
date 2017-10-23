@@ -14,6 +14,7 @@ jQuery(document).ready(function($){
       $('a.gpeople-modal-tab-'+active).addClass('nav-tab-active');
       $('div.gpeople-modal-tab-content').hide();
       $('#gpeople-tab-content-'+active).fadeIn();
+      $('input[focused]', '#gpeople-tab-content-'+active).focus(); // focus after changeing
     };
 
   // opening the modal
@@ -35,14 +36,20 @@ jQuery(document).ready(function($){
       innerHeight: '85%',
       transition:  'none'
     });
+
+    // focus after opening
+    $('input[focused]', 'div.gpeople-modal-tab-content[focused]').focus();
   });
 
-  // modal : change tabs
+  $('body').on('click','div.gpeople-modal-tab-content input[selectall]', function(e){
+    $(this).focus().select();
+  });
+
+  // modal: change tabs
   $('a.gpeople-modal-tab').click(function(e){
     e.preventDefault();
     gPeopleChangeTab( $(this).data('tab') );
   });
-
 
   // switch the tabs
   // $('a.gpeople-modal-tab').click(function(e){
@@ -124,8 +131,8 @@ jQuery(document).ready(function($){
   // modal: search terms : form add term to saved meta
   $('body').on('click','a.gpeople-data-list-add-term',function (e) {
     e.preventDefault();
-    var setID = $(this).attr('rel');
-    gPeopleTermInsert(setID, this);
+    $(this).prop('disabled', true);
+    gPeopleTermInsert($(this).attr('rel'), this);
   });
 
   var gPeopleTermInsert = function(rel,el){

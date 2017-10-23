@@ -523,8 +523,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 			gPluginFormHelper::headerTabs( $tabs, ( $saved ? 'saved' : 'terms' ), 'gpeople-modal-tab gpeople-modal-tab-' );
 
-			echo '<div id="gpeople-tab-content-saved" class="gpeople-modal-tab-content"'. ( $saved ? ' style="display:block"' : '' ).'>';
-			echo '<div id="gpeople-people-saved-messages" class="form-messages"></div>';
+			echo '<div id="gpeople-tab-content-saved" class="gpeople-modal-tab-content"'. ( $saved ? ' focused style="display:block"' : '' ).'>';
+			// echo '<div id="gpeople-people-saved-messages" class="form-messages"></div>';
 				echo '<form id="gpeople-meta-modal-saved-form" method="post"><div class="wrap">';
 					echo '<input type="hidden" name="gpeople_post_id" value="'.$post_ID.'" />';
 
@@ -534,7 +534,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 			echo '</div></form></div>';
 
-			echo $gPeopleNetwork->people->get_tab_terms( ( $saved ? '' : 'style="display:block"' ) );
+			echo $gPeopleNetwork->people->get_tab_terms( ( $saved ? '' : ' focused style="display:block"' ) );
 			echo $gPeopleNetwork->people->get_tab_profiles();
 			echo $gPeopleNetwork->people->get_tab_users();
 			echo $gPeopleNetwork->people->get_tab_manual();

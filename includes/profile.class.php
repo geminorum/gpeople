@@ -74,7 +74,7 @@ class gPeopleProfile extends gPluginModuleCore
 
 		// DEPRECATED: we upload the attachment again in remote
 		$profile_images    = $this->get_images( $profile );
-		$profile_thumbnail = isset( $profile_images['thumbnail'] ) ? $profile_images['thumbnail'][0] : $gPeopleNetwork->picture->get_default();
+		$profile_thumbnail = isset( $profile_images['thumbnail'] ) ? $profile_images['thumbnail'][0] : FALSE; // $gPeopleNetwork->picture->get_default();
 
 
 		return array_merge( $pre_data, array(
@@ -91,6 +91,7 @@ class gPeopleProfile extends gPluginModuleCore
 			// DEPRECATED: we upload the attachment again in remote
 			'images'      => $profile_images,
 			'thumbnail'   => $profile_thumbnail,
+			'img_default' => $profile_thumbnail ? FALSE : '<span class="dashicons dashicons-admin-users"></span>',
 
 			'picture'     => $this->get_root_thumbnail( $profile->ID ),
 

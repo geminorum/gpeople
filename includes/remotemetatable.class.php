@@ -84,22 +84,21 @@ class gPeopleRemoteMetaTable extends WP_List_Table
 				// FIXME
 				$actions = array(
 					// 'edit' => '',//sprintf('<a href="?page=%s&action=%s&book=%s">Edit</a>',$_REQUEST['page'],'edit',$item['ID']),
-					'edit' => sprintf('<a href="#" class="gpeople-people-edit" rel="%s">Edit</a>', $item['id'] ),
+					// 'edit' => sprintf( '<a href="#" class="gpeople-people-edit" rel="%s">Edit</a>', $item['id'] ),
 					// 'delete' => '', //sprintf('<a href="?page=%s&action=%s&book=%s">Delete</a>',$_REQUEST['page'],'delete',$item['ID']),
-					'delete' => sprintf('<a href="#" class="gpeople-people-delete" rel="%s">Delete</a>', $item['id'] ),
+					'delete' => sprintf( '<a href="#" class="gpeople-people-delete" rel="%s">'.__( 'Delete', GPEOPLE_TEXTDOMAIN ).'</a>', $item['id'] ),
 				);
 
 				$output = sprintf('%1$s %2$s', $name, $this->row_actions( $actions ) );
-
-				$output .= sprintf( '<input type="hidden" name="people_id[%1$s]" value="%2$s" />', $this->current, $item['id'] );
-				$output .= sprintf( '<input type="hidden" name="people_temp[%1$s]" value="%2$s" />', $this->current, ( isset( $item['temp'] ) ? $item['temp'] : '' ) );
+				$output.= sprintf( '<input type="hidden" name="people_id[%1$s]" value="%2$s" />', $this->current, $item['id'] );
+				$output.= sprintf( '<input type="hidden" name="people_temp[%1$s]" value="%2$s" />', $this->current, ( isset( $item['temp'] ) ? $item['temp'] : '' ) );
 
 				return $output;
 
 			break;
 			case 'people_o' :
 
-				return vsprintf( '<input type="text" name="people_o[%1$s]" value="%2$s" />', array(
+				return vsprintf( '<input type="number" name="people_o[%1$s]" value="%2$s" selectall />', array(
 					$this->current,
 					( isset( $item['o'] ) ? $item['o'] : ( isset( $this->pre_data['o'] ) ? $this->pre_data['o'] : '0' ) ),
 				) );
@@ -273,8 +272,10 @@ class gPeopleRemoteMetaTable extends WP_List_Table
 	public function extra_tablenav( $which )
 	{
 		echo '<div class="alignleft actions">';
-			submit_button( __( 'Save & Back to Post', GPEOPLE_TEXTDOMAIN ), 'secondary', 'gpeople_meta_save_close', FALSE );
+			submit_button( __( 'Save & Back to Post', GPEOPLE_TEXTDOMAIN ), 'secondary', 'gpeople_meta_save_close', FALSE, 'focused' );
 		echo '</div>';
+
+		echo '<div id="gpeople-people-saved-messages" class="alignleft form-messages-inline"></div>';
 	}
 
 	////////////////////////////////////////////////////////////////////////////

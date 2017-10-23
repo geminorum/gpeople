@@ -435,8 +435,9 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 			'link'         => get_term_link( $term, $this->constants['people_tax'] ),
 
 			// FIXME: DEPRECATED
-			'images'       => array(),
-			'thumbnail'    => $gPeopleNetwork->picture->get_default(),
+			'images'      => array(),
+			'thumbnail'   => FALSE, // $gPeopleNetwork->picture->get_default(),
+			'img_default' => FALSE,
 
 			'affiliations' => count( $term_affiliations ) ? $term_affiliations[0]->name : FALSE,
 			'edit'         => add_query_arg( array(
@@ -455,6 +456,9 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 		else if ( $term_meta_picture = get_term_meta( $term->term_id, 'people_picture_id', TRUE ) )
 			$data['thumbnail'] = wp_get_attachment_thumb_url( $term_meta_picture );
+
+		if ( ! $data['thumbnail'] )
+			$data['img_default'] = '<span class="dashicons dashicons-admin-users"></span>';
 
 		if ( isset ( $term_meta['user-id'] ) && $term_meta['user-id'] )
 			$user_id = $term_meta['user-id'];
