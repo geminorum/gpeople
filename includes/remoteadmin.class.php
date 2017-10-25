@@ -242,10 +242,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			'class' => 'metabox-row metabox-action',
 		), $html );
 
-		if ( gPluginWPHelper::isDev() )
-			echo get_the_term_list( $post->ID, $this->constants['people_tax'],
-				'<ul class="metabox-row metabox-list"><li>', '</li><li>', '</li></ul>' );
-
 		echo '</div>';
 	}
 
@@ -505,7 +501,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	{
 		global $gPeopleNetwork, $post, $post_ID;
 
-		$meta = $gPeopleNetwork->remote->get_postmeta( $post_ID, FALSE, array() );
+		$debug = gPluginWPHelper::isDev() || gPluginWPHelper::isSuperAdmin();
+		$meta  = $gPeopleNetwork->remote->get_postmeta( $post_ID, FALSE, array() );
 		$saved = count( $meta );
 
 		$tabs = array(
@@ -515,6 +512,9 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			'users'    => __( 'Add Users', GPEOPLE_TEXTDOMAIN ),
 			'manual'   => __( 'Manual Add', GPEOPLE_TEXTDOMAIN ),
 		);
+
+		if ( $debug )
+			$tabs['debug'] = _x( 'Debug', 'Remote: Admin: Modal Tab Title', GPEOPLE_TEXTDOMAIN );
 
 		$gPeopleRemoteMetaTable = new gPeopleRemoteMetaTable( $post_ID );
 		$gPeopleRemoteMetaTable->prepare_items();
@@ -526,11 +526,13 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			echo '<div id="gpeople-tab-content-saved" class="gpeople-modal-tab-content"'. ( $saved ? ' focused style="display:block"' : '' ).'>';
 			// echo '<div id="gpeople-people-saved-messages" class="form-messages"></div>';
 				echo '<form id="gpeople-meta-modal-saved-form" method="post"><div class="wrap">';
-					echo '<input type="hidden" name="gpeople_post_id" value="'.$post_ID.'" />';
+				echo '<input type="hidden" name="gpeople_post_id" value="'.$post_ID.'" />';
 
-					// $gPeopleRemoteMetaTable->search_box( __( 'Search', GPEOPLE_TEXTDOMAIN ), 'search_id' );
+				// $gPeopleRemoteMetaTable->search_box( __( 'Search', GPEOPLE_TEXTDOMAIN ), 'search_id' );
+				$gPeopleRemoteMetaTable->display();
 
-					$gPeopleRemoteMetaTable->display();
+				if ( $debug && ( $list = get_the_term_list( $post_ID, $this->constants['people_tax'], '<ul><li>', '</li><li>', '</li></ul>' ) ) )
+					echo '<br /><hr /><p class="description -description">'._x( 'Debug: Current Post\'s Terms', 'Remote: Admin: Modal', GPEOPLE_TEXTDOMAIN ).'</p>'.$list;
 
 			echo '</div></form></div>';
 
@@ -539,7 +541,11 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			echo $gPeopleNetwork->people->get_tab_users();
 			echo $gPeopleNetwork->people->get_tab_manual();
 
-			// FIXME: add a debug panel for editor and above
+			if ( $debug ) {
+				echo '<div id="gpeople-tab-content-debug" class="gpeople-modal-tab-content">';
+					echo gPluginHTML::dump( $meta );
+				echo '</div>';
+			}
 
 		echo '</div></div>';
 	}
