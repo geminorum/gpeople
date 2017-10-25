@@ -68,7 +68,7 @@ class gPeopleRootAdmin extends gPluginAdminCore
 	public function posts_custom_column( $column_name, $post_id )
 	{
 		if ( 'picture' == $column_name )
-			echo gPluginWPHelper::getFeaturedImageHTML( $post_id, 'thumbnail' );
+			echo gPluginWPHelper::htmlFeaturedImage( $post_id, 'thumbnail' );
 	}
 
 	public function add_meta_boxes( $post )

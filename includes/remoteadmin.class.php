@@ -8,6 +8,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	public function admin_settings_load()
 	{
 		global $gPeopleNetwork;
+
 		$sub = isset( $_REQUEST['sub'] ) ? $_REQUEST['sub'] : 'general';
 
 		if ( ! empty( $_POST ) ) {
@@ -28,27 +29,24 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		}
 
 		if ( 'general' == $sub ) {
+
 			add_action( 'gpeople_remote_settings_sub_general', array( $this, 'admin_settings_html' ), 10, 2 );
 
 		} else if ( 'import_remote' == $sub ) {
+
 			$gPeopleNetwork->importer->remote_settings_load( $sub );
+
 			add_action( 'gpeople_remote_settings_sub_import_remote', array( $gPeopleNetwork->importer, 'remote_settings_sub' ), 10, 2 );
 		}
 	}
 
 	public function admin_init()
 	{
-		add_filter( 'parent_file', array( $this, 'parent_file' ) );
-		add_filter( 'dashboard_glance_items', array( $this, 'dashboard_glance_items' ), 8 );
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 20, 2 );
-
 		add_action( 'create_term', array( $this, 'edit_term' ), 10, 3 );
 		add_action( 'edit_term', array( $this, 'edit_term' ), 10, 3 );
 
-		// FIXME:
-		// removing people tax on attachment edit screen
+		// removing people tax on attachment edit screen // FIXME: WTF?!
 		// add_filter( 'attachment_fields_to_edit', array( $this, 'attachment_fields_to_edit' ), 8, 2 );
-
 
 		if ( gPluginWPHelper::isAJAX() ) {
 
@@ -58,12 +56,15 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		}
 	}
 
-	// @REF: http://codex.wordpress.org/Plugin_API/Action_Reference
 	public function current_screen( $screen )
 	{
 		global $gPeopleNetwork;
 
-		if ( $this->constants['affiliation_tax'] == $screen->taxonomy ) {
+		if ( 'dashboard' == $screen->base ) {
+
+			add_filter( 'dashboard_glance_items', array( $this, 'dashboard_glance_items' ), 8 );
+
+		} else if ( $this->constants['affiliation_tax'] == $screen->taxonomy ) {
 
 			if ( 'edit-tags' == $screen->base ) {
 
@@ -122,7 +123,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 			if ( 'edit' == $screen->base ) {
 
-				// $gPeopleNetwork->colorbox();
 				$this->enqueue_style( 'people', $screen->base );
 
 				add_filter( 'manage_'.$screen->post_type.'_posts_columns', array( $this, 'manage_posts_columns' ), 20 );
@@ -131,6 +131,14 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				add_action( 'geditorial_tweaks_column_row', array( $this, 'column_row_people' ), -100 );
 
 			} else if ( 'post' == $screen->base ) {
+
+				add_meta_box( 'gpeople-people',
+					_x( 'People', 'Remote: Admin: MetaBox Title', GPEOPLE_TEXTDOMAIN ),
+					array( $this, 'do_meta_box' ),
+					$screen->post_type,
+					'side',
+					'high'
+				);
 
 				$gPeopleNetwork->colorbox();
 				$this->enqueue_style( 'people', $screen->base );
@@ -144,6 +152,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				add_action( 'admin_footer', array( $this, 'modal_html_post' ) );
 			}
 		}
+
+		add_filter( 'parent_file', array( $this, 'parent_file' ) );
 	}
 
 	private function _edit_tags_screen( $taxonomy )
@@ -198,23 +208,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		return $form_fields;
 	}
 
-	public function add_meta_boxes( $post_type, $post )
-	{
-		global $gPeopleNetwork;
-
-		if ( in_array( $post_type, $gPeopleNetwork->remote->supported_post_types ) ) {
-
-			$title = _x( 'People', 'add_meta_boxes', GPEOPLE_TEXTDOMAIN );
-
-			if ( current_user_can( 'manage_categories' ) )
-				$title .= ' <span class="postbox-title-action gpeople-postbox-title-action"><a href="'
-					.esc_url( gPluginWPHelper::getEditTaxLink( $this->constants['people_tax'] ) )
-					.'" target="_blank">'._x( 'Management', 'add_meta_boxes', GPEOPLE_TEXTDOMAIN ).'</a></span>';
-
-			add_meta_box( 'gpeople-people', $title, array( $this, 'do_meta_box' ), $post_type, 'side', 'high' );
-		}
-	}
-
 	public function do_meta_box( $post )
 	{
 		global $gPeopleNetwork;
@@ -226,7 +219,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		echo gPluginHTML::tag( 'div', array(
 			'id'    => 'gpeople_saved_byline',
 			'class' => 'metabox-row byline',
-			'title' => _x( 'Byline as Appears on Your Site', 'Remote: Admin Meta Box: Title Attr', GPEOPLE_TEXTDOMAIN ),
+			'title' => _x( 'Byline as Appears on Your Site', 'Remote: Admin: MetaBox: Byline Title', GPEOPLE_TEXTDOMAIN ),
 			'style' => $byline ? FALSE : 'display:none;',
 		), $byline );
 
@@ -234,9 +227,9 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			'id'    => 'gpeople-meta-add-people',
 			'href'  => '#',
 			'class' => 'gpeople-modal-open button',
-			'title' => _x( 'Add or Modify People for This Post', 'Remote: Admin Meta Box: Title Attr', GPEOPLE_TEXTDOMAIN ),
+			'title' => _x( 'Add or Modify People for This Post', 'Remote: Admin: MetaBox: Button Title', GPEOPLE_TEXTDOMAIN ),
 		), '<span class="dashicons dashicons-groups"></span>'
-			._x( 'Add People', 'Remote: Admin Meta Box: Button Text', GPEOPLE_TEXTDOMAIN ) );
+			._x( 'Add People', 'Remote: Admin: MetaBox: Button Text', GPEOPLE_TEXTDOMAIN ) );
 
 		echo gPluginHTML::tag( 'div', array(
 			'class' => 'metabox-row metabox-action',
@@ -263,7 +256,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	public function manage_edit_affiliation_columns( $columns )
 	{
 		unset( $columns['posts'] );
-		$columns['people'] = _x( 'People', 'Column', GPEOPLE_TEXTDOMAIN );
+		$columns['people'] = _x( 'People', 'Remote: Admin: Affiliations Column', GPEOPLE_TEXTDOMAIN );
 		return $columns;
 	}
 
@@ -277,19 +270,19 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 		return $empty;
 	}
 
-	public function manage_posts_columns( $posts_columns )
+	public function manage_posts_columns( $columns )
 	{
-		$new_columns = array();
+		$new = array();
 
-		foreach ( $posts_columns as $key => $value ) {
+		foreach ( $columns as $key => $value ) {
 
 			if ( 'author' == $key )
-				$new_columns['gpeople'] = _x( 'People', 'admin post column', GPEOPLE_TEXTDOMAIN );
+				$new['gpeople'] = _x( 'People', 'Remote: Admin: Posts Column', GPEOPLE_TEXTDOMAIN );
 			else
-				$new_columns[$key] = $value;
+				$new[$key] = $value;
 		}
 
-		return $new_columns;
+		return $new;
 	}
 
 	public function custom_column( $column_name, $post_id )
@@ -303,10 +296,10 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 		echo '<br />';
 
-		printf( _x( '<small><a href="%s">%s</a></small> ', 'post people column', GPEOPLE_TEXTDOMAIN ),
+		printf( _x( '<small><a href="%s">%s</a></small> ', 'Remote: Admin: Posts Column', GPEOPLE_TEXTDOMAIN ),
 			esc_url( add_query_arg( array(
 				'post_type' => $post->post_type,
-				'author' => get_the_author_meta( 'ID' )
+				'author'    => get_the_author_meta( 'ID' )
 			), 'edit.php' ) ),
 			get_the_author()
 		);
@@ -320,7 +313,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			echo '<li class="-row people">';
 
 				echo '<span class="-icon" title="'
-					.esc_attr_x( 'People', 'Remote Admin: Row Icon Title', GPEOPLE_TEXTDOMAIN )
+					.esc_attr_x( 'People', 'Remote: Admin: Row Icon Title', GPEOPLE_TEXTDOMAIN )
 					.'"><span class="dashicons dashicons-admin-users"></span></span>';
 
 					echo $people;

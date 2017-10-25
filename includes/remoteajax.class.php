@@ -28,7 +28,7 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 			'spinner'          => __( 'Adding &hellip;', GPEOPLE_TEXTDOMAIN ), //'<span class="spinner"></span>',
 			'added'            => __( 'Added', GPEOPLE_TEXTDOMAIN ),
 			'error'            => __( 'Error', GPEOPLE_TEXTDOMAIN ),
-			'perpage'          => 5,
+			'perpage'          => 3,
 			'modal_title'      => $title,
 			'modal_innerWidth' => 720,
 			'modal_maxHeight'  => '100%',
