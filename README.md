@@ -6,7 +6,7 @@ Depends on [gPlugin](https://github.com/geminorum/gplugin)
 
 [![GitHub releases](https://img.shields.io/github/release/geminorum/gpeople.svg?style=flat-square)](https://github.com/geminorum/gpeople/releases)
 [![GitHub issues](https://img.shields.io/github/issues/geminorum/gpeople.svg?style=flat-square)](https://github.com/geminorum/gpeople/issues)
-[![Gratipay](http://img.shields.io/gratipay/geminorum.svg?style=flat-square)](https://gratipay.com/geminorum/)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 
 ### Installation
 
