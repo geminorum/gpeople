@@ -4,7 +4,7 @@
 Plugin Name: gPeople
 Plugin URI: http://geminorum.ir/wordpress/gpeople
 Description: People, the way involved in your site. Depends on <a href="http://geminorum.ir/wordpress/gplugin/">gPlugin</a>
-Version: 3.4.1
+Version: 3.4.2
 License: GPLv3+
 Author: geminorum
 Author URI: http://geminorum.ir
@@ -18,7 +18,7 @@ Requires WP: 4.5
 Requires PHP: 5.3
 */
 
-define( 'GPEOPLE_VERSION', '3.4.1' );
+define( 'GPEOPLE_VERSION', '3.4.2' );
 define( 'GPEOPLE_VERSION_DB', '0.1' );
 define( 'GPEOPLE_VERSION_GPLUGIN', 40 );
 define( 'GPEOPLE_DIR', plugin_dir_path( __FILE__ ) );

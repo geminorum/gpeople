@@ -1,3 +1,9 @@
+### 3.4.2
+* main/remote: passing the term object as person args
+* main/filtered: refactoring settings pages
+* main/remoteadmin: ux enhancements on modal
+* main/rootadmin: debug tab on modal
+
 ### 3.4.1
 * main/admin: correct cap check for glance items
 * main/remote: rewrite with no front
