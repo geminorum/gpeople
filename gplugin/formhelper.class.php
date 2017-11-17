@@ -66,7 +66,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 	}
 
 	// FIXME: DROP THIS
-	// DEPRICATED: use `gPluginHTML::linkStyleSheet()`
+	// DEPRECATED: use `gPluginHTML::linkStyleSheet()`
 	public static function linkStyleSheet( $url, $version = NULL, $media = 'all' )
 	{
 		self::__dep( 'gPluginHTML::linkStyleSheet()' );
@@ -74,7 +74,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 	}
 
 	// FIXME: DROP THIS
-	// DEPRICATED: use `gPluginHTML::sanitizeClass()`
+	// DEPRECATED: use `gPluginHTML::sanitizeClass()`
 	public static function sanitizeHTMLClass( $class )
 	{
 		self::__dep( 'gPluginHTML::sanitizeClass()' );
@@ -89,7 +89,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 	}
 
 	// FIXME: DROP THIS
-	// DEPRICATED: use `gPluginHTML::sanitizeTag()`
+	// DEPRECATED: use `gPluginHTML::sanitizeTag()`
 	public static function sanitizeHTMLTag( $tag )
 	{
 		self::__dep( 'gPluginHTML::sanitizeTag()' );
@@ -173,7 +173,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 	}
 
 	// FIXME: DROP THIS
-	// DEPRICATED: use `gPluginHTML::tag()`
+	// DEPRECATED: use `gPluginHTML::tag()`
 	public static function html( $tag, $atts = array(), $content = FALSE, $sep = '' )
 	{
 		self::__dep( 'gPluginHTML::tag()' );

@@ -116,7 +116,7 @@ class gPeopleProfile extends gPluginModuleCore
 		return FALSE;
 	}
 
-	// FIXME: DEPRICATED
+	// FIXME: DEPRECATED
 	// CAUTION: must call while switched to root
 	// before: get_profile_images()
 	public function get_images( $post, $sizes = NULL )

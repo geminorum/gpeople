@@ -206,7 +206,7 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 			if ( file_exists( $this->constants['plugin_dir'].'includes/settings/network.'.$sub.'.php' ) )
 				require_once( $this->constants['plugin_dir'].'includes/settings/network.'.$sub.'.php' );
 
-			// FIXME: DEPRICATED
+			// FIXME: DEPRECATED
 			else if ( file_exists( $this->constants['plugin_dir'].'admin/network.'.$sub.'.php' ) )
 				require_once( $this->constants['plugin_dir'].'admin/network.'.$sub.'.php' );
 

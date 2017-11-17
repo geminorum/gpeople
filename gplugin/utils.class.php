@@ -319,7 +319,7 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 	}
 
 	// sort multidimensional array by value
-	// @SOURCE: http://stackoverflow.com/a/2699110/4864081
+	// @SOURCE: http://stackoverflow.com/a/2699110
 	// gPluginUtils::arrayASort( $array, 'order' );
 	public static function arrayASort( &$array, $key )
 	{
