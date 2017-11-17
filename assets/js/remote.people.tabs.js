@@ -1,4 +1,6 @@
-jQuery(document).ready(function($) {
-  var gPeopleProfiles = [];
-  var gPeopleUsers = [];
+/* global jQuery */
+
+jQuery(function ($) {
+  // var gPeopleProfiles = [];
+  // var gPeopleUsers = [];
 });
