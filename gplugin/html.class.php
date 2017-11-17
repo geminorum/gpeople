@@ -39,14 +39,14 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		return '<img src="'.$src.'" class="'.$class.'" alt="'.$alt.'" />';
 	}
 
-	public static function h2( $html, $class = FALSE )
+	public static function h2( $html, $class = FALSE, $link = FALSE )
 	{
-		echo self::tag( 'h2', array( 'class' => $class ), $html );
+		echo self::tag( 'h2', array( 'class' => $class ), ( $link ? self::link( $html, $link ) : $html ) );
 	}
 
-	public static function h3( $html, $class = FALSE )
+	public static function h3( $html, $class = FALSE, $link = FALSE )
 	{
-		echo self::tag( 'h3', array( 'class' => $class ), $html );
+		echo self::tag( 'h3', array( 'class' => $class ), ( $link ? self::link( $html, $link ) : $html ) );
 	}
 
 	public static function desc( $html, $block = TRUE, $class = '', $nl2br = TRUE )
@@ -56,9 +56,69 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		echo $block ? '<p class="description -description '.$class.'">'.$html.'</p>' : '<span class="description -description '.$class.'">'.$html.'</span>';
 	}
 
+	public static function button( $html, $link = '#', $title = FALSE, $icon = FALSE, $data = array() )
+	{
+		$classes = array(
+			'btn',
+			'btn-default',
+			'btn-xs',
+			'button',
+			'-button',
+		);
+
+		if ( $icon )
+			$classes[] = '-button-icon';
+
+		return self::tag( ( $link ? 'a' : 'span' ), array(
+			'href'   => $link ? $link : FALSE,
+			'title'  => $title,
+			'class'  => $classes,
+			'data'   => $data,
+			'target' => '_blank',
+		), $html );
+	}
+
+	public static function wrap( $html, $class = '', $block = TRUE )
+	{
+		return $block ? '<div class="-wrap '.$class.'">'.$html.'</div>' : '<span class="-wrap '.$class.'">'.$html.'</span>';
+	}
+
+	public static function preCode( $content, $rows = 1 )
+	{
+		echo '<textarea dir="ltr" class="textarea-autosize" rows="'.$rows.'" style="width:100%;text-align:left;direction:ltr;" readonly>';
+			echo self::escapeTextarea( $content );
+		echo '</textarea>';
+	}
+
 	public static function inputHidden( $name, $value = '' )
 	{
 		echo '<input type="hidden" name="'.self::escapeAttr( $name ).'" value="'.self::escapeAttr( $value ).'" />';
+	}
+
+	// @REF: https://gist.github.com/eric1234/5802030
+	// useful when you want to pass on a complex data structure via a form
+	public static function inputHiddenArray( $array, $prefix = '' )
+	{
+		if ( (bool) count( array_filter( array_keys( $array ), 'is_string' ) ) ) {
+
+			foreach ( $array as $key => $value ) {
+				$name = empty( $prefix ) ? $key : $prefix.'['.$key.']';
+
+				if ( is_array( $value ) )
+					self::inputHiddenArray( $value, $name );
+				else
+					self::inputHidden( $name, $value );
+			}
+
+		} else {
+
+			foreach ( $array as $item ) {
+				if ( is_array( $item ) )
+					self::inputHiddenArray( $item, $prefix.'[]' );
+				else
+					self::inputHidden( $prefix.'[]', $item );
+			}
+		}
 	}
 
 	public static function joined( $items, $before = '', $after = '', $sep = '|', $empty = '' )
@@ -99,6 +159,11 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		return array_unique( array_filter( $classes, 'trim' ) );
 	}
 
+	public static function prepClass( $classes )
+	{
+		return implode( ' ', array_unique( array_filter( self::attrClass( $classes ), array( __CLASS__, 'sanitizeClass' ) ) ) );
+	}
+
 	private static function _tag_open( $tag, $atts, $content = TRUE )
 	{
 		$html = '<'.$tag;
@@ -129,7 +194,7 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 					continue;
 
 				} else if ( 'class' == $key ) {
-					$att = implode( ' ', array_unique( array_filter( $att, array( __CLASS__, 'sanitizeClass' ) ) ) );
+					$att = self::prepClass( $att );
 
 				} else {
 					$att = implode( ' ', array_unique( array_filter( $att, 'trim' ) ) );
@@ -145,7 +210,7 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 				continue;
 
 			if ( 'class' == $key && ! $sanitized )
-				$att = implode( ' ', array_unique( array_filter( explode( ' ', $att ), array( __CLASS__, 'sanitizeClass' ) ) ) );
+				$att = self::prepClass( $att );
 
 			else if ( 'class' == $key )
 				$att = $att;
@@ -181,6 +246,11 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 	public static function escapeURL( $url )
 	{
 		return esc_url( $url );
+	}
+
+	public static function escapeTextarea( $html )
+	{
+		return esc_textarea( $html );
 	}
 
 	// like WP core but without filter and fallback
@@ -230,7 +300,7 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		else if ( $version )
 			$url = add_query_arg( 'ver', $version, $url );
 
-		echo "\t".self::tag( 'link', array(
+		echo self::tag( 'link', array(
 			'rel'   => 'stylesheet',
 			'href'  => $url,
 			'type'  => 'text/css',
@@ -240,57 +310,52 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 
 	// @REF: https://codex.wordpress.org/Plugin_API/Action_Reference/admin_notices
 	// CLASSES: notice-error, notice-warning, notice-success, notice-info, is-dismissible
-	public static function notice( $notice, $class = 'notice-success fade', $echo = TRUE )
+	public static function notice( $notice, $class = 'notice-success fade inline', $dismissible = TRUE )
 	{
-		$html = sprintf( '<div class="notice %s is-dismissible"><p>%s</p></div>', $class, $notice );
-
-		if ( ! $echo )
-			return $html;
-
-		echo $html;
+		return sprintf( '<div class="notice %s%s -notice">%s</div>', $class, ( $dismissible ? ' is-dismissible' : '' ), gPluginTextHelper::autoP( $notice ) );
 	}
 
-	public static function error( $message, $echo = FALSE )
+	public static function error( $notice, $dismissible = TRUE )
 	{
-		return self::notice( $message, 'notice-error fade', $echo );
+		return self::notice( $notice, 'notice-error fade inline', $dismissible );
 	}
 
-	public static function success( $message, $echo = FALSE )
+	public static function success( $notice, $dismissible = TRUE )
 	{
-		return self::notice( $message, 'notice-success fade', $echo );
+		return self::notice( $notice, 'notice-success fade inline', $dismissible );
 	}
 
-	public static function warning( $message, $echo = FALSE )
+	public static function warning( $notice, $dismissible = TRUE )
 	{
-		return self::notice( $message, 'notice-warning fade', $echo );
+		return self::notice( $notice, 'notice-warning fade inline', $dismissible );
 	}
 
-	public static function info( $message, $echo = FALSE )
+	public static function info( $notice, $dismissible = TRUE )
 	{
-		return self::notice( $message, 'notice-info fade', $echo );
+		return self::notice( $notice, 'notice-info fade inline', $dismissible );
 	}
 
 	public static function tableCode( $array, $reverse = FALSE, $caption = FALSE )
 	{
 		if ( ! $array )
-			return;
+			return '';
 
 		if ( $reverse )
 			$row = '<tr><td class="-val"><code>%1$s</code></td><td class="-var" valign="top">%2$s</td></tr>';
 		else
 			$row = '<tr><td class="-var" valign="top">%1$s</td><td class="-val"><code>%2$s</code></td></tr>';
 
-		echo '<table class="base-table-code'.( $reverse ? ' -reverse' : '' ).'">';
+		$html = '<table class="base-table-code'.( $reverse ? ' -reverse' : '' ).'">';
 
-		if ( $caption )
-			echo '<caption>'.$caption.'</caption>';
+		if ( FALSE !== $caption )
+			$html .= '<caption>'.$caption.'</caption>';
 
-		echo '<tbody>';
+		$html .= '<tbody>';
 
 		foreach ( (array) $array as $key => $value )
-			printf( $row, $key, self::sanitizeDisplay( $value ) );
+			$html .= sprintf( $row, $key, self::sanitizeDisplay( $value ) );
 
-		echo '</tbody></table>';
+		return $html.'</tbody></table>';
 	}
 
 	public static function sanitizeDisplay( $value )
@@ -320,10 +385,12 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 	}
 
 	// @REF: https://developer.wordpress.org/resource/dashicons/
-	public static function getDashicon( $icon = 'wordpress-alt', $tag = 'span' )
+	public static function getDashicon( $icon = 'wordpress-alt', $tag = 'span', $title = FALSE )
 	{
 		return self::tag( $tag, array(
-			'class' => array(
+			'data-icon' => 'dashicons',
+			'title'     => $title,
+			'class'     => array(
 				'dashicons',
 				'dashicons-'.$icon,
 			),

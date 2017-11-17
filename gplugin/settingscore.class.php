@@ -207,51 +207,64 @@ if ( ! class_exists( 'gPluginSettingsCore' ) ) { class gPluginSettingsCore exten
 	public function settings_sanitize_section( $sections, $input, $output, $stored = array() )
 	{
 		foreach ( $sections as $section => $section_args ) {
+
 			foreach ( $section_args['fields'] as $field => $field_args ) {
 
-				if ( isset( $field_args['constant'] )
-					&& $field_args['constant']
-					&& defined( $field_args['constant'] ) ) {
+				if ( isset( $field_args['constant'] ) && $field_args['constant'] && defined( $field_args['constant'] ) ) {
 
-						// do nothing
+					// do nothing
 
-				// new value
 				} else if ( isset( $input[$field] ) ) {
 
-					// callback
-					if ( isset( $field_args['filter'] )
-						&& $field_args['filter']
-						&& is_callable( $field_args['filter'] ) )
-							$output[$field] = call_user_func_array( $field_args['filter'], array( $input[$field] ) );
+					if ( isset( $field_args['filter'] ) && $field_args['filter'] && is_callable( $field_args['filter'] ) ) {
 
-					// disabled select
-					else if ( isset( $field_args['values'] )
-						&& FALSE === $field_args['values'] )
-							$output[$field] = $field_args['default'];
+						// filter callback
+						$output[$field] = call_user_func_array( $field_args['filter'], array( $input[$field] ) );
 
-					// filled multiple checkboxes
-					else if ( is_array( $input[$field] ) )
-						// $output[$field] = gPluginUtils::getKeys( $input[$field] );
-						$output[$field] = array_keys( $input[$field] );
+					} else if ( isset( $field_args['values'] ) && FALSE === $field_args['values'] ) {
 
-					// default
-					else
-						$output[$field] = $input[$field];
+						// disabled select
+						$output[$field] = $field_args['default'];
 
-				// empty multiple checkboxes
+					} else if ( is_array( $input[$field] ) ) {
+
+						if ( array_key_exists( 'type', $field_args ) && 'text' == $field_args['type'] ) {
+
+							// multiple texts
+							$output[$field] = array();
+
+							foreach ( $input[$field] as $key => $value )
+								if ( $string = trim( gPluginUtils::unslash( $value ) ) )
+									$output[$field][sanitize_key( $key )] = $string;
+
+						} else {
+
+							// multiple checkboxes
+							$output[$field] = array_keys( $input[$field] );
+						}
+
+					} else {
+
+						$output[$field] = trim( gPluginUtils::unslash( $input[$field] ) );
+					}
+
 				} else if ( isset( $field_args['values'] ) && FALSE !== $field_args['values'] ) {
+
+					// empty multiple checkboxes
 					$output[$field] = array();
 
-				// custom multiple checkboxes
 				} else if ( in_array( $field_args['type'], array( 'posttypes' ) ) ) {
+
+					// custom multiple checkboxes
 					$output[$field] = array();
 
-				// previously stored value
 				} else if ( isset( $stored[$field] ) ) {
+
+					// previously stored value
 					$output[$field] = $stored[$field];
 
-				// default value
 				} else {
+
 					$output[$field] = $field_args['default'];
 				}
 			}

@@ -3,7 +3,7 @@
 defined( 'GPLUGIN_SESSION_NETWORKWIDE' ) or define( 'GPLUGIN_SESSION_NETWORKWIDE', TRUE );
 defined( 'GPLUGIN_SESSION_CRON_ROUTINE' ) or define( 'GPLUGIN_SESSION_CRON_ROUTINE', 'twicedaily' ); // 'hourly'
 
-// based on WP Session Manager 1.1.2 by Eric Mann
+// based on WP Session Manager 1.1.2 by Eric Mann // FIXME: update
 // http://jumping-duck.com/wordpress/plugins
 // http://wordpress.org/plugins/wp-session-manager/
 // http://jumping-duck.com/wordpress/plugins/wp-session-manager/

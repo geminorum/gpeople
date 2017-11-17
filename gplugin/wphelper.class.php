@@ -3,6 +3,11 @@
 if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPluginClassCore
 {
 
+	public static function isMinWPv( $minimum_version )
+	{
+		return ( version_compare( get_bloginfo( 'version' ), $minimum_version ) >= 0 );
+	}
+
 	public static function log( $error = '{NO Error Code}', $data = array(), $wp_error = NULL )
 	{
 		if ( ! WP_DEBUG_LOG )
@@ -229,12 +234,11 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		return gPluginHTML::notice( $notice, $class, $echo );
 	}
 
+	// FIXME: DEPRECATED
 	public static function getCurrentSiteBlogID()
 	{
-		if ( ! is_multisite() )
-			return get_current_blog_id();
-
-		return absint( get_current_site()->blog_id );
+		// self::__dep( 'get_main_site_id()'); // since WP 4.9
+		return is_multisite() ? absint( get_current_site()->blog_id ) : get_current_blog_id();
 	}
 
 	// FIXME: DEPRECATED
@@ -368,6 +372,13 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		return defined( 'WP_CLI' ) && WP_CLI;
 	}
 
+	// alt to `is_super_admin()`
+	public static function isSuperAdmin( $user_id = FALSE )
+	{
+		$cap = is_multisite() ? 'manage_network' : 'manage_options';
+		return $user_id ? user_can( $user_id, $cap ) : current_user_can( $cap );
+	}
+
 	// FIXME: DEPRECATED
 	public static function is_debug()
 	{
@@ -420,8 +431,15 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		return $roles;
 	}
 
-	// must add `add_thickbox()` for thickbox
+	// FIXME: DEPRECATED
 	public static function getFeaturedImageHTML( $post_id, $size = 'thumbnail', $link = TRUE )
+	{
+		self::__dep( 'gPluginWPHelper::htmlFeaturedImage()' );
+		return self::htmlFeaturedImage( $post_id, $size, $link );
+	}
+
+	// must add `add_thickbox()` for thickbox
+	public static function htmlFeaturedImage( $post_id, $size = 'thumbnail', $link = TRUE )
 	{
 		if ( ! $post_thumbnail_id = get_post_thumbnail_id( $post_id ) )
 			return '';
@@ -430,7 +448,7 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 			return '';
 
 		$image = gPluginHTML::tag( 'img', array(
-			'src'   => $term_thumbnail_img[0],
+			'src'   => $post_thumbnail_img[0],
 			'class' => '-featured',
 			'alt'   => '',
 			'data'  => array(
@@ -570,11 +588,6 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		return self::whiteListed( $request_uri );
 	}
 
-	public static function isMinWPv( $minimum_version )
-	{
-		return ( version_compare( get_bloginfo( 'version' ), $minimum_version ) >= 0 );
-	}
-
 	public static function getUsers( $all_fields = FALSE, $network = FALSE, $extra = array() )
 	{
 		$users = get_users( array_merge( array(
@@ -584,40 +597,5 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		), $extra ) );
 
 		return gPluginUtils::reKey( $users, 'ID' );
-	}
-
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-/// NOT USED YET ---------------------------------------------------------------
-
-	// http://austin.passy.co/2014/native-wordpress-loading-gifs/
-	// https://make.wordpress.org/core/2015/04/23/spinners-and-dismissible-admin-notices-in-4-2/
-	// img : spinner / wpspin_light
-	public static function imgSpin( $img = 'spinner', $large = FALSE  )
-	{
-		return esc_url( admin_url( 'images/'.$img.( $large ? '-2x' : '' ).'.gif' ) );
-	}
-
-	public static function is_plugin_active( $plugin )
-	{
-		return in_array( $plugin, (array) get_option( 'active_plugins', array() ) ) || self::is_plugin_active_for_network( $plugin );
-	}
-
-	public static function is_plugin_active_for_network( $plugin )
-	{
-		if ( ! is_multisite() )
-			return FALSE;
-
-		$plugins = get_site_option( 'active_sitewide_plugins' );
-		if ( isset( $plugins[$plugin] ) )
-			return TRUE;
-
-		return FALSE;
-	}
-
-	public static function getRequestURI()
-	{
-		return gPluginUtils::unslash( $_SERVER['REQUEST_URI'] );
 	}
 } }

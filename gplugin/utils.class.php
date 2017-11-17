@@ -217,6 +217,9 @@ if ( ! class_exists( 'gPluginUtils' ) ) { class gPluginUtils extends gPluginClas
 			$array = self::unslash( $array );
 	}
 
+	// remove slashes from a string or array of strings
+	// @REF: `wp_unslash()`
+	// @REF: `stripslashes_deep()`
 	public static function unslash( $array )
 	{
 		return self::mapDeep( $array, function( $value ){

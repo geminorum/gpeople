@@ -196,11 +196,11 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 			if ( ! empty( $_GET['message'] ) ) {
 
 				if ( empty( $messages[$_REQUEST['message']] ) )
-					gPluginHTML::notice( $_REQUEST['message'], 'notice-error' );
+					echo gPluginHTML::warning( $_REQUEST['message'] );
 				else
 					echo $messages[$_REQUEST['message']];
 
-				$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'message' ), $_SERVER['REQUEST_URI'] );
+				$_SERVER['REQUEST_URI'] = remove_query_arg( array( 'message', 'count' ), $_SERVER['REQUEST_URI'] );
 			}
 
 			if ( file_exists( $this->constants['plugin_dir'].'includes/settings/network.'.$sub.'.php' ) )

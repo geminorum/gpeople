@@ -89,6 +89,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 			'string_disabled' => __( 'Disabled' ),
 			'string_enabled'  => __( 'Enabled' ),
 			'string_select'   => __( '&mdash; Select &mdash;' ),
+			'string_empty'    => __( 'No options!' ),
 			'string_noaccess' => __( 'You do not have access to change this option.' ),
 		), $atts );
 
@@ -191,18 +192,52 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				if ( ! $args['field_class'] )
 					$args['field_class'] = 'regular-text';
 
-				echo gPluginHTML::tag( 'input', array(
-					'type'        => 'text',
-					'id'          => $id,
-					'name'        => $name,
-					'value'       => $value,
-					'class'       => $args['field_class'],
-					'placeholder' => $args['placeholder'],
-					'disabled'    => $args['disabled'],
-					'readonly'    => $args['readonly'],
-					'dir'         => $args['dir'],
-					'data'        => $args['data'],
-				) );
+				if ( FALSE === $args['values'] ) {
+
+					gPluginHTML::desc( $args['string_empty'] );
+
+				} else if ( count( $args['values'] ) ) {
+
+					foreach ( $args['values'] as $value_name => $value_title ) {
+
+						if ( in_array( $value_name, $exclude ) )
+							continue;
+
+						$html = gPluginHTML::tag( 'input', [
+							'type'        => 'text',
+							'id'          => $id.'-'.$value_name,
+							'name'        => $name.'['.$value_name.']',
+							'value'       => isset( $value[$value_name] ) ? $value[$value_name] : '',
+							'class'       => $args['field_class'],
+							'placeholder' => $args['placeholder'],
+							'disabled'    => $args['disabled'],
+							'readonly'    => $args['readonly'],
+							'dir'         => $args['dir'],
+							'data'        => $args['data'],
+						] );
+
+						$html.= '&nbsp;<span class="-field-after">'.$value_title.'</span>';
+
+						echo '<p>'.gPluginHTML::tag( 'label', [
+							'for' => $id.'-'.$value_name,
+						], $html ).'</p>';
+					}
+
+				} else {
+
+					echo gPluginHTML::tag( 'input', [
+						'type'        => 'text',
+						'id'          => $id,
+						'name'        => $name,
+						'value'       => $value,
+						'class'       => $args['field_class'],
+						'placeholder' => $args['placeholder'],
+						'disabled'    => $args['disabled'],
+						'readonly'    => $args['readonly'],
+						'dir'         => $args['dir'],
+						'data'        => $args['data'],
+					] );
+				}
 
 			break;
 			case 'number':
@@ -239,6 +274,28 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 
 				echo gPluginHTML::tag( 'input', array(
 					'type'        => 'url',
+					'id'          => $id,
+					'name'        => $name,
+					'value'       => $value,
+					'class'       => $args['field_class'],
+					'placeholder' => $args['placeholder'],
+					'disabled'    => $args['disabled'],
+					'readonly'    => $args['readonly'],
+					'dir'         => $args['dir'],
+					'data'        => $args['data'],
+				) );
+
+			break;
+			case 'email':
+
+				if ( ! $args['field_class'] )
+					$args['field_class'] = array( 'regular-text', 'email-text' );
+
+				if ( ! $args['dir'] )
+					$args['dir'] = 'ltr';
+
+				echo gPluginHTML::tag( 'input', array(
+					'type'        => 'email',
 					'id'          => $id,
 					'name'        => $name,
 					'value'       => $value,
@@ -408,11 +465,14 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 			case 'textarea-quicktags':
 
 				if ( ! $args['field_class'] )
-					$args['field_class'] = 'large-text';
+					$args['field_class'] = 'regular-text';
 
 				if ( 'textarea-quicktags' == $args['type'] ) {
 
 					$args['field_class'] = gPluginHTML::attrClass( $args['field_class'], 'textarea-quicktags', 'code' );
+
+					if ( ! $args['dir'] && gPluginHTML::rtl() )
+						$args['field_class'][] = 'quicktags-rtl';
 
 					if ( ! $args['values'] )
 						$args['values'] = array(
