@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: gPeople\n"
 "Report-Msgid-Bugs-To: https://github.com/geminorum/gpeople/issues\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-10-25 03:30+0330\n"
+"PO-Revision-Date: 2018-04-02 22:50+0430\n"
 "Last-Translator: geminorum <contact@geminorum.ir>\n"
 "Language-Team: geminorum <contact@geminorum.ir>\n"
 "Language: fa_IR\n"
@@ -11,21 +11,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 
-#: gpeople.php:2, gpeople.php:75
+#: gpeople.php:3, gpeople.php:75
 msgid "gPeople"
 msgstr "افراد"
 
-#: gpeople.php:5
-msgid "3.4.2"
+#: gpeople.php:4
+msgid "https://geminorum.ir/wordpress/gpeople"
 msgstr ""
 
-#: gpeople.php:7
+#: gpeople.php:5
+msgid ""
+"People, the way involved in your site. Depends on <a href=\"https://geminorum."
+"ir/wordpress/gplugin/\">gPlugin</a>"
+msgstr ""
+
+#: gpeople.php:8
 msgid "geminorum"
 msgstr "ژمای‌نوروم"
+
+#: gpeople.php:9
+msgid "https://geminorum.ir"
+msgstr ""
 
 #: includes/filtered.class.php:9
 msgctxt "Root: Settings Titles"
@@ -1210,7 +1220,7 @@ msgstr "&mdash; نقش‌های کاربری &mdash;"
 msgid "&mdash; Profile Groups &mdash;"
 msgstr "&mdash; گروه‌های نمایه &mdash;"
 
-#: includes/profile.class.php:85, includes/remote.class.php:434,
+#: includes/profile.class.php:85, includes/remote.class.php:439,
 #: includes/user.class.php:27
 msgid "<i>No Profile Summary</i>"
 msgstr "بدون توضیحات نمایه"
@@ -1255,150 +1265,150 @@ msgstr ""
 msgid "Default relations added."
 msgstr ""
 
-#: includes/remote.class.php:328
+#: includes/remote.class.php:333
 msgctxt "people byline walker between delimiter"
 msgid ", "
 msgstr "، "
 
-#: includes/remote.class.php:329
+#: includes/remote.class.php:334
 msgctxt "people byline walker between last delimiter"
 msgid " and "
 msgstr " و "
 
-#: includes/remote.class.php:330
+#: includes/remote.class.php:335
 msgctxt "people byline walker pre"
 msgid "Written by "
 msgstr " "
 
-#: includes/remoteadmin.class.php:93, includes/remoteadmin.class.php:114
+#: includes/remoteadmin.class.php:91, includes/remoteadmin.class.php:112
 msgid "Search for People"
 msgstr "جست‌وجوی افراد"
 
-#: includes/remoteadmin.class.php:136
+#: includes/remoteadmin.class.php:134
 msgctxt "Remote: Admin: MetaBox Title"
 msgid "People"
 msgstr "افراد"
 
-#: includes/remoteadmin.class.php:146
+#: includes/remoteadmin.class.php:144
 msgid "People Manegment"
 msgstr "مدیریت افراد"
 
-#: includes/remoteadmin.class.php:222
+#: includes/remoteadmin.class.php:220
 msgctxt "Remote: Admin: MetaBox: Byline Title"
 msgid "Byline as Appears on Your Site"
 msgstr "اطلاعات افراد به این صورت روی سایت نمایش داده می‌شود."
 
-#: includes/remoteadmin.class.php:230
+#: includes/remoteadmin.class.php:228
 msgctxt "Remote: Admin: MetaBox: Button Title"
 msgid "Add or Modify People for This Post"
 msgstr "افزودن یا ویرایش افراد مرتبط با این نوشته"
 
-#: includes/remoteadmin.class.php:232
+#: includes/remoteadmin.class.php:230
 msgctxt "Remote: Admin: MetaBox: Button Text"
 msgid "Add People"
 msgstr "افزودن افراد"
 
-#: includes/remoteadmin.class.php:248
+#: includes/remoteadmin.class.php:246
 msgctxt "Remote: Admin: At a Glance"
 msgid "Person"
 msgid_plural "People"
 msgstr[0] "فرد"
 msgstr[1] "فرد"
 
-#: includes/remoteadmin.class.php:259
+#: includes/remoteadmin.class.php:257
 msgctxt "Remote: Admin: Affiliations Column"
 msgid "People"
 msgstr "افراد"
 
-#: includes/remoteadmin.class.php:280
+#: includes/remoteadmin.class.php:278
 msgctxt "Remote: Admin: Posts Column"
 msgid "People"
 msgstr "افراد"
 
-#: includes/remoteadmin.class.php:299
+#: includes/remoteadmin.class.php:297
 msgctxt "Remote: Admin: Posts Column"
 msgid "<small><a href=\"%s\">%s</a></small> "
 msgstr ""
 
-#: includes/remoteadmin.class.php:316
+#: includes/remoteadmin.class.php:314
 msgctxt "Remote: Admin: Row Icon Title"
 msgid "People"
 msgstr "افراد"
 
-#: includes/remoteadmin.class.php:333
+#: includes/remoteadmin.class.php:331
 msgctxt "Root: Admin: Column Title"
 msgid "Person"
 msgstr "فرد"
 
-#: includes/remoteadmin.class.php:338
+#: includes/remoteadmin.class.php:336
 msgctxt "Root: Admin: Column Title"
 msgid "Short Bio"
 msgstr "زندگی‌نامه کوتاه"
 
-#: includes/remoteadmin.class.php:342
+#: includes/remoteadmin.class.php:340
 msgctxt "Root: Admin: Column Title"
 msgid "Extra"
 msgstr "بیشتر"
 
-#: includes/remoteadmin.class.php:367
+#: includes/remoteadmin.class.php:365
 msgid "&mdash;"
 msgstr ""
 
-#: includes/remoteadmin.class.php:391
+#: includes/remoteadmin.class.php:389
 msgctxt "Root: Admin: Column Title"
 msgid "First Name"
 msgstr "نام"
 
-#: includes/remoteadmin.class.php:397
+#: includes/remoteadmin.class.php:395
 msgctxt "Root: Admin: Column Title"
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
-#: includes/remoteadmin.class.php:403
+#: includes/remoteadmin.class.php:401
 msgctxt "Root: Admin: Column Title"
 msgid "Alternative"
 msgstr "عنوان دیگر"
 
-#: includes/remoteadmin.class.php:468
+#: includes/remoteadmin.class.php:466
 msgid ""
 "&#8220;<a href=\"%1$s\" title=\"People, the way involved in your site\" "
 ">gPeople</a>&#8221; is a <a href=\"%2$s\">geminorum</a> project"
 msgstr ""
 
-#: includes/remoteadmin.class.php:478
+#: includes/remoteadmin.class.php:476
 msgid "Profiles"
 msgstr "نمایه‌ها"
 
-#: includes/remoteadmin.class.php:479
+#: includes/remoteadmin.class.php:477
 msgid "Users"
 msgstr "کاربران"
 
-#: includes/remoteadmin.class.php:502
+#: includes/remoteadmin.class.php:500
 msgid "Current"
 msgstr "افراد مرتبط"
 
-#: includes/remoteadmin.class.php:503
+#: includes/remoteadmin.class.php:501
 msgid "Add People"
 msgstr "افزودن افراد"
 
-#: includes/remoteadmin.class.php:504
+#: includes/remoteadmin.class.php:502
 msgid "Add Profiles"
 msgstr "افزودن نمایه‌ها"
 
-#: includes/remoteadmin.class.php:505
+#: includes/remoteadmin.class.php:503
 msgid "Add Users"
 msgstr "افزودن کاربران"
 
-#: includes/remoteadmin.class.php:506
+#: includes/remoteadmin.class.php:504
 msgid "Manual Add"
 msgstr "افزودن دستی"
 
-#: includes/remoteadmin.class.php:510
+#: includes/remoteadmin.class.php:508
 msgctxt "Remote: Admin: Modal Tab Title"
 msgid "Debug"
 msgstr "اشکال‌زدایی"
 
-#: includes/remoteadmin.class.php:528
+#: includes/remoteadmin.class.php:526
 msgctxt "Remote: Admin: Modal"
 msgid "Debug: Current Post's Terms"
 msgstr "اشکال‌زدایی: رده‌های این نوشته"
