@@ -13,14 +13,27 @@ jQuery(function ($) {
     $('div.gpeople-modal-tab-content').hide();
     $('#gpeople-tab-content-' + activeRel).show();
 
-    $.colorbox({
+    var options = {
       href: 'div.gpeople-modal-wrap',
       title: gPeopleNetwork.remoteEdit.modal_title,
       inline: true,
-      innerWidth: gPeopleNetwork.remoteEdit.modal_innerWidth,
-      maxHeight: gPeopleNetwork.remoteEdit.modal_maxHeight,
-      innerHeight: '85%',
-      transition: 'none'
+      // innerWidth: gPeopleNetwork.remoteEdit.modal_innerWidth,
+      // maxHeight: gPeopleNetwork.remoteEdit.modal_maxHeight,
+      // innerHeight: '85%',
+      transition: 'none',
+      width: '95%',
+      height: '95%',
+      maxWidth: '720px',
+      maxHeight: '680px'
+    };
+
+    $.colorbox(options);
+
+    $(window).resize(function () {
+      $.colorbox.resize({
+        width: window.innerWidth > parseInt(options.maxWidth) ? options.maxWidth : options.width,
+        height: window.innerHeight > parseInt(options.maxHeight) ? options.maxHeight : options.height
+      });
     });
   });
 

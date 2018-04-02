@@ -30,8 +30,8 @@ class gPeopleRemoteAjax extends gPluginAjaxCore
 			'error'            => __( 'Error', GPEOPLE_TEXTDOMAIN ),
 			'perpage'          => 3,
 			'modal_title'      => $title,
-			'modal_innerWidth' => 720,
-			'modal_maxHeight'  => '100%',
+			// 'modal_innerWidth' => 720,
+			// 'modal_maxHeight'  => '100%',
 			'adding_resource'  => __( 'Adding &hellip;', GPEOPLE_TEXTDOMAIN ),
 		), $scope );
 	}

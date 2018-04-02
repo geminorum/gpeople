@@ -18,14 +18,27 @@ jQuery(function ($) {
     e.preventDefault();
     gPeopleChangeTab($(this).data('modal'));
 
-    $.colorbox({
+    var options = {
       href: 'div.gpeople-modal-wrap',
       title: gPeopleNetwork.remoteAdd.modal_title,
       inline: true,
-      innerWidth: gPeopleNetwork.remoteAdd.modal_innerWidth,
-      maxHeight: gPeopleNetwork.remoteAdd.modal_maxHeight,
-      innerHeight: '85%',
-      transition: 'none'
+      // innerWidth: gPeopleNetwork.remoteAdd.modal_innerWidth,
+      // maxHeight: gPeopleNetwork.remoteAdd.modal_maxHeight,
+      // innerHeight: '85%',
+      transition: 'none',
+      width: '95%',
+      height: '95%',
+      maxWidth: '720px',
+      maxHeight: '680px'
+    };
+
+    $.colorbox(options);
+
+    $(window).resize(function () {
+      $.colorbox.resize({
+        width: window.innerWidth > parseInt(options.maxWidth) ? options.maxWidth : options.width,
+        height: window.innerHeight > parseInt(options.maxHeight) ? options.maxHeight : options.height
+      });
     });
   });
 

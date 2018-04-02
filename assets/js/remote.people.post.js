@@ -28,14 +28,28 @@ jQuery(function ($) {
     // $('div.gpeople-modal-tab-content').hide();
     // $('#gpeople-tab-content-'+activeRel).show();
 
-    $.colorbox({
+    // @REF: https://stackoverflow.com/a/23431190/4864081
+    var options = {
       href: 'div.gpeople-modal-wrap',
       title: gPeopleNetwork.remotePost.modal_title,
       inline: true,
-      innerWidth: gPeopleNetwork.remotePost.modal_innerWidth,
-      maxHeight: gPeopleNetwork.remotePost.modal_maxHeight,
-      innerHeight: '85%',
-      transition: 'none'
+      // innerWidth: gPeopleNetwork.remotePost.modal_innerWidth,
+      // maxHeight: gPeopleNetwork.remotePost.modal_maxHeight,
+      // innerHeight: '85%',
+      transition: 'none',
+      width: '95%',
+      height: '95%',
+      maxWidth: '720px',
+      maxHeight: '680px'
+    };
+
+    $.colorbox(options);
+
+    $(window).resize(function () {
+      $.colorbox.resize({
+        width: window.innerWidth > parseInt(options.maxWidth) ? options.maxWidth : options.width,
+        height: window.innerHeight > parseInt(options.maxHeight) ? options.maxHeight : options.height
+      });
     });
 
     // focus after opening
