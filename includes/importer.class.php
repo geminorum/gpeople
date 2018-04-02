@@ -662,25 +662,34 @@ class gPeopleImporter extends gPluginImportCore
 	// get or create and return people tax object
 	public function get_people_object( $name_or_id, $args = FALSE )
 	{
+		$the_term   = FALSE;
+		$taxonomy   = $this->constants['people_tax'];
+		$normalized = $this->normalize( $name_or_id );
+
 		if ( is_numeric( $name_or_id ) )
-			$term = get_term_by( 'id', $name_or_id, $this->constants['people_tax'] );
-		else
-			$term = get_term_by( 'name', $this->normalize( $name_or_id ), $this->constants['people_tax'] );
+			$the_term = get_term_by( 'id', $name_or_id, $taxonomy );
 
-		if ( $term )
-			return $term;
+		if ( ! $the_term )
+			$the_term = get_term_by( 'name', $normalized, $taxonomy );
 
-		if ( ! $term && FALSE === $args )
+		if ( ! $the_term )
+			$the_term = get_term_by( 'name', gPluginTextHelper::formatName( $normalized ), $taxonomy );
+
+		if ( $the_term )
+			return $the_term;
+
+		if ( ! $the_term && FALSE === $args )
 			return FALSE;
 
 		if ( is_numeric( $name_or_id ) )
 			return FALSE;
 
-		$new_term = wp_insert_term( $this->normalize( $name_or_id ), $this->constants['people_tax'], $args );
+		$new_term = wp_insert_term( $normalized, $taxonomy, $args );
+
 		if ( is_wp_error( $new_term ) )
 			return FALSE;
 
-		return get_term_by( 'id', $new_term['term_id'], $this->constants['people_tax'] );
+		return get_term_by( 'id', $new_term['term_id'], $taxonomy );
 	}
 
 	// programmatically sets people for a post
