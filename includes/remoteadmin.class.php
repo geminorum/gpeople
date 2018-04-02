@@ -145,8 +145,8 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 				$gPeopleNetwork->remote_ajax->asset_config( 'remotePost', __( 'People Manegment', GPEOPLE_TEXTDOMAIN ) );
 
-				wp_deregister_script( 'jquery-form' );
-				wp_register_script( 'jquery-form', GPEOPLE_URL.'assets/js/jquery.form.min.js', array( 'jquery' ), '3.51', TRUE );
+				// wp_deregister_script( 'jquery-form' );
+				// wp_register_script( 'jquery-form', GPEOPLE_URL.'assets/js/jquery.form.min.js', array( 'jquery' ), '3.51', TRUE );
 				wp_enqueue_script( 'gpeople-remote-post-meta', GPEOPLE_URL.'assets/js/remote.people.post.js', array( 'jquery', 'jquery-form' ), GPEOPLE_VERSION, TRUE );
 
 				add_action( 'admin_footer', array( $this, 'modal_html_post' ) );
