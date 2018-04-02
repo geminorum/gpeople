@@ -1,3 +1,8 @@
+### 3.4.3
+* main/remoteajax: responsive colorbox
+* main/importer: also check for formatted names
+* main/remoteadmin: using core jquery-form version
+
 ### 3.4.2
 * main/remote: passing the term object as person args
 * main/filtered: refactoring settings pages
