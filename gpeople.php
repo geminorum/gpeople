@@ -2,12 +2,12 @@
 
 /*
 Plugin Name: gPeople
-Plugin URI: http://geminorum.ir/wordpress/gpeople
-Description: People, the way involved in your site. Depends on <a href="http://geminorum.ir/wordpress/gplugin/">gPlugin</a>
+Plugin URI: https://geminorum.ir/wordpress/gpeople
+Description: People, the way involved in your site. Depends on <a href="https://geminorum.ir/wordpress/gplugin/">gPlugin</a>
 Version: 3.4.2
 License: GPLv3+
 Author: geminorum
-Author URI: http://geminorum.ir
+Author URI: https://geminorum.ir
 Network: true
 TextDomain: gpeople
 DomainPath: /languages

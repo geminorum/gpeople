@@ -463,7 +463,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	public function after_people_table( $taxonomy )
 	{
 		echo '<div class="form-wrap edit-term-notes"><p>';
-			printf( __( '&#8220;<a href="%1$s" title="People, the way involved in your site" >gPeople</a>&#8221; is a <a href="%2$s">geminorum</a> project', GPEOPLE_TEXTDOMAIN ), 'http://geminorum.ir/wordpress/gpeople/', 'http://geminorum.ir' );
+			printf( __( '&#8220;<a href="%1$s" title="People, the way involved in your site" >gPeople</a>&#8221; is a <a href="%2$s">geminorum</a> project', GPEOPLE_TEXTDOMAIN ), 'https://geminorum.ir/wordpress/gpeople/', 'https://geminorum.ir' );
 		echo '</p></div>';
 	}
 
