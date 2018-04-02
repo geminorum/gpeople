@@ -70,7 +70,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 
 				add_filter( 'manage_edit-'.$screen->taxonomy.'_columns', array( $this, 'manage_edit_affiliation_columns' ) );
 				add_action( 'manage_'.$screen->taxonomy.'_custom_column', array( $this, 'manage_affiliation_custom_column' ), 10, 3 );
-
 			}
 
 		} else if ( $this->constants['rel_people_tax'] == $screen->taxonomy ) {
@@ -80,7 +79,6 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				$gPeopleNetwork->relation->rel_table_action( 'gpeople_action' );
 
 				add_action( 'after-'.$screen->taxonomy.'-table', array( $gPeopleNetwork->relation, 'after_rel_table' ) );
-
 			}
 
 		} else if ( $this->constants['people_tax'] == $screen->taxonomy ) {

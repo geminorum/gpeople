@@ -19,7 +19,6 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 		$this->register_taxonomies();
 
-
 		if ( is_admin() ) {
 
 			add_filter( 'pre_term_name', array( $this, 'pre_term_name' ), 12, 2 );
@@ -231,17 +230,23 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 	public function pre_term_name( $term, $taxonomy )
 	{
-		return $this->constants['people_tax'] == $taxonomy ? gPluginTextHelper::formatName( $term ) : $term;
+		return $this->constants['people_tax'] == $taxonomy
+			? gPluginTextHelper::formatName( $term )
+			: $term;
 	}
 
 	public function single_term_title( $title )
 	{
-		return is_tax( $this->constants['people_tax'] ) ? gPluginTextHelper::reFormatName( $title ) : $title;
+		return is_tax( $this->constants['people_tax'] )
+			? gPluginTextHelper::reFormatName( $title )
+			: $title;
 	}
 
 	public function people_term_name( $value, $term_id, $context )
 	{
-		return 'display' == $context ? gPluginTextHelper::reFormatName( $value ) : $value;
+		return 'display' == $context
+			? gPluginTextHelper::reFormatName( $value )
+			: $value;
 	}
 
 	public function get_people( $post, $atts = array(), $walker = NULL )

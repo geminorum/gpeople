@@ -697,8 +697,7 @@ class gPeopleImporter extends gPluginImportCore
 	{
 		global $gPeopleNetwork;
 
-		$post = get_post( $post_id );
-		if ( ! $post )
+		if ( ! $post = get_post( $post_id ) )
 			return FALSE;
 
 		$defaults  = $gPeopleNetwork->getFilters( 'remote_meta_defaults' );
@@ -710,12 +709,17 @@ class gPeopleImporter extends gPluginImportCore
 		foreach ( $people as $person ) {
 
 			$args = array();
+
 			if ( $create ) {
+
 				if ( isset( $person['slug'] ) )
 					$args['slug'] = $person['slug'];
+
 				if ( isset( $person['desc'] ) )
 					$args['description'] = $person['desc'];
+
 			} else {
+
 				$args = FALSE;
 			}
 
