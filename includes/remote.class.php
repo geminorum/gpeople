@@ -346,7 +346,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 
 		foreach ( $people as $person ) {
 
-			$person = apply_filters( 'people_byline_walker_person', $person, $args, $people, $atts );
+			$person = apply_filters( 'people_byline_walker_person', $person, $args, $people, $atts, $post );
 
 			if ( $person['vis'] || $args['visible'] ) {
 
@@ -368,7 +368,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 					$attr['class'].= ' gpeople-people-hidden';
 				}
 
-				$attr = apply_filters( 'people_byline_walker_attr', $attr, $person, $args, $people, $atts );
+				$attr = apply_filters( 'people_byline_walker_attr', $attr, $person, $args, $people, $atts, $post );
 				$tag  = gPluginHTML::tag( ( $args['link'] && $person['link'] ? 'a' : 'span' ), $attr, $person['name'] );
 
 				if ( $person['filter'] ) {
@@ -378,7 +378,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 						$tag = sprintf( $person['filter'], $tag );
 				}
 
-				$links[] = apply_filters( 'people_byline_walker_link', $tag, $person, $args, $people, $atts );
+				$links[] = apply_filters( 'people_byline_walker_link', $tag, $person, $args, $people, $atts, $post );
 			}
 		}
 
