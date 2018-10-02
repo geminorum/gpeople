@@ -126,6 +126,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				add_filter( 'manage_'.$screen->post_type.'_posts_columns', array( $this, 'manage_posts_columns' ), 20 );
 				add_filter( 'manage_'.$screen->post_type.'_posts_custom_column', array( $this, 'custom_column'), 10, 2 );
 
+				add_filter( 'people_byline_walker_attr', array( $this, 'byline_walker_attr' ), 9, 6 );
 				add_action( 'geditorial_tweaks_column_row', array( $this, 'column_row_people' ), -100 );
 
 			} else if ( 'post' == $screen->base ) {
@@ -301,6 +302,28 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			), 'edit.php' ) ),
 			get_the_author()
 		);
+	}
+
+	// overrides links on admin edit page
+	public function byline_walker_attr( $attr, $person, $args, $people, $atts, $post )
+	{
+		$object = get_taxonomy( $this->constants['people_tax'] );
+		$query  = [];
+
+		if ( 'post' != $post->post_type )
+			$query['post_type'] = $post->post_type;
+
+		if ( $object->query_var ) {
+			$query[$object->query_var] = $person['term']->slug;
+
+		} else {
+			$query['taxonomy'] = $object->name;
+			$query['term']     = $person['term']->slug;
+		}
+
+		$attr['href'] = add_query_arg( $query, 'edit.php' );
+
+		return $attr;
 	}
 
 	public function column_row_people( $post )
