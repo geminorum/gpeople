@@ -1,3 +1,7 @@
+### 3.4.4
+* main/remoteadmin: override links on admin edit page
+* main/remote: passing current post through filters
+
 ### 3.4.3
 * main/remoteajax: responsive colorbox
 * main/importer: also check for formatted names
