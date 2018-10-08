@@ -15,62 +15,75 @@
   margin: 15px 15px 22px;
   min-height: 300px;
 
-  .gpeople-modal-tab {
-    &.gpeople-modal-tab-profiles {}
-    &.gpeople-modal-tab-users {}
-  }
+  // .gpeople-modal-tab {
+  //   &.gpeople-modal-tab-profiles {}
+  //   &.gpeople-modal-tab-users {}
+  // }
 
   .gpeople-modal-tab-content {
     display: none;
     padding-top: 1em;
+
     .search-form {
       .form-field {
         padding: 0 0 8px;
+
         input[type="text"] {
           width: 48% !important;
           height: 28px;
           // margin: 0 4px 0 0;
         }
+
         select {
           width: 29% !important;
           margin-top: -2px;
         }
+
         a.gpeople_empty_select {
           width: 29% !important;
           display: inline-block;
         }
+
         input[type="submit"] {
           width: 19% !important;
           margin-top: 1px;
         }
+
         .empty-select {}
       }
     }
+
     .manual-form {
       .form-table {
         tr.form-field {
           th {
             margin-left: 20px;
+
             @include body-rtl() {
               margin-left: 0;
               margin-right: 20px;
             }
           }
+
           input {
             width: 95% !important;
+
             &[type="submit"] {
               width: auto !important;
             }
           }
+
           select {
             width: 95% !important;
           }
+
           #gpeople_manual_slug {
             direction: ltr;
           }
         }
       }
     }
+
     .manual-form,
     .search-form {
       .description {
@@ -110,9 +123,7 @@
     }
 
     .wp-list-table {
-
       th {
-
         &.column-people_o {
           width: 40px;
         }
@@ -129,8 +140,8 @@
           width: 220px;
         }
       }
-      td {
 
+      td {
         input[type="text"],
         input[type="number"] {
           height: 28px;
@@ -139,6 +150,7 @@
         &.column-people_o {
           padding-left: 0;
           padding-right: 0;
+
           input {
             width: 38px;
             height: 24px;
@@ -162,54 +174,61 @@
             width: 99%;
           }
         }
-        &.column-people_rel_vis {
-          select {
-            width: 99%;
-          }
-        }
       }
     }
+
     .tablenav {
       .actions {
         &.bulkactions {}
+
         .button {
           float: right;
           margin: 1px 0 0;
+
           @include body-rtl() {
             float: left;
           }
         }
       }
+
       .tablenav-pages {
         &.one-page {}
       }
     }
   }
+
   // Search List
   ul.gpeople-data-list {
     li {
-      border-bottom: 1px solid #CCCCCC;
+      border-bottom: 1px solid #ccc;
       margin-bottom: 1em;
+
       h4 {
         margin: 5px 0 10px;
+
         span {
           font-size: 0.9em;
-          font-weight: normal;
+          font-weight: 400;
         }
       }
+
       .gpeople-data-list-excerpt {
         overflow: hidden;
         margin: 1em 0;
+
         p {
           font-size: 0.9em;
           margin: 0 0 0.5em;
         }
       }
+
       div.gpeople-data-list-controls {
         visibility: hidden;
         padding: 2px 0 0;
+
         .button {
           margin-right: 5px;
+
           @include body-rtl() {
             margin-right: 0;
             margin-left: 5px;
@@ -227,6 +246,7 @@
       span.gpeople-data-list-img-default {
         float: left;
         margin: 0 1em 1em 0.5em;
+
         @include body-rtl() {
           float: right;
           margin: 0 0.5em 1em 1em;
@@ -240,6 +260,7 @@
 
       span.gpeople-data-list-img-default {
         border: 1px solid #e8e8e8;
+
         .dashicons {
           box-sizing: border-box;
           width: 100px;

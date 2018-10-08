@@ -46,7 +46,7 @@ body.edit-tags-php { //.taxonomy-{$gpeople-cons-people_tax}
   }
 
   .remove {
-    color: red;
+    color: $brand-danger;
     display: none;
     margin: 0 12px;
     line-height: 28px;
