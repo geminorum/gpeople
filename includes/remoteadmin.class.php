@@ -124,7 +124,7 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 				$this->enqueue_style( 'people', $screen->base );
 
 				add_filter( 'manage_'.$screen->post_type.'_posts_columns', array( $this, 'manage_posts_columns' ), 20 );
-				add_filter( 'manage_'.$screen->post_type.'_posts_custom_column', array( $this, 'custom_column'), 10, 2 );
+				add_filter( 'manage_'.$screen->post_type.'_posts_custom_column', array( $this, 'custom_column' ), 10, 2 );
 
 				add_filter( 'people_byline_walker_attr', array( $this, 'byline_walker_attr' ), 9, 6 );
 				add_action( 'geditorial_tweaks_column_row', array( $this, 'column_row_people' ), -100 );
