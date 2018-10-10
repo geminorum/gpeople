@@ -42,6 +42,8 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 					add_filter( 'term_link', array( $this, 'term_link' ), 10, 3 );
 					add_action( 'template_redirect', array( $this, 'template_redirect' ) );
 			}
+
+			add_filter( 'get_the_terms', array( $this, 'get_the_terms' ), 8, 3 );
 		}
 	}
 
@@ -558,5 +560,27 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 		}
 
 		return TRUE;
+	}
+
+	// sort the post terms by meta
+	public function get_the_terms( $terms, $post_ID, $taxonomy )
+	{
+		if ( $taxonomy != $this->constants['people_tax'] )
+			return $terms;
+
+		if ( count( $terms ) < 2 )
+			return $terms;
+
+		$meta = $this->get_postmeta( $post_ID, FALSE, array() );
+
+		if ( empty( $meta ) )
+			return $terms;
+
+		$orders = wp_list_pluck( $meta, 'o', 'id' );
+
+		foreach ( $terms as &$term )
+			$term->order = $orders[$term->term_id];
+
+		return wp_list_sort( $terms, 'order' );
 	}
 }
