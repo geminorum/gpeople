@@ -307,6 +307,10 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 	// overrides links on admin edit page
 	public function byline_walker_attr( $attr, $person, $args, $people, $atts, $post )
 	{
+		// likely after import, terms are mixed up!
+		if ( empty( $person['term'] ) )
+			return $attr;
+
 		$object = get_taxonomy( $this->constants['people_tax'] );
 		$query  = [];
 
