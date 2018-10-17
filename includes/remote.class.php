@@ -579,7 +579,9 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 		$orders = wp_list_pluck( $meta, 'o', 'id' );
 
 		foreach ( $terms as &$term )
-			$term->order = $orders[$term->term_id];
+			$term->order = isset( $orders[$term->term_id] )
+				? $orders[$term->term_id]
+				: NULL;
 
 		return wp_list_sort( $terms, 'order' );
 	}
