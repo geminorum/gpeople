@@ -1,3 +1,8 @@
+### 3.4.5
+* main/remote: filter terms by stored order
+* main/remote: filter term rewrite slug
+* main/remoteadmin: override admin link if the term exists
+
 ### 3.4.4
 * main/remoteadmin: override links on admin edit page
 * main/remote: passing current post through filters
