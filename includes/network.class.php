@@ -4,7 +4,6 @@ class gPeopleNetwork extends gPluginNetworkCore
 {
 
 	protected $asset_object = 'gPeopleNetwork';
-	protected $asset_config = NULL;
 
 	public function setup_network()
 	{
@@ -52,6 +51,9 @@ class gPeopleNetwork extends gPluginNetworkCore
 			if ( FALSE === $this->{$module} )
 				unset( $this->{$module} );
 		}
+
+		if ( is_admin() )
+			$this->asset_config = NULL; // enabling!
 
 		// add_action( 'bp_include', array( $this, 'bp_include' ) );
 	}
