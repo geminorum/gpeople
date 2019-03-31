@@ -346,7 +346,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 			'before'       => '',
 			'after'        => '',
 			'link'         => TRUE,
-			'visible'      => current_user_can( 'edit_posts' ),
+			'visible'      => FALSE, // displays hidden people
 		), $people, $post ), $atts );
 
 		if ( ! $people || ! count( $people ) )
