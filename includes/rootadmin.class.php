@@ -137,11 +137,14 @@ class gPeopleRootAdmin extends gPluginAdminCore
 			return $items;
 
 		$object = get_post_type_object( $this->constants['profile_cpt'] );
+		$text   = _nx( 'Person', 'People', $profiles->publish, 'Root: Admin: At a Glance', GPEOPLE_TEXTDOMAIN );
 
-		$text     = _nx( 'Person', 'People', $profiles->publish, 'Root: Admin: At a Glance', GPEOPLE_TEXTDOMAIN );
-		$template = current_user_can( $object->cap->edit_posts ) ? '<a href="edit.php?post_type=%3$s">%1$s %2$s</a>' : '%1$s %2$s';
+		$template = current_user_can( $object->cap->edit_posts )
+			? '<a href="edit.php?post_type=%3$s">%1$s %2$s</a>'
+			: '%1$s %2$s';
 
 		$items[] = sprintf( $template, number_format_i18n( $profiles->publish ), $text, $this->constants['profile_cpt'] );
+
 		return $items;
 	}
 }

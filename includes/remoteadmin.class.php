@@ -243,11 +243,14 @@ class gPeopleRemoteAdmin extends gPluginAdminCore
 			return $items;
 
 		$object = get_taxonomy( $this->constants['people_tax'] );
+		$text   = _nx( 'Person', 'People', $count, 'Remote: Admin: At a Glance', GPEOPLE_TEXTDOMAIN );
 
-		$text     = _nx( 'Person', 'People', $count, 'Remote: Admin: At a Glance', GPEOPLE_TEXTDOMAIN );
-		$template = current_user_can( $object->cap->manage_terms ) ? '<a class="gpeople-glance-item -people" href="edit-tags.php?taxonomy=%3$s">%1$s %2$s</a>' : '<div class="gpeople-glance-item -people">%1$s %2$s</div>';
+		$template = current_user_can( $object->cap->manage_terms )
+			? '<a class="gpeople-glance-item -people" href="edit-tags.php?taxonomy=%3$s">%1$s %2$s</a>'
+			: '<span class="gpeople-glance-item -people">%1$s %2$s</span>';
 
 		$items[] = sprintf( $template, number_format_i18n( $count ), $text, $this->constants['people_tax'] );
+
 		return $items;
 	}
 
