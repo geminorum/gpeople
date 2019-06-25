@@ -15,8 +15,7 @@
 
 composer.lock
 npm-debug.log
-.tinypng-sigs
+yarn-error.log
 
 environment.yml
-.env
 .ftpconfig

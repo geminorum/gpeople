@@ -12,10 +12,11 @@ Network: true
 TextDomain: gpeople
 DomainPath: /languages
 RepoGitHub: geminorum/gpeople
+GitHub URI: https://github.com/geminorum/gpeople
 GitHub Plugin URI: https://github.com/geminorum/gpeople
 GitHub Branch: master
 Requires WP: 4.5
-Requires PHP: 5.3
+Requires PHP: 5.6.20
 */
 
 define( 'GPEOPLE_VERSION', '3.4.5' );

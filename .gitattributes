@@ -1,7 +1,37 @@
-* text eol=lf
+################################################################################
+################################################################################
 
-*.txt text eol=crlf
-*.css text eol=crlf
+################################################################################
+* text eol=lf
 
 *.png binary
 *.jpg binary
+*.gif binary
+
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+
+################################################################################
+assets/css/* linguist-generated=true
+*.mo linguist-generated=true
+
+################################################################################
+# Files to exclude when creating archive
+
+/.git export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/.bowerrc export-ignore
+
+/.editorconfig export-ignore
+/.stylelintrc.json export-ignore
+/.travis.yml export-ignore
+
+/gulp.config.json export-ignore
+/gulpfile.js export-ignore
+
+/bower.json export-ignore
+/package.json export-ignore
+/yarn.lock export-ignore
