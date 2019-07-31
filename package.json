@@ -17,6 +17,21 @@
     "url": "https://github.com/geminorum/gpeople/issues"
   },
   "main": "gulpfile.js",
+  "scripts": {
+    "gulp": "./node_modules/gulp/bin/gulp.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "md .build && cd .build && git clone https://github.com/geminorum/gpeople . && composer install --no-dev --optimize-autoloader --prefer-dist -v && yarn install && gulp build",
+    "ready": "gulp sass",
+    "refresh": "gulp sass",
+    "locale": "gulp pot",
+    "watch": "gulp watch",
+    "patch": "gulp bump --patch",
+    "minor": "gulp bump",
+    "changes": "echo ### > CHANGES.temp && git changelog >> CHANGES.temp && (echo. & echo.) >> CHANGES.temp && type CHANGES.md >> CHANGES.temp && type CHANGES.temp > CHANGES.md && del CHANGES.temp",
+    "release": "gulp github:package && start https://github.com/geminorum/gpeople/releases",
+    "home": "start https://github.com/geminorum/gpeople/",
+    "issues": "start https://github.com/geminorum/gpeople/issues"
+  },
   "dependencies": {},
   "devDependencies": {
     "@wordpress/browserslist-config": "^2.5.0",
@@ -31,7 +46,7 @@
     "stylelint": "^10.1.0",
     "stylelint-config-wordpress": "^14.0.0"
   },
-  "browserslist": [
+  "b1rowserslist": [
     "extends @wordpress/browserslist-config"
   ],
   "semistandard": {
