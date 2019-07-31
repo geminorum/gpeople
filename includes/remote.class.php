@@ -22,6 +22,7 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 		if ( is_admin() ) {
 
 			add_filter( 'pre_term_name', array( $this, 'pre_term_name' ), 12, 2 );
+			add_filter( 'geditorial_terms_sanitize_name', array( $this, 'terms_sanitize_name' ), 12, 3 );
 			add_filter( 'gnetwork_taxonomy_term_rewrite_slug', array( $this, 'term_rewrite_slug' ), 8, 3 );
 
 		} else {
@@ -236,6 +237,13 @@ class gPeopleRemoteComponent extends gPluginComponentCore
 		return $this->constants['people_tax'] == $taxonomy
 			? gPluginTextHelper::formatName( $term )
 			: $term;
+	}
+
+	public function terms_sanitize_name( $name, $term, $action )
+	{
+		return $this->constants['people_tax'] == $term->taxonomy
+			? gPluginTextHelper::reFormatName( $name )
+			: $name;
 	}
 
 	public function term_rewrite_slug( $name, $term, $taxonomy )
