@@ -1,3 +1,10 @@
+### 3.4.6
+* main/network: asset config only on admin
+* main/admin: correct glance icon for non editors
+* main/remote: hide non-visibile person for editors
+* main/remote: filter for editorial term name
+* main/filtered: more relation defaults
+
 ### 3.4.5
 * main/remote: filter terms by stored order
 * main/remote: filter term rewrite slug
