@@ -326,21 +326,24 @@ class gPeopleFiltered extends gPluginFilteredCore
 	{
 		return array(
 			'author'       => _x( 'Author', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
-			'co_author'    => _x( 'Coauthor', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
+			'co_author'    => _x( 'Co-Author', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'editor'       => _x( 'Editor', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'photographer' => _x( 'Photographer', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'translator'   => _x( 'Translator', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'reporter'     => _x( 'Reporter', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'commentator'  => _x( 'Commentator', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'artist'       => _x( 'Artist', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
-			'co_artist'    => _x( 'Coartist', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
+			'co_artist'    => _x( 'Co-Artist', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'illustrator'  => _x( 'Illustrator', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'collected_by' => _x( 'Collected by', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'poet'         => _x( 'Poet', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'interviewer'  => _x( 'Interviewer', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
+			'interviewee'  => _x( 'Interviewee', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'director'     => _x( 'Director', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'selector'     => _x( 'Selector', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 			'conductor'    => _x( 'Conductor', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
+			'speaker'      => _x( 'Speaker', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
+			'critic'       => _x( 'Critic', 'Relation Tax Defaults', GPEOPLE_TEXTDOMAIN ),
 		);
 	}
 
