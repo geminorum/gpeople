@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 // modified from P2P_Mustache by http://scribu.net
 // http://plugins.svn.wordpress.org/posts-to-posts/trunk/admin/mustache.php
