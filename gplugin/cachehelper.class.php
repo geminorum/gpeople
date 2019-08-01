@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 class gPluginCacheHelper extends gPluginClassCore
 {
@@ -49,14 +49,14 @@ class gPluginCacheHelper extends gPluginClassCore
 
 		// Loop through post objects and generate HTML
 		foreach ( $top_post_objects as $post_object ) {
-			$html .= '<li>';
-			$html .= '<a href="' . esc_url( $post_object['permalink'] ) . '">';
-			$html .= esc_html( $post_object['post_title'] );
-			$html .= '</a>';
-			$html .= '</li>';
+			$html.= '<li>';
+			$html.= '<a href="' . esc_url( $post_object['permalink'] ) . '">';
+			$html.= esc_html( $post_object['post_title'] );
+			$html.= '</a>';
+			$html.= '</li>';
 		}
 
-		$html .= '</ul>';
+		$html.= '</ul>';
 		return $html;
 	}
 
@@ -287,14 +287,14 @@ class gPluginCacheHelper extends gPluginClassCore
 
 		// Loop through post objects and generate HTML
 		foreach ( $top_post_objects as $post_object ) {
-			$html .= '<li>';
-			$html .= '<a href="' . esc_url( $post_object['permalink'] ) . '">';
-			$html .= esc_html( $post_object['post_title'] );
-			$html .= '</a>';
-			$html .= '</li>';
+			$html.= '<li>';
+			$html.= '<a href="' . esc_url( $post_object['permalink'] ) . '">';
+			$html.= esc_html( $post_object['post_title'] );
+			$html.= '</a>';
+			$html.= '</li>';
 		}
 
-		$html .= '</ul>';
+		$html.= '</ul>';
 
 		return $html;
 	}

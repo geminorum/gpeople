@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPluginClassCore
 {
@@ -319,14 +319,14 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 			$page_url = 'http';
 
 		if ( isset( $_SERVER["HTTPS"] ) && $_SERVER["HTTPS"] == "on" )
-			$page_url .= "s";
+			$page_url.= "s";
 
-		$page_url .= "://";
+		$page_url.= "://";
 
 		if ( $_SERVER["SERVER_PORT"] != "80" )
-			$page_url .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+			$page_url.= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
 		else
-			$page_url .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+			$page_url.= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 		}
 
 		return esc_url( $page_url );
@@ -557,7 +557,7 @@ if ( ! class_exists( 'gPluginWPHelper' ) ) { class gPluginWPHelper extends gPlug
 		else
 			$url = home_url( 'wp-admin/admin-ajax.php' );
 
-		$url .= ltrim( $path, '/' );
+		$url.= ltrim( $path, '/' );
 
 		return $url;
 	}

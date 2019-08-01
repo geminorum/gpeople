@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 if ( ! class_exists( 'gPluginImportCore' ) ) { class gPluginImportCore extends gPluginClassCore
 {
@@ -30,7 +30,7 @@ if ( ! class_exists( 'gPluginImportCore' ) ) { class gPluginImportCore extends g
 				$selected = $_REQUEST[$name];
 
 			foreach ( $attachments as $attachment )
-				$html .= gPluginHTML::tag( 'option', array(
+				$html.= gPluginHTML::tag( 'option', array(
 					'value'    => $attachment->ID,
 					'selected' => $selected == $attachment->ID,
 				), esc_html( date_i18n( __( 'Y/m/j' ), strtotime( $attachment->post_date ) ).' — '.$attachment->post_title ) );
@@ -173,8 +173,8 @@ if ( ! class_exists( 'gPluginImportCore' ) ) { class gPluginImportCore extends g
 		global $wpdb;
 
 		$sql = "SELECT ID FROM {$wpdb->posts} ";
-		$sql .= " WHERE post_parent = $post_id ";
-		$sql .= " AND post_type = 'attachment'";
+		$sql.= " WHERE post_parent = $post_id ";
+		$sql.= " AND post_type = 'attachment'";
 
 		$ids = $wpdb->get_col($sql);
 

@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 defined( 'GPLUGIN_SESSION_NETWORKWIDE' ) or define( 'GPLUGIN_SESSION_NETWORKWIDE', TRUE );
 defined( 'GPLUGIN_SESSION_CRON_ROUTINE' ) or define( 'GPLUGIN_SESSION_CRON_ROUTINE', 'twicedaily' ); // 'hourly'

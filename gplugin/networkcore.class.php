@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends gPluginClassCore
 {
@@ -49,6 +49,8 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 
 		} else {
 
+			$this->setup_network();
+
 			if ( is_admin() ) {
 
 				if ( method_exists( $this, 'admin_init' ) )
@@ -62,8 +64,6 @@ if ( ! class_exists( 'gPluginNetworkCore' ) ) { class gPluginNetworkCore extends
 				if ( FALSE !== $this->asset_config )
 					add_action( 'wp_footer' , array( $this, 'footer_asset_config'  ), 99 );
 			}
-
-			$this->setup_network();
 		}
 
 		$this->setup_modules();

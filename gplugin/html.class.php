@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassCore
 {
@@ -24,8 +24,8 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 			$content = gPluginNumber::format( $number );
 
 		return '<a class="-tel" href="'.self::sanitizePhoneNumber( $number )
-				.'"'.( $title ? ' data-toggle="tooltip" title="'.self::escapeAttr( $title ).'"' : '' )
-				.' data-tel-number="'.self::escapeAttr( $number ).'">'
+				.'"'.( $title ? ' data-toggle="tooltip" title="'.self::escape( $title ).'"' : '' )
+				.' data-tel-number="'.self::escape( $number ).'">'
 				.'&#8206;'.$content.'&#8207;</a>';
 	}
 
@@ -92,7 +92,7 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 
 	public static function inputHidden( $name, $value = '' )
 	{
-		echo '<input type="hidden" name="'.self::escapeAttr( $name ).'" value="'.self::escapeAttr( $value ).'" />';
+		echo '<input type="hidden" name="'.self::escape( $name ).'" value="'.self::escape( $value ).'" />';
 	}
 
 	// @REF: https://gist.github.com/eric1234/5802030
@@ -182,13 +182,13 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 					foreach ( $att as $data_key => $data_val ) {
 
 						if ( is_array( $data_val ) )
-							$html .= ' data-'.$data_key.'=\''.wp_json_encode( $data_val ).'\'';
+							$html.= ' data-'.$data_key.'=\''.wp_json_encode( $data_val ).'\'';
 
 						else if ( FALSE === $data_val )
 							continue;
 
 						else
-							$html .= ' data-'.$data_key.'="'.self::escapeAttr( $data_val ).'"';
+							$html.= ' data-'.$data_key.'="'.self::escape( $data_val ).'"';
 					}
 
 					continue;
@@ -222,9 +222,9 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 				$att = self::escapeURL( $att );
 
 			else
-				$att = self::escapeAttr( $att );
+				$att = self::escape( $att );
 
-			$html .= ' '.$key.'="'.trim( $att ).'"';
+			$html.= ' '.$key.'="'.trim( $att ).'"';
 		}
 
 		if ( FALSE === $content )
@@ -233,14 +233,16 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		return $html.'>';
 	}
 
-	// like WP core but without filter
-	// @SOURCE: `esc_attr()`
+	// @ref: `esc_html()`, `esc_attr()`
+	public static function escape( $text )
+	{
+		return esc_attr( $text );
+	}
+
+	// FIXME: DEPRICIATED
 	public static function escapeAttr( $text )
 	{
-		$safe_text = wp_check_invalid_utf8( $text );
-		$safe_text = _wp_specialchars( $safe_text, ENT_QUOTES );
-
-		return $safe_text;
+		return self::escape( $text );
 	}
 
 	public static function escapeURL( $url )
@@ -348,12 +350,12 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 		$html = '<table class="base-table-code'.( $reverse ? ' -reverse' : '' ).'">';
 
 		if ( FALSE !== $caption )
-			$html .= '<caption>'.$caption.'</caption>';
+			$html.= '<caption>'.$caption.'</caption>';
 
-		$html .= '<tbody>';
+		$html.= '<tbody>';
 
 		foreach ( (array) $array as $key => $value )
-			$html .= sprintf( $row, $key, self::sanitizeDisplay( $value ) );
+			$html.= sprintf( $row, $key, self::sanitizeDisplay( $value ) );
 
 		return $html.'</tbody></table>';
 	}
@@ -419,7 +421,7 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 			return $html;
 
 		if ( ! is_null( $args['none_title'] ) )
-			$html .= self::tag( 'option', array(
+			$html.= self::tag( 'option', array(
 				'value'    => $args['none_value'],
 				'selected' => $args['selected'] == $args['none_value'],
 			), $args['none_title'] );
@@ -441,7 +443,7 @@ if ( ! class_exists( 'gPluginHTML' ) ) { class gPluginHTML extends gPluginClassC
 			else
 				$title = $value;
 
-			$html .= self::tag( 'option', array(
+			$html.= self::tag( 'option', array(
 				'value'    => $key,
 				'selected' => $args['selected'] == $key,
 			), $title );

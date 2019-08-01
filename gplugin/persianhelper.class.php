@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper extends gPluginClassCore
 {
@@ -35,7 +35,7 @@ if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper ext
 			chr(0xD9).chr(0xA7) => chr(0xDB).chr(0xB7),
 			chr(0xD9).chr(0xA8) => chr(0xDB).chr(0xB8),
 			chr(0xD9).chr(0xA9) => chr(0xDB).chr(0xB9),
-			
+
 			chr(0xD9).chr(0x83) => chr(0xDA).chr(0xA9), // ARABIC LETTER KAF > ARABIC LETTER KEHEH
 			chr(0xD9).chr(0x89) => chr(0xDB).chr(0x8C), // ARABIC LETTER ALEF MAKSURA > ARABIC LETTER FARSI YEH
 			chr(0xD9).chr(0x8A) => chr(0xDB).chr(0x8C), // ARABIC LETTER YEH > ARABIC LETTER FARSI YEH
@@ -142,7 +142,7 @@ if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper ext
 		$textarr = preg_split( '/(<[^<>]+>)/', $text, -1, PREG_SPLIT_DELIM_CAPTURE ); // split out HTML tags
 		foreach ( $textarr as $piece ) {
 			if ( empty( $piece ) || ( $piece[0] == '<' && ! preg_match( '|^<\s*[\w]{1,20}+://|', $piece ) ) ) {
-				$r .= $piece;
+				$r.= $piece;
 				continue;
 			}
 
@@ -151,10 +151,10 @@ if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper ext
 				// ... break it up
 				foreach ( $this->_split_str_by_whitespace( $piece, 2100 ) as $chunk ) { // 2100: Extra room for scheme and leading and trailing paretheses
 					if ( 2101 < strlen( $chunk ) ) {
-						$r .= $chunk; // Too big, no whitespace: bail.
+						$r.= $chunk; // Too big, no whitespace: bail.
 					} else {
-						//$r .= make_clickable( $chunk );
-						$r .= $this->html_cleanup( $chunk );
+						// $r.= make_clickable( $chunk );
+						$r.= $this->html_cleanup( $chunk );
 					}
 				}
 			} else {
@@ -178,14 +178,14 @@ if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper ext
 
 				$ret = preg_replace_callback( $url_replace, array( $this, 'repelace_url' ), $ret );
 				$ret = $this->cleanup( $ret, FALSE );
-				//$ret = preg_replace_callback( $url_re_replace, array( $this, 're_repelace_url' ), $ret );
+				// $ret = preg_replace_callback( $url_re_replace, array( $this, 're_repelace_url' ), $ret );
 				$ret = $this->re_repelace_urls( $ret );
 
-				//$ret = preg_replace_callback( '#([\s>])((www|ftp)\.[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]+)#is', '_make_web_ftp_clickable_cb', $ret );
-				//$ret = preg_replace_callback( '#([\s>])([.0-9a-z_+-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,})#i', '_make_email_clickable_cb', $ret );
+				// $ret = preg_replace_callback( '#([\s>])((www|ftp)\.[\w\\x80-\\xff\#$%&~/.\-;:=,?@\[\]+]+)#is', '_make_web_ftp_clickable_cb', $ret );
+				// $ret = preg_replace_callback( '#([\s>])([.0-9a-z_+-]+)@(([0-9a-z-]+\.)+[0-9a-z]{2,})#i', '_make_email_clickable_cb', $ret );
 
 				$ret = substr( $ret, 1, -1 ); // Remove our whitespace padding.
-				$r .= $ret;
+				$r.= $ret;
 			}
 		}
 
@@ -199,7 +199,7 @@ if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper ext
 	function cleanup( $text, $urls = TRUE )
 	{
 
-		//gPluginUtils::dump( $matches ); die();
+		// gPluginUtils::dump( $matches ); die();
 
 		// it's a joke!? right? :D
 		# removing URLS bringing them back at the end of process
@@ -317,7 +317,7 @@ if ( ! class_exists( 'gPluginPersianHelper' ) ) { class gPluginPersianHelper ext
 		if ( ')' == $matches[3] && strpos( $url, '(' ) ) {
 			// If the trailing character is a closing parethesis, and the URL has an opening parenthesis in it, add the closing parenthesis to the URL.
 			// Then we can let the parenthesis balancer do its thing below.
-			$url .= $matches[3];
+			$url.= $matches[3];
 			$suffix = '';
 		} else {
 			$suffix = $matches[3];

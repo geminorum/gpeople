@@ -1,6 +1,6 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
-$GLOBALS['_gplugin'] = array( 40, __FILE__, array(
+$GLOBALS['_gplugin'] = array( 41, __FILE__, array(
 	'gPluginFactory',
 	'gPluginClassCore',
 

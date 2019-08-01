@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends gPluginClassCore
 {
@@ -24,7 +24,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		$html = '';
 
 		foreach ( $subs as $slug => $page )
-			$html .= gPluginHTML::tag( 'a', array(
+			$html.= gPluginHTML::tag( 'a', array(
 				'class' => 'nav-tab '.$prefix.$slug.( $slug == $active ? ' nav-tab-active' : '' ),
 				'href'  => add_query_arg( 'sub', $slug, $uri ),
 			), $page );
@@ -42,7 +42,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		$html = '';
 
 		foreach ( $tabs as $tab => $title )
-			$html .= gPluginHTML::tag( 'a', array(
+			$html.= gPluginHTML::tag( 'a', array(
 				'class'    => 'nav-tab '.$prefix.$tab.( $tab == $active ? ' nav-tab-active' : '' ),
 				'href'     => '#',
 				'data-tab' => $tab,
@@ -112,13 +112,13 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 					foreach ( $att as $data_key => $data_val ) {
 
 						if ( is_array( $data_val ) )
-							$html .= ' data-'.$data_key.'=\''.wp_json_encode( $data_val ).'\'';
+							$html.= ' data-'.$data_key.'=\''.wp_json_encode( $data_val ).'\'';
 
 						else if ( FALSE === $data_val )
 							continue;
 
 						else
-							$html .= ' data-'.$data_key.'="'.esc_attr( $data_val ).'"';
+							$html.= ' data-'.$data_key.'="'.esc_attr( $data_val ).'"';
 					}
 
 					continue;
@@ -163,7 +163,7 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 			else
 				$att = esc_attr( $att );
 
-			$html .= ' '.$key.'="'.trim( $att ).'"';
+			$html.= ' '.$key.'="'.trim( $att ).'"';
 		}
 
 		if ( FALSE === $content )
@@ -209,10 +209,10 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		$html = self::_tag_open( 'select', $atts, TRUE );
 
 		if ( $none )
-			$html .= '<option value="'.$none_val.'" '.selected( $selected, $none_val, FALSE ).'>'.esc_html( $none ).'</option>';
+			$html.= '<option value="'.$none_val.'" '.selected( $selected, $none_val, FALSE ).'>'.esc_html( $none ).'</option>';
 
 		foreach ( $list as $key => $item )
-			$html .= '<option value="'.$key.'" '.selected( $selected, $key, FALSE ).'>'
+			$html.= '<option value="'.$key.'" '.selected( $selected, $key, FALSE ).'>'
 				.esc_html( ( $prop ? $item[$prop] : $item ) ).'</option>';
 
 		return $html.'</select>';
@@ -272,14 +272,14 @@ if ( ! class_exists( 'gPluginFormHelper' ) ) { class gPluginFormHelper extends g
 		$html = '';
 
 		if ( $none ) {
-			$html .= gPluginHTML::tag( 'option', array(
+			$html.= gPluginHTML::tag( 'option', array(
 				'value'    => $none_val,
 				'selected' => $selected == $none_val,
 			), esc_html( $none ) );
 		}
 
 		foreach ( $list as $key => $item ) {
-			$html .= gPluginHTML::tag( 'option', array(
+			$html.= gPluginHTML::tag( 'option', array(
 				'value'    => $key,
 				'selected' => $selected == $key,
 			), esc_html( ( $prop ? ( $obj ? $item->{$prop} : $item[$prop] ) : $item ) ) );

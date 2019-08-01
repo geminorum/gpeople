@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 if ( ! class_exists( 'gPluginHTTP' ) ) { class gPluginHTTP extends gPluginClassCore
 {
@@ -59,6 +59,7 @@ if ( ! class_exists( 'gPluginHTTP' ) ) { class gPluginHTTP extends gPluginClassC
 				100 => 'Continue',
 				101 => 'Switching Protocols',
 				102 => 'Processing',
+				103 => 'Early Hints',
 
 				// 2×× Success
 				200 => 'OK',

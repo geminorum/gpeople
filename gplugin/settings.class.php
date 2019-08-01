@@ -1,4 +1,4 @@
-<?php defined( 'ABSPATH' ) or die( 'Restricted access' );
+<?php defined( 'ABSPATH' ) || die( header( 'HTTP/1.0 403 Forbidden' ) );
 
 if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPluginClassCore
 {
@@ -171,7 +171,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 					'selected' => '0' == $value,
 				), esc_html( empty( $args['values'][0] ) ? $args['string_disabled'] : $args['values'][0] ) );
 
-				$html .= gPluginHTML::tag( 'option', array(
+				$html.= gPluginHTML::tag( 'option', array(
 					'value'    => '1',
 					'selected' => '1' == $value,
 				), esc_html( empty( $args['values'][1] ) ? $args['string_enabled'] : $args['values'][1] ) );
@@ -252,9 +252,9 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 					'type'        => 'number',
 					'id'          => $id,
 					'name'        => $name,
-					'value'       => $value,
-					'step'        => $args['step_attr'],
-					'min'         => $args['min_attr'],
+					'value'       => intval( $value ),
+					'step'        => intval( $args['step_attr'] ),
+					'min'         => intval( $args['min_attr'] ),
 					'class'       => gPluginHTML::attrClass( $args['field_class'], '-type-number' ),
 					'placeholder' => $args['placeholder'],
 					'disabled'    => $args['disabled'],
@@ -353,6 +353,10 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 						), $html.'&nbsp;'.$value_title ).'</p>';
 					}
 
+				} else if ( is_array( $args['values'] ) ) {
+
+					$args['description'] = $args['string_empty'];
+
 				} else {
 
 					$html = gPluginHTML::tag( 'input', array(
@@ -373,6 +377,61 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 					), $html.'&nbsp;'.$args['description'] ).'</p>';
 
 					$args['description'] = FALSE;
+				}
+
+			break;
+			case 'checkbox-panel':
+
+				if ( count( $args['values'] ) ) {
+
+					echo '<div class="wp-tab-panel"><ul>';
+
+					if ( ! is_null( $args['none_title'] ) ) {
+
+						$html = gPluginHTML::tag( 'input', [
+							'type'     => 'checkbox',
+							'id'       => $id.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
+							'name'     => $name.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
+							'value'    => is_null( $args['none_value'] ) ? '1' : $args['none_value'],
+							'checked'  => in_array( $args['none_value'], (array) $value ),
+							'class'    => gPluginHTML::attrClass( $args['field_class'], '-type-checkbox', '-option-none' ),
+							'disabled' => $args['disabled'],
+							'readonly' => $args['readonly'],
+							'dir'      => $args['dir'],
+						] );
+
+						echo '<li>'.gPluginHTML::tag( 'label', [
+							'for' => $id.( is_null( $args['none_value'] ) ? '' : '-'.$args['none_value'] ),
+						], $html.'&nbsp;'.gPluginHTML::escape( $args['none_title'] ) ).'</li>';
+					}
+
+					foreach ( $args['values'] as $value_name => $value_title ) {
+
+						if ( in_array( $value_name, $exclude ) )
+							continue;
+
+						$html = gPluginHTML::tag( 'input', [
+							'type'     => 'checkbox',
+							'id'       => $id.'-'.$value_name,
+							'name'     => $name.'['.$value_name.']',
+							'value'    => '1',
+							'checked'  => in_array( $value_name, (array) $value ),
+							'class'    => $args['field_class'],
+							'disabled' => $args['disabled'],
+							'readonly' => $args['readonly'],
+							'dir'      => $args['dir'],
+						] );
+
+						echo '<li>'.gPluginHTML::tag( 'label', [
+							'for' => $id.'-'.$value_name,
+						], $html.'&nbsp;'.$value_title ).'</li>';
+					}
+
+					echo '</ul></div>';
+
+				} else if ( is_array( $args['values'] ) ) {
+
+					$args['description'] = $args['string_empty'];
 				}
 
 			break;
@@ -432,10 +491,10 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 						if ( is_null( $args['none_value'] ) )
 							$args['none_value'] = '0';
 
-						$html .= gPluginHTML::tag( 'option', array(
+						$html.= gPluginHTML::tag( 'option', array(
 							'value'    => $args['none_value'],
 							'selected' => $value == $args['none_value'],
-						), esc_html( $args['none_title'] ) );
+						), $args['none_title'] );
 					}
 
 					foreach ( $args['values'] as $value_name => $value_title ) {
@@ -443,7 +502,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 						if ( in_array( $value_name, $exclude ) )
 							continue;
 
-						$html .= gPluginHTML::tag( 'option', array(
+						$html.= gPluginHTML::tag( 'option', array(
 							'value'    => $value_name,
 							'selected' => $value == $value_name,
 						), esc_html( $value_title ) );
@@ -524,11 +583,11 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 
 				if ( ! empty( $pages ) ) {
 
-					$html .= gPluginHTML::tag( 'option', array(
+					$html.= gPluginHTML::tag( 'option', array(
 						'value' => $args['none_value'],
 					), esc_html( $args['none_title'] ) );
 
-					$html .= walk_page_dropdown_tree( $pages, ( isset( $query['depth'] ) ? $query['depth'] : 0 ), $query );
+					$html.= walk_page_dropdown_tree( $pages, ( isset( $query['depth'] ) ? $query['depth'] : 0 ), $query );
 
 					echo gPluginHTML::tag( 'select', array(
 						'id'       => $id,
@@ -556,7 +615,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 				if ( is_null( $args['none_value'] ) )
 					$args['none_value'] = '0';
 
-				$html .= gPluginHTML::tag( 'option', array(
+				$html.= gPluginHTML::tag( 'option', array(
 					'value' => $args['none_value'],
 				), esc_html( $args['none_title'] ) );
 
@@ -565,7 +624,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 					if ( in_array( $value_name, $exclude ) )
 						continue;
 
-					$html .= gPluginHTML::tag( 'option', array(
+					$html.= gPluginHTML::tag( 'option', array(
 						'value'    => $value_name,
 						'selected' => $value == $value_name,
 					), esc_html( translate_user_role( $value_title['name'] ) ) );
@@ -594,7 +653,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 						if ( in_array( $value_name, $exclude ) )
 							continue;
 
-						$html .= gPluginHTML::tag( 'option', array(
+						$html.= gPluginHTML::tag( 'option', array(
 							'value'    => $value_name,
 							'selected' => $value === $value_name,
 						), esc_html( $value_title ) );
@@ -623,7 +682,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 
 				if ( ! is_null( $args['none_title'] ) ) {
 
-					$html .= gPluginHTML::tag( 'option', array(
+					$html.= gPluginHTML::tag( 'option', array(
 						'value'    => is_null( $args['none_value'] ) ? FALSE : $args['none_value'],
 						'selected' => $value == $args['none_value'],
 					), esc_html( $args['none_title'] ) );
@@ -634,7 +693,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 					if ( in_array( $value_name, $exclude ) )
 						continue;
 
-					$html .= gPluginHTML::tag( 'option', array(
+					$html.= gPluginHTML::tag( 'option', array(
 						'value'    => $value_name,
 						'selected' => $value == $value_name,
 					), esc_html( sprintf( '%1$s (%2$s)', $value_title->display_name, $value_title->user_login ) ) );
@@ -664,7 +723,7 @@ if ( ! class_exists( 'gPluginSettings' ) ) { class gPluginSettings extends gPlug
 					if ( in_array( $value_name, $exclude ) )
 						continue;
 
-					$html .= gPluginHTML::tag( 'option', array(
+					$html.= gPluginHTML::tag( 'option', array(
 						'value'    => $value_name,
 						'selected' => $value == $value_name,
 					), esc_html( $value_title ) );
