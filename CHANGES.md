@@ -1,3 +1,6 @@
+### 3.4.7
+* :up: gPlugin 41
+
 ### 3.4.6
 * main/network: asset config only on admin
 * main/admin: correct glance icon for non editors
